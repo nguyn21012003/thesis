@@ -1,0 +1,370 @@
+\documentclass{report}
+\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{anyfontsize,fontsize}
+\changefontsize[13pt]{13pt}
+\usepackage{commath}
+\usepackage{blindtext}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{indentfirst}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+%\usepackage{tikz-feynman}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme,bbold}
+\usepackage[thinc]{esdiff}
+\usepackage{hyperref}
+\usepackage{dirtytalk,bm,physics}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+%footnote
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}%
+\fancyfoot[L]{Vật lý Lý thuyết}%
+\fancyfoot[C]{\hspace{4cm} \thepage}%
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+
+\renewcommand{\baselinestretch}{2.0}
+\usetikzlibrary{arrows.spaced}
+\usetikzlibrary{animations,quotes}
+%gian do
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered,draw=black, fill=white!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\title{\Huge{ }}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={},
+    pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\begin{document}
+\setlength{\parindent}{20pt}
+\newpage
+\author{TRẦN KHÔI NGUYÊN \\ VẬT LÝ LÝ THUYẾT}
+\maketitle
+
+
+
+
+Từ Hamiltonian $H^{jj'}_{\mu\mu'} \left( \mathbf{k}\right) =  \sum_{\mathbf{R}} e^{i \mathbf{k\cdot R}} E^{jj'}_{\mu\mu'} \left(\textbf{R}\right) $
+trong đó
+\begin{align*}
+    E^{jj'}_{\mu\mu'} \left(\textbf{R}\right) = \bra*{\phi^j_\mu \left(\textbf{r}\right)}\hat{H}\ket*{\phi^{j'}_{\mu'}\left(\textbf{r} - \textbf{R}\right)}
+\end{align*}
+
+\begin{align*}
+    \ket*{\phi^1_1} = d_{z^2} , \quad \ket*{\phi^2_1} = d_{xy} , \quad \ket*{\phi^2_2} = d_{x^2 - y^2}
+\end{align*}
+
+\begin{align}
+    H^{jj'}_{\mu\mu'} \left( \mathbf{k}\right) & =  \; \sum_{\mu\mu'}^{jj'}
+    e^{i \mathbf{k\cdot R_1}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_1}\right)
+    + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_2}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_2}\right)
+    + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_3}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_3}\right) \nonumber                                    \\
+                                               & + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_4}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_4}\right)
+    + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_5}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_5}\right)
+    + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_6}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_6}\right) \nonumber
+\end{align}
+
+\[
+    \renewcommand{\arraystretch}{0.75}
+    H^{NN} = \begin{bmatrix}
+        h_{0}   & h_{1}    & h_{2}  \\
+        h_{1}^* & h_{11}   & h_{12} \\
+        h_{2}^* & h_{12}^* & h_{22}
+    \end{bmatrix}
+\]
+
+\begin{align}
+    h_0 = \sum_{R} e^{i\mathbf{k\cdot R}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}-\mathbf{R}\right)}; \quad h_1 = \sum_{R} e^{i\mathbf{k\cdot R}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^2\left(\mathbf{r}-\mathbf{R}\right)} \nonumber     \\
+    h_2 = \sum_{R} e^{i\mathbf{k\cdot R}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_2^2\left(\mathbf{r}-\mathbf{R}\right)}; \quad  h_{11} = \sum_{R} e^{i\mathbf{k\cdot R}} \bra*{\phi_1^2 \left(\mathbf{r}\right)} H \ket*{\phi_1^2\left(\mathbf{r}-\mathbf{R}\right)} \nonumber \\
+    h_{12} = \sum_{R} e^{i\mathbf{k\cdot R}} \bra*{\phi_1^2 \left(\mathbf{r}\right)} H \ket*{\phi_2^2\left(\mathbf{r}-\mathbf{R}\right)}; \quad h_{22} = \sum_{R} e^{i\mathbf{k\cdot R}} \bra*{\phi_2^2 \left(\mathbf{r}\right)} H \ket*{\phi_2^2\left(\mathbf{r}-\mathbf{R}\right)} \nonumber
+\end{align}
+
+
+
+Lại có $E^{jj'} \left(\hat{g_n}\textbf{R}\right)= D^j(\hat{g_n}) E^{jj'} \left(\textbf{R}\right)\left[D^j(\hat{g_n})\right]^\dagger$
+
+
+trong đó $\hat{g_n} = \{E,C_3,C^2_3,\sigma_\nu,\sigma'_\nu,\sigma''_\nu\}$
+
+
+trong đó $D^1(\hat{g_n}) = 1$
+\[
+    \renewcommand{\arraystretch}{0.75}
+    D^2(E) = \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}
+\]
+\[
+    \renewcommand{\arraystretch}{0.75}
+    D^2(\hat{C_3}) = \begin{bmatrix}
+        cos\phi & -sin\phi \\
+        sin\phi & cos\phi
+    \end{bmatrix}
+    = \begin{bmatrix}
+        -\frac{1}{2}       & -\frac{\sqrt{3}}{2} \\
+        \frac{\sqrt{3}}{2} & -\frac{1}{2}
+    \end{bmatrix}
+\]
+\[
+    \renewcommand{\arraystretch}{0.75}
+    D^2(\hat{C_3}^2) =
+    \begin{bmatrix}
+        -\frac{1}{2}        & \frac{\sqrt{3}}{2} \\
+        \frac{-\sqrt{3}}{2} & -\frac{1}{2}
+    \end{bmatrix}
+\]
+
+Để tìm được $D^2(\sigma_\nu)$ ta cố định $\bigtriangleup$ ABC : A($\dfrac{1}{2},\dfrac{\sqrt{3}}{2}$),B(1,0), C(0,0).
+
+Khi đổi chỗ A $\leftrightarrow$ B, ta được ma trận:
+
+\[
+    \renewcommand{\arraystretch}{0.75}
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+    = D^2(\sigma_\nu)
+    \begin{bmatrix}
+        \frac{1}{2} \\
+        \frac{\sqrt{3}}{2}
+    \end{bmatrix}
+    \Rightarrow  D^2(\sigma_\nu) =
+    \begin{bmatrix}
+        \frac{1}{2}        & \frac{\sqrt{3}}{2} \\
+        \frac{\sqrt{3}}{2} & -\frac{1}{2}
+    \end{bmatrix}
+\]
+
+trong đó $ D^2\left(\sigma_\nu'\right) = D^2 \left(C_3\right) D^2\left(\sigma_\nu\right)\quad ; D^2\left(\sigma_\nu''\right) = D^2 \left(C_3^2\right) D^2\left(\sigma_\nu\right) $
+
+
+\[
+    \renewcommand{\arraystretch}{0.75}
+    D^2\left(\sigma'_\nu\right) =
+    \begin{bmatrix}
+        -1 & 0 \\
+        0  & 1
+    \end{bmatrix}
+\]
+\[
+    \renewcommand{\arraystretch}{0.75}
+    D^2\left(\sigma''_\nu\right) =
+    \begin{bmatrix}
+        \frac{1}{2}  & \frac{\sqrt{3}}{2} \\
+        -\frac{3}{2} & -\frac{1}{2}
+    \end{bmatrix}
+\]
+
+Toán tử $C_3$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_5$ (dưới dạng ma trận)
+
+Toán tử $C_3^2$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_3$ (dưới dạng ma trận)
+
+Toán tử $\sigma_\nu$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_6$ (dưới dạng ma trận)
+
+Toán tử $\sigma'_\nu$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_4$ (dưới dạng ma trận)
+
+Toán tử $\sigma''_\nu$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_2$ (dưới dạng ma trận)
+
+Kiểm tra điều trên:
+
+\[
+    \renewcommand{\arraystretch}{0.75}
+    D^2\left(C_3^2\right)R_1 =
+    \begin{bmatrix}
+        -\frac{1}{2} & \frac{\sqrt{3}}{2} \\
+        -\frac{3}{2} & -\frac{1}{2}
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        -\frac{1}{2} \\
+        -\frac{\sqrt{3}}{2}
+    \end{bmatrix}
+    = \textbf{R}_3
+\]
+\[
+    \renewcommand{\arraystretch}{0.75}
+    D^2\left(\sigma''_\nu\right)R_1 =
+    \begin{bmatrix}
+        \frac{1}{2}  & -\frac{\sqrt{3}}{2} \\
+        -\frac{3}{2} & -\frac{1}{2}
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{1}{2} \\
+        -\frac{\sqrt{3}}{2}
+    \end{bmatrix}
+    = \textbf{R}_2
+\]
+
+
+\textbf{ $\ast$ h0}
+
+\begin{align}
+    h_0 & = \sum_{\mathbf{R} \neq 0} e^{i\mathbf{k\cdot R}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}-\mathbf{R}\right)}
+    + \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}\right)}  \nonumber                                                                                                                                                                                                                                         \\
+        & = e^{i\mathbf{k\cdot R_1}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}-\mathbf{R_1}\right)} + e^{i\mathbf{k\cdot R_4}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}-\mathbf{R_4}\right)} \nonumber                                                                     \\
+        & + e^{i\mathbf{k\cdot R_2}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}-\mathbf{R_2}\right)} + e^{i\mathbf{k\cdot R_5}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}-\mathbf{R_5}\right)} \nonumber                                                                     \\
+        & + e^{i\mathbf{k\cdot R_3}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}-\mathbf{R_3}\right)} + e^{i\mathbf{k\cdot R_6}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^1\left(\mathbf{r}-\mathbf{R_6}\right)} + \epsilon_1 \nonumber                                                        \\
+        & = e^{i k_x a} E_{11}^{11}\left(\mathbf{R_1}\right) + e^{-i k_x a} E_{11}^{11}\left(\mathbf{R_4}\right) +  e^{i \left( k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E_{11}^{11}\left(\mathbf{R_2}\right) +  e^{-i \left( k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E_{11}^{11}\left(\mathbf{R_5}\right) \nonumber \\
+        & + e^{-i \left( k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E_{11}^{11}\left(\mathbf{R_3}\right) + e^{i \left( k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E_{11}^{11}\left(\mathbf{R_6}\right) + \epsilon_1 \nonumber                                                                                             \\
+        & = 2 E_{11}^{11}\left(\mathbf{R_1}\right) \left(cos2\alpha + 2cos\alpha\; cos\beta\right) + \epsilon_1  \nonumber
+\end{align}
+\clearpage
+
+\textbf{ $\ast$ h1}
+\begin{align}
+    h_1 & = \sum_{\mathbf{R} \neq 0} e^{i\mathbf{k\cdot R}} \bra*{\phi_1^1 \left(\mathbf{r}\right)} H \ket*{\phi_1^2\left(\mathbf{r}-\mathbf{R}\right)}\nonumber                                                                                                                                                                        \\
+        & = e^{i k_x a} E_{11}^{12}\left(\mathbf{R_1}\right) + e^{-i k_x a} E_{11}^{12}\left(\mathbf{R_4}\right) + e^{i \left( k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E_{11}^{12}\left(\mathbf{R_2}\right) + e^{-i \left( k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E_{11}^{12}\left(\mathbf{R_5}\right) \nonumber \\
+        & + e^{-i \left( k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E_{11}^{12}\left(\mathbf{R_3}\right) + e^{i \left( k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E_{11}^{12}\left(\mathbf{R_6}\right) \nonumber
+\end{align}
+
+trong đó
+\begin{align}
+    E^{12}(\mathbf{R_2})
+     & = E^{12}(\sigma''_\nu \mathbf{R_1}) = D^1(\sigma''_\nu) E^{12}(\mathbf{R_1}) \left[ D^1(\sigma''_\nu)\right]^\dagger \nonumber                                                                                                                                                                                    \\
+     & = \begin{bmatrix}
+             1
+         \end{bmatrix}
+    \begin{bmatrix}
+        E_{11}^{12}(\mathbf{R_1}) & E_{12}^{12}(\mathbf{R_1})
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{1}{2}         & -\frac{\sqrt{3}}{2} \\
+        -\frac{\sqrt{3}}{2} & -\frac{1}{2}
+    \end{bmatrix} \nonumber                                                                                                                                                                                                                                                             \\
+     & = \begin{bmatrix}
+             \dfrac{ E_{11}^{12}(\mathbf{R_1}) - \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} & \dfrac{ - E_{11}^{12}(\mathbf{R_1})\sqrt{3} -  E_{12}^{12}(\mathbf{R_1})}{2}
+         \end{bmatrix}
+    \nonumber
+\end{align}
+$\Rightarrow E_{11}^{12}(\mathbf{R_2}) =  \dfrac{ E_{11}^{12}(\mathbf{R_1}) - \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} $
+
+Tương tự ta có cho:
+
+\begin{align}
+    E_{11}^{12}(\mathbf{R_3}) & =  \dfrac{ -E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} \quad ;  E_{11}^{12}(\mathbf{R_4}) = - E_{11}^{12}(\mathbf{R_1}) \nonumber                                                 \\
+    E_{11}^{12}(\mathbf{R_5}) & =  \dfrac{ -E_{11}^{12}(\mathbf{R_1}) - \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} \quad ; E_{11}^{12}(\mathbf{R_6})  =  \dfrac{ E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} \nonumber
+\end{align}
+
+\begin{align}
+    h_1 & = e^{i2\alpha} E_{11}^{12}(\mathbf{R_1}) - e^{i2\alpha} E_{11}^{12}(\mathbf{R_1})   \nonumber                                                                                                                   \\
+        & + e^{i(\alpha - \beta)}\dfrac{ E_{11}^{12}(\mathbf{R_1}) - \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} + e^{-i(\alpha + \beta)}\dfrac{ -E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} \nonumber \\
+        & + e^{i(-\alpha + \beta)} \dfrac{ -E_{11}^{12}(\mathbf{R_1}) - \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} + e^{i(\alpha+\beta)}\dfrac{ E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} \nonumber  \\
+        & = 2isin2\alpha E_{11}^{12}(\mathbf{R}_1) + 2i \dfrac{E_{11}^{12}(\mathbf{R_1})}{2} sin(\alpha-\beta) - 2\dfrac{E_{12}^{12}(\mathbf{R_1}\sqrt{3})}{2} cos(\alpha - \beta) \nonumber                              \\
+        & +  2i \dfrac{E_{11}^{12}(\mathbf{R_1})}{2} sin(\alpha+\beta) + 2\dfrac{E_{12}^{12}(\mathbf{R_1}\sqrt{3})}{2} cos(\alpha - \beta) \nonumber                                                                      \\
+        & = -2\sqrt{3} t_2 sin\alpha \; sin\beta + 2i t_1(sin2\alpha + sin\alpha\;\cos\beta) \nonumber
+\end{align}
+
+
+\clearpage
+
+Đặt
+\begin{align}
+    t_0 = E_{11}^{11}(\mathbf{R}_1); \quad
+    t_1 = E_{11}^{12}(\mathbf{R}_1); \quad
+    t_2 = E_{12}^{12}(\mathbf{R}_1); \quad \nonumber \\
+    t_{11} = E_{11}^{22}(\mathbf{R}_1); \quad
+    t_{12} = E_{12}^{12}(\mathbf{R}_1); \quad
+    c_{21} = E_{21}^{12}(\mathbf{R}_1); \quad
+    t_{22} = E_{22}^{12}(\mathbf{R}_1); \quad \nonumber
+\end{align}
+
+\textbf{ $\ast$ h22}
+
+\begin{align}
+    h_{22} & = \sum_{R}^{} e^{i\mathbf{k\cdot R}} E^{22}_{22}(\textbf{R}) \nonumber                                                                                                                                \\
+           & =  e^{i\mathbf{k\cdot R_1}} E^{22}_{22}(\mathbf{R_1}) +  e^{i\mathbf{k\cdot R_2}} E^{22}_{22}(\mathbf{R_2}) +  e^{i\mathbf{k\cdot R_3}} E^{22}_{22}(\mathbf{R_3}) \nonumber                           \\
+           & +  e^{i\mathbf{k\cdot R_4}} E^{22}_{22}(\mathbf{R_4}) +  e^{i\mathbf{k\cdot R_5}} E^{22}_{22}(\mathbf{R_5}) +  e^{i\mathbf{k\cdot R_6}} E^{22}_{22}(\mathbf{R_6}) + E^{22}_{22}(\mathbf{0}) \nonumber
+\end{align}
+
+\begin{align}
+    E^{22} (\mathbf{R}_2)
+     & =  E^{22} (\sigma''_\nu \mathbf{R}_1) \nonumber                                              \\
+     & = D^2(\sigma''_\nu)  E^{22}(\mathbf{R}_1) \left[ D^2(\sigma''_\nu) \right]^\dagger \nonumber
+\end{align}
+
+\[
+    \renewcommand{\arraystretch}{0.75}
+    =
+    \begin{bmatrix}
+        \frac{1}{2}  & -\frac{\sqrt{3}}{2} \\
+        -\frac{3}{2} & -\frac{1}{2}
+    \end{bmatrix}
+    \begin{bmatrix}
+        E_{11}^{22}(\mathbf{R}_1) & E_{12}^{22}(\mathbf{R}_1) \\
+        E_{21}^{22}(\mathbf{R}_1) & E_{22}^{22}(\mathbf{R}_1)
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{1}{2}  & -\frac{\sqrt{3}}{2} \\
+        -\frac{3}{2} & -\frac{1}{2}
+    \end{bmatrix}
+\]
+
+\[
+    \renewcommand{\arraystretch}{0.75}
+    =
+    \begin{bmatrix}
+        \frac{t_{11} - t_{12}\sqrt{3} -c_{21}\sqrt{3} + 3t_{22}}{4}   & \frac{-t_{11}\sqrt{3} - t_{12} + 3c_{21} + \sqrt{3}t_{22}}{4} \\
+        \frac{-t_{11}\sqrt{3} + 3t_{12} - c_{21} + \sqrt{3}t_{22}}{4} & \frac{3t_{11} + t_{12}\sqrt{3} + c\sqrt{3} + t_{22}}{4}
+    \end{bmatrix}
+\]
+
+$\Rightarrow E_{22}^{22}(\mathbf{R}_2) = \dfrac{3t_{11} + t_{12}\sqrt{3} + c\sqrt{3} + t_{22}}{4}$
+
+Tương tự ta có cho:
+
+\begin{align}
+    E_{22}^{22}(\mathbf{R}_3) & = \dfrac{3t_{11} - t_{12}\sqrt{3} - c\sqrt{3} + t_{22}}{4} \nonumber \\
+    E_{22}^{22}(\mathbf{R}_4) & = t_{22} \nonumber                                                   \\
+    E_{22}^{22}(\mathbf{R}_5) & = \dfrac{3t_{11} + t_{12}\sqrt{3} + c\sqrt{3} + t_{22}}{4} \nonumber \\
+    E_{22}^{22}(\mathbf{R}_6) & = \dfrac{3t_{11} - t_{12}\sqrt{3} - c\sqrt{3} + t_{22}}{4} \nonumber
+\end{align}
+\clearpage
+Ta được:
+
+\begin{align}
+    h_{22} & = e^{ i 2 \alpha} t_{22} + e^{- i 2 \alpha} t_{22} \nonumber                                                                                                                                                                           \\
+           & + e^{i(\alpha - \beta)} \left(\dfrac{3t_{11} + t_{12}\sqrt{3} + c\sqrt{3} + t_{22}}{4}\right) +  e^{-i(\alpha + \beta)} \left(\dfrac{3t_{11} - t_{12}\sqrt{3} - c\sqrt{3} + t_{22}}{4}\right) \nonumber                                \\
+           & + e^{i(-\alpha + \beta)} \left(\dfrac{3t_{11} + t_{12}\sqrt{3} + c\sqrt{3} + t_{22}}{4}\right) +  e^{i(\alpha + \beta)} \left(\dfrac{3t_{11} - t_{12}\sqrt{3} - c\sqrt{3} + t_{22}}{4}\right) \nonumber                                \\
+           & = 2 cos(2\alpha) t_{22} + \dfrac{1}{4}3t_{11} \left(e^{i\alpha} + e^{-i\alpha}\right)\left(e^{-i\beta} + e^{i\beta}\right) + \dfrac{1}{4}t_{22} \left(e^{i\alpha} + e^{-i\alpha}\right)\left(e^{-i\beta} + e^{i\beta}\right) \nonumber \\
+           & + c\sqrt{3}(e^{i(\alpha-\beta)} - e^{i(-\alpha+\beta)} +e^{i(-\alpha+\beta)} - e^{i(\alpha+\beta)}) + t_{12}\sqrt{3}(e^{i(\alpha-\beta)} - e^{i(-\alpha+\beta)} +e^{i(-\alpha+\beta)} - e^{i(\alpha+\beta)}) \nonumber                 \\
+           & = 2cos(2\alpha) t_{22} + (3t_{11} + t_{22})cos\alpha \, cos\beta \nonumber
+\end{align}
+Sử dụng tính Hermite của Hamiltonian $h_{22}$ là số thực, nên $t_{12}= - t_{21}$
+\end{document}
+
