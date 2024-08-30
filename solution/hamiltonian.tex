@@ -1,0 +1,177 @@
+\documentclass[10Pt]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{fontsize}
+\changefontsize[15pt]{15pt}
+\usepackage{commath}
+\usepackage{blindtext}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{slashed}
+\usepackage{indentfirst,parskip}
+\setlength{\parindent}{2em}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+%\usepackage{tikz-feynman}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme}
+\usepackage[thinc]{esdiff}
+\usepackage{hyperref}
+\usepackage{dirtytalk,bm,physics}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{fancyhdr}
+%footnote
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}%
+\fancyhf{}%
+\fancyfoot[LE,LO]{Vật lý Lý thuyết}%
+\fancyfoot[C]{\hspace{4cm} \thepage}%
+
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+\renewcommand{\baselinestretch}{2.0}
+\usetikzlibrary{arrows.spaced}
+\usetikzlibrary{animations,quotes}
+%gian do
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered,draw=black, fill=white!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\title{\Huge{HAMILTONIAN}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={LTTHD},
+	pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+
+\definecolor{mycolor}{RGB}{255,0,0}
+
+\begin{document}
+	\author{DAO DUY TUNG}
+	
+	\maketitle
+	
+	\textbf{**h11}
+\begin{align*}
+	H^{22}_{11} &= \sum_{\mathbf{R}} e^{i \mathbf{k} \cdot \mathbf{R}} E^{22}_{11}(\mathbf{R}) 
+	= e^{i \mathbf{k} \cdot \mathbf{R}_1} E^{22}_{11}(\mathbf{R}_1)
+	+ e^{i \mathbf{k} \cdot \mathbf{R}_2} E^{22}_{11}(\mathbf{R}_2)
+	+ e^{i \mathbf{k} \cdot \mathbf{R}_3} E^{22}_{11}(\mathbf{R}_3)\\
+	&+ e^{i \mathbf{k} \cdot \mathbf{R}_4} E^{22}_{11}(\mathbf{R}_4)
+	+ e^{i \mathbf{k} \cdot \mathbf{R}_5} E^{22}_{11}(\mathbf{R}_5)
+	+ e^{i \mathbf{k} \cdot \mathbf{R}_6} E^{22}_{11}(\mathbf{R}_6)
+	+ E^{22}_{11}(\mathbf{0})\\
+	&= e^{i k_x a} E^{22}_{11}(\mathbf{R}_1)
+	+ e^{i \left( k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{11}(\mathbf{R}_2)
+	+ e^{i \left( -k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{11}(\mathbf{R}_3)\\
+	&+ e^{-i k_x a } E^{22}_{11}(\mathbf{R}_4) 
+	+ e^{i \left( -k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{11}(\mathbf{R}_5)
+	+ e^{i \left( k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{11}(\mathbf{R}_6) + \epsilon_2\\
+	&= e^{2i\alpha} t_{11} + e^{i \left( \alpha - \beta \right)} \frac{t_{11} -\sqrt{3}t_{12} - \sqrt{3}c_{21} + 3t_{22}}{4}\\
+	&+ e^{i \left( -\alpha - \beta \right)} \frac{t_{11} -\sqrt{3}t_{12} - \sqrt{3}c_{21} + 3t_{22}}{4} + e^{-2i\alpha} t_{11}\\
+	&+ e^{i \left( -\alpha + \beta \right)} \frac{t_{11} +\sqrt{3}t_{12} + \sqrt{3}c_{21} + 3t_{22}}{4} + e^{i \left( \alpha + \beta \right)} \frac{t_{11} +\sqrt{3}t_{12} + \sqrt{3}c_{21} + 3t_{22}}{4} + \epsilon_2\\
+	&= 2t_{11}cos(2\alpha) + \left (t_{11} + 3t_{22}\right )cos(\alpha)cos(\beta) + \epsilon_2\\ 
+	&\textbf{Lưu ý ở đây đã sử dụng tính chất Hermite của $h_{11}$ phải là số thực}\\ &\Rightarrow t_{12} = - t_{21}
+\end{align*}
+
+\begin{align*}
+	E^{22} (\mathbf{R_2}) &= E^{22}(\sigma_\nu^{''} \mathbf{R_1}) = D^2(\sigma^{''}_\nu) E^{22} (\mathbf{R_1}) [D^2(\sigma_\nu ^{''})]^\dagger\\
+	&= 
+	\begin{bmatrix}
+		\frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+		-\frac{\sqrt{3}}{2} & -\frac{1}{2}
+	\end{bmatrix} \begin{bmatrix}
+	a & b \\
+	c & d
+	\end{bmatrix}\begin{bmatrix}
+	\frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+	-\frac{\sqrt{3}}{2} & -\frac{1}{2}
+	\end{bmatrix}\text{Trong đó}\begin{bmatrix}
+	a = t_{11} \\
+	b = t_{12} \\
+	c = c_{21} \\
+	d = t_{22}
+	\end{bmatrix}\\
+	&\Rightarrow E^{22}_{11} (\mathbf{R_2}) = \frac{a - \sqrt{3}b - \sqrt{3}c + 3d}{4}
+\end{align*}
+Tương tự ta tìm được:
+\begin{align*}
+	 E^{22}_{11} (\mathbf{R_3}) &= \frac{a - \sqrt{3}b - \sqrt{3}c + 3d}{4} \\
+	 E^{22}_{11} (\mathbf{R_4}) &= a \\
+	 E^{22}_{11} (\mathbf{R_5}) &= \frac{a + \sqrt{3}b + \sqrt{3}c + 3d}{4} \\
+	 E^{22}_{11} (\mathbf{R_6}) &= \frac{a + \sqrt{3}b + \sqrt{3}c + 3d}{4} \\
+\end{align*}
+
+	\textbf{**h12}
+\begin{align*}
+	H^{22}_{12} &= \sum_{\mathbf{R}} e^{i \mathbf{k} \cdot \mathbf{R}} E^{22}_{12}(\mathbf{R}) \\
+	&= e^{i \mathbf{k} \cdot \mathbf{R}_1} E^{22}_{12}(\mathbf{R}_1)
+	+ e^{i \mathbf{k} \cdot \mathbf{R}_2} E^{22}_{12}(\mathbf{R}_2)
+	+ e^{i \mathbf{k} \cdot \mathbf{R}_3} E^{22}_{12}(\mathbf{R}_3) \\
+	&\quad + e^{i \mathbf{k} \cdot \mathbf{R}_4} E^{22}_{12}(\mathbf{R}_4)
+	+ e^{i \mathbf{k} \cdot \mathbf{R}_5} E^{22}_{12}(\mathbf{R}_5)
+	+ e^{i \mathbf{k} \cdot \mathbf{R}_6} E^{22}_{12}(\mathbf{R}_6)
+	+ E^{22}_{12}(\mathbf{0}) \\
+	&= e^{i k_x a} E^{22}_{12}(\mathbf{R}_1)
+	+ e^{i \left( k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{12}(\mathbf{R}_2) \\
+	&\quad + e^{i \left( -k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{12}(\mathbf{R}_3) \\
+	&\quad + e^{-i k_x a } E^{22}_{12}(\mathbf{R}_4) 
+	+ e^{i \left( -k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{12}(\mathbf{R}_5) \\
+	&\quad + e^{i \left( k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{12}(\mathbf{R}_6) \\
+	&= e^{2i\alpha} t_{12} 
+	+ e^{i \left( \alpha - \beta \right)} \frac{-\sqrt{3}t_{11} - t_{12} + 3c_{21} + \sqrt{3}t_{22}}{4} \\
+	&\quad + e^{i \left( -\alpha - \beta \right)} \frac{\sqrt{3}t_{11} + t_{12} - 3c_{21} - \sqrt{3}t_{22}}{4} \\
+	&\quad - e^{-2i\alpha} t_{12} 
+	+ e^{i \left( -\alpha + \beta \right)} \frac{-\sqrt{3}t_{11} + t_{12} - 3c_{21} + \sqrt{3}t_{22}}{4} \\
+	&\quad + e^{i \left( \alpha + \beta \right)} \frac{\sqrt{3}t_{11} - t_{12} + 3c_{21} - \sqrt{3}t_{22}}{4} \\
+	&= \sqrt{3}(t_{22} - t_{11}) \sin(\alpha) \sin(\beta) 
+	+ 4i t_{12} \sin(\alpha) (\cos(\alpha) - \cos(\beta)) + 3i c_{21} sin(\alpha)cos(\beta) 
+\end{align*}
+
+\begin{align*}
+	E^{22} (\mathbf{R_2}) &= E^{22}(\sigma_\nu^{''} \mathbf{R_1}) = D^2(\sigma^{''}_\nu) E^{22} (\mathbf{R_1}) [D^2(\sigma_\nu ^{''})]^\dagger\\
+	&= 
+	\begin{bmatrix}
+		\frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+		-\frac{\sqrt{3}}{2} & -\frac{1}{2}
+	\end{bmatrix} \begin{bmatrix}
+		a & b \\
+		c & d
+	\end{bmatrix}\begin{bmatrix}
+		\frac{1}{2} & -\frac{\sqrt{3}}{2} \\
+		-\frac{\sqrt{3}}{2} & -\frac{1}{2}
+	\end{bmatrix}\text{Trong đó}\begin{bmatrix}
+		a = t_{11} \\
+		b = t_{12} \\
+		c = c_{21} \\
+		d = t_{22}
+	\end{bmatrix}\\
+	&\Rightarrow E^{22}_{12} (\mathbf{R_2}) = \frac{-\sqrt{3}a - b + 3c + \sqrt{3}d}{4}
+\end{align*}
+Tương tự ta tìm được:
+\begin{align*}
+	E^{22}_{12} (\mathbf{R_3}) &= \frac{\sqrt{3}a + b - 3c - \sqrt{3}d}{4} \\
+	E^{22}_{12} (\mathbf{R_4}) &= -b \\
+	E^{22}_{12} (\mathbf{R_5}) &= \frac{\sqrt{3}a + b - 3c + \sqrt{3}d}{4} \\
+	E^{22}_{12} (\mathbf{R_6}) &= \frac{\sqrt{3}a - b + 3c - \sqrt{3}d}{4} \\
+\end{align*}
+
+\end{document}

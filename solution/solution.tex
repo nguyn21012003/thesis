@@ -256,7 +256,7 @@ Kiểm tra điều trên:
 trong đó
 \begin{align}
     E^{12}(\mathbf{R_2})
-     & = E^{12}(\sigma''_\nu \mathbf{R_1}) = D^1(\sigma''_\nu) E^{12}(\mathbf{R_1}) \left[ D^1(\sigma''_\nu)\right]^\dagger \nonumber                                                                                                                                                                                    \\
+     & = E^{12}(\sigma''_\nu \mathbf{R_1}) = D^1(\sigma''_\nu) E^{12}(\mathbf{R_1}) \left[ D^2(\sigma''_\nu)\right]^\dagger \nonumber                                                                                                                                                                                    \\
      & = \begin{bmatrix}
              1
          \end{bmatrix}
@@ -299,9 +299,9 @@ Tương tự ta có cho:
     t_1 = E_{11}^{12}(\mathbf{R}_1); \quad
     t_2 = E_{12}^{12}(\mathbf{R}_1); \quad \nonumber \\
     t_{11} = E_{11}^{22}(\mathbf{R}_1); \quad
-    t_{12} = E_{12}^{12}(\mathbf{R}_1); \quad
-    c_{21} = E_{21}^{12}(\mathbf{R}_1); \quad
-    t_{22} = E_{22}^{12}(\mathbf{R}_1); \quad \nonumber
+    t_{12} = E_{12}^{22}(\mathbf{R}_1); \quad
+    c_{21} = E_{21}^{22}(\mathbf{R}_1); \quad
+    t_{22} = E_{22}^{22}(\mathbf{R}_1); \quad \nonumber
 \end{align}
 
 \textbf{ $\ast$ h22}
@@ -362,9 +362,116 @@ Ta được:
            & + e^{i(\alpha - \beta)} \left(\dfrac{3t_{11} + t_{12}\sqrt{3} + c\sqrt{3} + t_{22}}{4}\right) +  e^{-i(\alpha + \beta)} \left(\dfrac{3t_{11} - t_{12}\sqrt{3} - c\sqrt{3} + t_{22}}{4}\right) \nonumber                                \\
            & + e^{i(-\alpha + \beta)} \left(\dfrac{3t_{11} + t_{12}\sqrt{3} + c\sqrt{3} + t_{22}}{4}\right) +  e^{i(\alpha + \beta)} \left(\dfrac{3t_{11} - t_{12}\sqrt{3} - c\sqrt{3} + t_{22}}{4}\right) \nonumber                                \\
            & = 2 cos(2\alpha) t_{22} + \dfrac{1}{4}3t_{11} \left(e^{i\alpha} + e^{-i\alpha}\right)\left(e^{-i\beta} + e^{i\beta}\right) + \dfrac{1}{4}t_{22} \left(e^{i\alpha} + e^{-i\alpha}\right)\left(e^{-i\beta} + e^{i\beta}\right) \nonumber \\
-           & + c\sqrt{3}(e^{i(\alpha-\beta)} - e^{i(-\alpha+\beta)} +e^{i(-\alpha+\beta)} - e^{i(\alpha+\beta)}) + t_{12}\sqrt{3}(e^{i(\alpha-\beta)} - e^{i(-\alpha+\beta)} +e^{i(-\alpha+\beta)} - e^{i(\alpha+\beta)}) \nonumber                 \\
+           & + c\sqrt{3}(e^{i(\alpha-\beta)} - e^{i(-\alpha+\beta)} +e^{i(-\alpha+\beta)} - e^{i(\alpha+\beta)}) \nonumber                                                                                                                          \\
+           & + t_{12}\sqrt{3}(e^{i(\alpha-\beta)} - e^{i(-\alpha+\beta)} + e^{i(-\alpha+\beta)} - e^{i(\alpha+\beta)}) \nonumber                                                                                                                    \\
            & = 2cos(2\alpha) t_{22} + (3t_{11} + t_{22})cos\alpha \, cos\beta \nonumber
 \end{align}
 Sử dụng tính Hermite của Hamiltonian $h_{22}$ là số thực, nên $t_{12}= - t_{21}$
+
+\textbf{**h11}
+\begin{align*}
+    H^{22}_{11} & = \sum_{\mathbf{R}} e^{i \mathbf{k} \cdot \mathbf{R}} E^{22}_{11}(\mathbf{R})
+    = e^{i \mathbf{k} \cdot \mathbf{R}_1} E^{22}_{11}(\mathbf{R}_1)
+    + e^{i \mathbf{k} \cdot \mathbf{R}_2} E^{22}_{11}(\mathbf{R}_2)
+    + e^{i \mathbf{k} \cdot \mathbf{R}_3} E^{22}_{11}(\mathbf{R}_3)                                                                                                                                                                 \\
+                & + e^{i \mathbf{k} \cdot \mathbf{R}_4} E^{22}_{11}(\mathbf{R}_4)
+    + e^{i \mathbf{k} \cdot \mathbf{R}_5} E^{22}_{11}(\mathbf{R}_5)
+    + e^{i \mathbf{k} \cdot \mathbf{R}_6} E^{22}_{11}(\mathbf{R}_6)
+    + E^{22}_{11}(\mathbf{0})                                                                                                                                                                                                       \\
+                & = e^{i k_x a} E^{22}_{11}(\mathbf{R}_1)
+    + e^{i \left( k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{11}(\mathbf{R}_2)
+    + e^{i \left( -k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{11}(\mathbf{R}_3)                                                                                                                                     \\
+                & + e^{-i k_x a } E^{22}_{11}(\mathbf{R}_4)
+    + e^{i \left( -k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{11}(\mathbf{R}_5)
+    + e^{i \left( k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{11}(\mathbf{R}_6) + \epsilon_2                                                                                                                         \\
+                & = e^{2i\alpha} t_{11} + e^{i \left( \alpha - \beta \right)} \frac{t_{11} -\sqrt{3}t_{12} - \sqrt{3}c_{21} + 3t_{22}}{4}                                                                                           \\
+                & + e^{i \left( -\alpha - \beta \right)} \frac{t_{11} -\sqrt{3}t_{12} - \sqrt{3}c_{21} + 3t_{22}}{4} + e^{-2i\alpha} t_{11}                                                                                         \\
+                & + e^{i \left( -\alpha + \beta \right)} \frac{t_{11} +\sqrt{3}t_{12} + \sqrt{3}c_{21} + 3t_{22}}{4} + e^{i \left( \alpha + \beta \right)} \frac{t_{11} +\sqrt{3}t_{12} + \sqrt{3}c_{21} + 3t_{22}}{4} + \epsilon_2 \\
+                & = 2t_{11}cos(2\alpha) + \left (t_{11} + 3t_{22}\right )cos(\alpha)cos(\beta) + \epsilon_2                                                                                                                         \\
+                & \textbf{Lưu ý ở đây đã sử dụng tính chất Hermite của $h_{11}$ phải là số thực}                                                                                                                                    \\ &\Rightarrow t_{12} = - t_{21}
+\end{align*}
+
+\begin{align*}
+    E^{22} (\mathbf{R_2}) & = E^{22}(\sigma_\nu^{''} \mathbf{R_1}) = D^2(\sigma^{''}_\nu) E^{22} (\mathbf{R_1}) [D^2(\sigma_\nu ^{''})]^\dagger \\
+                          & =
+    \begin{bmatrix}
+        \frac{1}{2}         & -\frac{\sqrt{3}}{2} \\
+        -\frac{\sqrt{3}}{2} & -\frac{1}{2}
+    \end{bmatrix} \begin{bmatrix}
+                      a & b \\
+                      c & d
+                  \end{bmatrix}\begin{bmatrix}
+                                   \frac{1}{2}         & -\frac{\sqrt{3}}{2} \\
+                                   -\frac{\sqrt{3}}{2} & -\frac{1}{2}
+                               \end{bmatrix}\text{Trong đó}\begin{bmatrix}
+                                                               a = t_{11} \\
+                                                               b = t_{12} \\
+                                                               c = c_{21} \\
+                                                               d = t_{22}
+                                                           \end{bmatrix}                                                         \\
+                          & \Rightarrow E^{22}_{11} (\mathbf{R_2}) = \frac{a - \sqrt{3}b - \sqrt{3}c + 3d}{4}
+\end{align*}
+Tương tự ta tìm được:
+\begin{align*}
+    E^{22}_{11} (\mathbf{R_3}) & = \frac{a - \sqrt{3}b - \sqrt{3}c + 3d}{4} \\
+    E^{22}_{11} (\mathbf{R_4}) & = a                                        \\
+    E^{22}_{11} (\mathbf{R_5}) & = \frac{a + \sqrt{3}b + \sqrt{3}c + 3d}{4} \\
+    E^{22}_{11} (\mathbf{R_6}) & = \frac{a + \sqrt{3}b + \sqrt{3}c + 3d}{4} \\
+\end{align*}
+
+\textbf{**h12}
+\begin{align*}
+    H^{22}_{12} & = \sum_{\mathbf{R}} e^{i \mathbf{k} \cdot \mathbf{R}} E^{22}_{12}(\mathbf{R})                             \\
+                & = e^{i \mathbf{k} \cdot \mathbf{R}_1} E^{22}_{12}(\mathbf{R}_1)
+    + e^{i \mathbf{k} \cdot \mathbf{R}_2} E^{22}_{12}(\mathbf{R}_2)
+    + e^{i \mathbf{k} \cdot \mathbf{R}_3} E^{22}_{12}(\mathbf{R}_3)                                                         \\
+                & \quad + e^{i \mathbf{k} \cdot \mathbf{R}_4} E^{22}_{12}(\mathbf{R}_4)
+    + e^{i \mathbf{k} \cdot \mathbf{R}_5} E^{22}_{12}(\mathbf{R}_5)
+    + e^{i \mathbf{k} \cdot \mathbf{R}_6} E^{22}_{12}(\mathbf{R}_6)
+    + E^{22}_{12}(\mathbf{0})                                                                                               \\
+                & = e^{i k_x a} E^{22}_{12}(\mathbf{R}_1)
+    + e^{i \left( k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{12}(\mathbf{R}_2)                              \\
+                & \quad + e^{i \left( -k_x \frac{a}{2} - k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{12}(\mathbf{R}_3)         \\
+                & \quad + e^{-i k_x a } E^{22}_{12}(\mathbf{R}_4)
+    + e^{i \left( -k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{12}(\mathbf{R}_5)                             \\
+                & \quad + e^{i \left( k_x \frac{a}{2} + k_y \frac{a\sqrt{3}}{2} \right)} E^{22}_{12}(\mathbf{R}_6)          \\
+                & = e^{2i\alpha} t_{12}
+    + e^{i \left( \alpha - \beta \right)} \frac{-\sqrt{3}t_{11} - t_{12} + 3c_{21} + \sqrt{3}t_{22}}{4}                     \\
+                & \quad + e^{i \left( -\alpha - \beta \right)} \frac{\sqrt{3}t_{11} + t_{12} - 3c_{21} - \sqrt{3}t_{22}}{4} \\
+                & \quad - e^{-2i\alpha} t_{12}
+    + e^{i \left( -\alpha + \beta \right)} \frac{-\sqrt{3}t_{11} + t_{12} - 3c_{21} + \sqrt{3}t_{22}}{4}                    \\
+                & \quad + e^{i \left( \alpha + \beta \right)} \frac{\sqrt{3}t_{11} - t_{12} + 3c_{21} - \sqrt{3}t_{22}}{4}  \\
+                & = \sqrt{3}(t_{22} - t_{11}) \sin(\alpha) \sin(\beta)
+    + 4i t_{12} \sin(\alpha) (\cos(\alpha) - \cos(\beta)) + 3i c_{21} sin(\alpha)cos(\beta)
+\end{align*}
+
+\begin{align*}
+    E^{22} (\mathbf{R_2}) & = E^{22}(\sigma_\nu^{''} \mathbf{R_1}) = D^2(\sigma^{''}_\nu) E^{22} (\mathbf{R_1}) [D^2(\sigma_\nu ^{''})]^\dagger \\
+                          & =
+    \begin{bmatrix}
+        \frac{1}{2}         & -\frac{\sqrt{3}}{2} \\
+        -\frac{\sqrt{3}}{2} & -\frac{1}{2}
+    \end{bmatrix} \begin{bmatrix}
+                      a & b \\
+                      c & d
+                  \end{bmatrix}\begin{bmatrix}
+                                   \frac{1}{2}         & -\frac{\sqrt{3}}{2} \\
+                                   -\frac{\sqrt{3}}{2} & -\frac{1}{2}
+                               \end{bmatrix}\text{Trong đó}\begin{bmatrix}
+                                                               a = t_{11} \\
+                                                               b = t_{12} \\
+                                                               c = c_{21} \\
+                                                               d = t_{22}
+                                                           \end{bmatrix}                                                         \\
+                          & \Rightarrow E^{22}_{12} (\mathbf{R_2}) = \frac{-\sqrt{3}a - b + 3c + \sqrt{3}d}{4}
+\end{align*}
+Tương tự ta tìm được:
+\begin{align*}
+    E^{22}_{12} (\mathbf{R_3}) & = \frac{\sqrt{3}a + b - 3c - \sqrt{3}d}{4} \\
+    E^{22}_{12} (\mathbf{R_4}) & = -b                                       \\
+    E^{22}_{12} (\mathbf{R_5}) & = \frac{\sqrt{3}a + b - 3c + \sqrt{3}d}{4} \\
+    E^{22}_{12} (\mathbf{R_6}) & = \frac{\sqrt{3}a - b + 3c - \sqrt{3}d}{4} \\
+\end{align*}
+
 \end{document}
 
