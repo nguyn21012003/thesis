@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{article}
 \usepackage[utf8]{vietnam}
 \usepackage[utf8]{inputenc}
 \usepackage{anyfontsize,fontsize}
@@ -80,13 +80,12 @@ trong đó
 \end{align*}
 
 \begin{align}
-    H^{jj'}_{\mu\mu'} \left( \mathbf{k}\right) & =  \; \sum_{\mu\mu'}^{jj'}
-    e^{i \mathbf{k\cdot R_1}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_1}\right)
-    + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_2}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_2}\right)
-    + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_3}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_3}\right) \nonumber                                    \\
-                                               & + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_4}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_4}\right)
-    + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_5}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_5}\right)
-    + \sum_{\mu\mu'}^{jj'} e^{i \mathbf{k\cdot R_6}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_6}\right) \nonumber
+    H^{jj'}_{\mu\mu'} \left( \mathbf{k}\right) & =  \; \sum_{\mu\mu' jj'} e^{i \mathbf{k\cdot R_1}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_1}\right)
+    + \sum_{\mu\mu' jj'} e^{i \mathbf{k\cdot R_2}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_2}\right)
+    + \sum_{\mu\mu' jj'} e^{i \mathbf{k\cdot R_3}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_3}\right) \nonumber                                        \\
+                                               & + \sum_{\mu\mu' jj'} e^{i \mathbf{k\cdot R_4}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_4}\right)
+    + \sum_{\mu\mu' jj'} e^{i \mathbf{k\cdot R_5}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_5}\right)
+    + \sum_{\mu\mu' jj'} e^{i \mathbf{k\cdot R_6}} E^{jj'}_{\mu\mu'} \left(\mathbf{R_6}\right) \nonumber
 \end{align}
 
 \[
@@ -162,23 +161,47 @@ Khi đổi chỗ A $\leftrightarrow$ B, ta được ma trận:
     \end{bmatrix}
 \]
 
-trong đó $ D^2\left(\sigma_\nu'\right) = D^2 \left(C_3\right) D^2\left(\sigma_\nu\right)\quad ; D^2\left(\sigma_\nu''\right) = D^2 \left(C_3^2\right) D^2\left(\sigma_\nu\right) $
+Ta có $ \vec{R_5} = \sigma'_\nu \vec{R_4} \; \text{ mà }\; C_3^2 \vec{R_5} = \vec{R_1} \Rightarrow  C_3^2 \sigma'_\nu \vec{R_4} = \vec{R_1}$
 
 
 \[
     \renewcommand{\arraystretch}{0.75}
-    D^2\left(\sigma'_\nu\right) =
+    \Rightarrow
     \begin{bmatrix}
-        -1 & 0 \\
-        0  & 1
+        -\frac{1}{2}        & \frac{\sqrt{3}}{2} \\
+        -\frac{\sqrt{3}}{2} & -\frac{1}{2}
+    \end{bmatrix}
+    \begin{bmatrix}
+        a & b \\
+        c & d
+    \end{bmatrix}
+    \begin{bmatrix}
+        -1 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 \\
+        0
     \end{bmatrix}
 \]
+
+
+\[
+    \renewcommand{\arraystretch}{0.75}
+    \Rightarrow D^2\left(\sigma'_\nu\right) =
+    \begin{bmatrix}
+        \frac{1}{2}  & \frac{\sqrt{3}}{2} \\
+        -\frac{3}{2} & -\frac{1}{2}
+    \end{bmatrix}
+\]
+Tương tự ta tính cho
 \[
     \renewcommand{\arraystretch}{0.75}
     D^2\left(\sigma''_\nu\right) =
     \begin{bmatrix}
-        \frac{1}{2}  & \frac{\sqrt{3}}{2} \\
-        -\frac{3}{2} & -\frac{1}{2}
+        -1 & 0 \\
+        0  & 1
     \end{bmatrix}
 \]
 
@@ -188,9 +211,9 @@ Toán tử $C_3^2$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf
 
 Toán tử $\sigma_\nu$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_6$ (dưới dạng ma trận)
 
-Toán tử $\sigma'_\nu$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_4$ (dưới dạng ma trận)
+Toán tử $\sigma'_\nu$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_2$ (dưới dạng ma trận)
 
-Toán tử $\sigma''_\nu$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_2$ (dưới dạng ma trận)
+Toán tử $\sigma''_\nu$ đánh lên $\textbf{R}_1$ ta được $\rightarrow$ $\textbf{R}_4$ (dưới dạng ma trận)
 
 Kiểm tra điều trên:
 
@@ -214,7 +237,7 @@ Kiểm tra điều trên:
 \]
 \[
     \renewcommand{\arraystretch}{0.75}
-    D^2\left(\sigma''_\nu\right)R_1 =
+    D^2\left(\sigma'_\nu\right)R_1 =
     \begin{bmatrix}
         \frac{1}{2}  & -\frac{\sqrt{3}}{2} \\
         -\frac{3}{2} & -\frac{1}{2}
@@ -441,8 +464,8 @@ Tương tự ta tìm được:
                 & \quad - e^{-2i\alpha} t_{12}
     + e^{i \left( -\alpha + \beta \right)} \frac{-\sqrt{3}t_{11} + t_{12} - 3c_{21} + \sqrt{3}t_{22}}{4}                    \\
                 & \quad + e^{i \left( \alpha + \beta \right)} \frac{\sqrt{3}t_{11} - t_{12} + 3c_{21} - \sqrt{3}t_{22}}{4}  \\
-                & = \sqrt{3}(t_{22} - t_{11}) \sin(\alpha) \sin(\beta)
-    + 4i t_{12} \sin(\alpha) (\cos(\alpha) - \cos(\beta)) + 3i c_{21} sin(\alpha)cos(\beta)
+                & = \sqrt{3}(t_{22} - t_{11}) \sin\alpha \sin\beta
+    + 4i t_{12} \sin\alpha \cos \alpha - i t_{12} \sin\alpha \cos\beta  + 3i c_{21} \sin\alpha \cos\beta \nonumber
 \end{align*}
 
 \begin{align*}
@@ -472,6 +495,115 @@ Tương tự ta tìm được:
     E^{22}_{12} (\mathbf{R_5}) & = \frac{\sqrt{3}a + b - 3c + \sqrt{3}d}{4} \\
     E^{22}_{12} (\mathbf{R_6}) & = \frac{\sqrt{3}a - b + 3c - \sqrt{3}d}{4} \\
 \end{align*}
+
+\clearpage
+
+Ta đưa điện trường vào. Chọn hướng từ trường là $\renewcommand{\arraystretch}{0.7} B = \begin{pmatrix} 0  \\ 0  \\ B  \end{pmatrix}$. \\
+\noindent Lại có $B = \vec{\nabla} \times \vec{A} =
+    \begin{vmatrix}
+        \vec{i}                      & \vec{j}                      & \vec{k}                      \\
+        \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\
+        A_x                          & A_y                          & A_z
+    \end{vmatrix}\\
+    = (\dfrac{\partial}{\partial y}A_z - \dfrac{\partial}{\partial z}A_y)\vec{i} + (\dfrac{\partial}{\partial z}A_x - \dfrac{\partial}{\partial x}A_z)\vec{j} + (\dfrac{\partial}{\partial x}A_y - \dfrac{\partial}{\partial y}A_x)\vec{k}$
+
+\noindent Có thể chọn $A = \renewcommand{\arraystretch}{0.7} \begin{pmatrix} 0  \\ B\cdot x  \\ 0  \end{pmatrix}$
+
+\begin{align}
+    H_{\mu \mu'}^{jj'}(\textbf{k}) = \sum_{\mu\mu' jj'} \sum_{\textbf{R}} e^{\frac{ie}{\hbar}\int_{0}^{\textbf{R}} \textbf{A}(\mathbf{r'})d\mathbf{r'} } e^{i \mathbf{k}\cdot\textbf{R}} E_{\mu\mu'}^{jj'}(\textbf{R}) \nonumber
+\end{align}
+
+\noindent $\ast$ \textbf{h0}
+\begin{align}
+    h_0 = H_{11}^{11}(\textbf{k}) & = \sum_{\textbf{R}} e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R}} E_{11}^{11}(\mathbf{R}) \nonumber                                                                                                               \\
+                                  & = e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_1}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_1}} E_{11}^{11}(\mathbf{R_1}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_2}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_2}} E_{11}^{11}(\mathbf{R_2}) \nonumber \\
+                                  & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_3}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_3}} E_{11}^{11}(\mathbf{R_3}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_4}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_4}} E_{11}^{11}(\mathbf{R_4}) \nonumber \\
+                                  & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_5}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_5}} E_{11}^{11}(\mathbf{R_5}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_6}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_6}} E_{11}^{11}(\mathbf{R_6}) \nonumber
+\end{align}
+
+\noindent Xét $e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R}}A(\mathbf{r'})d\mathbf{r'}}$
+
+\noindent Ta chọn $A = \left(P(x,y),Q(x,y),R(x,y)\right) = (0,Bx,0)$
+
+\noindent Phương trình tham số cho $x,y$:
+
+\begin{align*}
+    x = x(t) = x_0 + \alpha t \\
+    y = y(t) = y_0 + \beta t
+\end{align*}
+
+\clearpage
+
+\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(0,a)}{\mathbf{R_1}}$
+
+Ta có:
+\begin{align}
+     & x = at \nonumber                                                                                                                                                                                 \\
+     & y = 0 \nonumber                                                                                                                                                                                  \\
+     & \Rightarrow \int_{0}^{\mathbf{R_1}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \nonumber \\
+     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx0 + 0\dfrac{dz}{dt} \right] dt = 0 \nonumber
+\end{align}
+
+\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(\frac{a}{2},-\frac{a\sqrt{3}}{2})}{\mathbf{R_2}}$
+
+Ta có:
+\begin{align}
+     & x = \dfrac{a}{2}t \nonumber                                                                                                                                                                      \\
+     & y = -\dfrac{a\sqrt{3}}{2}t \nonumber                                                                                                                                                             \\
+     & \Rightarrow \int_{0}^{\mathbf{R_1}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \nonumber \\
+     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx\left(-\dfrac{a\sqrt{3}}{2}\right) + 0\dfrac{dz}{dt} \right] dt = -\dfrac{Ba^2\sqrt{3}}{8} \nonumber
+\end{align}
+
+\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(-\frac{a}{2},-\frac{a\sqrt{3}}{2})}{\mathbf{R_3}}$
+
+Ta có:
+\begin{align}
+     & x = -\dfrac{a}{2}t \nonumber                                                                                                                                                                            \\
+     & y = -\dfrac{a\sqrt{3}}{2}t \nonumber                                                                                                                                                                    \\
+     & \Rightarrow \int_{0}^{\mathbf{R_1}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \nonumber        \\
+     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx\left(-\dfrac{a\sqrt{3}}{2}\right) + 0\dfrac{dz}{dt} \right] dt = B \left( -\dfrac{a}{2}\right)\left(-\dfrac{a\sqrt{3}}{2}\right) \int_{0}^{1}t dt  \nonumber \\
+     & = \dfrac{Ba^2\sqrt{3}}{8} \nonumber
+\end{align}
+
+\clearpage
+
+\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(0,-a)}{\mathbf{R_4}}$
+
+Ta có:
+\begin{align}
+     & x = - at \nonumber                                                                                                                                                                               \\
+     & y = 0 \nonumber                                                                                                                                                                                  \\
+     & \Rightarrow \int_{0}^{\mathbf{R_4}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \nonumber \\
+     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx0 + 0\dfrac{dz}{dt} \right] dt = 0 \nonumber
+\end{align}
+
+\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(0,a)}{\mathbf{R_5}}$
+
+Ta có:
+\begin{align}
+     & x = -\dfrac{a}{2}t \nonumber                                                                                                                                                                     \\
+     & y = \dfrac{a\sqrt{3}}{2}t \nonumber                                                                                                                                                              \\
+     & \Rightarrow \int_{0}^{\mathbf{R_5}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \nonumber \\
+     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx\dfrac{a\sqrt{3}}{2} + 0\dfrac{dz}{dt} \right] dt = -\dfrac{Ba^2\sqrt{3}}{8}  \nonumber
+\end{align}
+
+\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(\frac{a}{2},\frac{a\sqrt{3}}{2})}{\mathbf{R_6}}$
+
+Ta có:
+\begin{align}
+     & x = \frac{a}{2}t \nonumber                                                                                                                                                                       \\
+     & y = \frac{a\sqrt{3}}{2}t \nonumber                                                                                                                                                               \\
+     & \Rightarrow \int_{0}^{\mathbf{R_6}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \nonumber \\
+     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx \frac{a\sqrt{3}}{2} + 0\dfrac{dz}{dt} \right] dt = \dfrac{Ba^2\sqrt{3}}{8} \nonumber
+\end{align}
+
+Vậy $h_0$ có dạng:
+
+\begin{align}
+    h_0 = H_{11}^{11}(\textbf{k}) & = e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_1}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_1}} E_{11}^{11}(\mathbf{R_1}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_2}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_2}} E_{11}^{11}(\mathbf{R_2}) \nonumber \\
+                                  & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_3}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_3}} E_{11}^{11}(\mathbf{R_3}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_4}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_4}} E_{11}^{11}(\mathbf{R_4}) \nonumber \\
+                                  & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_5}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_5}} E_{11}^{11}(\mathbf{R_5}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_6}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_6}} E_{11}^{11}(\mathbf{R_6}) \nonumber
+\end{align}
 
 \end{document}
 

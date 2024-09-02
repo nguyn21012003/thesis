@@ -1,25 +1,24 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2024.6.2)  29 AUG 2024 21:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2024.6.2)  2 SEP 2024 12:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"m:/codespace/luan_an/FILE TEX/solution/solution.tex"
-(m:/codespace/luan_an/FILE TEX/solution/solution.tex
+**m:/codespace/luan_an/texfile/solution/solution.tex
+(m:/codespace/luan_an/texfile/solution/solution.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-02-24> (m:/texlive/2022/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
+L3 programming layer <2022-02-24> (m:/texlive/2022/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (m:/texlive/2022/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
-\c@chapter=\count186
-\c@section=\count187
-\c@subsection=\count188
-\c@subsubsection=\count189
-\c@paragraph=\count190
-\c@subparagraph=\count191
-\c@figure=\count192
-\c@table=\count193
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -206,13 +205,13 @@ Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 \XKV@toks=\toks18
 \XKV@tempa@toks=\toks19
  (m:/texlive/2022/texmf-dist/tex/generic/xkeyval/keyval.tex))
-\XKV@depth=\count194
+\XKV@depth=\count193
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (m:/texlive/2022/texmf-dist/tex/latex/l3packages/xfp/xfp.sty (m:/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2022-02-24 L3 programming layer (loader) 
  (m:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count195
+\l__color_backend_stack_int=\count194
 \l__pdf_internal_box=\box50
 ))
 Package: xfp 2022-01-12 L3 Floating point unit
@@ -233,13 +232,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (m:/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count196
+\inf@bad=\count195
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count197
-\leftroot@=\count198
+\uproot@=\count196
+\leftroot@=\count197
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count199
-\DOTSCASE@=\count266
+\classnum@=\count198
+\DOTSCASE@=\count199
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -248,15 +247,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen141
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count267
-\c@MaxMatrixCols=\count268
+\macc@depth=\count266
+\c@MaxMatrixCols=\count267
 \dotsspace@=\muskip16
-\c@parentequation=\count269
-\dspbrk@lvl=\count270
+\c@parentequation=\count268
+\dspbrk@lvl=\count269
 \tag@help=\toks21
-\row@=\count271
-\column@=\count272
-\maxfields@=\count273
+\row@=\count270
+\column@=\count271
+\maxfields@=\count272
 \andhelp@=\toks22
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
@@ -275,24 +274,24 @@ Package: blindtext 2012/01/06 V2.0 blindtext-Package
  (m:/texlive/2022/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-\c@blindtext=\count274
-\c@Blindtext=\count275
-\c@blind@countparstart=\count276
-\blind@countxx=\count277
-\blindtext@numBlindtext=\count278
-\blind@countyy=\count279
-\c@blindlist=\count280
-\c@blindlistlevel=\count281
-\c@blindlist@level=\count282
-\blind@listitem=\count283
-\c@blind@listcount=\count284
-\c@blind@levelcount=\count285
-\blind@mathformula=\count286
-\blind@Mathformula=\count287
-\c@blind@randomcount=\count288
-\c@blind@randommax=\count289
-\c@blind@pangramcount=\count290
-\c@blind@pangrammax=\count291
+\c@blindtext=\count273
+\c@Blindtext=\count274
+\c@blind@countparstart=\count275
+\blind@countxx=\count276
+\blindtext@numBlindtext=\count277
+\blind@countyy=\count278
+\c@blindlist=\count279
+\c@blindlistlevel=\count280
+\c@blindlist@level=\count281
+\blind@listitem=\count282
+\c@blind@listcount=\count283
+\c@blind@levelcount=\count284
+\blind@mathformula=\count285
+\blind@Mathformula=\count286
+\c@blind@randomcount=\count287
+\c@blind@randommax=\count288
+\c@blind@pangramcount=\count289
+\c@blind@pangrammax=\count290
 ) (m:/texlive/2022/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
  (m:/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
@@ -303,7 +302,7 @@ Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )) (m:/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count292
+\etb@tempcnta=\count291
 )) (m:/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
  (m:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -339,15 +338,15 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 Package: pdfpages 2022/01/29 v0.5u Insert pages of external PDF documents (AM)
  (m:/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count293
-\calc@Bcount=\count294
+\calc@Acount=\count292
+\calc@Bcount=\count293
 \calc@Adimen=\dimen148
 \calc@Bdimen=\dimen149
 \calc@Askip=\skip52
 \calc@Bskip=\skip53
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count295
+\calc@Ccount=\count294
 \calc@Cskip=\skip54
 ) (m:/texlive/2022/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
@@ -373,12 +372,12 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
  (m:/texlive/2022/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count296
+\pdfpages@includegraphics@status=\count295
 \AM@pagebox=\box53
 \AM@global@opts=\toks25
-\AM@pagecnt=\count297
+\AM@pagecnt=\count296
 \AM@toc@title=\toks26
-\c@AM@survey=\count298
+\c@AM@survey=\count297
 \AM@templatesizebox=\box54
 ) (m:/texlive/2022/texmf-dist/tex/latex/ncctools/nccmath.sty
 Package: nccmath 2006/01/20 v1.3 Additional Math Commands (NCC)
@@ -388,7 +387,7 @@ Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
  (m:/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count299
+\g_MT_multlinerow_int=\count298
 \l_MT_multwidth_dim=\dimen158
 \origjot=\skip55
 \l_MT_shortvdotswithinadjustabove_dim=\dimen159
@@ -400,14 +399,14 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 \xmathstrut@box=\box55
 \xmathstrut@dim=\dimen165
 ) (m:/texlive/2022/texmf-dist/tex/generic/systeme/systeme.sty (m:/texlive/2022/texmf-dist/tex/generic/xstring/xstring.sty (m:/texlive/2022/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count300
-\decimalpart=\count301
+\integerpart=\count299
+\decimalpart=\count300
 )
 Package: xstring 2021/07/21 v1.84 String manipulations (CT)
 ) (m:/texlive/2022/texmf-dist/tex/generic/systeme/systeme.tex
 \SYS_systemecode=\toks27
 \SYS_systempreamble=\toks28
-\SYSeqnum=\count302
+\SYSeqnum=\count301
 )
 Package: systeme 2020/05/03 v0.34 Mise en forme de systemes d'equations (CT)
 ) (m:/texlive/2022/texmf-dist/tex/latex/bbold/bbold.sty
@@ -439,8 +438,8 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 \@linkdim=\dimen166
-\Hy@linkcounter=\count303
-\Hy@pagecounter=\count304
+\Hy@linkcounter=\count302
+\Hy@pagecounter=\count303
  (m:/texlive/2022/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-02-21 v7.00n Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -450,7 +449,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (m:/texlive/2022/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count305
+\Hy@SavedSpaceFactor=\count304
  (m:/texlive/2022/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-02-21 v7.00n Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -463,7 +462,7 @@ Package hyperref Info: Plain pages OFF on input line 4152.
 Package hyperref Info: Backreferencing OFF on input line 4157.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4390.
-\c@Hy@tempcnt=\count306
+\c@Hy@tempcnt=\count305
  (m:/texlive/2022/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -475,7 +474,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (m:/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count307
+\Fld@menulength=\count306
 \Field@Width=\dimen168
 \Fld@charsize=\dimen169
 Package hyperref Info: Hyper figures OFF on input line 6027.
@@ -491,9 +490,9 @@ LaTeX Info: Redefining \pageref on input line 6101.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count308
-\c@Item=\count309
-\c@Hfootnote=\count310
+\Hy@abspage=\count307
+\c@Item=\count308
+\c@Hfootnote=\count309
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (m:/texlive/2022/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -502,8 +501,8 @@ File: hpdftex.def 2022-02-21 v7.00n Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count311
-\c@bookmark@seq@number=\count312
+\Fld@listcount=\count310
+\c@bookmark@seq@number=\count311
  (m:/texlive/2022/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
  (m:/texlive/2022/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -514,7 +513,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip56
 ) (m:/texlive/2022/texmf-dist/tex/latex/dirtytalk/dirtytalk.sty
 Package: dirtytalk 2010/11/21 A package making "quoting" easier
-\c@dirtytalk@qdepth=\count313
+\c@dirtytalk@qdepth=\count312
 ) (m:/texlive/2022/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2021/04/25 v1.2e Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
@@ -558,14 +557,14 @@ Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@yd=\dimen181
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count314
-\c@pgf@countb=\count315
-\c@pgf@countc=\count316
-\c@pgf@countd=\count317
+\c@pgf@counta=\count313
+\c@pgf@countb=\count314
+\c@pgf@countc=\count315
+\c@pgf@countd=\count316
 \t@pgf@toka=\toks33
 \t@pgf@tokb=\toks34
 \t@pgf@tokc=\toks35
-\pgf@sys@id@count=\count318
+\pgf@sys@id@count=\count317
  (m:/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 )
@@ -576,21 +575,21 @@ File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 ))) (m:/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count319
-\pgfsyssoftpath@bigbuffer@items=\count320
+\pgfsyssoftpath@smallbuffer@items=\count318
+\pgfsyssoftpath@bigbuffer@items=\count319
 ) (m:/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )) (m:/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
  (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen182
-\pgfmath@count=\count321
+\pgfmath@count=\count320
 \pgfmath@box=\box57
 \pgfmath@toks=\toks36
 \pgfmath@stack@operand=\toks37
 \pgfmath@stack@operation=\toks38
 ) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count322
+\c@pgfmathroundto@lastzeros=\count321
 )) (m:/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (m:/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@picminx=\dimen183
@@ -620,7 +619,7 @@ File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box58
 \pgf@hbox=\box59
 \pgf@layerbox@main=\box60
-\pgf@picture@serial@count=\count323
+\pgf@picture@serial@count=\count322
 ) (m:/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgflinewidth=\dimen257
@@ -641,8 +640,8 @@ File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (m:/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@max=\dimen262
-\pgf@sys@shading@range@num=\count324
-\pgf@shadingcount=\count325
+\pgf@sys@shading@range@num=\count323
+\pgf@shadingcount=\count324
 ) (m:/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (m:/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -678,7 +677,7 @@ Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
  (m:/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count326
+\pgf@plot@mark@count=\count325
 \pgfplotmarksize=\dimen267
 )
 \tikz@lastx=\dimen268
@@ -693,26 +692,26 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@figbox@bg=\box64
 \tikz@tempbox=\box65
 \tikz@tempbox@bg=\box66
-\tikztreelevel=\count327
-\tikznumberofchildren=\count328
-\tikznumberofcurrentchild=\count329
-\tikz@fig@count=\count330
+\tikztreelevel=\count326
+\tikznumberofchildren=\count327
+\tikznumberofcurrentchild=\count328
+\tikz@fig@count=\count329
  (m:/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count331
-\pgfmatrixcurrentcolumn=\count332
-\pgf@matrix@numberofcolumns=\count333
+\pgfmatrixcurrentrow=\count330
+\pgfmatrixcurrentcolumn=\count331
+\pgf@matrix@numberofcolumns=\count332
 )
-\tikz@expandcount=\count334
+\tikz@expandcount=\count333
  (m:/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (m:/texlive/2022/texmf-dist/tex/latex/lipsum/lipsum.sty (m:/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count335
-\l__lipsum_a_int=\count336
-\l__lipsum_b_int=\count337
+\g__lipsum_par_int=\count334
+\l__lipsum_a_int=\count335
+\l__lipsum_b_int=\count336
  (m:/texlive/2022/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (m:/texlive/2022/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip57
@@ -738,9 +737,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (m:/texlive/2022/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count338
-\Gm@cntv=\count339
-\c@Gm@tempcnt=\count340
+\Gm@cnth=\count337
+\Gm@cntv=\count338
+\c@Gm@tempcnt=\count339
 \Gm@bindingoffset=\dimen277
 \Gm@wd@mp=\dimen278
 \Gm@odd@mp=\dimen279
@@ -762,16 +761,16 @@ File: pgfmoduleanimations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfdecoratedinputsegmentcompleteddistance=\dimen287
 \pgfdecoratedinputsegmentremainingdistance=\dimen288
 \pgf@decorate@distancetomove=\dimen289
-\pgf@decorate@repeatstate=\count341
+\pgf@decorate@repeatstate=\count340
 \pgfdecorationsegmentamplitude=\dimen290
 \pgfdecorationsegmentlength=\dimen291
 )
-\pgfsysanim@snap@count=\count342
+\pgfsysanim@snap@count=\count341
 \pgfsysanim@lasttime=\dimen292
 )
 \pgf@anim@dim=\dimen293
 )
-\tikz@anim@once@count=\count343
+\tikz@anim@once@count=\count342
 )
 (m:/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -802,16 +801,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
  (m:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count344
+\scratchcounter=\count343
 \scratchdimen=\dimen294
 \scratchbox=\box67
-\nofMPsegments=\count345
-\nofMParguments=\count346
+\nofMPsegments=\count344
+\nofMParguments=\count345
 \everyMPshowfont=\toks42
-\MPscratchCnt=\count347
+\MPscratchCnt=\count346
 \MPscratchDim=\dimen295
-\MPnumerator=\count348
-\makeMPintoPDFobject=\count349
+\MPnumerator=\count347
+\makeMPintoPDFobject=\count348
 \everyMPtoPDFconversion=\toks43
 ) (m:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -833,7 +832,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (m:/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count350
+\c@section@level=\count349
 )
 LaTeX Info: Redefining \ref on input line 63.
 LaTeX Info: Redefining \pageref on input line 63.
@@ -885,38 +884,39 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
  (m:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-{m:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+)
 LaTeX Font Info:    Calculating math sizes for size <13> on input line 72.
+ [1
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.168 \[
-         [1] [2] [3
-
-] [4
+{m:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4
 
 ] [5
 
-] [6] [7] [8] (./solution.aux)
+] [6
+
+] [7] [8] [9] [10
+
+] [11
+
+] [12
+
+] [13] (./solution.aux)
 Package rerunfilecheck Info: File `solution.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 28180 strings out of 478268
- 540328 string characters out of 5850346
- 910032 words of memory out of 5000000
- 45837 multiletter control sequences out of 15000+600000
+ 28177 strings out of 478268
+ 540288 string characters out of 5850346
+ 910618 words of memory out of 5000000
+ 45829 multiletter control sequences out of 15000+600000
  501224 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,16n,80p,561b,359s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr17.pfb>
-Output written on solution.pdf (9 pages, 210608 bytes).
+ 84i,16n,80p,558b,359s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx7.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr17.pfb>
+Output written on solution.pdf (13 pages, 239283 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
+ 176 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
+ 14 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
