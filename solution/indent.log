@@ -1,19 +1,19 @@
 INFO:  latexindent.exe version 3.16, 2022-03-13, a script to indent .tex files
-       latexindent.exe lives here: C:/texlive/2022/bin/win32/
-       Thu Aug 22 22:07:43 2024
-       Filename: d:/codespace/mypages-main/tex/__latexindent_temp_solution.tex
+       latexindent.exe lives here: M:/texlive/2022/bin/win32/
+       Tue Sep  3 00:50:16 2024
+       Filename: m:/codespace/luan_an/texfile/solution/__latexindent_temp_solution.tex
 INFO:  Processing switches:
        -y|--yaml: YAML settings specified via command line
        -c|--cruft: cruft directory
-INFO:  Directory for backup files and d:/codespace/mypages-main/tex//indent.log: d:/codespace/mypages-main/tex/
+INFO:  Directory for backup files and m:/codespace/luan_an/texfile/solution//indent.log: m:/codespace/luan_an/texfile/solution/
 INFO:  YAML settings read: defaultSettings.yaml
-       Reading defaultSettings.yaml from C:/texlive/2022/bin/win32/defaultSettings.yaml
-       Reading defaultSettings.yaml (2nd attempt) from C:/texlive/2022/bin/win32/../../texmf-dist/scripts/latexindent/defaultSettings.yaml
-       and then, if necessary, C:/texlive/2022/bin/win32/LatexIndent/defaultSettings.yaml
+       Reading defaultSettings.yaml from M:/texlive/2022/bin/win32/defaultSettings.yaml
+       Reading defaultSettings.yaml (2nd attempt) from M:/texlive/2022/bin/win32/../../texmf-dist/scripts/latexindent/defaultSettings.yaml
+       and then, if necessary, M:/texlive/2022/bin/win32/LatexIndent/defaultSettings.yaml
 INFO:  YAML settings read: indentconfig.yaml or .indentconfig.yaml
-       Home directory is C:\Users\nguye (didn't find either indentconfig.yaml or .indentconfig.yaml)
-       To specify user settings you would put indentconfig.yaml here: C:\Users\nguye/indentconfig.yaml
-       Alternatively, you can use the hidden file .indentconfig.yaml as: C:\Users\nguye/.indentconfig.yaml
+       Home directory is C:\Users\Lenovo (didn't find either indentconfig.yaml or .indentconfig.yaml)
+       To specify user settings you would put indentconfig.yaml here: C:\Users\Lenovo/indentconfig.yaml
+       Alternatively, you can use the hidden file .indentconfig.yaml as: C:\Users\Lenovo/.indentconfig.yaml
 INFO:  YAML settings read: -y switch
        YAML setting: defaultIndent:'    '
        single-quoted string found in -y switch: '    ', substitute to     

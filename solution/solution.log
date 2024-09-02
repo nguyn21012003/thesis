@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2024.6.2)  2 SEP 2024 12:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2024.6.2)  3 SEP 2024 00:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -900,23 +900,31 @@ LaTeX Font Info:    Calculating math sizes for size <13> on input line 72.
 
 ] [12
 
-] [13] (./solution.aux)
+] [13
+
+] [14
+
+] [15
+
+] [16
+
+] (./solution.aux)
 Package rerunfilecheck Info: File `solution.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 28177 strings out of 478268
- 540288 string characters out of 5850346
- 910618 words of memory out of 5000000
+ 28180 strings out of 478268
+ 540309 string characters out of 5850346
+ 910617 words of memory out of 5000000
  45829 multiletter control sequences out of 15000+600000
  501224 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,16n,80p,558b,359s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx7.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr17.pfb>
-Output written on solution.pdf (13 pages, 239283 bytes).
+<m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx7.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnbx9.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr10.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb><m:/texlive/2022/texmf-dist/fonts/type1/vntex/vnr/vnr17.pfb>
+Output written on solution.pdf (16 pages, 255074 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 14 named destinations out of 1000 (max. 500000)
+ 193 PDF objects out of 1000 (max. 8388607)
+ 129 compressed objects within 2 object streams
+ 17 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
