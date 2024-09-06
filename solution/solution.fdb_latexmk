@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1725299413 "m:/codespace/luan_an/texfile/solution/solution.tex" "solution.pdf" "solution" 1725299416
-  "m:/codespace/luan_an/texfile/solution/solution.tex" 1725299412 50902 196f21cf1e4f1b0eb76f873abb858012 ""
+["pdflatex"] 1725519296 "m:/codespace/luan_an/texfile/solution/solution.tex" "solution.pdf" "solution" 1725519299
+  "m:/codespace/luan_an/texfile/solution/solution.tex" 1725519290 78648 ad28b8789a2a368091a5f2336220774a ""
   "m:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1717297261 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "m:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1717296558 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "m:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1717296558 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -253,9 +253,9 @@
   "m:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1717298933 4448422 80856624025632982c3e910acb3cefa5 ""
   "m:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1717299003 2826496 0488c39d051fbbc1490ae42d1d9b7107 ""
   "m:/texlive/2022/texmf.cnf" 1717298909 713 e69b156964470283e0530f5060668171 ""
-  "solution.aux" 1725299415 687 7b3c6030be184a158bbe0675355b92d0 "pdflatex"
+  "solution.aux" 1725519299 687 500c7a3ca04d77fe82cca3a466e24cfb "pdflatex"
   "solution.out" 0 -1 0 "pdflatex"
-  "solution.tex" 1725299412 50902 196f21cf1e4f1b0eb76f873abb858012 ""
+  "solution.tex" 1725519290 78648 ad28b8789a2a368091a5f2336220774a ""
   (generated)
   "solution.aux"
   "solution.log"
