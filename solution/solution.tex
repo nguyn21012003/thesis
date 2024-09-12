@@ -517,8 +517,9 @@ Chọn hướng từ trường là $\renewcommand{\arraystretch}{0.7} B = \begin
 \noindent Phương trình tham số cho $x,y$:
 
 \begin{align*}
-    x = x(t) = x_0 + \alpha t \\
-    y = y(t) = y_0 + \beta t
+                                    & x = x(t) = x_0 + \alpha t              \\
+                                    & y = y(t) = y_0 + \beta t               \\
+    C \; \text{là đường cong đi từ} & \; \mathbf{R_0} \rightarrow \mathbf{R}
 \end{align*}
 
 \clearpage
@@ -527,9 +528,9 @@ Chọn hướng từ trường là $\renewcommand{\arraystretch}{0.7} B = \begin
 
 Ta có:
 \begin{align*}
-     & x = at                                                                                                                                                                                 \\
-     & y = 0                                                                                                                                                                                  \\
-     & \Rightarrow \int_{0}^{\mathbf{R_1}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
+     & x = at                                                                                                                                                                  \\
+     & y = 0                                                                                                                                                                   \\
+     & \Rightarrow \int_{C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
      & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx0 + 0\dfrac{dz}{dt} \right] dt = 0
 \end{align*}
 
@@ -537,9 +538,9 @@ Ta có:
 
 Ta có:
 \begin{align*}
-     & x = \dfrac{a}{2}t                                                                                                                                                                      \\
-     & y = -\dfrac{a\sqrt{3}}{2}t                                                                                                                                                             \\
-     & \Rightarrow \int_{0}^{\mathbf{R_1}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
+     & x = \dfrac{a}{2}t                                                                                                                                                       \\
+     & y = -\dfrac{a\sqrt{3}}{2}t                                                                                                                                              \\
+     & \Rightarrow \int_{C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
      & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx\left(-\dfrac{a\sqrt{3}}{2}\right) + 0\dfrac{dz}{dt} \right] dt = -\dfrac{Ba^2\sqrt{3}}{8}
 \end{align*}
 
@@ -549,54 +550,61 @@ Ta có:
 \begin{align*}
      & x = -\dfrac{a}{2}t                                                                                                                                                                           \\
      & y = -\dfrac{a\sqrt{3}}{2}t                                                                                                                                                                   \\
-     & \Rightarrow \int_{0}^{\mathbf{R_1}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt       \\
+     & \Rightarrow \int_{C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt                      \\
      & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx\left(-\dfrac{a\sqrt{3}}{2}\right) + 0\dfrac{dz}{dt} \right] dt = B \left( -\dfrac{a}{2}\right)\left(-\dfrac{a\sqrt{3}}{2}\right) \int_{0}^{1}t dt \\
      & = \dfrac{Ba^2\sqrt{3}}{8}
 \end{align*}
 
 \clearpage
 
+Xét $\mathbf{R_4},\mathbf{R_5},\mathbf{R_6}$: ta nhận thấy có thể đưa đường cong $\mathbf{C}$ từ $\mathbf{R_0}$ cho tới $\mathbf{R}$ về các dạng của $\mathbf{R_1},\mathbf{R_2},\mathbf{R_3}$. Lúc này đường cong sẽ là $\mathbf{-C}$ \\
+Dựa vào tính chất của tích phân đường:
+\begin{align*}
+    \int_{C}^{}\vec{f}d\vec{\mathbf{r}}              & = - \int_{-C}^{}\vec{f}d\vec{\mathbf{r}} \\
+    \Rightarrow -\int_{C}^{}\vec{f}d\vec{\mathbf{r}} & = \int_{-C}^{}\vec{f}d\vec{\mathbf{r}}   \\
+\end{align*}
+
 \noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(0,-a)}{\mathbf{R_4}}$
 
 Ta có:
 \begin{align*}
-     & x = - at                                                                                                                                                                               \\
-     & y = 0                                                                                                                                                                                  \\
-     & \Rightarrow \int_{0}^{\mathbf{R_4}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
-     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx0 + 0\dfrac{dz}{dt} \right] dt = 0
+     & x = - at                                                                                                                                                                                                                       \\
+     & y = 0                                                                                                                                                                                                                          \\
+     & \Rightarrow \int_{-C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =-\int_{C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}=  - \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
+     & = - \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx0 + 0\dfrac{dz}{dt} \right] dt = 0
 \end{align*}
 
-\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(0,a)}{\mathbf{R_5}}$
+\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(-\frac{a}{2},\frac{a\sqrt{3}}{2})}{\mathbf{R_5}}$
 
 Ta có:
 \begin{align*}
-     & x = -\dfrac{a}{2}t                                                                                                                                                                     \\
-     & y = \dfrac{a\sqrt{3}}{2}t                                                                                                                                                              \\
-     & \Rightarrow \int_{0}^{\mathbf{R_5}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
-     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx\dfrac{a\sqrt{3}}{2} + 0\dfrac{dz}{dt} \right] dt = -\dfrac{Ba^2\sqrt{3}}{8}
+     & x = -\dfrac{a}{2}t                                                                                                                                                                                                            \\
+     & y = \dfrac{a\sqrt{3}}{2}t                                                                                                                                                                                                     \\
+     & \Rightarrow \int_{-C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =-\int_{C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
+     & = -\int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx\dfrac{a\sqrt{3}}{2} + 0\dfrac{dz}{dt} \right] dt = \dfrac{Ba^2\sqrt{3}}{8}
 \end{align*}
+
+\clearpage
 
 \noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(\frac{a}{2},\frac{a\sqrt{3}}{2})}{\mathbf{R_6}}$
 
 Ta có:
 \begin{align*}
-     & x = \frac{a}{2}t                                                                                                                                                                       \\
-     & y = \frac{a\sqrt{3}}{2}t                                                                                                                                                               \\
-     & \Rightarrow \int_{0}^{\mathbf{R_6}} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
-     & = \int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx \frac{a\sqrt{3}}{2} + 0\dfrac{dz}{dt} \right] dt = \dfrac{Ba^2\sqrt{3}}{8}
+     & x = \frac{a}{2}t                                                                                                                                                                                                              \\
+     & y = \frac{a\sqrt{3}}{2}t                                                                                                                                                                                                      \\
+     & \Rightarrow \int_{-C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =-\int_{C} \mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'} =  \int_{t_B}^{t_A} \left[ P(x,y)\dfrac{dx}{dt} + Q(x,y)\dfrac{dy}{dt} + R(x,y)\dfrac{dz}{dt} \right] dt \\
+     & = -\int_{0}^{1} \left[ 0\dfrac{dx}{dt} + Bx \frac{a\sqrt{3}}{2} + 0\dfrac{dz}{dt} \right] dt = -\dfrac{Ba^2\sqrt{3}}{8}
 \end{align*}
-
-\clearpage
 
 \noindent Vậy $h_0$ có dạng:
 
 \begin{align*}
-    h_0 = H_{11}^{11}(\textbf{k}) & = e^{0}e^{i\mathbf{k\cdot R_1}} E_{11}^{11}(\mathbf{R_1}) + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\mathbf{k\cdot R_2}} E_{11}^{11}(\mathbf{R_2})                                                                                                          \\
-                                  & + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\mathbf{k\cdot R_3}} E_{11}^{11}(\mathbf{R_3}) + e^{0}e^{i\mathbf{k\cdot R_4}} E_{11}^{11}(\mathbf{R_4})                                                                                                           \\
-                                  & + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\mathbf{k\cdot R_5}} E_{11}^{11}(\mathbf{R_5}) + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\mathbf{k\cdot R_6}} E_{11}^{11}(\mathbf{R_6}) \epsilon_1                                                          \\
-                                  & = e^{ik_xa}E_{11}^{11}(\mathbf{R_1}) + e^{-ik_xa}E_{11}^{11}(\mathbf{R_4}) + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\left(k_x\frac{a}{2} - k_y\frac{a\sqrt{3}}{2}\right)} E_{11}^{11}(\mathbf{R_2})                                                        \\
-                                  & + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\left(-k_x\frac{a}{2} - k_y\frac{a\sqrt{3}}{2}\right)} E_{11}^{11}(\mathbf{R_3}) + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\left(-k_x\frac{a}{2} + k_y\frac{a\sqrt{3}}{2}\right)} E_{11}^{11}(\mathbf{R_5}) \\
-                                  & + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\left(k_x\frac{a}{2} + k_y\frac{a\sqrt{3}}{2}\right)} E_{11}^{11}(\mathbf{R_6}) + \epsilon_1
+    h_0 = H_{11}^{11}(\textbf{k}) & = e^{0}e^{i\mathbf{k\cdot R_1}} E_{11}^{11}(\mathbf{R_1}) + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\mathbf{k\cdot R_2}} E_{11}^{11}(\mathbf{R_2})                                                                                                         \\
+                                  & + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\mathbf{k\cdot R_3}} E_{11}^{11}(\mathbf{R_3}) + e^{0}e^{i\mathbf{k\cdot R_4}} E_{11}^{11}(\mathbf{R_4})                                                                                                          \\
+                                  & + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\mathbf{k\cdot R_5}} E_{11}^{11}(\mathbf{R_5}) + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\mathbf{k\cdot R_6}} E_{11}^{11}(\mathbf{R_6}) + \epsilon_1                                                       \\
+                                  & = e^{ik_xa}E_{11}^{11}(\mathbf{R_1}) + e^{-ik_xa}E_{11}^{11}(\mathbf{R_4}) + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\left(k_x\frac{a}{2} - k_y\frac{a\sqrt{3}}{2}\right)} E_{11}^{11}(\mathbf{R_2})                                                       \\
+                                  & + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\left(-k_x\frac{a}{2} - k_y\frac{a\sqrt{3}}{2}\right)} E_{11}^{11}(\mathbf{R_3}) + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\left(-k_x\frac{a}{2} + k_y\frac{a\sqrt{3}}{2}\right)} E_{11}^{11}(\mathbf{R_5}) \\
+                                  & + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}e^{i\left(k_x\frac{a}{2} + k_y\frac{a\sqrt{3}}{2}\right)} E_{11}^{11}(\mathbf{R_6}) + \epsilon_1
 \end{align*}
 
 \noindent Đặt $k_x\dfrac{a}{2} = \alpha,\quad k_y\dfrac{a\sqrt{3}}{2} = \beta, \quad \dfrac{e}{\hbar}\dfrac{Ba^2\sqrt{3}}{8} = \eta ,\quad \alpha - \beta = \delta,\quad \alpha + \beta = \gamma$ và áp dụng các toán tử quay để biểu diễn ${\mathbf{R}}_1$ theo $\mathbf{R_1}$.
@@ -610,15 +618,14 @@ Ta có:
 \end{align*}
 
 \begin{align*}
-    \Rightarrow h_0 & = 2 E_{11}^{11}(\mathbf{R_1}) \cos (2\alpha) + (e^{-i\eta}e^{i\delta} + e^{i\eta}e^{-i\gamma} + e^{-i\eta}e^{-i\delta} + e^{i\eta}e^{i\gamma} ) E_{11}^{11}(\mathbf{R_1}) +\epsilon_1 \\
-                    & = 2 E_{11}^{11}(\mathbf{R_1}) \cos (2\alpha) + (e^{-i\eta}e^{i\delta} + e^{i\eta}e^{-i\gamma} + e^{-i\eta}e^{-i\delta} + e^{i\eta}e^{i\gamma} ) E_{11}^{11}(\mathbf{R_1}) +\epsilon_1 \\
-                    & = 2 E_{11}^{11}(\mathbf{R_1}) \cos(2\alpha) + E_{11}^{11}(\mathbf{R_1})( e^{-i\eta}2 \cos\delta + e^{i\eta}2\cos\gamma ) + \epsilon_1                                                 \\
-                    & = 2 E_{11}^{11}(\mathbf{R_1}) \left[ \cos2\alpha + (\cos\eta - i \sin\eta)  \cos\delta + (\cos\eta + i \sin\eta)\cos\gamma \right] + \epsilon_1                                       \\
-                    & = 2 E_{11}^{11}(\mathbf{R_1}) \left[ \cos2\alpha + \cos\eta \cos\delta - i \sin\eta \cos\delta + \cos\eta \cos\gamma + i \sin\eta \cos\gamma \right] + \epsilon_1                     \\
-    h_0             & = 2 E_{11}^{11}(\mathbf{R_1}) \left(\cos2\alpha + 2\cos\eta\cos\alpha\cos\beta - 2i\sin\eta\sin\alpha\sin\beta \right) + \epsilon_1
+    \Rightarrow h_0 & = 2 E_{11}^{11}(\mathbf{R_1}) \cos (2\alpha) + (e^{-i\eta}e^{i\delta} + e^{i\eta}e^{-i\gamma} + e^{i\eta}e^{-i\delta} + e^{-i\eta}e^{i\gamma} ) E_{11}^{11}(\mathbf{R_1}) +\epsilon_1 \\
+                    & = 2 E_{11}^{11}(\mathbf{R_1}) \cos (2\alpha) + E_{11}^{11}(\mathbf{R_1}) \left[(\cos\eta - i\sin\eta ) e^{i\delta} + (\cos\eta + i\sin\eta )e^{-i\delta} \right]                      \\
+                    & + E_{11}^{11}\mathbf{R_1} \left[(\cos\eta + i \sin\eta)e^{-i\gamma} + (\cos\eta - i \sin\eta)e^{i\gamma}\right] +  \epsilon_1                                                         \\
+                    & = 2 E_{11}^{11}(\mathbf{R_1}) \cos (2\alpha) + E_{11}^{11}(\mathbf{R_1}) \left[2\cos\eta \cos\delta - i\sin\eta( 2i\sin\delta)  \right]                                               \\
+                    & + E_{11}^{11}(\mathbf{R_1}) \left[2\cos\eta \cos\gamma - i\sin\eta( 2i\sin\gamma)  \right] +   \epsilon_1                                                                             \\
+                    & = 2 E_{11}^{11}(\mathbf{R_1}) \cos (2\alpha) + 2E_{11}^{11}(\mathbf{R_1}) \left[\cos\eta (\cos\gamma + \cos\delta) + \sin\eta(\sin\gamma + \sin\delta)\right] +   \epsilon_1          \\
+                    & = 2 t_0 \left[ \cos (2\alpha) + 2\cos\eta \cos\alpha\cos\beta + 2\sin\eta\sin\alpha\cos\beta\right] +   \epsilon_1
 \end{align*}
-
-\clearpage
 
 \noindent $\ast$ \textbf{h1}
 \begin{align*}
@@ -646,7 +653,6 @@ Trong đó:
     \Rightarrow E_{11}^{12}(\mathbf{R_4}) & = - E_{11}^{12}(\mathbf{R_1}) , \quad E_{12}^{12}(\mathbf{R_4}) = E_{11}^{12}(\mathbf{R_1})
 \end{align*}
 
-
 \begin{align*}
     \ast                                  & E^{12}(\mathbf{R_2})             = E^{12}(\sigma'\mathbf{R_2}) = D^1(\sigma') E^{12}(\mathbf{R_1}) \left[D^2(\sigma')\right]^\dagger \\
                                           & = 1
@@ -671,26 +677,16 @@ Một cách tương tự ta có cho:
     E_{11}^{12}(\mathbf{R_5}) & =  \dfrac{ -E_{11}^{12}(\mathbf{R_1}) - \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} \quad ; E_{11}^{12}(\mathbf{R_6})  =  \dfrac{ E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2}
 \end{align*}
 
-\clearpage
-
 \begin{align*}
     h_1  =           & E_{11}^{12}(\mathbf{R_1})\left( e^{ik_x a} - e^{-ik_x a} \right) + e^{-i\eta} e^{i\delta} \dfrac{E_{11}^{12}(\mathbf{R_1}) - \sqrt{3}E_{12}^{12}(\mathbf{R_1})}{2}                                                      \\
-                     & + e^{i\eta} e^{-i\gamma} \dfrac{ -E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} + e^{-i\eta} e^{-i\delta} \dfrac{ -E_{11}^{12}(\mathbf{R_1}) - \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2}              \\
-                     & + e^{i\eta} e^{i\gamma} \dfrac{ E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2}                                                                                                                      \\
-    =                & E_{11}^{12}(\mathbf{R_1})\left( e^{ik_x a} - e^{-ik_x a} \right) + \dfrac{E_{11}^{12}(\mathbf{R_1})}{2}\left( e^{-i\eta} e^{i\delta} - e^{i\eta} e^{-i\gamma} - e^{-i\eta} e^{-i\delta} + e^{i\eta} e^{i\gamma} \right) \\
-                     & + \dfrac{\sqrt{3}E_{12}^{12}(\mathbf{R_1})}{2}\left( -e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} - e^{-i\eta} e^{-i\delta} + e^{i\eta} e^{i\gamma} \right)                                                         \\
-    =                & \dfrac{E_{11}^{12}(\mathbf{R_1})}{2} 2i \left[ e^{-i\eta}\sin\delta + e^{i\eta}\sin\gamma \right] + \dfrac{\sqrt{3}E_{12}^{12}(\mathbf{R_1})}{2} 2 \left[ e^{i\eta}\cos\gamma - e^{-i\eta}\cos\delta  \right]           \\
-                     & + 2i E_{11}^{12}(\mathbf{R_1}) \sin 2\alpha                                                                                                                                                                             \\
-    =                & 2i E_{11}^{12}(\mathbf{R_1}) \sin 2\alpha + i E_{11}^{12}(\mathbf{R_1}) \left[ (\cos\eta - i \sin\eta)\sin\delta + (\cos\eta + i \sin\eta)\sin\gamma \right]                                                            \\
-                     & + \sqrt{3}E_{12}^{12}(\mathbf{R_1})\left[ (\cos\eta + i \sin\eta)\cos\gamma - (\cos\eta - i \sin\eta)\cos\delta \right]                                                                                                 \\
-    =                & 2i E_{11}^{12}(\mathbf{R_1}) \sin 2\alpha + i E_{11}^{12}(\mathbf{R_1}) \left[ \cos\eta(\sin\delta + \sin\gamma) + i \sin\eta(\sin\gamma - \sin\delta) \right]                                                          \\
-                     & + \sqrt{3}E_{12}^{12}(\mathbf{R_1})\left[ \cos\eta(\cos\gamma - cos\delta) + i \sin\eta(\cos\gamma + \cos\delta) \right]                                                                                                \\
-    =                & 2i E_{11}^{12}(\mathbf{R_1}) \sin 2\alpha + i E_{11}^{12}(\mathbf{R_1}) \left[ \cos\eta(\sin\delta + \sin\gamma) + i \sin\eta(\sin\gamma - \sin\delta) \right]                                                          \\
-                     & + \sqrt{3}E_{12}^{12}(\mathbf{R_1})\left[ \cos\eta(\cos\gamma - cos\delta) + i \sin\eta(\cos\gamma + \cos\delta) \right]                                                                                                \\
-    =                & 2i E_{11}^{12}(\mathbf{R_1}) \sin 2\alpha + i E_{11}^{12}(\mathbf{R_1}) \left[ 2\cos\eta\sin\alpha\cos\beta + 2i \sin\eta\cos\alpha\sin\beta \right]                                                                    \\
-                     & + \sqrt{3}E_{12}^{12}(\mathbf{R_1})\left[ -2\cos\eta\sin\alpha\sin\beta + 2i \sin\eta\cos\alpha\cos\beta \right]                                                                                                        \\
-    \Rightarrow h_1= & 2 i E_{11}^{12}(\mathbf{R_1}) (\sin 2\alpha + \cos\eta\sin\alpha\cos\beta + i \sin\eta\cos\alpha\sin\beta )                                                                                                             \\
-                     & - 2\sqrt{3}E_{12}^{12}(\mathbf{R_1})\left[ \cos\eta\sin\alpha\sin\beta + i \sin\eta\cos\alpha\cos\beta  \right]
+                     & + e^{i\eta} e^{-i\gamma} \dfrac{ -E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2} + e^{i\eta} e^{-i\delta} \dfrac{ -E_{11}^{12}(\mathbf{R_1}) - \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2}               \\
+                     & + e^{-i\eta} e^{i\gamma} \dfrac{ E_{11}^{12}(\mathbf{R_1}) + \sqrt{3} E_{12}^{12}(\mathbf{R_1})}{2}                                                                                                                     \\
+    =                & E_{11}^{12}(\mathbf{R_1})\left( e^{ik_x a} - e^{-ik_x a} \right) + \dfrac{E_{11}^{12}(\mathbf{R_1})}{2}\left( e^{-i\eta} e^{i\delta} - e^{i\eta} e^{-i\gamma} - e^{i\eta} e^{-i\delta} + e^{-i\eta} e^{i\gamma} \right) \\
+                     & + \dfrac{\sqrt{3}E_{12}^{12}(\mathbf{R_1})}{2}\left( -e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} - e^{i\eta} e^{-i\delta} + e^{-i\eta} e^{i\gamma} \right)                                                         \\
+    =                & E_{11}^{12}(\mathbf{R_1})\left( 2i\sin2\alpha \right) + \dfrac{E_{11}^{12}(\mathbf{R_1})}{2}4i(\cos\eta\sin\alpha\cos\beta - \sin\eta\cos\alpha\cos\beta)                                                               \\
+                     & +\dfrac{\sqrt{3}E_{12}^{12}(\mathbf{R_1})}{2}4(-\cos\eta\sin\alpha\sin\beta + \sin\eta\sin\alpha\cos\beta)                                                                                                              \\
+    \Rightarrow h_1= & 2 i t_1 (\sin 2\alpha + \cos\eta\sin\alpha\cos\beta -    \sin\eta\cos\alpha\cos\beta )                                                                                                                                  \\
+                     & - 2\sqrt{3}t_2\left[ \cos\eta\sin\alpha\sin\beta - \sin\eta\cos\alpha\sin\beta  \right]
 \end{align*}
 
 \noindent$\ast$ \textbf{h2}
@@ -701,8 +697,6 @@ Một cách tương tự ta có cho:
                                   & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_5}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_5}} E_{12}^{12}(\mathbf{R_5}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_6}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R_6}} E_{12}^{12}(\mathbf{R_6})
 \end{align*}
 
-\clearpage
-
 \noindent Trong đó:
 \begin{align*}
     E_{12}^{12}(\mathbf{R_2}) & = \dfrac{ - \sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2}                                                                                                            \\
@@ -711,20 +705,15 @@ Một cách tương tự ta có cho:
 \end{align*}
 Thế vô:
 \begin{align*}
-    h_2 = & E_{12}^{12}(\mathbf{R_1}) \left( e^{ik_x a} + e^{-ik_x a} \right) + e^{-i\eta} e^{i\delta} \dfrac{ - \sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2}                                  \\
-          & + e^{i\eta} e^{-i\gamma} \dfrac{ - \sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2} + e^{-i\eta} e^{-i\delta} \dfrac{\sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2} \\
-          & + e^{i\eta} e^{i\gamma} \dfrac{\sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2}                                                                                                        \\
-    =     & 2 E_{12}^{12}(\mathbf{R_1}) \cos 2\alpha + \dfrac{\sqrt{3}E_{11}^{12}(\mathbf{R_1})}{2}\left( - e^{-i\eta}e^{i\delta} - e^{i\eta}e^{-i\gamma} + e^{-i\eta}e^{-i\delta} + e^{i\eta}e^{i\gamma} \right)   \\
-          & + \dfrac{E_{12}^{12}(\mathbf{R_1})}{2}\left( - e^{-i\eta}e^{i\delta} - e^{i\eta}e^{-i\gamma} - e^{-i\eta}e^{-i\delta} - e^{i\eta}e^{i\gamma} \right)                                                    \\
-    =     & 2 E_{12}^{12}(\mathbf{R_1}) \cos 2\alpha + \dfrac{\sqrt{3}E_{11}^{12}(\mathbf{R_1})}{2} \left[ -e^{-i\eta}(e^{i\delta} - e^{-i\delta}) + e^{i\eta}(e^{i\gamma} - e^{-i\gamma}) \right]                  \\
-          & + \dfrac{E_{12}^{12}(\mathbf{R_1})}{2} \left[ -e^{-i\eta}(e^{i\delta} + e^{-i\delta}) - e^{i\eta}(e^{i\gamma} + e^{-i\gamma}) \right]                                                                   \\
-    =     & 2 E_{12}^{12}(\mathbf{R_1}) \cos 2\alpha + i\sqrt{3} E_{11}^{12}(\mathbf{R_1}) \left[ - (\cos\eta - i \sin\eta)\sin\delta + (\cos\eta + i \sin\eta)\sin\gamma \right]                                   \\
-          & - E_{12}^{12}(\mathbf{R_1}) \left[ (\cos\eta - i \sin\eta) \cos\delta + (\cos\eta + i\sin\eta) \cos\gamma \right]                                                                                       \\
-    =     & 2 E_{12}^{12}(\mathbf{R_1}) \cos 2\alpha + i\sqrt{3} E_{11}^{12}(\mathbf{R_1}) \left[ \cos\eta(\sin\gamma - \sin\delta) + i\sin\eta(\sin\gamma + \sin\delta) \right]                                    \\
-          & -  E_{12}^{12}(\mathbf{R_1}) \left[ \cos\eta(\cos\delta + \cos\gamma) + i\sin\eta(\cos\gamma - \cos\delta) \right]                                                                                      \\
-    =     & 2 E_{12}^{12}(\mathbf{R_1}) \cos 2\alpha + 2i\sqrt{3}E_{11}^{12}(\mathbf{R_1})\left[ \cos\eta\cos\alpha\sin\beta + i \sin\eta\sin\alpha\cos\beta \right]                                                \\
-          & - 2 E_{12}^{12}(\mathbf{R_1}) \left[ \cos\eta\cos\alpha\cos\beta - i\sin\eta\sin\alpha\sin\beta \right]                                                                                                 \\
-    =     & 2t_2 \left[ \cos 2\alpha - \cos\eta\cos\alpha\cos\beta - i\sin\eta\sin\alpha\sin\beta \right] + 2i\sqrt{3}t_1\left[ \cos\eta\cos\alpha\sin\beta + i \sin\eta\sin\alpha\cos\beta \right]
+    h_2 = & E_{12}^{12}(\mathbf{R_1}) \left( e^{ik_x a} + e^{-ik_x a} \right) + e^{-i\eta} e^{i\delta} \dfrac{ - \sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2}                                 \\
+          & + e^{i\eta} e^{-i\gamma} \dfrac{ - \sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2} + e^{i\eta} e^{-i\delta} \dfrac{\sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2} \\
+          & + e^{-i\eta} e^{i\gamma} \dfrac{\sqrt{3}E_{11}^{12}(\mathbf{R_1}) - E_{12}^{12}(\mathbf{R_1})}{2}                                                                                                      \\
+    =     & 2 E_{12}^{12}(\mathbf{R_1}) \cos 2\alpha + \dfrac{\sqrt{3}E_{11}^{12}(\mathbf{R_1})}{2}\left( - e^{-i\eta}e^{i\delta} - e^{i\eta}e^{-i\gamma} + e^{i\eta}e^{-i\delta} + e^{-i\eta}e^{i\gamma} \right)  \\
+          & + \dfrac{E_{12}^{12}(\mathbf{R_1})}{2}\left( - e^{-i\eta}e^{i\delta} - e^{i\eta}e^{-i\gamma} - e^{i\eta}e^{-i\delta} - e^{-i\eta}e^{i\gamma} \right)                                                   \\
+    =     & 2t_2 \cos 2\alpha + 2i\sqrt{3}t_1(\cos\eta\cos\alpha\sin\beta + i \sin\eta\sin\alpha\sin\beta)                                                                                                         \\
+          & - 2t_2 (\cos\eta\cos\alpha\cos\beta + \sin\eta\sin\alpha\sin\beta)                                                                                                                                     \\
+    h_2 = & 2t_2 (\cos 2\alpha - \cos\eta\cos\alpha\cos\beta - \sin\eta\sin\alpha\sin\beta)     \nonumber                                                                                                          \\
+          & + 2i\sqrt{3}t_1(\cos\eta\cos\alpha\sin\beta + i \sin\eta\sin\alpha\sin\beta)
 \end{align*}
 
 Các ma trận $E^{22}(\mathbf{R})$
@@ -746,7 +735,7 @@ Các ma trận $E^{22}(\mathbf{R})$
     \begin{bmatrix}
         \frac{1}{2}         & -\frac{\sqrt{3}}{2} \\
         -\frac{\sqrt{3}}{2} & -\frac{1}{2}
-    \end{bmatrix}                           \\
+    \end{bmatrix}                            \\
      & =
     \begin{bmatrix}
         \frac{t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + 3t_{22}}{4}  & \frac{-\sqrt{3}t_{11} - t_{12} + 3t_{21} + \sqrt{3}t_{22}}{4} \\
@@ -903,21 +892,19 @@ Trong đó:
 Thế vô:
 
 \begin{align*}
-    h_{11} = & t_{11}\left( e^{ik_x a} + e^{-ik_x a} \right) + e^{-i\eta}e^{i\delta} \dfrac{t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + 3t_{22}}{4}                                            \\
-             & + e^{i\eta} e^{-i\gamma} \dfrac{t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + 3t_{22}}{4} + e^{-i\eta} e^{-i\delta} \dfrac{t_{11} + \sqrt{3}t_{12} + \sqrt{3}t_{21} + 3t_{22}}{4} \\
-             & + e^{i\eta} e^{i\gamma} \dfrac{t_{11} + \sqrt{3}t_{12} + \sqrt{3}t_{21} + 3t_{22}}{4}
+    h_{11} = & t_{11}\left( e^{ik_x a} + e^{-ik_x a} \right) + e^{-i\eta}e^{i\delta} \dfrac{t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + 3t_{22}}{4}                                           \\
+             & + e^{i\eta} e^{-i\gamma} \dfrac{t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + 3t_{22}}{4} + e^{i\eta} e^{-i\delta} \dfrac{t_{11} + \sqrt{3}t_{12} + \sqrt{3}t_{21} + 3t_{22}}{4} \\
+             & + e^{-i\eta} e^{i\gamma} \dfrac{t_{11} + \sqrt{3}t_{12} + \sqrt{3}t_{21} + 3t_{22}}{4}
 \end{align*}
 
 Do tính Hermite của Hamiltonian, ta có thể đưa $t_{12} = - t_{21}$, nên $h_{11}$ đơn giản thành:
 
 \begin{align*}
-    h_{11} =            & e^{-i\eta} e^{i\delta} \dfrac{t_{11} + 3t_{22}}{4} + e^{i\eta} e^{-i\gamma} \dfrac{t_{11} + 3t_{22}}{4} + e^{-i\eta} e^{-i\delta} \dfrac{t_{11} + 3t_{22}}{4} + e^{i\eta} e^{i\gamma} \dfrac{t_{11} + 3t_{22}}{4} \\
+    h_{11} =            & e^{-i\eta} e^{i\delta} \dfrac{t_{11} + 3t_{22}}{4} + e^{i\eta} e^{-i\gamma} \dfrac{t_{11} + 3t_{22}}{4} + e^{i\eta} e^{-i\delta} \dfrac{t_{11} + 3t_{22}}{4} + e^{-i\eta} e^{i\gamma} \dfrac{t_{11} + 3t_{22}}{4} \\
                         & + t_{11}\left( e^{ik_x a} + e^{-ik_x a} \right) + \epsilon_2                                                                                                                                                      \\
-    =                   & ( e^{i\eta} e^{i\gamma}  + e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} + e^{-i\eta} e^{-i\delta}) \dfrac{t_{11} + 3t_{22}}{4} + t_{11}\left( e^{ik_x a} + e^{-ik_x a} \right) + \epsilon_2                    \\
-    =                   & \dfrac{t_{11} + 3t_{22}}{4} \left[ e^{-i\eta}(e^{i\delta} + e^{-i\delta}) + e^{i\eta}(e^{i\gamma} + e^{-i\gamma}) \right] + 2t_{11}\cos2\alpha + \epsilon_2                                                       \\
-    =                   & \dfrac{t_{11} + 3t_{22}}{2} \left[ (\cos\eta - i \sin\eta)\cos\delta + (\cos\eta + i \sin\eta)\cos\gamma \right] + 2t_{11}\cos2\alpha + \epsilon_2                                                                \\
-    =                   & \dfrac{t_{11} + 3t_{22}}{2} \left[ \cos\eta(\cos\delta + \cos\gamma) + i\sin\eta(\cos\gamma - \cos\delta) \right] + 2t_{11}\cos2\alpha +\epsilon_2                                                                \\
-    \Rightarrow h_{11}= & (t_{11} + 3t_{22}) \left[ \cos\eta\cos\alpha\cos\beta - i\sin\eta\sin\alpha\sin\beta \right] + 2t_{11}\cos2\alpha + \epsilon_2
+    =                   & ( e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} + e^{i\eta} e^{-i\delta} + e^{-i\eta} e^{i\gamma} ) \dfrac{t_{11} + 3t_{22}}{4} + t_{11}\left( e^{ik_x a} + e^{-ik_x a} \right) + \epsilon_2                    \\
+    =                   & \dfrac{t_{11} + 3t_{22}}{2} \left[ 2\cos\eta\cos\alpha\cos\beta + 2\sin\eta\sin\alpha\cos\beta \right] + 2t_{11}\cos2\alpha + \epsilon_2                                                                          \\
+    \Rightarrow h_{11}= & (t_{11} + 3t_{22}) \left[ \cos\eta\cos\alpha\cos\beta + \sin\eta\sin\alpha\cos\beta \right] + 2t_{11}\cos2\alpha + \epsilon_2
 \end{align*}
 
 $\ast$ \textbf{h22}
@@ -940,15 +927,13 @@ Trong đó:
 \end{align*}
 \begin{align*}
     h_{22} =            & e^{-i\eta} e^{i\delta} \dfrac{3t_{11} + \sqrt{3}t_{12} + \sqrt{3}t_{21} + t_{22}}{4} + e^{i\eta} e^{-i\gamma} \dfrac{3t_{11} + \sqrt{3}t_{12} + \sqrt{3}t_{21} + t_{22}}{4}                                       \\
-                        & + e^{-i\eta} e^{-i\delta} \dfrac{3t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + t_{22}}{4}  + e^{i\eta} e^{i\gamma} \dfrac{3t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + t_{22}}{4}                                    \\
+                        & + e^{i\eta} e^{-i\delta} \dfrac{3t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + t_{22}}{4}  + e^{-i\eta} e^{i\gamma} \dfrac{3t_{11} - \sqrt{3}t_{12} - \sqrt{3}t_{21} + t_{22}}{4}                                    \\
                         & + t_{22}\left( e^{ik_x a} + e^{-ik_x a} \right) + \epsilon_2                                                                                                                                                      \\
-    =                   & e^{i\eta} e^{i\gamma} \dfrac{3t_{11} + t_{22}}{4} + e^{-i\eta} e^{i\delta} \dfrac{3t_{11} + t_{22}}{4} + e^{i\eta} e^{-i\gamma} \dfrac{3t_{11} + t_{22}}{4} + e^{-i\eta} e^{-i\delta} \dfrac{3t_{11} + t_{22}}{4} \\
+    =                   & e^{-i\eta} e^{i\delta} \dfrac{3t_{11} + t_{22}}{4} + e^{i\eta} e^{-i\gamma} \dfrac{3t_{11} + t_{22}}{4} + e^{i\eta} e^{-i\delta} \dfrac{3t_{11} + t_{22}}{4} + e^{-i\eta} e^{i\gamma} \dfrac{3t_{11} + t_{22}}{4} \\
                         & + t_{22}\left( e^{ik_x a} + e^{-ik_x a} \right) + \epsilon_2                                                                                                                                                      \\
-    =                   & ( e^{i\eta} e^{i\gamma}  + e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} + e^{-i\eta} e^{-i\delta}) \dfrac{3t_{11} + t_{22}}{4} + t_{11}\left( e^{ik_x a} + e^{-ik_x a} \right) + \epsilon_2                    \\
-    =                   & \dfrac{3t_{11} + t_{22}}{4} \left[ e^{-i\eta}(e^{i\delta} + e^{-i\delta}) + e^{i\eta}(e^{i\gamma} + e^{-i\gamma}) \right] + 2t_{22}\cos2\alpha + \epsilon_2                                                       \\
-    =                   & \dfrac{3t_{11} + t_{22}}{2} \left[ (\cos\eta - i \sin\eta)\cos\delta + (\cos\eta + i \sin\eta)\cos\gamma \right] + 2t_{22}\cos2\alpha + \epsilon_2                                                                \\
-    =                   & \dfrac{3t_{11} + t_{22}}{2} \left[ \cos\eta(\cos\delta + \cos\gamma) + i\sin\eta(\cos\gamma - \cos\delta) \right] + 2t_{22}\cos2\alpha +\epsilon_2                                                                \\
-    \Rightarrow h_{22}= & (3t_{11} + t_{22}) \left[ \cos\eta\cos\alpha\cos\beta - i\sin\eta\sin\alpha\sin\beta \right] + 2t_{22}\cos2\alpha + \epsilon_2
+    =                   & ( e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} + e^{i\eta} e^{-i\delta} + e^{-i\eta} e^{i\gamma}) \dfrac{3t_{11} + t_{22}}{4} + t_{11}\left( e^{ik_x a} + e^{-ik_x a} \right) + \epsilon_2                     \\
+    =                   & \dfrac{3t_{11} + t_{22}}{2} \left[ 2\cos\eta\cos\alpha\cos\beta + 2\sin\eta\sin\alpha\cos\beta \right] + 2t_{22}\cos2\alpha +\epsilon_2                                                                           \\
+    \Rightarrow h_{22}= & (3t_{11} + t_{22}) \left[ \cos\eta\cos\alpha\cos\beta + \sin\eta\sin\alpha\cos\beta \right] + 2t_{22}\cos2\alpha + \epsilon_2
 \end{align*}
 
 $\ast$ \textbf{h12}
@@ -971,22 +956,20 @@ $\ast$ \textbf{h12}
 
 \noindent Thế vô:
 \begin{align*}
-    h_{12} = & e^{-i\eta} e^{i\delta} \frac{-\sqrt{3}t_{11} - t_{12} + 3t_{21} + \sqrt{3}t_{22}}{4} + e^{i\eta} e^{-i\gamma} \frac{\sqrt{3}t_{11} + t_{12} - 3 t_{21} -\sqrt{3}t_{22}}{4}                                                                                              \\
-             & + e^{-i\eta} e^{-i\delta}  \frac{-\sqrt{3}t_{11} + t_{12} - 3 t_{21} + \sqrt{3}t_{22}}{4} + e^{i\eta} e^{i\gamma} \frac{\sqrt{3}t_{11} - t_{12} + 3 t_{21} - \sqrt{3}t_{22}}{4}                                                                                         \\
-             & + t_{12}\left( e^{ik_x a} - e^{-ik_x a} \right)                                                                                                                                                                                                                         \\
-    =        & e^{-i\eta} e^{i\delta} \frac{-\sqrt{3}t_{11} - 4t_{12} + \sqrt{3}t_{22}}{4} + e^{i\eta} e^{-i\gamma} \frac{\sqrt{3}t_{11} + 4t_{12} -\sqrt{3}t_{22}}{4}                                                                                                                 \\
-             & + e^{-i\eta} e^{-i\delta}  \frac{-\sqrt{3}t_{11} + 4t_{12} + \sqrt{3}t_{22}}{4} + e^{i\eta} e^{i\gamma} \frac{\sqrt{3}t_{11} - 4t_{12} - \sqrt{3}t_{22}}{4} + t_{12}\left( e^{ik_x a} - e^{-ik_x a} \right)                                                             \\
-    =        & \dfrac{\sqrt{3} t_{11}}{4}\left( - e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} - e^{-i\eta} e^{-i\delta} + e^{i\eta} e^{i\gamma} \right) + t_{12}\left( - e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} + e^{-i\eta} e^{-i\delta} - e^{i\eta} e^{i\gamma} \right) \\
-             & + \dfrac{\sqrt{3} t_{22}}{4}\left( e^{-i\eta} e^{i\delta} - e^{i\eta} e^{-i\gamma} + e^{-i\eta} e^{-i\delta} - e^{i\eta} e^{i\gamma} \right) + t_{12}\left( e^{ik_x a} - e^{-ik_x a} \right)                                                                            \\
-    =        & \dfrac{\sqrt{3} t_{11}}{4}\left[ - e^{-i\eta} (e^{i\delta} + e^{-i\delta}) + e^{i\eta} (e^{i\gamma} + e^{-i\gamma})   \right] + t_{12}\left[ - e^{-i\eta} (e^{i\delta} - e^{-i\delta}) - e^{i\eta} (e^{i\gamma} - e^{-i\gamma}) \right]                                 \\
-             & + \dfrac{\sqrt{3} t_{22}}{4}\left[ e^{-i\eta} (e^{i\delta} + e^{-i\delta}) - e^{i\eta} (e^{i\gamma} + e^{-i\gamma}) \right] + t_{12}\left( e^{ik_x a} - e^{-ik_x a} \right)                                                                                             \\
-    =        & 2it_{12}\sin2\alpha + \dfrac{\sqrt{3} (t_{22} - t_{11}) }{4}\left[(\cos\eta - i\sin\eta) 2\cos\delta - (\cos\eta + i\sin\eta) 2\cos\gamma\right]                                                                                                                        \\
-             & - t_{12}\left[(\cos\eta - i\sin\eta) 2i\sin\delta + (\cos\eta + i\sin\eta) 2i\sin\gamma\right]                                                                                                                                                                          \\
-    =        & 2it_{12}\sin2\alpha  + \dfrac{\sqrt{3} (t_{22} - t_{11}) }{2}\left[\cos\eta (\cos\delta - \cos\gamma) - i\sin\eta (\cos\delta + \cos\gamma) \right]                                                                                                                     \\
-             & - 2it_{12}\left[ \cos\eta( \sin\delta + \sin\gamma ) + i\sin\eta ( \sin\gamma - \sin\delta ) \right]                                                                                                                                                                    \\
-    =        & 4it_{12}\sin\alpha\cos\alpha + \sqrt{3} (t_{11} - t_{22})\left[ \cos\eta\sin\alpha\sin\beta + i\sin\eta\cos\alpha\cos\beta\right]                                                                                                                                       \\
-             & - 4it_{12}\left[ \cos\eta\sin\alpha\cos\beta + i\sin\eta\cos\alpha\sin\beta  \right]
+    h_{12} =             & e^{-i\eta} e^{i\delta} \frac{-\sqrt{3}t_{11} - t_{12} + 3t_{21} + \sqrt{3}t_{22}}{4} + e^{i\eta} e^{-i\gamma} \frac{\sqrt{3}t_{11} + t_{12} - 3 t_{21} -\sqrt{3}t_{22}}{4}                                                                                              \\
+                         & + e^{i\eta} e^{-i\delta}  \frac{-\sqrt{3}t_{11} + t_{12} - 3 t_{21} + \sqrt{3}t_{22}}{4} + e^{-i\eta} e^{i\gamma} \frac{\sqrt{3}t_{11} - t_{12} + 3 t_{21} - \sqrt{3}t_{22}}{4}                                                                                         \\
+                         & + t_{12}\left( e^{ik_x a} - e^{-ik_x a} \right)                                                                                                                                                                                                                         \\
+    =                    & e^{-i\eta} e^{i\delta} \frac{-\sqrt{3}t_{11} - 4t_{12} + \sqrt{3}t_{22}}{4} + e^{i\eta} e^{-i\gamma} \frac{\sqrt{3}t_{11} + 4t_{12} -\sqrt{3}t_{22}}{4}                                                                                                                 \\
+                         & + e^{i\eta} e^{-i\delta}  \frac{-\sqrt{3}t_{11} + 4t_{12} + \sqrt{3}t_{22}}{4} + e^{-i\eta} e^{i\gamma} \frac{\sqrt{3}t_{11} - 4t_{12} - \sqrt{3}t_{22}}{4} + t_{12}\left( e^{ik_x a} - e^{-ik_x a} \right)                                                             \\
+    =                    & \dfrac{\sqrt{3} t_{11}}{4}\left( - e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} - e^{i\eta} e^{-i\delta} + e^{-i\eta} e^{i\gamma} \right) + t_{12}\left( - e^{-i\eta} e^{i\delta} + e^{i\eta} e^{-i\gamma} + e^{i\eta} e^{-i\delta} - e^{-i\eta} e^{i\gamma} \right) \\
+                         & + \dfrac{\sqrt{3} t_{22}}{4}\left( e^{-i\eta} e^{i\delta} - e^{i\eta} e^{-i\gamma} + e^{i\eta} e^{-i\delta} - e^{-i\eta} e^{i\gamma} \right) + t_{12}\left( e^{ik_x a} - e^{-ik_x a} \right)                                                                            \\
+    =                    & 2it_{12}\sin2\alpha + \dfrac{\sqrt{3} t_{11} }{4}4\left[ -\cos\eta\sin\alpha\sin\beta + \sin\eta\cos\alpha\sin\beta \right]                                                                                                                                             \\
+                         & - 4it_{12}(\cos\eta\sin\alpha\cos\beta - \sin\eta\cos\alpha\cos\beta) + \sqrt{3} t_{22}\left[ \cos\eta\sin\alpha\sin\beta - \sin\eta\cos\alpha\sin\beta \right]                                                                                                         \\
+    \Rightarrow h_{12} = & 4it_{12}(\sin\alpha\cos\alpha - \cos\eta\sin\alpha\cos\beta + \sin\eta\cos\alpha\cos\beta )                                                                                                                                                                             \\
+                         & + \dfrac{\sqrt{3} (t_{22} - t_{11}) }{4}4\left[ \cos\eta\sin\alpha\sin\beta - \sin\eta\cos\alpha\sin\beta  \right]                                                                                                                                                      \\
 \end{align*}
+
+\clearpage
 Vậy Hamiltonian:
 \begin{align}
     H_{TB}^{NN}(\mathbf{k}) =
@@ -1000,20 +983,20 @@ Vậy Hamiltonian:
 
 Với:
 \begin{align}
-    h_0      & = 2 t_0 \left(\cos2\alpha + 2\cos\eta\cos\alpha\cos\beta - 2i\sin\eta\sin\alpha\sin\beta \right) + \epsilon_1,                   \\
-    h_1=     & 2 i t_1 (\sin 2\alpha + \cos\eta\sin\alpha\cos\beta + i \sin\eta\cos\alpha\sin\beta ) \nonumber                                  \\
-             & - 2\sqrt{3}t_2\left[ \cos\eta\sin\alpha\sin\beta + i \sin\eta\cos\alpha\cos\beta  \right],                                       \\
-    h_2=     & 2t_2 \left[ \cos 2\alpha - \cos\eta\cos\alpha\cos\beta - i\sin\eta\sin\alpha\sin\beta \right] \nonumber                          \\
-             & + 2i\sqrt{3}t_1\left[ \cos\eta\cos\alpha\sin\beta + i \sin\eta\sin\alpha\cos\beta \right],                                       \\
-    h_{11}=  & (t_{11} + 3t_{22}) \left[ \cos\eta\cos\alpha\cos\beta - i\sin\eta\sin\alpha\sin\beta \right] + 2t_{11}\cos2\alpha + \epsilon_2 , \\
-    h_{22}=  & (3t_{11} + t_{22}) \left[ \cos\eta\cos\alpha\cos\beta - i\sin\eta\sin\alpha\sin\beta \right] + 2t_{22}\cos2\alpha + \epsilon_2,  \\
-    h_{12} = & \sqrt{3} (t_{11} - t_{22})\left[ \cos\eta\sin\alpha\sin\beta + i\sin\eta\cos\alpha\cos\beta\right] \nonumber                     \\
-             & - 4it_{12}\left[ \cos\eta\sin\alpha\cos\beta + i\sin\eta\cos\alpha\sin\beta  \right] + 4it_{12}\sin\alpha\cos\alpha,
+    h_0      & = 2 t_0 \left[ \cos (2\alpha) + 2\cos\eta \cos\alpha\cos\beta + 2\sin\eta\sin\alpha\cos\beta\right] +   \epsilon_1,             \\
+    h_1=     & 2 i t_1 (\sin 2\alpha + \cos\eta\sin\alpha\cos\beta -    \sin\eta\cos\alpha\cos\beta )       \nonumber                          \\
+             & - 2\sqrt{3}t_2\left[ \cos\eta\sin\alpha\sin\beta - \sin\eta\cos\alpha\sin\beta  \right],                                        \\
+    h_2      & = 2t_2 (\cos 2\alpha - \cos\eta\cos\alpha\cos\beta - \sin\eta\sin\alpha\sin\beta)                                               \\
+             & + 2i\sqrt{3}t_1(\cos\eta\cos\alpha\sin\beta + i \sin\eta\sin\alpha\sin\beta),                                                   \\
+    h_{11}=  & (t_{11} + 3t_{22}) \left[ \cos\eta\cos\alpha\cos\beta + \sin\eta\sin\alpha\cos\beta \right] + 2t_{11}\cos2\alpha + \epsilon_2 , \\
+    h_{22}=  & (3t_{11} + t_{22}) \left[ \cos\eta\cos\alpha\cos\beta + \sin\eta\sin\alpha\sin\beta \right] + 2t_{22}\cos2\alpha + \epsilon_2,  \\
+    h_{12} = & 4it_{12}(\sin\alpha\cos\alpha -\cos\eta\sin\alpha\cos\beta + \sin\eta\cos\alpha\cos\beta ) \nonumber                            \\
+             & + \sqrt{3} (t_{22} - t_{11})\left[ \cos\eta\sin\alpha\sin\beta + \sin\eta\cos\alpha\sin\beta \right],
 \end{align}
 \begin{equation}
     \begin{split}
-        (\alpha,\beta) &= \left(\dfrac{1}{2} k_x a,\dfrac{\sqrt{3}}{2} k_y a \right),\\
-        \eta &= \dfrac{e}{\hbar}\dfrac{Ba^2\sqrt{3}}{8},\\
+        (\alpha,\beta) & = \left(\dfrac{1}{2} k_x a,\dfrac{\sqrt{3}}{2} k_y a \right),\\
+        \eta & = \dfrac{e}{\hbar}\dfrac{Ba^2\sqrt{3}}{8},\\
     \end{split}
 \end{equation}
 \begin{equation}
@@ -1022,6 +1005,8 @@ Với:
         t_{11} & = E_{11}^{22}(\mathbf{R_1}); \quad t_{12} = E_{12}^{22}(\mathbf{R_1}); \quad t_{22} = E_{22}^{22}(\mathbf{R_1});
     \end{split}
 \end{equation}
+
+\clearpage
 
 \noindent $\ast$ \textbf{Hamiltonian Zeeman:}
 \begin{align*}
