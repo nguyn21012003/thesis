@@ -11,25 +11,20 @@ import time
 
 
 def eigenvalue():
-    a_lattice = 31.90
+    a_lattice = 3.190
     hbar = constants.hbar
     B = 0
     e = 9.1e-31
     n = (e / hbar) * B * a_lattice**2 * sqrt(3) / 8
-    N = 2000
+    N = 200
     L = 1
-    u1x = 2 * pi / (3 * a_lattice)
-    u1y = 2 * pi / (sqrt(3) * a_lattice)
-    u2x = 2 * pi / (sqrt(3) * a_lattice)
-    u2y = -2 * pi / (sqrt(3) * a_lattice)
     kx = np.zeros(N)
     ky = np.zeros(N)
-    for n in range(1, N):
-        kx[0] = -2 * pi / a_lattice
-        kx[n] = kx[0] + (n - 1) * 4 * pi / (a_lattice * N)
-        ky[n] = 0
+    for i in range(1, N):
+        if i + 1 < N:
+            kx[i] = (-2 * pi / a_lattice) + (i * 4 * pi) / (a_lattice * (N - 1))
+        ky[i] = 0
 
-    # Hamiltonian parameters
     t0 = -0.184
     t1 = 0.401
     t2 = 0.507
@@ -78,43 +73,27 @@ def eigenvalue():
         for i in range(len(eigenvalues)):
             writer.writerow({"lambda1": eigenvalues[i][0], "lambda2": eigenvalues[i][1], "lambda3": eigenvalues[i][2]})
 
-
-def plot(filename):
-    a_lattice = 31.90
-    k_points = np.linspace(-2 * pi / a_lattice, 2 * pi / a_lattice, 2000**2)
-    lambda1 = []
-    lambda2 = []
-    lambda3 = []
-    with open(filename, "r") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            lambda1.append(float(row["lambda1"]))
-            lambda2.append(float(row["lambda2"]))
-            lambda3.append(float(row["lambda3"]))
+    k_points = np.linspace(-2 * pi / a_lattice, 2 * pi / a_lattice, len(eigenvalues))
+    lambda1 = [ev[0] for ev in eigenvalues]
+    lambda2 = [ev[1] for ev in eigenvalues]
+    lambda3 = [ev[2] for ev in eigenvalues]
 
     energies = np.array([lambda1, lambda2, lambda3])
     plt.figure(figsize=(10, 6))
-    fine_k_points = np.linspace(k_points.min(), k_points.max(), 500)
-
     for i in range(energies.shape[0]):
-
-        interpolator = interp1d(k_points, energies[i, :], kind="cubic")
-        smooth_energies = interpolator(fine_k_points)
-
-        plt.plot(fine_k_points, smooth_energies, label=f"Band {i+1}")
-        plt.scatter(k_points, energies[i, :], marker="")
+        plt.plot(k_points, energies[i, :], label=f"Band {i + 1}")
 
     plt.xlabel("k-point")
     plt.ylabel("Energy (eV)")
 
-    plt.yticks([])
+    plt.legend()
     plt.show()
 
 
 def main():
     start = time.time()
     eigenvalue()
-    plot("eigenvalue.txt")
+    # plot("eigenvalue.txt")
     end = time.time()
     print(end - start, "time")
 
