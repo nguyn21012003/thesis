@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage[utf8]{vietnam}
 \usepackage[utf8]{inputenc}
 \usepackage{anyfontsize,fontsize}
@@ -47,7 +47,7 @@
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered,draw=black, fill=white!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
-
+\newcommand{\f}[2]{\dfrac{#1}{#2}}
 
 \DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
 \newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}}
@@ -69,9 +69,13 @@
 \urlstyle{same}
 
 \begin{document}
-\setlength{\parindent}{20pt} \newpage \author{TRẦN KHÔI NGUYÊN \\ VẬT LÝ LÝ THUYẾT} \maketitle
+\setlength{\parindent}{20pt}
+\newpage
+\author{TRẦN KHÔI NGUYÊN \\ VẬT LÝ LÝ THUYẾT}
+\maketitle
 
 \clearpage
+
 
 Từ Hamiltonian $H^{jj'}_{\mu\mu'} \left( \mathbf{k}\right) = \sum_{\mathbf{R}}
 	e^{i \mathbf{k\cdot R}} E^{jj'}_{\mu\mu'} \left(\textbf{R}\right) $ trong đó
@@ -1012,75 +1016,131 @@ Với:
 
 Chọn các cơ sở:
 \begin{align*}
-	\ket*{\phi^1_1 \uparrow}   & = \ket*{\phi^1_1}\chi_{+},\quad \ket*{\phi^2_1 \uparrow} = \ket*{\phi^2_1}\chi_+ ,\quad \ket*{\phi^2_2 \uparrow} = \ket*{\phi^2_2}\chi_+       \\
-	\ket*{\phi^1_1 \downarrow} & =	\ket*{\phi^1_1 }\chi_- , \quad 	\ket*{\phi^2_1 \downarrow} = \ket*{\phi^2_1 }\chi_-, \quad \ket*{\phi^2_2 \downarrow} = \ket*{\phi^2_2 }\chi_-
-\end{align*}
-và:
-\begin{align*}
-	\ket*{\phi^1_1 \uparrow\downarrow} & = \ket*{\phi^1_1}\chi_+ + \ket*{\phi^1_1}\chi_- \\
-	\ket*{\phi^2_1 \uparrow\downarrow} & = \ket*{\phi^2_1}\chi_+ + \ket*{\phi^2_1}\chi_- \\
-	\ket*{\phi^2_2 \uparrow\downarrow} & = \ket*{\phi^2_2}\chi_+ + \ket*{\phi^2_2}\chi_-
+	\ket*{\phi^1_1 ,\uparrow}    = \ket*{\phi^1_1}\chi_{+}\quad & ,\quad \ket*{\phi^2_1 ,\uparrow} = \ket*{\phi^2_1}\chi_+ \quad,\quad \ket*{\phi^2_2 ,\uparrow} = \ket*{\phi^2_2}\chi_+         \\
+	\ket*{\phi^1_1 ,\downarrow}  =	\ket*{\phi^1_1 }\chi_- \quad  & , \quad 	\ket*{\phi^2_1 ,\downarrow} = \ket*{\phi^2_1 }\chi_- \quad, \quad \ket*{\phi^2_2 ,\downarrow} = \ket*{\phi^2_2 }\chi_- \\
+	                                                            & \chi_{+} = \begin{pmatrix}
+		                                                                         \renewcommand{\arraystretch}{0.4}
+		                                                                         1 \\
+		                                                                         0
+	                                                                         \end{pmatrix} \quad,\quad
+	\chi_{-} = \begin{pmatrix}
+		           \renewcommand{\arraystretch}{0.4}
+		           0 \\
+		           1
+	           \end{pmatrix}
 \end{align*}
 Trong đó $\ket*{\phi_\mu^j}$ là các hàm sóng không gian,$\rchi$ là các hàm spinor. \\
 Do các hàm Spinor $\rchi$ chỉ tác động lên spin $\sigma_z$ và không tác động lên Hamiltonian nằm trong không gian Hilbert. Đồng thời Hamiltonian \hyperref[eq:1]{(1)} không có sự tách spin nên ta có thể viết thành:
 \begin{align}
-	H = H_{space} + H_{1/2} =  H_{TB}^{NN} \otimes \mathbb{1}_{2\times2} + \mathbf{I}_{3\times3} H_{Zeeman}
+	H = H_{space} + H_{1/2} = \mathbb{1}_{2\times2} \otimes H_{TB}^{NN} + H_{Zeeman}
 \end{align}
-Trong đó $\mathbb{1}_{2\times2}$ và $\mathbf{I}_{3\times3}$ đều là toán tử đơn vị, nhưng $\mathbf{I}_{3\times3}$ ở trong không gian Hilbert và $\mathbb{1}_{2\times2}$ ở trong không gian spin.
+Nhờ vào tính trực giao của các hàm cơ sở $\ket*{\phi_\mu^j}$ và spinor $\rchi$, ta tính được:\\
+$\ast 	H_{11}^{11(z)} \uparrow$
 \begin{align*}
-	H_{Zeeman} & = -\boldsymbol{\mu}\cdot \mathbf{B}                \\
-	           & = -\gamma \mathbf{B}\cdot\mathbf{S} = -\gamma BS_z \\
-	           & = -\dfrac{\gamma B\hbar}{2}
+	H_{11}^{11(z)} \uparrow & = - \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{1}_{1} \left(\mathbf{r}\right), \uparrow} \boldsymbol{\mu}\cdot \mathbf{B} \ket{\phi^{1}_{1} \left(\mathbf{r - R}\right) ,\uparrow} \\
+	                        & = - \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{1}_{1} \left(\mathbf{r}\right) ,\uparrow} \gamma \mathbf{B}\cdot\mathbf{S} \ket{\phi^{1}_{1} \left(\mathbf{r - R}\right) ,\uparrow} \\
+	                        & = -\gamma B \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{1}_{1} \left(\mathbf{r}\right) ,\uparrow} S_z \ket{\phi^{1}_{1} \left(\mathbf{r-R}\right) ,\uparrow}                        \\
+	                        & = -\gamma B \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi_{1}^{1}(\mathbf{r})} \ket{\phi_{1}^{1}(\mathbf{r-R}) }\bra{\uparrow}S_z\ket{\uparrow}                                        \\
+	                        & = \f{ -\gamma B\hbar}{2} \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}} \delta_{11} 1                                                                                                                                   \\
+	                        & = \f{ -\gamma B\hbar}{2} (e^{0} + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{0} +
+	e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}
+	+ e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} )                                                                                                                                                                                                                                                       \\
+	                        & = \f{-\gamma B\hbar}{2} (2 + 4\cos\eta)  = -\gamma B\hbar(1+2\cos\eta)
+\end{align*}
+$\ast 	H_{11}^{22(z)} \uparrow$
+\begin{align*}
+	H_{11}^{22(z)} \uparrow & = - \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{2}_{1} \left(\mathbf{r}\right), \uparrow} \boldsymbol{\mu}\cdot \mathbf{B} \ket{\phi^{2}_{1} \left(\mathbf{r - R}\right) ,\uparrow} \\
+	                        & = \f{ -\gamma B\hbar}{2} (e^{0} + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{0} +
+	e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}
+	+ e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} )                                                                                                                                                                                                                                                       \\
+	                        & = \f{-\gamma B\hbar}{2} (2 + 4\cos\eta)  = -\gamma B\hbar(1+2\cos\eta)
+\end{align*}
+$\ast 	H_{22}^{22(z)} \uparrow$
+\begin{align*}
+	H_{22}^{22(z)} \uparrow & = - \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{2}_{2} \left(\mathbf{r}\right), \uparrow} \boldsymbol{\mu}\cdot \mathbf{B} \ket{\phi^{2}_{2} \left(\mathbf{r - R}\right) ,\uparrow} \\
+	                        & = \f{ -\gamma B\hbar}{2} (e^{0} + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{0} +
+	e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}
+	+ e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} )                                                                                                                                                                                                                                                       \\
+	                        & = \f{-\gamma B\hbar}{2} (2 + 4\cos\eta)  = -\gamma B\hbar(1+2\cos\eta)
+\end{align*}
+$\ast 	H_{11}^{11(z)} \downarrow$
+\begin{align*}
+	H_{11}^{11(z)} \downarrow & = - \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{1}_{1} \left(\mathbf{r}\right), \downarrow} \boldsymbol{\mu}\cdot \mathbf{B} \ket{\phi^{1}_{1} \left(\mathbf{r - R}\right) ,\downarrow} \\
+	                          & = - \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{1}_{1} \left(\mathbf{r}\right) ,\downarrow} \gamma \mathbf{B}\cdot\mathbf{S} \ket{\phi^{1}_{1} \left(\mathbf{r - R}\right) ,\downarrow} \\s
+	                          & = -\gamma B \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{1}_{1} \left(\mathbf{r}\right) ,\downarrow} S_z \ket{\phi^{1}_{1} \left(\mathbf{r-R}\right) ,\downarrow}                        \\
+	                          & = -\gamma B \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi_{1}^{1}(\mathbf{r})} \ket{\phi_{1}^{1}(\mathbf{r-R}) }\bra{\downarrow}S_z\ket{\downarrow}                                        \\
+	                          & = \f{ -\gamma B\hbar}{2} \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}} \delta_{11} 1                                                                                                                                       \\
+	                          & = \f{ -\gamma B\hbar}{2} (e^{0} + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{0} +
+	e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}
+	+ e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} )                                                                                                                                                                                                                                                             \\
+	                          & = \f{-\gamma B\hbar}{2} (2 + 4\cos\eta)  = \gamma B\hbar(1+2\cos\eta)
+\end{align*}
+$\ast H_{11}^{22(z)} \downarrow$
+\begin{align*}
+	H_{11}^{22(z)} \downarrow & = - \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{2}_{1} \left(\mathbf{r}\right), \downarrow} \boldsymbol{\mu}\cdot \mathbf{B} \ket{\phi^{2}_{1} \left(\mathbf{r - R}\right) ,\downarrow} \\
+	                          & = \f{ -\gamma B\hbar}{2} (e^{0} + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{0} +
+	e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}
+	+ e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} )                                                                                                                                                                                                                                                             \\
+	                          & = \f{-\gamma B\hbar}{2} (2 + 4\cos\eta)  = \gamma B\hbar(1+2\cos\eta)
+\end{align*}
+$\ast 	H_{22}^{22(z)} \downarrow$
+\begin{align*}
+	H_{22}^{22(z)} \downarrow & = - \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_0^{\mathbf{R}}\mathbf{A}(\mathbf{r'})\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R}} \bra{\phi^{2}_{2} \left(\mathbf{r}\right), \downarrow} \boldsymbol{\mu}\cdot \mathbf{B} \ket{\phi^{2}_{2} \left(\mathbf{r - R}\right) ,\downarrow} \\
+	                          & = \f{ -\gamma B\hbar}{2} (e^{0} + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{0} +
+	e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}
+	+ e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} )                                                                                                                                                                                                                                                             \\
+	                          & = \f{-\gamma B\hbar}{2} (2 + 4\cos\eta)  = \gamma B\hbar(1+2\cos\eta)
+\end{align*}
+với $\gamma$ = $-\dfrac{e}{m}$
+
+Thiết lập lại Hamiltonian cho thành phần Zeeman:
+\begin{align*}
+	H_{Zeeman} = \f{e\hbar B}{m}(1+\cos\eta)
 	\begin{pmatrix}
-		1 & 0  \\
-		0 & -1
+		1 & 0 & 0 & 0  & 0  & 0  \\
+		0 & 1 & 0 & 0  & 0  & 0  \\
+		0 & 0 & 1 & 0  & 0  & 0  \\
+		0 & 0 & 0 & -1 & 0  & 0  \\
+		0 & 0 & 0 & 0  & -1 & 0  \\
+		0 & 0 & 0 & 0  & 0  & -1
 	\end{pmatrix}
 \end{align*}
-với $\gamma$ = $-\dfrac{e}{m}$\\
 Ta có thể xây dựng Hamiltonian thành:
 \begin{align}
-	H =
+	H & =
 	\begin{pmatrix}
-		\renewcommand{\arraystretch}{0.72}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix}\bigotimes
+	\begin{pmatrix}
 		h_0   & h_1      & h_2    \\
 		h_1^* & h_{11}   & h_{12} \\
 		h_2^* & h_{12}^* & h_{22}
 	\end{pmatrix}
-	\bigotimes
+	+
+	H_{Zeeman}
+	\nonumber \\
+	  & =
 	\begin{pmatrix}
-		\renewcommand{\arraystretch}{0.72}
-		1 & 0 \\
-		0 & 1
+		h_0   & h_1      & h_2    & 0       & 0        & 0      \\
+		h_1^* & h_{11}   & h_{12} & 0       & 0        & 0      \\
+		h_2^* & h_{12}^* & h_{22} & 0       & 0        & 0      \\
+		0     & 0        & 0      & h_{0}   & h_1      & h_{2}  \\
+		0     & 0        & 0      & h_1^*   & h_{11}   & h_{12} \\
+		0     & 0        & 0      & h_{2}^* & h_{12}^* & h_{22} \\
 	\end{pmatrix}
 	+
+	\f{e\hbar B}{m}(1+\cos\eta)
 	\begin{pmatrix}
-		\renewcommand{\arraystretch}{0.72}
-		1 & 0 & 0 \\
-		0 & 1 & 0 \\
-		0 & 0 & 1 
-	\end{pmatrix}
-	\bigotimes
-	\begin{pmatrix}
-		1 & 0  \\
-		0 & -1
-	\end{pmatrix}
+		1 & 0 & 0 & 0  & 0  & 0  \\
+		0 & 1 & 0 & 0  & 0  & 0  \\
+		0 & 0 & 1 & 0  & 0  & 0  \\
+		0 & 0 & 0 & -1 & 0  & 0  \\
+		0 & 0 & 0 & 0  & -1 & 0  \\
+		0 & 0 & 0 & 0  & 0  & -1 \\
+	\end{pmatrix} \nonumber
 \end{align}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \clearpage
-
 Chéo hóa Hamiltonian, ta có phương trình hàm riêng trị riêng:
 \begin{align*}
 	H_{TB}^{NN}(\mathbf{k}) f & = \lambda f \\
