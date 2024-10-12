@@ -12,7 +12,7 @@
 \usepackage{indentfirst}
 \usepackage{pdfpages}
 \usepackage{graphicx}
-%\usepackage{tikz-feynman}
+\usepackage{upgreek}
 \usepackage{nccmath}
 \usepackage{mathtools}
 \usepackage{amsfonts}
@@ -493,7 +493,7 @@ Chọn hướng từ trường là $\renewcommand{\arraystretch}{0.7} B = \begin
 \noindent Lại có $B = \vec{\nabla} \times \vec{A} =
 	\begin{vmatrix}
 		\vec{i}                      & \vec{j}                      & \vec{k}                      \\
-		\dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ A_*x & A_y & A_z
+		\dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ A_x & A_y & A_z
 	\end{vmatrix}\\
 	= (\dfrac{\partial}{\partial y}A_z - \dfrac{\partial}{\partial z}A_y)\vec{i} + (\dfrac{\partial}{\partial z}A_x - \dfrac{\partial}{\partial x}A_z)\vec{j} + (\dfrac{\partial}{\partial x}A_y - \dfrac{\partial}{\partial y}A_x)\vec{k}$
 
@@ -526,7 +526,7 @@ Chọn hướng từ trường là $\renewcommand{\arraystretch}{0.7} B = \begin
 
 \clearpage
 
-\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(0,a)}{\mathbf{R_1}}$
+\noindent $\ast \underset{(0,0)}{\mathbf{R_0}}  \longrightarrow \underset{(a,0)}{\mathbf{R_1}}$
 
 Ta có:
 \begin{align*}
@@ -1093,7 +1093,7 @@ $\ast 	H_{22}^{22(z)} \downarrow$
 \end{align*}
 với $\gamma$ = $-\dfrac{e}{m}$
 
-Thiết lập lại Hamiltonian cho thành phần Zeeman:
+Hamiltonian cho thành phần Zeeman:
 \begin{align*}
 	H_{Zeeman} = \f{e\hbar B}{m}(1+\cos\eta)
 	\begin{pmatrix}
@@ -1169,7 +1169,7 @@ Chéo hóa Hamiltonian, ta có phương trình hàm riêng trị riêng:
 	 & = 0
 \end{align*}
 
-Để phương trình có nghiệm không tầm thường thì: $\Leftrightarrow$
+Để phương trình có nghiệm không tầm thường: $\Leftrightarrow$
 $
 	\begin{vmatrix}
 		\renewcommand{\arraystretch}{0.5}
@@ -1185,6 +1185,112 @@ $
 	\Leftrightarrow & h_{1}^{} h_{12}^{} h_2^{*} - h_{1}^{} h_{1}^{*} h_{22}^{} + h_{1}^{} h_{1}^{*} \lambda + h_{2}^{} h_{12}^{*} h_1^{*} - h_{2}^{} h_{2}^{*} h_{11} + h_{2}^{} h_{2}^{*} \lambda \\
 	                & + (h_{0}^{} - \lambda) (h_{11}^{} - \lambda) (h_{22}^{} - \lambda) - h_{0}^{} h_{12}^{} h_{12}^{*} + h_{12}^{} h_{12}^{*} \lambda = 0
 \end{align*}
+
+\clearpage
+\textbf{Two bands} $\mathbf{k\cdot p}$\;\textbf{model}\\
+Sử dụng Hamiltonian:
+\begin{align*}
+	H =
+	\begin{pmatrix}
+		h_0   & h_1      & h_2    \\
+		h_1^* & h_{11}   & h_{12} \\
+		h_2^* & h_{12}^* & h_{22}
+	\end{pmatrix},
+\end{align*}
+chọn các cơ sở:
+\begin{align*}
+	&\ket{\psi_{c}^{\tau}} = \ket{d_{z^2}} \equiv \ket{\phi^1_1} \\
+	&\ket{\mathcal{\psi}_{v}^{\tau}} = \f{1}{\sqrt{2}} \left(\ket{d_{x^2-y^2}} + i\tau \ket{d_{xy}}\right)  \equiv \f{1}{\sqrt{2}} \left(\ket{\phi^2_2} + i\tau \ket{\phi^2_1}\right)
+\end{align*}
+
+\begin{align*}
+	H_{\mu\mu'}^{}(\mathbf{k},\tau) 
+	& = \sum_{R} e^{i\mathbf{k\cdot R}} E_{\mu\mu'}^{}(\mathbf{R}) \\
+	& = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{\mu}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{\mu'}^{\tau}(\mathbf{r - R})}
+\end{align*}
+
+\begin{align*}
+	&\mathbf{k}  = (k_x,k_y) = \left(\f{4\pi}{3a},0\right) \\
+	&(\alpha,\beta) = \left(\dfrac{1}{2} k_x a,\dfrac{\sqrt{3}}{2} k_y a \right)
+\end{align*}
+
+$\ast H_{cc}(\mathbf{k},\tau)$
+\begin{align*}
+	 H_{cc}(\mathbf{k},\tau) 
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{c}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{c}^{\tau}(\mathbf{r - R})}\\
+	 & = h_0 \\
+	 & = 2 t_0 \left(\cos2\alpha + 2\cos\alpha \cos\beta\right) + \epsilon_1 \\
+	 & = 2 t_0 \left(1 + 2\right) + \epsilon_1 \\
+\end{align*}
+
+$\ast H_{cv}(\mathbf{k},\tau)$
+\begin{align*}
+	 H_{cv}(\mathbf{k},\tau) 
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{c}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{v}^{\tau}(\mathbf{r - R})}\\
+	 & = \f{1}{\sqrt{2}}\sum_{R} e^{i\mathbf{k\cdot R}}\left[ \bra{\phi^1_1(\mathbf{r})} \hat{H} \ket{\phi^2_2(\mathbf{r-R})} + i\tau\bra{\phi^1_1(\mathbf{r})}\hat{H}\ket{\phi^2_1(\mathbf{r-R})} \right] \\
+	 & = \f{1}{\sqrt{2}} (h_2 + i\tau h_1) \\ 
+	 & = \frac{1}{\sqrt{2}} \biggl[ 2t_2 (\cos 2\alpha -\cos\alpha\cos\beta ) + 2i\sqrt{3}t_1\cos\alpha\sin\beta  \\
+	 & + i\tau \left(-2\sqrt{3} t_2 \sin\alpha \sin\beta + 2i t_1(\sin2\alpha + \sin\alpha \cos\beta )\right) \biggr] \\
+	 & = \frac{1}{\sqrt{2}} \biggl[ 2t_2 (0) + 2i\sqrt{3}t_1\beta + i\tau \left(-2\sqrt{3} t_2 \alpha \beta + 2i t_1(2\alpha + \alpha )\right) \biggr] \\
+	 & = \f{2}{\sqrt{2}} \biggl[ i\sqrt{3}t_1\beta - \sqrt{3}i\tau t_2\alpha\beta - t_1 \tau 3\alpha  \biggr]\\
+	 & = \f{2}{\sqrt{2}} \biggl[ i\sqrt{3}t_1 \dfrac{\sqrt{3}}{2} k_y a - \sqrt{3}i\tau t_2 \dfrac{1}{2} k_x a \dfrac{\sqrt{3}}{2} k_y a - t_1 \tau 3 \dfrac{1}{2} k_x a \biggr]\\
+	 & = \f{1}{\sqrt{2}} \biggl[ 3i t_1 k_y a + \f{3}{2} i\tau t_2 k_x k_y a^2  - 3 t_1 \tau k_x a\biggr] \\ 
+	 & = \f{3}{\sqrt{2}} \biggl[ i t_1 k_y a + i\tau t_2 k_x k_y a^2 - t_1 \tau k_x a\biggr] \\ 
+	 & = \f{3}{\sqrt{2}} \biggl[ a t_1 (ik_y - \tau k_x) + \f{i}{2}\tau t_2 k_x k_y a^2  \biggr] \\ 
+\end{align*}
+
+$\ast H_{vc}(\mathbf{k},\tau)$
+\begin{align*}
+	 H_{vc}(\mathbf{k},\tau) 
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{v}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{c}^{\tau}(\mathbf{r - R})}\\
+	 & = \f{1}{\sqrt{2}}\sum_{R} e^{i\mathbf{k\cdot R}}\left[ \bra{\phi^2_2(\mathbf{r})} \hat{H} \ket{\phi^1_1(\mathbf{r-R})} - i\tau\bra{\phi^2_1(\mathbf{r})}\hat{H}\ket{\phi^1_1(\mathbf{r-R})} \right] \\
+	 & = \f{1}{\sqrt{2}} (h_2^{\ast} - i\tau h_1^{\ast}) \\ 
+	 & = \frac{1}{\sqrt{2}} \biggl[ 2t_2 (\cos 2\alpha -\cos\alpha\cos\beta ) - 2i\sqrt{3}t_1\cos\alpha\sin\beta  \\
+	 & - i\tau \left(-2\sqrt{3} t_2 \sin\alpha \sin\beta - 2i t_1(\sin2\alpha + \sin\alpha \cos\beta )\right) \biggr] \\
+	 & = \f{1}{\sqrt{2}} \biggl[ 2 t_2(0) - 2i\sqrt{3}t_1\beta - 2\sqrt{3}i\tau t_2\alpha\beta  - 2t_1 \tau 3\alpha \biggr] \\
+	 & = \f{1}{\sqrt{2}} \biggl[ - 2i\sqrt{3}t_1\f{\sqrt{3}}{2}k_y a - 2\sqrt{3}i\tau t_2\f{1}{2} k_x a\f{\sqrt{3}}{2}k_y a  - 2t_1\tau 3\f{1}{2} k_x a \biggr] \\
+	 & = \f{1}{\sqrt{2}} \biggl[ - it_1 3 k_y a - \f{3i}{2} \tau t_2 k_x a k_y a  - t_1\tau 3 k_x a \biggr] \\
+	 & = \f{3}{\sqrt{2}} \biggl[ -a t_1 (\tau k_x + ik_y ) - \f{i}{2} \tau t_2 k_x k_y a^2  \biggr] \\
+\end{align*}
+
+$\ast H_{vv}(\mathbf{k},\tau)$
+\begin{align*}
+	 H_{vv}(\mathbf{k},\tau) 
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{v}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{v}^{\tau}(\mathbf{r - R})}\\
+	 & = \f{1}{2}\sum_{R} e^{i\mathbf{k\cdot R}} \biggl[ \bra{\phi^2_2(\mathbf{r})} \hat{H} \ket{\phi^2_2(\mathbf{r-R})} + i\tau\bra{\phi^2_2(\mathbf{r})}\hat{H}\ket{\phi^2_1(\mathbf{r-R})}\\
+	 & - i\tau \bra{\phi^2_1(\mathbf{r})}\hat{H}\ket{\phi^2_2(\mathbf{r-R})} +\tau \bra{\phi^2_1(\mathbf{r})}\hat{H}\ket{\phi^2_1(\mathbf{r-R})} \biggr] \\
+	 & = \f{1}{2} \biggl( h_{22} + i\tau h_{12}^{\ast} - i\tau h_{12} + \tau h_{11}   \biggr) \\ 
+	 & = \f{1}{2} \biggl[ 2 t_{22} \cos2\alpha  + (3t_{11} + t_{22})\cos\alpha \cos\beta + \tau\left(2t_{11}\cos2\alpha + \left (t_{11} + 3t_{22}\right )\cos\alpha\cos\beta + 2\epsilon_2\right) \\
+	 & - i\tau (8i t_{12}\sin\alpha(\cos\alpha - \cos\beta)) \biggr] \\
+	 & = \f{1}{2} \biggl[2 t_{22} + (3t_{11} + t_{22}) + \tau (2t_{11} + t_{11} + 3t_{22} + 2\epsilon_2 ) \biggr]\\
+	 & = \f{1}{2} \biggl[3(t_{11} + t_{22}) + 3\tau (t_{11}+t_{22} + \f{2}{3}\epsilon_2)\biggr]
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
 
