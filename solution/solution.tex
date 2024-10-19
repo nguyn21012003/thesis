@@ -41,11 +41,7 @@
 }
 
 \renewcommand{\baselinestretch}{2.0}
-\usetikzlibrary{arrows.spaced}
-\usetikzlibrary{animations,quotes}
-%gian do
-\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered,draw=black, fill=white!30]
-\tikzstyle{arrow} = [thick,->,>=stealth]
+
 
 \newcommand{\f}[2]{\dfrac{#1}{#2}}
 
@@ -1061,7 +1057,7 @@ $\ast 	H_{22}^{22(z)} \uparrow$
 	                        & = \f{ -\gamma B\hbar}{2} (e^{0} + e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} + e^{0} +
 	e^{\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}}
 	+ e^{-\frac{ie}{\hbar}\frac{Ba^2\sqrt{3}}{8}} )                                                                                                                                                                                                                                                       \\
-	                        & = \f{-\gamma B\hbar}{2} (2 + 4\cos\eta)  = -\gamma B\hbar(1+2\cos\eta)
+	                        & = \f{-\gamma B\hbar}{2} (2 + 4\cos\eta)  = -\gamma B\hbar(1+2\cos\eta).
 \end{align*}
 $\ast 	H_{11}^{11(z)} \downarrow$
 \begin{align*}
@@ -1187,95 +1183,171 @@ $
 \end{align*}
 
 \clearpage
-\textbf{Two bands} $\mathbf{k\cdot p}$\;\textbf{model}\\
-Sử dụng Hamiltonian:
+\textbf{Two bands} $\mathbf{k\cdot p}$\;\textbf{model}
+
+Nếu bỏ qua tương tác Coulomb giữa các điện tử, Hamiltonian của hệ nhiều điện tử đơn giản là tổng các Hamiltonian một điện tử:
+\begin{align}
+	H = \sum_i H_{1e}(\mathbf{r}_i) = \sum_i \left(-\f{\hbar^2 \nabla_i^2}{2m_0} + V_0(\mathbf{r}_i) \right).
+\end{align}
+Hàm sóng trong mạng tinh thể thỏa định lý Bloch:
+\begin{align}
+	\ket{\psi_{m\mathbf{k}}(\mathbf{r})} = e^{i\mathbf{k \cdot r}} \ket{u_{m\mathbf{k}}(\mathbf{r})}.
+\end{align}
+Thay (13) vào (12), ta được phương trình Schr\"{o}dinger cho mạng tinh thể tuần hoàn theo $u_{m\mathbf{k}}$:
+\begin{align}
+	\left[ \f{p^2}{2m_0} + V_0(\mathbf{r}) + \f{\hbar^2 k^2}{2m_0} + \f{\hbar}{m_0} \mathbf{k\cdot p} \right] \ket{u_{m\mathbf{k}}(\mathbf{r})} = E_{m\mathbf{k}} \ket{u_{m\mathbf{k}}(\mathbf{r})}.
+\end{align}
+Giả định rằng chúng ta đã biết trị riêng năng lượng và trạng thái riêng tại một điểm $k_0$ trong vùng Brillouin. Để giải phương trình (14), ta có thể khai triển hàm riêng $\ket{u_{m\mathbf{k}}(\mathbf{r})}$ qua một tập hợp các hàm cơ sở trực chuẩn, đầy đủ $\{\ket{u_n}\}$:
+\begin{align}
+	\ket{u_{m\mathbf{k}}(\mathbf{r})} = \sum_n a_{m\mathbf{k}}^{n} \ket{u_{n}(\mathbf{r})}.
+\end{align}
+Thay (15) vào (14) và nhân trái với $\bra{u_{n}(\mathbf{r})}$, ta được:
+\begin{align}
+	\sum_{n'} H_{nn'}(\mathbf{k}) a_{m\mathbf{k}}^{n'} = E_{m\mathbf{k}} a_{m\mathbf{k}}^{n}  ,
+\end{align}
+trong đó
+\begin{align}
+	H_{nn'}(\mathbf{k})
+	 & = \left(E_n^0 + \f{\hbar^2 k^2}{2m_0} \right)\delta_{nn'} + \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{n}}\mathbf{p}\ket{u_{n'}}.
+\end{align}
+$H_{\mathbf{k\cdot p}} = \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{n}}\mathbf{p}\ket{u_{n'}}$
+
+Ta đi khai triển nhiễu loạn cho $H_{\mathbf{k\cdot p}}$ tới bậc 3 lân cận $\mathbf{k}$:
+\begin{align}
+	H_{\mathbf{k\cdot p}} = \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{n}}\mathbf{p}\ket{u_{n'}},
+\end{align}
+$\bra{u_{n}}\mathbf{p}\ket{u_{n}} =0$. \\
+Hamiltonian cho tập hợp con $A = \{ \ket{u_m}\}$:
+\begin{align}
+	\breve{H}_A = H^{(0)} + H^{(1)} + H^{(2)} + H^{(3)}
+\end{align}
+trong đó
 \begin{align*}
-	H =
-	\begin{pmatrix}
-		h_0   & h_1      & h_2    \\
-		h_1^* & h_{11}   & h_{12} \\
-		h_2^* & h_{12}^* & h_{22}
-	\end{pmatrix},
+	H^{(1)}_{mm'} & = H^{'}_{mm'},                                                                                                                                                                                              \\
+	H^{(2)}_{mm'} & = \f{1}{2} \sum_l H^{'}_{ml} H^{'}_{lm'} \left[ \f{1}{E_m - E_l} + \f{1}{E_{m'} - E_l} \right],                                                                                                             \\
+	H^{(3)}_{mm'} & = -\f{1}{2} \sum_{l,m''} \left[ \f{ H^{'}_{ml}H^{'}_{lm''}H^{'}_{m'' m'} }{ (E_{m'} - E_{l})(E_{m''} - E_{l})} +  \f{ H^{'}_{mm''}H^{'}_{m''l}H^{'}_{l m'} }{ (E_{m} - E_{l})(E_{m''} - E_{l})  } \right] , \\
+	              & + \f{1}{2} \sum_{l,l'}^{} H^{'}_{ml}H^{'}_{ll'}H^{'}_{l'm'}\left[ \f{1}{ (E_{m} - E_{l})(E_{m} - E_{l'})} + \f{1}{ (E_{m'} - E_{l})(E_{m'} - E_{l'})} \right],
 \end{align*}
-chọn các cơ sở:
+với $m,m',m'' \in A$ và $l,l' \in B$ $(m = \pm 2,0)$ và $(l = \pm 1)$. Ứng với đó là $d_{\pm 2} = \frac{1}{\sqrt{2}}(d_{x^2-y^2} \pm i d_{xy}), d_0 = d_{z^2}, d_{\pm 1} = \frac{1}{\sqrt{2}}(d_{xz} \pm i d_{yz})$.\\
+Do đó ta chọn các cơ sở:
 \begin{align*}
-	&\ket{\psi_{c}^{\tau}} = \ket{d_{z^2}} \equiv \ket{\phi^1_1} \\
-	&\ket{\mathcal{\psi}_{v}^{\tau}} = \f{1}{\sqrt{2}} \left(\ket{d_{x^2-y^2}} + i\tau \ket{d_{xy}}\right)  \equiv \f{1}{\sqrt{2}} \left(\ket{\phi^2_2} + i\tau \ket{\phi^2_1}\right)
+	 & \ket{\psi_{c}^{\tau}} = \ket{d_{z^2}} \equiv \ket{\phi^1_1}                                                                                                                      \\
+	 & \ket{\mathcal{\psi}_{v}^{\tau}} = \f{1}{\sqrt{2}} \left(\ket{d_{x^2-y^2}} + i\tau \ket{d_{xy}}\right)  \equiv \f{1}{\sqrt{2}} \left(\ket{\phi^2_2} + i\tau \ket{\phi^2_1}\right)
 \end{align*}
 
-\begin{align*}
-	H_{\mu\mu'}^{}(\mathbf{k},\tau) 
-	& = \sum_{R} e^{i\mathbf{k\cdot R}} E_{\mu\mu'}^{}(\mathbf{R}) \\
-	& = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{\mu}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{\mu'}^{\tau}(\mathbf{r - R})}
-\end{align*}
+\begin{align}
+	\bra{u_c,\pm \mathbf{K}} p_x \ket{u_v,\pm \mathbf{K}} = \pm i \bra{u_c,\pm \mathbf{K}} p_y \ket{u_v,\pm \mathbf{K}}
+\end{align}
+Thành phần ma trận của Hamiltonian không nhiễu loạn $H^0$:
 
 \begin{align*}
-	&\mathbf{k}  = (k_x,k_y) = \left(\f{4\pi}{3a},0\right) \\
-	&(\alpha,\beta) = \left(\dfrac{1}{2} k_x a,\dfrac{\sqrt{3}}{2} k_y a \right)
+	H_{\mu\mu'}^{}(\mathbf{k},\tau)
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}} E_{\mu\mu'}^{}(\mathbf{R})                                                                             \\
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{\mu}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{\mu'}^{\tau}(\mathbf{r - R})}
 \end{align*}
 
 $\ast H_{cc}(\mathbf{k},\tau)$
 \begin{align*}
-	 H_{cc}(\mathbf{k},\tau) 
-	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{c}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{c}^{\tau}(\mathbf{r - R})}\\
-	 & = h_0 \\
-	 & = 2 t_0 \left(\cos2\alpha + 2\cos\alpha \cos\beta\right) + \epsilon_1 \\
-	 & = 2 t_0 \left(1 + 2\right) + \epsilon_1 \\
+	H_{cc}(\mathbf{k},\tau)
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{c}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{c}^{\tau}(\mathbf{r - R})} \\
+	 & = h_0                                                                                                                               \\
+	 & = 2 t_0 \left(\cos2\alpha + 2\cos\alpha \cos\beta\right) + \epsilon_1
 \end{align*}
 
 $\ast H_{cv}(\mathbf{k},\tau)$
 \begin{align*}
-	 H_{cv}(\mathbf{k},\tau) 
-	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{c}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{v}^{\tau}(\mathbf{r - R})}\\
+	H_{cv}(\mathbf{k},\tau)
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{c}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{v}^{\tau}(\mathbf{r - R})}                                                                 \\
 	 & = \f{1}{\sqrt{2}}\sum_{R} e^{i\mathbf{k\cdot R}}\left[ \bra{\phi^1_1(\mathbf{r})} \hat{H} \ket{\phi^2_2(\mathbf{r-R})} + i\tau\bra{\phi^1_1(\mathbf{r})}\hat{H}\ket{\phi^2_1(\mathbf{r-R})} \right] \\
-	 & = \f{1}{\sqrt{2}} (h_2 + i\tau h_1) \\ 
-	 & = \frac{1}{\sqrt{2}} \biggl[ 2t_2 (\cos 2\alpha -\cos\alpha\cos\beta ) + 2i\sqrt{3}t_1\cos\alpha\sin\beta  \\
-	 & + i\tau \left(-2\sqrt{3} t_2 \sin\alpha \sin\beta + 2i t_1(\sin2\alpha + \sin\alpha \cos\beta )\right) \biggr] \\
-	 & = \frac{1}{\sqrt{2}} \biggl[ 2t_2 (0) + 2i\sqrt{3}t_1\beta + i\tau \left(-2\sqrt{3} t_2 \alpha \beta + 2i t_1(2\alpha + \alpha )\right) \biggr] \\
-	 & = \f{2}{\sqrt{2}} \biggl[ i\sqrt{3}t_1\beta - \sqrt{3}i\tau t_2\alpha\beta - t_1 \tau 3\alpha  \biggr]\\
-	 & = \f{2}{\sqrt{2}} \biggl[ i\sqrt{3}t_1 \dfrac{\sqrt{3}}{2} k_y a - \sqrt{3}i\tau t_2 \dfrac{1}{2} k_x a \dfrac{\sqrt{3}}{2} k_y a - t_1 \tau 3 \dfrac{1}{2} k_x a \biggr]\\
-	 & = \f{1}{\sqrt{2}} \biggl[ 3i t_1 k_y a + \f{3}{2} i\tau t_2 k_x k_y a^2  - 3 t_1 \tau k_x a\biggr] \\ 
-	 & = \f{3}{\sqrt{2}} \biggl[ i t_1 k_y a + i\tau t_2 k_x k_y a^2 - t_1 \tau k_x a\biggr] \\ 
-	 & = \f{3}{\sqrt{2}} \biggl[ a t_1 (ik_y - \tau k_x) + \f{i}{2}\tau t_2 k_x k_y a^2  \biggr] \\ 
+	 & = \f{1}{\sqrt{2}} (h_2 + i\tau h_1)                                                                                                                                                                 \\
+	 & = \frac{1}{\sqrt{2}} \biggl[ 2t_2 (\cos 2\alpha -\cos\alpha\cos\beta ) + 2i\sqrt{3}t_1\cos\alpha\sin\beta                                                                                           \\
+	 & + i\tau \left(-2\sqrt{3} t_2 \sin\alpha \sin\beta + 2i t_1(\sin2\alpha + \sin\alpha \cos\beta )\right) \biggr]
 \end{align*}
 
 $\ast H_{vc}(\mathbf{k},\tau)$
 \begin{align*}
-	 H_{vc}(\mathbf{k},\tau) 
-	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{v}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{c}^{\tau}(\mathbf{r - R})}\\
+	H_{vc}(\mathbf{k},\tau)
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{v}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{c}^{\tau}(\mathbf{r - R})}                                                                 \\
 	 & = \f{1}{\sqrt{2}}\sum_{R} e^{i\mathbf{k\cdot R}}\left[ \bra{\phi^2_2(\mathbf{r})} \hat{H} \ket{\phi^1_1(\mathbf{r-R})} - i\tau\bra{\phi^2_1(\mathbf{r})}\hat{H}\ket{\phi^1_1(\mathbf{r-R})} \right] \\
-	 & = \f{1}{\sqrt{2}} (h_2^{\ast} - i\tau h_1^{\ast}) \\ 
-	 & = \frac{1}{\sqrt{2}} \biggl[ 2t_2 (\cos 2\alpha -\cos\alpha\cos\beta ) - 2i\sqrt{3}t_1\cos\alpha\sin\beta  \\
-	 & - i\tau \left(-2\sqrt{3} t_2 \sin\alpha \sin\beta - 2i t_1(\sin2\alpha + \sin\alpha \cos\beta )\right) \biggr] \\
-	 & = \f{1}{\sqrt{2}} \biggl[ 2 t_2(0) - 2i\sqrt{3}t_1\beta - 2\sqrt{3}i\tau t_2\alpha\beta  - 2t_1 \tau 3\alpha \biggr] \\
-	 & = \f{1}{\sqrt{2}} \biggl[ - 2i\sqrt{3}t_1\f{\sqrt{3}}{2}k_y a - 2\sqrt{3}i\tau t_2\f{1}{2} k_x a\f{\sqrt{3}}{2}k_y a  - 2t_1\tau 3\f{1}{2} k_x a \biggr] \\
-	 & = \f{1}{\sqrt{2}} \biggl[ - it_1 3 k_y a - \f{3i}{2} \tau t_2 k_x a k_y a  - t_1\tau 3 k_x a \biggr] \\
-	 & = \f{3}{\sqrt{2}} \biggl[ -a t_1 (\tau k_x + ik_y ) - \f{i}{2} \tau t_2 k_x k_y a^2  \biggr] \\
+	 & = \f{1}{\sqrt{2}} (h_2^{\ast} - i\tau h_1^{\ast})                                                                                                                                                   \\
+	 & = \frac{1}{\sqrt{2}} \biggl[ 2t_2 (\cos 2\alpha -\cos\alpha\cos\beta ) - 2i\sqrt{3}t_1\cos\alpha\sin\beta                                                                                           \\
+	 & - i\tau \left(-2\sqrt{3} t_2 \sin\alpha \sin\beta - 2i t_1(\sin2\alpha + \sin\alpha \cos\beta )\right) \biggr]
 \end{align*}
 
 $\ast H_{vv}(\mathbf{k},\tau)$
 \begin{align*}
-	 H_{vv}(\mathbf{k},\tau) 
-	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{v}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{v}^{\tau}(\mathbf{r - R})}\\
-	 & = \f{1}{2}\sum_{R} e^{i\mathbf{k\cdot R}} \biggl[ \bra{\phi^2_2(\mathbf{r})} \hat{H} \ket{\phi^2_2(\mathbf{r-R})} + i\tau\bra{\phi^2_2(\mathbf{r})}\hat{H}\ket{\phi^2_1(\mathbf{r-R})}\\
-	 & - i\tau \bra{\phi^2_1(\mathbf{r})}\hat{H}\ket{\phi^2_2(\mathbf{r-R})} +\tau \bra{\phi^2_1(\mathbf{r})}\hat{H}\ket{\phi^2_1(\mathbf{r-R})} \biggr] \\
-	 & = \f{1}{2} \biggl( h_{22} + i\tau h_{12}^{\ast} - i\tau h_{12} + \tau h_{11}   \biggr) \\ 
-	 & = \f{1}{2} \biggl[ 2 t_{22} \cos2\alpha  + (3t_{11} + t_{22})\cos\alpha \cos\beta + \tau\left(2t_{11}\cos2\alpha + \left (t_{11} + 3t_{22}\right )\cos\alpha\cos\beta + 2\epsilon_2\right) \\
-	 & - i\tau (8i t_{12}\sin\alpha(\cos\alpha - \cos\beta)) \biggr] \\
-	 & = \f{1}{2} \biggl[2 t_{22} + (3t_{11} + t_{22}) + \tau (2t_{11} + t_{11} + 3t_{22} + 2\epsilon_2 ) \biggr]\\
-	 & = \f{1}{2} \biggl[3(t_{11} + t_{22}) + 3\tau (t_{11}+t_{22} + \f{2}{3}\epsilon_2)\biggr]
+	H_{vv}(\mathbf{k},\tau)
+	 & = \sum_{R} e^{i\mathbf{k\cdot R}}\bra{\psi_{v}^{\mathfrak{\tau}}(\mathbf{r})}\hat{H}\ket{\mathcal{\psi}_{v}^{\tau}(\mathbf{r - R})}                                                           \\
+	 & = \f{1}{2}\sum_{R} e^{i\mathbf{k\cdot R}} \biggl[ \bra{\phi^2_2(\mathbf{r})} \hat{H} \ket{\phi^2_2(\mathbf{r-R})} + i\tau\bra{\phi^2_2(\mathbf{r})}\hat{H}\ket{\phi^2_1(\mathbf{r-R})}        \\
+	 & - i\tau \bra{\phi^2_1(\mathbf{r})}\hat{H}\ket{\phi^2_2(\mathbf{r-R})} + \tau^2 \bra{\phi^2_1(\mathbf{r})}\hat{H}\ket{\phi^2_1(\mathbf{r-R})} \biggr]                                          \\
+	 & = \f{1}{2} \biggl( h_{22} + i\tau h_{12}^{\ast} - i\tau h_{12} + \tau h_{11}   \biggr)                                                                                                        \\
+	 & = \f{1}{2} \biggl[ 2 t_{22} \cos2\alpha  + (3t_{11} + t_{22})\cos\alpha \cos\beta + \tau^2 \left(2t_{11}\cos2\alpha + \left (t_{11} + 3t_{22}\right )\cos\alpha\cos\beta + 2\epsilon_2\right) \\
+	 & - i\tau (8i t_{12}\sin\alpha(\cos\alpha - \cos\beta)) \biggr]
+\end{align*}
+Tại $\pm K$ valley
+
+\begin{align*}
+	 & \mathbf{k}  = (k_x,k_y) = \left(\tau\f{4\pi}{3a},0\right)                   \\
+	 & (\alpha,\beta) = \left(\dfrac{1}{2} k_x a,\dfrac{\sqrt{3}}{2} k_y a \right)
+\end{align*}
+với $\tau = \pm 1$
+\begin{align*}
+	H_{cc}(\mathbf{k},\tau)
+	 & =  -3t_0  + \epsilon_1
+\end{align*}
+\begin{align*}
+	H_{cv}(\mathbf{k},\tau)
+	 & = 0
+\end{align*}
+\begin{align*}
+	H_{vc}(\mathbf{k},\tau)
+	 & = 0
+\end{align*}
+\begin{align*}
+	H_{vv}(\mathbf{k},\tau)
+	 & =  \epsilon_2 - \f{3}{2} (t_{11} + t_{22}) + \tau 3\sqrt{3}t_{12}
 \end{align*}
 
+$\ast H^{(1)}_{mm'}$
 
+\begin{align*}
+	H^{(1)}_{cc}
+	 & = H^{'}_{0,0} = 0
+\end{align*}
+\begin{align*}
+	H^{(1)}_{vv}
+	 & = H^{'}_{2,2} = 0
+\end{align*}
+\begin{align*}
+	H^{(1)}_{vc}
+	 & = H^{'}_{vc}      \\
+	 & = H_{0,2}^{'\ast}
+\end{align*}
+\begin{align*}
+	H^{(1)}_{cv}
+	 & = H^{'}_{0,2}                                                                                       \\
+	 & = \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{c}}\mathbf{p}\ket{u_{v}}                                   \\
+	 & = \f{\hbar}{m_0} \left(k_x \bra{u_{c}} p_x \ket{u_{v}} + k_y \bra{u_{c}} p_y \ket{u_{v}}\right)     \\
+	 & = \f{\hbar}{m_0} \left( k_x \bra{u_c} p_x \ket{u_v} -i k_y \bra{u_c} p_x \ket{u_v} \right)          \\
+	 & = \f{\hbar}{\sqrt{2}m_0} \left( k_x \bra{u_c} p_x \ket{u_v} - i k_y \bra{u_c} p_x \ket{u_v} \right) \\
+	 & = \f{a\hbar}{a\sqrt{2}m_0} \left( k_x - i k_y \right)\bra{u_c} p_x \ket{u_v}                        \\
+	 & = at \left( k_x - i k_y \right)
+\end{align*}
+đặt $t = \f{\hbar}{a\sqrt{2}m_0}\bra{u_c} p_x \ket{u_v}$
+(ta nhân thêm $a$ và chia cho $a$ ở mẫu để không bị vi phạm thứ nguyên).\\
+%Ta đã sử dụng mô hình TB ba dải cho đơn lớp $MX_2$ bằng cách sử dụng $d_{z^2},d_{xy},d_{x^2-y^2}$ orbitals là các hàm sóng cơ sở.
 
-
-
-
-
-
-
-
-
+$\ast H^{(2)}_{mm'}$
+\begin{align*}
+	H_{2,0}^{(2)}
+	 & = \f{1}{2} \sum_{l} H_{2,l}^{'}H_{l,-2}^{'}\left[ \f{1}{ E_{2} - E_{l}} + \f{1}{ E_{-2} - E_{l} } \right]                                                                                                      \\
+	 & = \f{1}{2} H_{2,-1}^{'}H_{-1,-2}^{'}\left[ \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \right] + \f{1}{2} H_{2,1}^{'}H_{1,-2}^{'} \left[ \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \right]         \\
+	 & = \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{2}}\mathbf{p}\ket{u_{-1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{-1}}\mathbf{p}\ket{u_{-2}} \left[ \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \right] \\
+	 & + \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{2}}\mathbf{p}\ket{u_{1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{1}}\mathbf{p}\ket{u_{-2}} \left[ \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \right]     \\
+	 & = \f{\hbar^2}{2 m_0^2} \Biggl[ \biggl(k_x\bra{u_{2}}p_x\ket{u_{-1}} +  k_y\bra{u_{2}}p_y\ket{u_{-1}}\biggr)\biggl(k_x\bra{u_{-1}}p_x\ket{u_{-2}} +  k_y\bra{u_{-1}}p_y\ket{u_{-2}}\biggr) \\
+	 &\times \biggl( \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \biggr) + \biggl(k_x\bra{u_{2}}p_x\ket{u_{1}} +  k_y\bra{u_{2}}p_y\ket{u_{1}}\biggr)\\
+	 &\times \biggl(k_x\bra{u_{1}}p_x\ket{u_{-2}} +  k_y\bra{u_{1}}p_y\ket{u_{-2}}\biggr) \biggl( \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \biggr) \Biggr]
+\end{align*}
 
 
 
