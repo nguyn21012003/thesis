@@ -1339,15 +1339,34 @@ $\ast H^{(1)}_{mm'}$
 
 $\ast H^{(2)}_{mm'}$
 \begin{align*}
+	H_{0,0}^{(2)}
+	 & = \f{1}{2} \sum_{l} H_{0,l}^{'}H_{l,0}^{'}\left[ \f{1}{ E_{0} - E_{l}} + \f{1}{ E_{0} - E_{l} } \right]                                                                                                                                                                                             \\
+	 & = \f{1}{2} H_{0,-1}^{'}H_{-1,0}^{'}\left[ \f{1}{ E_{0} - E_{-1}} + \f{1}{ E_{0} - E_{-1} } \right] +                                                                                            \f{1}{2} H_{0,1}^{'}H_{1,0}^{'}\left[ \f{1}{ E_{0} - E_{1}} + \f{1}{ E_{0} - E_{1} } \right]        \\
+	 & = \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{0}}\mathbf{p}\ket{u_{-1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{-1}}\mathbf{p}\ket{u_{0}} \left[ \f{1}{ E_{0} - E_{-1}} + \f{1}{ E_{0} - E_{-1} } \right]                                                                                        \\
+	 & + \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{0}}\mathbf{p}\ket{u_{1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{1}}\mathbf{p}\ket{u_{0}} \left[ \f{1}{ E_{0} - E_{1}} + \f{1}{ E_{0} - E_{1} } \right]                                                                                            \\
+	 & = \f{1}{2} \f{\hbar^2}{m_0^2}\biggl[ \left(  \mathbf{k}\cdot \bra{u_{0}}\mathbf{p}\ket{u_{-1}} \mathbf{k}\cdot \bra{u_{-1}}\mathbf{p}\ket{u_{0}} \right) \left( \f{2}{ E_{0} - E_{-1}} \right)                                                                                                      \\
+	 & + \left(  \mathbf{k}\cdot \bra{u_{0}}\mathbf{p}\ket{u_{1}} \mathbf{k}\cdot \bra{u_{1}}\mathbf{p}\ket{u_{0}} \right) \left( \f{2}{ E_{0} - E_{1}} \right) \biggr]                                                                                                                                    \\
+	 & = \f{\hbar^2}{m_0^2}\Biggl[ \biggl( k_x \bra{u_{0}}{p_x}\ket{u_{-1}} +  k_y \bra{u_{0}}{p_y}\ket{u_{-1}}\biggr) \biggl( k_x \bra{u_{-1}}{p_x}\ket{u_{0}} +  k_y \bra{u_{-1}}{p_y}\ket{u_{0}}\biggr) \left( \f{1}{ E_{0} - E_{-1}} \right)                                                           \\
+	 & + \biggl( k_x \bra{u_{0}}{p_x}\ket{u_{1}} +  k_y \bra{u_{0}}{p_y}\ket{u_{1}}\biggr) \biggl( k_x \bra{u_{1}}{p_x}\ket{u_{0}} +  k_y \bra{u_{1}}{p_y}\ket{u_{0}}\biggr) \left( \f{1}{ E_{0} - E_{1}} \right) \Biggr]                                                                                  \\
+	 & = \f{\hbar^2}{m_0^2}\Biggl[ \biggl( k_x \bra{u_{0}}{p_x}\ket{u_{-1}} k_x \bra{u_{-1}}{p_x}\ket{u_{0}} +  k_x \bra{u_{0}}{p_x}\ket{u_{-1}}k_y \bra{u_{-1}}{p_y}\ket{u_{0}}                                                                                                                           \\
+	 & + k_y\bra{u_{0}}{p_y}\ket{u_{-1}} k_x \bra{u_{-1}}{p_x}\ket{u_{0}} + k_y\bra{u_{0}}{p_y}\ket{u_{-1}}k_y \bra{u_{-1}}{p_y}\ket{u_{0}} \biggr) \left( \f{1}{ E_{0} - E_{-1}} \right)                                                                                                                  \\
+	 & + \biggl( k_x \bra{u_{0}}{p_x}\ket{u_{1}} k_x \bra{u_{1}}{p_x}\ket{u_{0}} + k_x \bra{u_{0}}{p_x}\ket{u_{1}} k_y \bra{u_{1}}{p_y}\ket{u_{0}}                                                                                                                                                         \\
+	 & + k_y \bra{u_{0}}{p_y}\ket{u_{1}} k_x \bra{u_{1}}{p_x}\ket{u_{0}} + k_y \bra{u_{0}}{p_y}\ket{u_{1}} k_y \bra{u_{1}}{p_y}\ket{u_{0}}\biggr) \left( \f{1}{ E_{0} - E_{1}} \right) \Biggr]                                                                                                             \\
+	 & = \f{\hbar^2}{m_0^2}\Biggl[ \biggl( k_x^2 \mathsf{p}_{x,-1}^{\ast} \mathsf{p}_{x,-1} +  k_xk_y \mathsf{p}_{x,-1}^{\ast}\mathsf{p}_{y,-1} + k_yk_x \mathsf{p}_{y,-1}^{\ast} \mathsf{p}_{x,-1}^{\ast} + k_y^2\mathsf{p}_{y,-1}^{\ast}\mathsf{p}_{y,-1}  \biggr) \left( \f{1}{ E_{0} - E_{-1}} \right) \\
+	 & + \biggl( k_x^2 \mathsf{p}_{x,1}^{\ast} \mathsf{p}_{x,1} +  k_xk_y \mathsf{p}_{x,1}^{\ast}\mathsf{p}_{y,1} + k_yk_x \mathsf{p}_{y,1}^{\ast} \mathsf{p}_{x,1}^{\ast} + k_y^2\mathsf{p}_{y,1}^{\ast}\mathsf{p}_{y,1}  \biggr) \left( \f{1}{ E_{0} - E_{1}} \right) \Biggr]                            \\
+	 & = \f{\hbar^2}{m_0^2} \sum_{l=-1,1} \sum_{i,j} \left( \f{k_i k_j \mathsf{p}_{i,l}^{\ast} \mathsf{p}_{j,l}}{ E_{0} - E_{l}}  \right) =  \f{a^2\hbar^2}{a^2 m_0^2} \sum_{l=-1,1} \sum_{i,j} \left( \f{k_i k_j \mathsf{p}_{i,l}^{\ast} \mathsf{p}_{j,l}}{ E_{0} - E_{l}}  \right)
+\end{align*}
+\begin{align*}
 	H_{2,0}^{(2)}
 	 & = \f{1}{2} \sum_{l} H_{2,l}^{'}H_{l,-2}^{'}\left[ \f{1}{ E_{2} - E_{l}} + \f{1}{ E_{-2} - E_{l} } \right]                                                                                                      \\
 	 & = \f{1}{2} H_{2,-1}^{'}H_{-1,-2}^{'}\left[ \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \right] + \f{1}{2} H_{2,1}^{'}H_{1,-2}^{'} \left[ \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \right]         \\
 	 & = \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{2}}\mathbf{p}\ket{u_{-1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{-1}}\mathbf{p}\ket{u_{-2}} \left[ \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \right] \\
 	 & + \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{2}}\mathbf{p}\ket{u_{1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{1}}\mathbf{p}\ket{u_{-2}} \left[ \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \right]     \\
-	 & = \f{\hbar^2}{2 m_0^2} \Biggl[ \biggl(k_x\bra{u_{2}}p_x\ket{u_{-1}} +  k_y\bra{u_{2}}p_y\ket{u_{-1}}\biggr)\biggl(k_x\bra{u_{-1}}p_x\ket{u_{-2}} +  k_y\bra{u_{-1}}p_y\ket{u_{-2}}\biggr) \\
-	 &\times \biggl( \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \biggr) + \biggl(k_x\bra{u_{2}}p_x\ket{u_{1}} +  k_y\bra{u_{2}}p_y\ket{u_{1}}\biggr)\\
-	 &\times \biggl(k_x\bra{u_{1}}p_x\ket{u_{-2}} +  k_y\bra{u_{1}}p_y\ket{u_{-2}}\biggr) \biggl( \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \biggr) \Biggr]
+	 & = \f{\hbar^2}{2 m_0^2} \Biggl[ \biggl(k_x\bra{u_{2}}p_x\ket{u_{-1}} +  k_y\bra{u_{2}}p_y\ket{u_{-1}}\biggr)\biggl(k_x\bra{u_{-1}}p_x\ket{u_{-2}} +  k_y\bra{u_{-1}}p_y\ket{u_{-2}}\biggr)                      \\
+	 & \times \biggl( \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \biggr) + \biggl(k_x\bra{u_{2}}p_x\ket{u_{1}} +  k_y\bra{u_{2}}p_y\ket{u_{1}}\biggr)                                                          \\
+	 & \times \biggl(k_x\bra{u_{1}}p_x\ket{u_{-2}} +  k_y\bra{u_{1}}p_y\ket{u_{-2}}\biggr) \biggl( \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \biggr) \Biggr]
 \end{align*}
+
 
 
 
