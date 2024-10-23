@@ -8,7 +8,7 @@
 \usepackage{parskip}
 \usepackage{xcolor}
 \usepackage{amssymb}
-\usepackage{slashed}
+\usepackage{slashed,cancel}
 \usepackage{indentfirst}
 \usepackage{pdfpages}
 \usepackage{graphicx}
@@ -20,7 +20,6 @@
 \usepackage[thinc]{esdiff}
 \usepackage{hyperref}
 \usepackage{dirtytalk,bm,physics,upgreek}
-\usepackage{tikz}
 \usepackage{lipsum}
 \usepackage{fancyhdr}
 %footnote
@@ -30,7 +29,6 @@
 \fancyfoot[L]{Vật lý Lý thuyết}%
 \fancyfoot[C]{\hspace{6.5cm} \thepage}%
 
-\usetikzlibrary{shapes.geometric, arrows}
 
 \usepackage{geometry}
 \geometry{
@@ -1223,12 +1221,12 @@ Hamiltonian cho tập hợp con $A = \{ \ket{u_m}\}$:
 \end{align}
 trong đó
 \begin{align*}
-	H^{(1)}_{mm'} & = H^{'}_{mm'},                                                                                                                                                                                              \\
-	H^{(2)}_{mm'} & = \f{1}{2} \sum_l H^{'}_{ml} H^{'}_{lm'} \left[ \f{1}{E_m - E_l} + \f{1}{E_{m'} - E_l} \right],                                                                                                             \\
-	H^{(3)}_{mm'} & = -\f{1}{2} \sum_{l,m''} \left[ \f{ H^{'}_{ml}H^{'}_{lm''}H^{'}_{m'' m'} }{ (E_{m'} - E_{l})(E_{m''} - E_{l})} +  \f{ H^{'}_{mm''}H^{'}_{m''l}H^{'}_{l m'} }{ (E_{m} - E_{l})(E_{m''} - E_{l})  } \right] , \\
-	              & + \f{1}{2} \sum_{l,l'}^{} H^{'}_{ml}H^{'}_{ll'}H^{'}_{l'm'}\left[ \f{1}{ (E_{m} - E_{l})(E_{m} - E_{l'})} + \f{1}{ (E_{m'} - E_{l})(E_{m'} - E_{l'})} \right],
+	H^{(1)}_{ii'} & = H^{'}_{ii'},                                                                                                                                                                                              \\
+	H^{(2)}_{ii'} & = \f{1}{2} \sum_l H^{'}_{in} H^{'}_{ni'} \left[ \f{1}{E_i - E_n} + \f{1}{E_{i'} - E_n} \right],                                                                                                             \\
+	H^{(3)}_{ii'} & = -\f{1}{2} \sum_{n,i''} \left[ \f{ H^{'}_{in}H^{'}_{ni''}H^{'}_{i'' i'} }{ (E_{i'} - E_{n})(E_{i''} - E_{n})} +  \f{ H^{'}_{ii''}H^{'}_{i''n}H^{'}_{n i'} }{ (E_{i} - E_{n})(E_{i''} - E_{n})  } \right] , \\
+	              & + \f{1}{2} \sum_{n,n'}^{} H^{'}_{in}H^{'}_{nn'}H^{'}_{n'i'}\left[ \f{1}{ (E_{i} - E_{n})(E_{i} - E_{n'})} + \f{1}{ (E_{i'} - E_{n})(E_{i'} - E_{n'})} \right],
 \end{align*}
-với $m,m',m'' \in A$ và $l,l' \in B$ $(m = \pm 2,0)$ và $(l = \pm 1)$. Ứng với đó là $d_{\pm 2} = \frac{1}{\sqrt{2}}(d_{x^2-y^2} \pm i d_{xy}), d_0 = d_{z^2}, d_{\pm 1} = \frac{1}{\sqrt{2}}(d_{xz} \pm i d_{yz})$.\\
+với $i,i',i'' \in A$ và $n,n' \in B$ $(i = \pm 2,0)$ và $(n = \pm 1)$. Ứng với đó là $d_{\pm 2} = \frac{1}{\sqrt{2}}(d_{x^2-y^2} \pm i d_{xy}), d_0 = d_{z^2}, d_{\pm 1} = \frac{1}{\sqrt{2}}(d_{xz} \pm i d_{yz})$.\\
 Do đó ta chọn các cơ sở:
 \begin{align*}
 	 & \ket{\psi_{c}^{\tau}} = \ket{d_{z^2}} \equiv \ket{\phi^1_1}                                                                                                                      \\
@@ -1325,46 +1323,120 @@ $\ast H^{(1)}_{mm'}$
 \end{align*}
 \begin{align*}
 	H^{(1)}_{cv}
-	 & = H^{'}_{0,2}                                                                                       \\
-	 & = \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{c}}\mathbf{p}\ket{u_{v}}                                   \\
-	 & = \f{\hbar}{m_0} \left(k_x \bra{u_{c}} p_x \ket{u_{v}} + k_y \bra{u_{c}} p_y \ket{u_{v}}\right)     \\
-	 & = \f{\hbar}{m_0} \left( k_x \bra{u_c} p_x \ket{u_v} -i k_y \bra{u_c} p_x \ket{u_v} \right)          \\
-	 & = \f{\hbar}{\sqrt{2}m_0} \left( k_x \bra{u_c} p_x \ket{u_v} - i k_y \bra{u_c} p_x \ket{u_v} \right) \\
-	 & = \f{a\hbar}{a\sqrt{2}m_0} \left( k_x - i k_y \right)\bra{u_c} p_x \ket{u_v}                        \\
+	 & = H^{'}_{0,2}                                                                                   \\
+	 & = \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{c}}\mathbf{p}\ket{u_{v}}                               \\
+	 & = \f{\hbar}{m_0} \left(k_x \bra{u_{c}} p_x \ket{u_{v}} + k_y \bra{u_{c}} p_y \ket{u_{v}}\right) \\
+	 & = \f{\hbar}{m_0} \left( k_x \bra{u_c} p_x \ket{u_v} -i k_y \bra{u_c} p_x \ket{u_v} \right)      \\
+	 & = \f{\hbar}{m_0} \left( k_x \bra{u_c} p_x \ket{u_v} - i k_y \bra{u_c} p_x \ket{u_v} \right)     \\
+	 & = \f{a\hbar}{a m_0} \left( k_x - i k_y \right)\bra{u_c} p_x \ket{u_v}                           \\
 	 & = at \left( k_x - i k_y \right)
 \end{align*}
-đặt $t = \f{\hbar}{a\sqrt{2}m_0}\bra{u_c} p_x \ket{u_v}$
+đặt $t = \f{\hbar}{a m_0}\bra{u_c} p_x \ket{u_v}$
 (ta nhân thêm $a$ và chia cho $a$ ở mẫu để không bị vi phạm thứ nguyên).\\
 %Ta đã sử dụng mô hình TB ba dải cho đơn lớp $MX_2$ bằng cách sử dụng $d_{z^2},d_{xy},d_{x^2-y^2}$ orbitals là các hàm sóng cơ sở.
+
+Ta sử dụng định nghĩa mới là $\mathbf{k = q + K}$, và viết lại phương trình (18) dưới dạng:
+
+\begin{align}
+	H_{\mathbf{k\cdot p}} = \f{1}{2} \f{\hbar}{m_0} ( q_{+} \hat{p}_{-} + q_{-} \hat{p}_{+}) = H_{\mathbf{k\cdot p}}^{-} + H_{\mathbf{k\cdot p}}^{+},
+\end{align}
+với $q_{\pm} = q_{x} \pm i q_y $, $\hat{p}_{\pm} = \hat{p}_{x} \pm i \hat{p}_y $
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c  c  c}
+		\hline
+		\hline
+		irrep       & Basics funtioncs                           & Band \\ [0.6ex]
+		\hline
+		$A_{1}^{'}$ & $\ket{\Psi_{2,0}}$                         & VB   \\
+		$E_{}^{'}$  & $\{ \ket{\Psi_{2,2}},\ket{\Psi_{2,-2}} \}$ & VB-3 \\
+		$E_{}^{''}$ & $\{ \ket{\Psi_{2,1}},\ket{\Psi_{2,-1}} \}$ & VB-1 \\
+		\hline
+	\end{tabular}
+	\caption{Cơ sở cho cho biểu diển bất khả quy của nhóm $D_{3h}$ tại điểm $\Gamma$}.
+\end{table}
+
+Sử dụng toán tử quay $C_3$ tác dụng lên $p_\pm$:
+\begin{align*}
+	\renewcommand{\arraystretch}{0.75}
+	C_{3} \hat{p}_{+} & =
+	\begin{pmatrix}
+		-\f{1}{2}       & -\f{\sqrt{3}}{2} \\
+		\f{\sqrt{3}}{2} & -\f{1}{2}        \\
+	\end{pmatrix}
+	\begin{pmatrix}
+		p_x \\
+		p_y
+	\end{pmatrix}
+	= \begin{pmatrix}
+		  p'_x \\
+		  p'_y
+	  \end{pmatrix}                                                                                                             \\
+	                  & = \left( -\f{1}{2} p_x - \f{\sqrt{3}}{2} p_y \right) + i \left( \f{\sqrt{3}}{2}p_x - \f{1}{2}p_y \right) \\
+	                  & = e^{-\frac{2\pi i}{3}} p_{+}
+\end{align*}
+Tương tự cho $p_{-}$, ta có:
+\begin{align}
+	C_{3} \hat{p}_{\pm} = e^{\mp\frac{2\pi i}{3}} p_{\pm}
+\end{align}
+Sử dụng kết quả (22), ta tính được nhiễu loạn bậc 1 như sau:\\
+$\ast H^{(1)}_{mm'}$
+
+\begin{align*}
+	H^{(1)}_{cc}
+	 & = H^{'}_{0,0} = 0
+\end{align*}
+\begin{align*}
+	H^{(1)}_{vv}
+	 & = H^{'}_{2,2} = 0
+\end{align*}
+\begin{align*}
+	H^{(1)}_{vc}
+	 & = H^{'}_{vc}      \\
+	 & = H_{0,2}^{'\ast}
+\end{align*}
+\begin{align*}
+	H^{(1)}_{cv}
+	 & = H^{'}_{0,2}                                                                                                                                                                                                                   \\
+	 & = \f{1}{2}\f{\hbar}{m_0}  \left( q_{+}\bra{0}\hat{p}_{-}\ket{2} + q_{-}\bra{0}\hat{p}_{+}\ket{2}  \right)                                                                                                                       \\
+	 & = \f{1}{2}\f{\hbar}{m_0}  \left( q_{+}\bra{0}C_{3}^{\dagger}C_{3}\hat{p}_{-}C_{3}^{\dagger}C_{3}\ket{2} + q_{-}\bra{0}C_{3}^{\dagger}C_{3}\hat{p}_{+}C_{3}^{\dagger}C_{3}\ket{2}  \right)                                       \\
+	 & = \f{1}{2}\f{\hbar}{m_0} \left( e^{\frac{2i\pi}{3}} e^{\frac{2i\pi}{3}}q_{+} \cancelto{0}{\bra{0} p_{-}\ket{2}} + e^{-\frac{2i\pi}{3}} e^{\frac{2i\pi}{3}}q_{-}\bra{0}\hat{p}_{+}\ket{2}  \right)(\text{để dấu ``$=$'' xảy ra}) \\
+	 & = \f{a\hbar}{a m_0} q_{-}\bra{u_c} \hat{p}_{+} \ket{u_v}                                                                                                                                                                        \\
+	 & = at q_{-}
+\end{align*}
 
 $\ast H^{(2)}_{mm'}$
 \begin{align*}
 	H_{0,0}^{(2)}
-	 & = \f{1}{2} \sum_{l} H_{0,l}^{'}H_{l,0}^{'}\left[ \f{1}{ E_{0} - E_{l}} + \f{1}{ E_{0} - E_{l} } \right]                                                                                                                                                                                             \\
-	 & = \f{1}{2} H_{0,-1}^{'}H_{-1,0}^{'}\left[ \f{1}{ E_{0} - E_{-1}} + \f{1}{ E_{0} - E_{-1} } \right] +                                                                                            \f{1}{2} H_{0,1}^{'}H_{1,0}^{'}\left[ \f{1}{ E_{0} - E_{1}} + \f{1}{ E_{0} - E_{1} } \right]        \\
-	 & = \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{0}}\mathbf{p}\ket{u_{-1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{-1}}\mathbf{p}\ket{u_{0}} \left[ \f{1}{ E_{0} - E_{-1}} + \f{1}{ E_{0} - E_{-1} } \right]                                                                                        \\
-	 & + \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{0}}\mathbf{p}\ket{u_{1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{1}}\mathbf{p}\ket{u_{0}} \left[ \f{1}{ E_{0} - E_{1}} + \f{1}{ E_{0} - E_{1} } \right]                                                                                            \\
-	 & = \f{1}{2} \f{\hbar^2}{m_0^2}\biggl[ \left(  \mathbf{k}\cdot \bra{u_{0}}\mathbf{p}\ket{u_{-1}} \mathbf{k}\cdot \bra{u_{-1}}\mathbf{p}\ket{u_{0}} \right) \left( \f{2}{ E_{0} - E_{-1}} \right)                                                                                                      \\
-	 & + \left(  \mathbf{k}\cdot \bra{u_{0}}\mathbf{p}\ket{u_{1}} \mathbf{k}\cdot \bra{u_{1}}\mathbf{p}\ket{u_{0}} \right) \left( \f{2}{ E_{0} - E_{1}} \right) \biggr]                                                                                                                                    \\
-	 & = \f{\hbar^2}{m_0^2}\Biggl[ \biggl( k_x \bra{u_{0}}{p_x}\ket{u_{-1}} +  k_y \bra{u_{0}}{p_y}\ket{u_{-1}}\biggr) \biggl( k_x \bra{u_{-1}}{p_x}\ket{u_{0}} +  k_y \bra{u_{-1}}{p_y}\ket{u_{0}}\biggr) \left( \f{1}{ E_{0} - E_{-1}} \right)                                                           \\
-	 & + \biggl( k_x \bra{u_{0}}{p_x}\ket{u_{1}} +  k_y \bra{u_{0}}{p_y}\ket{u_{1}}\biggr) \biggl( k_x \bra{u_{1}}{p_x}\ket{u_{0}} +  k_y \bra{u_{1}}{p_y}\ket{u_{0}}\biggr) \left( \f{1}{ E_{0} - E_{1}} \right) \Biggr]                                                                                  \\
-	 & = \f{\hbar^2}{m_0^2}\Biggl[ \biggl( k_x \bra{u_{0}}{p_x}\ket{u_{-1}} k_x \bra{u_{-1}}{p_x}\ket{u_{0}} +  k_x \bra{u_{0}}{p_x}\ket{u_{-1}}k_y \bra{u_{-1}}{p_y}\ket{u_{0}}                                                                                                                           \\
-	 & + k_y\bra{u_{0}}{p_y}\ket{u_{-1}} k_x \bra{u_{-1}}{p_x}\ket{u_{0}} + k_y\bra{u_{0}}{p_y}\ket{u_{-1}}k_y \bra{u_{-1}}{p_y}\ket{u_{0}} \biggr) \left( \f{1}{ E_{0} - E_{-1}} \right)                                                                                                                  \\
-	 & + \biggl( k_x \bra{u_{0}}{p_x}\ket{u_{1}} k_x \bra{u_{1}}{p_x}\ket{u_{0}} + k_x \bra{u_{0}}{p_x}\ket{u_{1}} k_y \bra{u_{1}}{p_y}\ket{u_{0}}                                                                                                                                                         \\
-	 & + k_y \bra{u_{0}}{p_y}\ket{u_{1}} k_x \bra{u_{1}}{p_x}\ket{u_{0}} + k_y \bra{u_{0}}{p_y}\ket{u_{1}} k_y \bra{u_{1}}{p_y}\ket{u_{0}}\biggr) \left( \f{1}{ E_{0} - E_{1}} \right) \Biggr]                                                                                                             \\
-	 & = \f{\hbar^2}{m_0^2}\Biggl[ \biggl( k_x^2 \mathsf{p}_{x,-1}^{\ast} \mathsf{p}_{x,-1} +  k_xk_y \mathsf{p}_{x,-1}^{\ast}\mathsf{p}_{y,-1} + k_yk_x \mathsf{p}_{y,-1}^{\ast} \mathsf{p}_{x,-1}^{\ast} + k_y^2\mathsf{p}_{y,-1}^{\ast}\mathsf{p}_{y,-1}  \biggr) \left( \f{1}{ E_{0} - E_{-1}} \right) \\
-	 & + \biggl( k_x^2 \mathsf{p}_{x,1}^{\ast} \mathsf{p}_{x,1} +  k_xk_y \mathsf{p}_{x,1}^{\ast}\mathsf{p}_{y,1} + k_yk_x \mathsf{p}_{y,1}^{\ast} \mathsf{p}_{x,1}^{\ast} + k_y^2\mathsf{p}_{y,1}^{\ast}\mathsf{p}_{y,1}  \biggr) \left( \f{1}{ E_{0} - E_{1}} \right) \Biggr]                            \\
-	 & = \f{\hbar^2}{m_0^2} \sum_{l=-1,1} \sum_{i,j} \left( \f{k_i k_j \mathsf{p}_{i,l}^{\ast} \mathsf{p}_{j,l}}{ E_{0} - E_{l}}  \right) =  \f{a^2\hbar^2}{a^2 m_0^2} \sum_{l=-1,1} \sum_{i,j} \left( \f{k_i k_j \mathsf{p}_{i,l}^{\ast} \mathsf{p}_{j,l}}{ E_{0} - E_{l}}  \right)
+	       & = \f{1}{2} \sum_{l} H_{0,l}^{'}H_{l,0}^{'}\left[ \f{1}{ E_{0} - E_{l}} + \f{1}{ E_{0} - E_{l} } \right]                                                                                                                                                                                      \\
+	       & = \f{1}{2} H_{0,-1}^{'}H_{-1,0}^{'}\left[ \f{1}{ E_{0} - E_{-1}} + \f{1}{ E_{0} - E_{-1} } \right] +                                                                                            \f{1}{2} H_{0,1}^{'}H_{1,0}^{'}\left[ \f{1}{ E_{0} - E_{1}} + \f{1}{ E_{0} - E_{1} } \right] \\
+	       & = \f{1}{4}\f{\hbar}{m_0} \left( q_{+}\bra{0}\hat{p}_{-}\ket{-1} + q_{-}\bra{0}\hat{p}_{+}\ket{-1}\right)\left( q_{+}\bra{-1}\hat{p}_{-}\ket{0} + q_{-}\bra{-1}\hat{p}_{+}\ket{0}\right)\left[ \f{1}{ E_{0} - E_{-1}} + \f{1}{ E_{0} - E_{-1} } \right]                                       \\
+	+      & \f{1}{4}\f{\hbar}{m_0} \left( q_{+}\bra{0}\hat{p}_{-}\ket{1} + q_{-}\bra{0}\hat{p}_{+}\ket{1}\right)\left( q_{+}\bra{1}\hat{p}_{-}\ket{0} + q_{-}\bra{1}\hat{p}_{+}\ket{0}\right)\left[ \f{1}{ E_{0} - E_{1}} + \f{1}{ E_{0} - E_{1} } \right]                                               \\
+	       & = \f{1}{4}\f{\hbar}{m_0} \left( q_{+}\bra{0}C_{3}^{\dagger}C_{3}\hat{p}_{-}C_{3}^{\dagger}C_{3}\ket{-1} + q_{-}\bra{0}C_{3}^{\dagger}C_{3}\hat{p}_{+}C_{3}^{\dagger}C_{3}\ket{-1}\right)                                                                                                     \\
+	\times & \left( q_{+}\bra{-1}C_{3}^{\dagger}C_{3}\hat{p}_{-}C_{3}^{\dagger}C_{3}\ket{0} + q_{-}\bra{-1}C_{3}^{\dagger}C_{3}\hat{p}_{+}C_{3}^{\dagger}C_{3}\ket{0}\right) \left[ \f{1}{ E_{0} - E_{-1}} + \f{1}{ E_{0} - E_{-1} } \right]                                                              \\
+	+      & \f{1}{4}\f{\hbar}{m_0} \left( q_{+}\bra{0}C_{3}^{\dagger}C_{3}\hat{p}_{-}C_{3}^{\dagger}C_{3}\ket{1} + q_{-}\bra{0}C_{3}^{\dagger}C_{3}\hat{p}_{+}C_{3}^{\dagger}C_{3}\ket{1}\right)                                                                                                         \\
+	\times & \left( q_{+}\bra{1}C_{3}^{\dagger}C_{3}\hat{p}_{-}C_{3}^{\dagger}C_{3}\ket{0} + q_{-}\bra{1}C_{3}^{\dagger}C_{3}\hat{p}_{+}C_{3}^{\dagger}C_{3}\ket{0}\right)\left[ \f{1}{ E_{0} - E_{1}} + \f{1}{ E_{0} - E_{1} } \right]                                                                   \\
+	       & = \f{1}{4}\f{\hbar}{m_0} \left( q_{+} e^{\frac{2i\pi}{3}}e^{-\frac{2i\pi}{3}} \bra{0}\hat{p}_{-}\ket{-1} + q_{-}e^{-\frac{2i\pi}{3}}e^{-\frac{2i\pi}{3}}\cancelto{0}{\bra{0}\hat{p}_{+}\ket{-1}} \right)                                                                                     \\
+	\times & \left( q_{+} e^{\frac{2i\pi}{3}}e^{\frac{2i\pi}{3}} \cancelto{0}{\bra{-1}\hat{p}_{-}\ket{0}} + q_{-}e^{-\frac{2i\pi}{3}}e^{\frac{2i\pi}{3}}\bra{-1}\hat{p}_{+}\ket{0}\right)\left[ \f{1}{ E_{0} - E_{-1}} + \f{1}{ E_{0} - E_{-1} } \right]                                                  \\
+	+      & \f{1}{4}\f{\hbar}{m_0} \left( q_{+} e^{\frac{2i\pi}{3}}e^{-\frac{2i\pi}{3}} \bra{0}\hat{p}_{-}\ket{1} + q_{-}e^{-\frac{2i\pi}{3}}e^{-\frac{2i\pi}{3}}\cancelto{0}{\bra{0}\hat{p}_{+}\ket{1}} \right)                                                                                         \\
+	\times & \left( q_{+} e^{\frac{2i\pi}{3}}e^{\frac{2i\pi}{3}} \cancelto{0}{\bra{1}\hat{p}_{-}\ket{0}} + q_{-}e^{-\frac{2i\pi}{3}}e^{\frac{2i\pi}{3}}\bra{1}\hat{p}_{+}\ket{0}\right)\left[ \f{1}{ E_{0} - E_{1}} + \f{1}{ E_{0} - E_{1} } \right] (\text{để dấu ``$=$'' xảy ra})
 \end{align*}
+Vậy, rút gọn những thành phần ma trận không cần thiết ta được:
 \begin{align*}
-	H_{2,0}^{(2)}
+	H_{0,0}^{(2)}
+	  & =\f{1}{4}\f{\hbar}{m_0} \left( q_{+} \bra{0}\hat{p}_{-}\ket{-1} \right) \left( q_{-}\bra{-1}\hat{p}_{+}\ket{0} \right)\left[ \f{2}{ E_{0} - E_{-1}} \right] \\
+	+ & \f{1}{4}\f{\hbar}{m_0} \left( q_{+} \bra{0}\hat{p}_{-}\ket{1} \right) \left( q_{-}\bra{1}\hat{p}_{+}\ket{0} \right)\left[ \f{2}{ E_{0} - E_{1}} \right]     \\
+	  & = \f{1}{2} \f{\hbar}{m_0}q^2 \left[  \bra{0}\hat{p}_{-}\ket{-1}\bra{-1}\hat{p}_{+}\ket{0}\f{1}{ E_{0} - E_{-1}} + \bra{0}\hat{p}_{-}\ket{1}\bra{1}\hat{p}_{+}\ket{0}\f{1}{ E_{0} - E_{1}}  \right] \\
+	  & = q^2 a^2 \underbracket{\f{1}{2} \f{\hbar}{a^2 m_0} \left[  \bra{0}\hat{p}_{-}\ket{-1}\bra{-1}\hat{p}_{+}\ket{0}\f{1}{ E_{0} - E_{-1}} + \bra{0}\hat{p}_{-}\ket{1}\bra{1}\hat{p}_{+}\ket{0}\f{1}{ E_{0} - E_{1}}  \right]}_{\gamma_1} \\
+	  & = q^2 a^2 {\gamma_1}
+\end{align*}
+với $q^2 = q_x^2 + q_y^2$.
+\begin{align*}
+	H_{2,-1}^{(2)}
 	 & = \f{1}{2} \sum_{l} H_{2,l}^{'}H_{l,-2}^{'}\left[ \f{1}{ E_{2} - E_{l}} + \f{1}{ E_{-2} - E_{l} } \right]                                                                                                      \\
+	 & = \f{1}{2} H_{2,-1}^{'}H_{-1,-2}^{'}\left[ \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \right] + \f{1}{2} H_{2,1}^{'}H_{1,-2}^{'} \left[ \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \right]         \\	
 	 & = \f{1}{2} H_{2,-1}^{'}H_{-1,-2}^{'}\left[ \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \right] + \f{1}{2} H_{2,1}^{'}H_{1,-2}^{'} \left[ \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \right]         \\
-	 & = \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{2}}\mathbf{p}\ket{u_{-1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{-1}}\mathbf{p}\ket{u_{-2}} \left[ \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \right] \\
-	 & + \f{1}{2} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{2}}\mathbf{p}\ket{u_{1}} \f{\hbar}{m_0} \mathbf{k}\cdot \bra{u_{1}}\mathbf{p}\ket{u_{-2}} \left[ \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \right]     \\
-	 & = \f{\hbar^2}{2 m_0^2} \Biggl[ \biggl(k_x\bra{u_{2}}p_x\ket{u_{-1}} +  k_y\bra{u_{2}}p_y\ket{u_{-1}}\biggr)\biggl(k_x\bra{u_{-1}}p_x\ket{u_{-2}} +  k_y\bra{u_{-1}}p_y\ket{u_{-2}}\biggr)                      \\
-	 & \times \biggl( \f{1}{ E_{2} - E_{-1}} + \f{1}{ E_{-2} - E_{-1} } \biggr) + \biggl(k_x\bra{u_{2}}p_x\ket{u_{1}} +  k_y\bra{u_{2}}p_y\ket{u_{1}}\biggr)                                                          \\
-	 & \times \biggl(k_x\bra{u_{1}}p_x\ket{u_{-2}} +  k_y\bra{u_{1}}p_y\ket{u_{-2}}\biggr) \biggl( \f{1}{ E_{2} - E_{1}} + \f{1}{ E_{-2} - E_{1} } \biggr) \Biggr]
 \end{align*}
 
 
@@ -1373,6 +1445,37 @@ $\ast H^{(2)}_{mm'}$
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c  c  c}
+		\hline
+		\hline
+		irrep       & Basics funtioncs                           & Band \\ [0.6ex]
+		\hline
+		$A_{1}^{'}$ & $\ket{\Psi_{2,0}}$                         & VB   \\
+		$E_{}^{'}$  & $\{ \ket{\Psi_{2,2}},\ket{\Psi_{2,-2}} \}$ & VB-3 \\
+		$E_{}^{''}$ & $\{ \ket{\Psi_{2,1}},\ket{\Psi_{2,-1}} \}$ & VB-1 \\
+		\hline
+	\end{tabular}
+	\caption{Cơ sở cho cho biểu diển bất khả quy của nhóm $D_{3h}$ tại điểm $\Gamma$}.
+\end{table}
 
 
 
