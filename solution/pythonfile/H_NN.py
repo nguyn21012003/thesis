@@ -127,7 +127,7 @@ def eigenvalue(argument):
     for i in range(N):
         for j in range(N):
             kx[i][j] = cos(pi / 6) * (i * dki + j * dkj) - 2 * pi / (a_lattice)
-            ky[i][j] = sin(pi / 6) * (-i * dki + j * dkj) * 0 + 0
+            ky[i][j] = sin(pi / 6) * (-i * dki + j * dkj) + 0
             # ky[i][j] = 0
             a = kx[i][j] * a_lattice / 2
             b = sqrt(3) / 2 * ky[i][j] * a_lattice
@@ -175,15 +175,15 @@ def eigenvalue(argument):
 
     fig = plt.figure(figsize=(16, 8))
 
-    # ax = fig.add_subplot(121, projection="3d")
-    # ax.plot_surface(kx, ky, L1, cmap="viridis")
-    # ax.plot_surface(kx, ky, L2, cmap="plasma")
-    # ax.plot_surface(kx, ky, L3, cmap="inferno")
+    ax = fig.add_subplot(121, projection="3d")
+    ax.plot_surface(kx, ky, L1, cmap="viridis")
+    ax.plot_surface(kx, ky, L2, cmap="plasma")
+    ax.plot_surface(kx, ky, L3, cmap="inferno")
 
     hex_code = "#000000"
     hex_code1 = "r"
 
-    # plt.subplot(1, 3, 3)
+    plt.subplot(1, 3, 3)
     plt.plot(kx, L1, color=hex_code)
     plt.plot(kx, L2, color=hex_code)
     plt.plot(kx, L3, color=hex_code)
