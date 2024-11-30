@@ -1,0 +1,37 @@
+INFO:  ANSI Code Page: 65001
+INFO:  latexindent.exe version 3.24.4, 2024-07-18, a script to indent .tex files
+       latexindent.exe lives here: E:/texlive/2022/bin/win32/
+       Sat Nov 30 17:13:50 2024
+       Filename: magneticTB
+INFO:  Processing switches:
+       -w|--overwrite: Overwrite mode active, will make a back up before overwriting
+INFO:  Directory for backup files and log file indent.log:
+       .
+INFO:  YAML settings read: defaultSettings.yaml
+       Reading defaultSettings.yaml from E:/texlive/2022/bin/win32/defaultSettings.yaml
+INFO:  YAML reading settings
+       Home directory is C:\Users\Nguyen
+       latexindent.pl didn't find indentconfig.yaml or .indentconfig.yaml
+       see all possible locations: https://latexindentpl.readthedocs.io/en/latest/sec-appendices.html#indentconfig-options)
+INFO:  File extension work:
+       latexindent called to act upon magneticTB without a file extension;
+       searching for files in the following order (see fileExtensionPreference):
+       magneticTB.tex
+       magneticTB.sty
+       magneticTB.cls
+       magneticTB.bib
+       magneticTB.tex found!
+       Updated fileName to magneticTB.tex
+INFO:  Backup procedure (-w flag active):
+       .\magneticTB.bak will be overwritten (see onlyOneBackUp)
+       Backing up magneticTB.tex to .\magneticTB.bak...
+       magneticTB.tex will be overwritten after indentation
+INFO:  Phase 1: searching for objects
+INFO:  Phase 2: finding surrounding indentation
+INFO:  Phase 3: indenting objects
+INFO:  Phase 4: final indentation check
+INFO:  Output routine:
+       Overwriting file magneticTB.tex
+       --------------
+INFO:  Please direct all communication/issues to:
+        https://github.com/cmhughes/latexindent.pl
