@@ -137,6 +137,7 @@ def Hamiltonian(argument, p, q, kx, ky):
             + E_R5[0][0] * exp(1j * 2 * pi * m * alpha) * exp(1j * (-a + b))
             + E_R6[0][0] * exp(1j * 2 * pi * m * alpha) * exp(1j * (a + b))
         )
+
         h1[m][m] = (
             E_R0[0][1]
             + E_R2[0][1] * exp(-1j * 2 * pi * m * alpha) * exp(1j * (a - b))
