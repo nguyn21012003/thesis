@@ -106,7 +106,7 @@ pause -1
     return
 
 
-q_max = 151
+q_max = 151 * 1
 
 
 plot_butterfly(q_max)

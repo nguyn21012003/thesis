@@ -39,7 +39,7 @@ def para(argument):
 
 def Hamiltonian(argument, p, q, kx, ky):
     matt, alattice, e1, e2, t0, t1, t2, t11, t12, t22 = para(argument)
-    alpha = p / q
+    alpha = 1 / 4 * p / q
     a = 1 / 2 * kx * alattice
     b = sqrt(3) / 2 * ky * alattice
     h0 = np.zeros([q, q], dtype=complex)
@@ -60,7 +60,7 @@ def Hamiltonian(argument, p, q, kx, ky):
 
     E_R1 = [
         [t0, t1, t2],
-        [t1, t11, t12],
+        [-t1, t11, t12],
         [t2, -t12, t22],
     ]
 
@@ -328,7 +328,7 @@ def Hamiltonian(argument, p, q, kx, ky):
     # H[q : 2 * q, 0:q] = np.conjugate(h1).T
     # H[q : 2 * q, q : 2 * q] = h11
 
-    return H
+    return h0
 
 
 def gcd(a, b):
@@ -356,7 +356,7 @@ def main():
         for p in tqdm(range(1, qmax + 1)):
             if gcd(p, qmax) == 1:
                 alpha = p / qmax
-                y = np.zeros(3 * qmax)
+                y = np.zeros(1 * qmax)
                 y[:] = alpha
 
                 eigenvalue1 = np.linalg.eigvalsh(Hamiltonian(choice, p, qmax, kx=4 * pi / (3 * alattice * qmax), ky=0))

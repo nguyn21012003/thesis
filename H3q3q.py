@@ -41,7 +41,7 @@ def para(argument):
 
 def Hamiltonian(argument, p, q, kx, ky):
     matt, a, e1, e2, t0, t1, t2, t11, t12, t22 = para(argument)
-    alpha = p / q
+    alpha = 1 / 2 * p / q
     h0 = np.zeros([q, q], dtype=complex)
     h1 = np.zeros([q, q], dtype=complex)
     h2 = np.zeros([q, q], dtype=complex)
@@ -164,7 +164,7 @@ def Hamiltonian(argument, p, q, kx, ky):
     H[2 * q : 3 * q, q : 2 * q] = np.conjugate(h0).T
     H[2 * q : 3 * q, 2 * q : 3 * q] = h0
 
-    return H
+    return h0
 
 
 def gcd(a, b):
@@ -194,7 +194,7 @@ def main():
                 if q > p:
                     if gcd(p, q) == 1:
                         alpha = p / q
-                        y = np.zeros(3 * q)
+                        y = np.zeros(1 * q)
                         y[:] = alpha
 
                         # print(H, "\n")

@@ -115,7 +115,7 @@ E_R6 = D_S2 @ E_R1 @ D_S2.T
 
 def Hamiltonian(argument, p, q, kx, ky):
     # matt, alattice, e1, e2, t0, t1, t2, t11, t12, t22 = para(argument)
-    eta = 1 * p / q
+    eta = 1 / 4 * p / q
     alpha = 1 / 2 * kx * alattice
     beta = sqrt(3) / 2 * ky * alattice
     h0 = np.zeros([q, q], dtype=complex)
@@ -128,77 +128,62 @@ def Hamiltonian(argument, p, q, kx, ky):
     h12 = np.zeros([q, q], dtype=complex)
     h12T = np.zeros([q, q], dtype=complex)
 
-    for j in range(3*q):
-        for k in range(q):
-            if k == j:
-                h0[k][k] = (
-                    E_R0[0][0]
-                    + exp(-1j * 2 * pi * j * eta) * exp(1j * (alpha - beta)) * E_R2[0][0]
-                    + exp(-1j * 2 * pi * j * eta) * exp(1j * -(alpha + beta)) * E_R3[0][0]
-                    + exp(1j * 2 * pi * j * eta) * exp(1j * -(alpha - beta)) * E_R5[0][0]
-                    + exp(1j * 2 * pi * j * eta) * exp(1j * (alpha + beta)) * E_R6[0][0]
-                )
-            elif k == j - 1:
-                h0[k][k] = E_R4[0][0]
-            elif k == j + 1:
-                h0[k][k] = E_R1[0][0]
+    for j in range(q):
+        cosbeta = cos(beta + pi * eta * (j + 1 / 2))
+        sinbeta = sin(beta + pi * eta * (j + 1 / 2))
+        cosbeta1 = cos(beta + pi * eta * (j - 1 + 1 / 2))
+        sinbeta1 = sin(beta + pi * eta * (j - 1 + 1 / 2))
+        h0[j][j] = E_R0[0][0]
+        h1[j][j] = E_R0[0][1]
+        h2[j][j] = E_R0[0][2]
+        h1T[j][j] = E_R0[1][0]
+        h11[j][j] = E_R0[1][1]
+        h12[j][j] = E_R0[1][2]
+        h2T[j][j] = E_R0[2][0]
+        h12T[j][j] = E_R0[2][1]
+        h22[j][j] = E_R0[2][2]
+        if j - 2 >= 0:  # Element at (j, j-2)
+            h0[j, j - 2] = t0 * np.exp(2j * alpha)
+            h1[j, j - 2] = t1 * np.exp(2j * alpha)
+            h2[j, j - 2] = t2 * np.exp(2j * alpha)
+            h1T[j, j - 2] = -t1 * np.exp(-2j * alpha)
+            h11[j, j - 2] = t11 * np.exp(2j * alpha)
+            h12[j, j - 2] = t12 * np.exp(2j * alpha)
+            h2T[j, j - 2] = t2 * np.exp(-2j * alpha)
+            h12T[j, j - 2] = -t12 * np.exp(-2j * alpha)
+            h22[j, j - 2] = t22 * np.exp(2j * alpha)
+        if j - 1 >= 0:  # Element at (j, j-1)
+            h0[j, j - 1] = 2 * t0 * cosbeta * np.exp(1j * alpha)
+            h1[j, j - 1] = (t1 * cosbeta + sqrt(3) * 1j * t2 * sinbeta) * np.exp(1j * alpha)
+            h2[j, j - 1] = (-t2 * cosbeta + sqrt(3) * 1j * t1 * sinbeta) * t2 * np.exp(1j * alpha)
+            h1T[j, j - 1] = (-t1 * cosbeta - sqrt(3) * 1j * t2 * sinbeta) * np.exp(-1j * alpha)
+            h11[j, j - 1] = 1 / 2 * (t11 + 3 * t22) * cosbeta * np.exp(1j * alpha)
+            h12[j, j - 1] = (-1j * sqrt(3) / 2 * (t22 - t11) * sinbeta - 2 * t12 * cosbeta) * np.exp(1j * alpha)
+            h2T[j, j - 1] = (-t2 * cosbeta - sqrt(3) * 1j * t1 * sinbeta) * t2 * np.exp(-1j * alpha)
+            h12T[j, j - 1] = (1j * sqrt(3) / 2 * (t22 - t11) * sinbeta + 2 * t12 * cosbeta) * np.exp(-1j * alpha)
+            h22[j, j - 1] = t22 * cosbeta * np.exp(1j * alpha)
+        if j + 1 < q:  # Element at (j, j+1)
+            h0[j, j + 1] = 2 * t0 * cosbeta1 * np.exp(-1j * alpha)
+            h1[j, j + 1] = (-t1 * cosbeta1 - sqrt(3) * 1j * t2 * sinbeta1) * np.exp(-1j * alpha)
+            h2[j, j + 1] = (-t2 * cosbeta1 + sqrt(3) * 1j * t1 * sinbeta1) * np.exp(-1j * alpha)
+            h1T[j, j + 1] = (t1 * cosbeta1 - sqrt(3) * 1j * t2 * sinbeta1) * np.exp(1j * alpha)
+            h11[j, j + 1] = 1 / 2 * (t11 + 3 * t22) * cosbeta1 * np.exp(-1j * alpha)
+            h12[j, j + 1] = (1j * sqrt(3) / 2 * (t22 - t11) * sinbeta1 - 2 * t12 * cosbeta1) * np.exp(-1j * alpha)
+            h2T[j, j + 1] = (-t2 * cosbeta1 - sqrt(3) * 1j * t1 * sinbeta1) * np.exp(-1j * alpha)
+            h12T[j, j + 1] = (-1j * sqrt(3) / 2 * (t22 - t11) * sinbeta1 + 2 * t12 * cosbeta1) * np.exp(1j * alpha)
+            h22[j, j + 1] = t22 * cosbeta1 * np.exp(-1j * alpha)
+        # if j + 2 < q:  # Element at (j, j+2)
 
-    #    for j in range(q):
-    #        cosbeta = cos(beta + pi * eta * (j + 1 / 2))
-    #        sinbeta = sin(beta + pi * eta * (j + 1 / 2))
-    #        cosbeta1 = cos(beta + pi * eta * (j - 1 + 1 / 2))
-    #        sinbeta1 = sin(beta + pi * eta * (j - 1 + 1 / 2))
-    #        h0[j][j] = E_R0[0][0]
-    #        h1[j][j] = E_R0[0][1]
-    #        h2[j][j] = E_R0[0][2]
-    #        h1T[j][j] = E_R0[1][0]
-    #        h11[j][j] = E_R0[1][1]
-    #        h12[j][j] = E_R0[1][2]
-    #        h2T[j][j] = E_R0[2][0]
-    #        h12T[j][j] = E_R0[2][1]
-    #        h22[j][j] = E_R0[2][2]
-    #        if j - 2 >= 0:  # Element at (j, j-2)
-    #            h0[j, j - 2] = t0 * np.exp(2j * alpha)
-    #            h1[j, j - 2] = t1 * np.exp(2j * alpha)
-    #            h2[j, j - 2] = t2 * np.exp(2j * alpha)
-    #            h1T[j, j - 2] = -t1 * np.exp(-2j * alpha)
-    #            h11[j, j - 2] = t11 * np.exp(2j * alpha)
-    #            h12[j, j - 2] = t12 * np.exp(2j * alpha)
-    #            h2T[j, j - 2] = t2 * np.exp(-2j * alpha)
-    #            h12T[j, j - 2] = -t12 * np.exp(-2j * alpha)
-    #            h22[j, j - 2] = t22 * np.exp(2j * alpha)
-    #        if j - 1 >= 0:  # Element at (j, j-1)
-    #            h0[j, j - 1] = 2 * t0 * cosbeta * np.exp(1j * alpha)
-    #            h1[j, j - 1] = (t1 * cosbeta + sqrt(3) * 1j * t2 * sinbeta) * np.exp(1j * alpha)
-    #            h2[j, j - 1] = (-t2 * cosbeta + sqrt(3) * 1j * t1 * sinbeta) * t2 * np.exp(1j * alpha)
-    #            h1T[j, j - 1] = (-t1 * cosbeta - sqrt(3) * 1j * t2 * sinbeta) * np.exp(-1j * alpha)
-    #            h11[j, j - 1] = 1 / 2 * (t11 + 3 * t22) * cosbeta * np.exp(1j * alpha)
-    #            h12[j, j - 1] = (-1j * sqrt(3) / 2 * (t22 - t11) * sinbeta - 2 * t12 * cosbeta) * np.exp(1j * alpha)
-    #            h2T[j, j - 1] = (-t2 * cosbeta - sqrt(3) * 1j * t1 * sinbeta) * t2 * np.exp(-1j * alpha)
-    #            h12T[j, j - 1] = (1j * sqrt(3) / 2 * (t22 - t11) * sinbeta + 2 * t12 * cosbeta) * np.exp(-1j * alpha)
-    #            h22[j, j - 1] = t22 * cosbeta * np.exp(1j * alpha)
-    #        if j + 1 < q:  # Element at (j, j+1)
-    #            h0[j, j + 1] = 2 * t0 * cosbeta1 * np.exp(-1j * alpha)
-    #            h1[j, j + 1] = (-t1 * cosbeta1 - sqrt(3) * 1j * t2 * sinbeta1) * np.exp(-1j * alpha)
-    #            h2[j, j + 1] = (-t2 * cosbeta1 + sqrt(3) * 1j * t1 * sinbeta1) * np.exp(-1j * alpha)
-    #            h1T[j, j + 1] = (t1 * cosbeta1 - sqrt(3) * 1j * t2 * sinbeta1) * np.exp(1j * alpha)
-    #            h11[j, j + 1] = 1 / 2 * (t11 + 3 * t22) * cosbeta1 * np.exp(-1j * alpha)
-    #            h12[j, j + 1] = (1j * sqrt(3) / 2 * (t22 - t11) * sinbeta1 - 2 * t12 * cosbeta1) * np.exp(-1j * alpha)
-    #            h2T[j, j + 1] = (-t2 * cosbeta1 - sqrt(3) * 1j * t1 * sinbeta1) * np.exp(-1j * alpha)
-    #            h12T[j, j + 1] = (-1j * sqrt(3) / 2 * (t22 - t11) * sinbeta1 + 2 * t12 * cosbeta1) * np.exp(1j * alpha)
-    #            h22[j, j + 1] = t22 * cosbeta1 * np.exp(-1j * alpha)
-    #        # if j + 2 < q:  # Element at (j, j+2)
-    #
-    #    for j in range(q - 2):
-    #        h0[j, j + 2] = t0 * np.exp(-2j * alpha)
-    #        h1[j, j + 2] = -t1 * np.exp(-2j * alpha)
-    #        h2[j, j + 2] = t2 * np.exp(-2j * alpha)
-    #        h1T[j, j + 2] = t1 * np.exp(2j * alpha)
-    #        h11[j, j + 2] = t11 * np.exp(-2j * alpha)
-    #        h12[j, j + 2] = -t12 * np.exp(-2j * alpha)
-    #        h2T[j, j + 2] = t2 * np.exp(2j * alpha)
-    #        h12T[j, j + 2] = t12 * np.exp(2j * alpha)
-    #        h22[j, j + 2] = t22 * np.exp(-2j * alpha)
+    for j in range(q - 2):
+        h0[j, j + 2] = t0 * np.exp(-2j * alpha)
+        h1[j, j + 2] = -t1 * np.exp(-2j * alpha)
+        h2[j, j + 2] = t2 * np.exp(-2j * alpha)
+        h1T[j, j + 2] = t1 * np.exp(2j * alpha)
+        h11[j, j + 2] = t11 * np.exp(-2j * alpha)
+        h12[j, j + 2] = -t12 * np.exp(-2j * alpha)
+        h2T[j, j + 2] = t2 * np.exp(2j * alpha)
+        h12T[j, j + 2] = t12 * np.exp(2j * alpha)
+        h22[j, j + 2] = t22 * np.exp(-2j * alpha)
 
     H = np.zeros([3 * q, 3 * q], dtype=complex)
     # H = np.zeros([q, q], dtype=complex)
@@ -220,7 +205,7 @@ def Hamiltonian(argument, p, q, kx, ky):
     H2band[q : 2 * q, 0:q] = h1T
     H2band[q : 2 * q, q : 2 * q] = h11
 
-    return h0
+    return H
 
 
 def gcd(a, b):
@@ -231,7 +216,7 @@ def gcd(a, b):
 
 def main():
     choice = 0  # int(input(("Input material: ")))
-    qmax = 151 * 4  # int(input("Input the range q max aka the magnetic cell: "))
+    qmax = 151 * 1  # int(input("Input the range q max aka the magnetic cell: "))
     matt, alattice, e1, e2, t0, t1, t2, t11, t12, t22 = para(choice)
     # plt.figure(figsize=(7, 7))
     # plt.title(f"{matt}")
@@ -254,7 +239,7 @@ def main():
         for p in tqdm(range(1, qmax + 1)):
             if gcd(p, qmax) == 1:
                 alpha = p / qmax
-                y = np.zeros(1 * qmax)
+                y = np.zeros(3 * qmax)
                 y[:] = alpha
 
                 eigenvalue1 = LA.eigvalsh(Hamiltonian(choice, p, qmax, kx=kpoints["K"][0], ky=kpoints["K"][1]))

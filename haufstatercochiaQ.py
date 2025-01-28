@@ -53,16 +53,16 @@ t22 = 0.057
 D_C3 = np.array(
     [
         [1, 0, 0],
-        [0, -1 / 2, sqrt(3) / 2],
-        [0, -sqrt(3) / 2, -1 / 2],
+        [0, cos(-2 * pi / 3), -sin(-2 * pi / 3)],
+        [0, sin(-2 * pi / 3), cos(-2 * pi / 3)],
     ]
 )
 
 D_2C3 = np.array(
     [
         [1, 0, 0],
-        [0, -1 / 2, -sqrt(3) / 2],
-        [0, sqrt(3) / 2, -1 / 2],
+        [0, cos(-4 * pi / 3), -sin(-4 * pi / 3)],
+        [0, sin(-4 * pi / 3), cos(-4 * pi / 3)],
     ]
 )
 
@@ -115,7 +115,7 @@ E_R6 = D_S2 @ E_R1 @ D_S2.T
 
 def Hamiltonian(argument, p, q, kx, ky):
     # matt, alattice, e1, e2, t0, t1, t2, t11, t12, t22 = para(argument)
-    alpha = p / q
+    alpha = 1 / 10 * p / q
     a = 1 / 2 * kx * alattice
     b = sqrt(3) / 2 * ky * alattice
     h0 = np.zeros([q, q], dtype=complex)
