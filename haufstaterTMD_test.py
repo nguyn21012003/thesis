@@ -119,13 +119,7 @@ def Hamiltonian(argument, p, q, kx, ky):
 
     for m in range(0, q):
 
-        h0[m][m] = (
-            E_R0[0][0]
-            + E_R2[0][0] * exp(-1j * 2 * pi * m * alpha) * exp(1j * (a - b))
-            + E_R3[0][0] * exp(-1j * 2 * pi * m * alpha) * exp(1j * (-a - b))
-            + E_R5[0][0] * exp(1j * 2 * pi * m * alpha) * exp(1j * (-a + b))
-            + E_R6[0][0] * exp(1j * 2 * pi * m * alpha) * exp(1j * (a + b))
-        )
+        h0[m][m] = E_R0[0][0]
 
         h1[m][m] = (
             E_R0[0][1]
@@ -193,27 +187,11 @@ def Hamiltonian(argument, p, q, kx, ky):
 
         if m == 0:  #### First row
 
-            h0[m][m + 1] = E_R1[0][0]  #### Thành phần ma trận thứ hai của dòng đầu tiên
-
-            h1[m][m + 1] = E_R1[0][1]
-
-            h2[m][m + 1] = E_R1[0][2]
-
-            h1T[m][m + 1] = E_R1[1][0]
-
-            h11[m][m + 1] = E_R1[1][1]
-
-            h12[m][m + 1] = E_R1[1][2]
-
-            h2T[m][m + 1] = E_R1[2][0]
-
-            h12T[m][m + 1] = E_R1[2][1]
-
-            h22[m][m + 1] = E_R1[2][2]
+            h0[m][m + 1] = E_R2[0][0] * exp(2 * 1j * pi * m * alpha - 1j * ky * alattice) + E_R6[0][0] * exp(
+                -2 * 1j * pi * m * alpha + 1j * ky * alattice
+            )
 
         elif m == q - 1:  ### last Row
-
-            h0[m][m - 1] = E_R4[0][0]
 
             h1[m][m - 1] = E_R4[0][1]
 
@@ -260,64 +238,6 @@ def Hamiltonian(argument, p, q, kx, ky):
             h12T[m][m + 1] = E_R1[2][1]
             h12T[m][m - 1] = E_R4[2][1]
 
-    if q == 2:
-
-        h0[0, q - 1] = E_R1[0][0] + E_R1[0][0] * np.exp(-q * 1j * kx)
-        h0[q - 1, 0] = E_R4[0][0] + E_R4[0][0] * np.exp(q * 1j * kx)
-
-        h1[0, q - 1] = E_R1[0][1] + E_R1[0][1] * np.exp(-q * 1j * kx)
-        h1[q - 1, 0] = E_R4[0][1] + E_R4[0][1] * np.exp(q * 1j * kx)
-
-        h2[0, q - 1] = E_R1[0][2] + E_R1[0][2] * np.exp(-q * 1j * kx)
-        h2[q - 1, 0] = E_R4[0][2] + E_R4[0][2] * np.exp(q * 1j * kx)
-
-        h1T[0, q - 1] = E_R1[1][0] + E_R1[1][0] * np.exp(q * 1j * kx)
-        h1T[q - 1, 0] = E_R4[1][0] + E_R4[1][0] * np.exp(-q * 1j * kx)
-
-        h11[0, q - 1] = E_R1[1][1] + E_R1[1][1] * np.exp(-q * 1j * kx)
-        h11[q - 1, 0] = E_R4[1][1] + E_R4[1][1] * np.exp(q * 1j * kx)
-
-        h12[0, q - 1] = E_R1[1][2] + E_R1[1][2] * np.exp(-q * 1j * kx)
-        h12[q - 1, 0] = E_R4[1][2] + E_R4[1][2] * np.exp(q * 1j * kx)
-
-        h2T[0, q - 1] = E_R1[2][0] + E_R1[2][0] * np.exp(q * 1j * kx)
-        h2T[q - 1, 0] = E_R4[2][0] + E_R4[2][0] * np.exp(-q * 1j * kx)
-
-        h12T[0, q - 1] = E_R1[2][1] + E_R1[2][1] * np.exp(q * 1j * kx)
-        h12T[q - 1, 0] = E_R4[2][1] + E_R4[2][1] * np.exp(-q * 1j * kx)
-
-        h22[0, q - 1] = E_R1[2][2] + E_R1[2][2] * np.exp(-q * 1j * kx)
-        h22[q - 1, 0] = E_R4[2][2] + E_R4[2][2] * np.exp(q * 1j * kx)
-
-    else:
-
-        h0[0, q - 1] = E_R1[0][0] * np.exp(-q * 1j * kx)
-        h0[q - 1, 0] = E_R4[0][0] * np.exp(q * 1j * kx)
-
-        h1[0, q - 1] = E_R1[0][1] * np.exp(-q * 1j * kx)
-        h1[q - 1, 0] = E_R4[0][1] * np.exp(q * 1j * kx)
-
-        h2[0, q - 1] = E_R1[0][2] * np.exp(-q * 1j * kx)
-        h2[q - 1, 0] = E_R4[0][2] * np.exp(q * 1j * kx)
-
-        h1T[0, q - 1] = E_R1[1][0] * np.exp(q * 1j * kx)
-        h1T[q - 1, 0] = E_R4[1][0] * np.exp(-q * 1j * kx)
-
-        h11[0, q - 1] = E_R1[1][1] * np.exp(-q * 1j * kx)
-        h11[q - 1, 0] = E_R4[1][1] * np.exp(q * 1j * kx)
-
-        h12[0, q - 1] = E_R1[1][2] * np.exp(-q * 1j * kx)
-        h12[q - 1, 0] = E_R4[1][2] * np.exp(q * 1j * kx)
-
-        h2T[0, q - 1] = E_R1[2][0] * np.exp(q * 1j * kx)
-        h2T[q - 1, 0] = E_R4[2][0] * np.exp(-q * 1j * kx)
-
-        h12T[0, q - 1] = E_R1[2][1] * np.exp(q * 1j * kx)
-        h12T[q - 1, 0] = E_R4[2][1] * np.exp(-q * 1j * kx)
-
-        h22[0, q - 1] = E_R1[2][2] * np.exp(-q * 1j * kx)
-        h22[q - 1, 0] = E_R4[2][2] * np.exp(q * 1j * kx)
-
     H = np.zeros([3 * q, 3 * q], dtype=complex)
     # H = np.zeros([q, q], dtype=complex)
     # H = np.zeros([2 * q, 2 * q], dtype=complex)
@@ -353,6 +273,16 @@ def Hamiltonian(argument, p, q, kx, ky):
     # H[q : 2 * q, q : 2 * q] = h11
 
     return H
+
+
+# Periodic boundary conditions
+def pbc(i, q):
+    if i == q:
+        return 0
+    elif i == -1:
+        return q - 1
+    else:
+        return i
 
 
 def gcd(a, b):

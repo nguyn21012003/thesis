@@ -37,6 +37,80 @@ def para(argument):
             )
 
 
+alattice = 0.3190
+e1 = 1.046
+e2 = 2.104
+t0 = -0.184
+t1 = 0.401
+t2 = 0.507
+t11 = 0.218
+t12 = 0.338
+t22 = 0.057
+
+
+D_C3 = np.array(
+    [
+        [1, 0, 0],
+        [0, cos(-2 * pi / 3), -sin(-2 * pi / 3)],
+        [0, sin(-2 * pi / 3), cos(-2 * pi / 3)],
+    ]
+)
+
+D_2C3 = np.array(
+    [
+        [1, 0, 0],
+        [0, cos(-4 * pi / 3), -sin(-4 * pi / 3)],
+        [0, sin(-4 * pi / 3), cos(-4 * pi / 3)],
+    ]
+)
+
+D_S = np.array(
+    [
+        [1, 0, 0],
+        [0, -1, 0],
+        [0, 0, 1],
+    ]
+)
+
+D_S1 = np.array(
+    [
+        [1, 0, 0],
+        [0, 1 / 2, -sqrt(3) / 2],
+        [0, -sqrt(3) / 2, -1 / 2],
+    ]
+)
+
+D_S2 = np.array(
+    [
+        [1, 0, 0],
+        [0, 1 / 2, sqrt(3) / 2],
+        [0, sqrt(3) / 2, -1 / 2],
+    ]
+)
+
+E_R0 = np.array(
+    [
+        [e1, 0, 0],
+        [0, e2, 0],
+        [0, 0, e2],
+    ]
+)
+
+E_R1 = np.array(
+    [
+        [t0, t1, t2],
+        [-t1, t11, t12],
+        [t2, -t12, t22],
+    ]
+)
+
+E_R2 = D_S1 @ E_R1 @ D_S1.T
+E_R3 = D_C3 @ E_R1 @ D_C3.T
+E_R4 = D_S @ E_R1 @ D_S.T
+E_R5 = D_2C3 @ E_R1 @ D_2C3.T
+E_R6 = D_S2 @ E_R1 @ D_S2.T
+
+
 def Hamiltonian(argument, p, q, kx, ky):
     matt, alattice, e1, e2, t0, t1, t2, t11, t12, t22 = para(argument)
     alpha = p / q
@@ -51,48 +125,6 @@ def Hamiltonian(argument, p, q, kx, ky):
     h22 = np.zeros([q, q], dtype=complex)
     h12 = np.zeros([q, q], dtype=complex)
     h12T = np.zeros([q, q], dtype=complex)
-
-    E_R0 = [
-        [e1 * 0, 0, 0],
-        [0, e2 * 0, 0],
-        [0, 0, e2 * 0],
-    ]
-
-    E_R1 = [
-        [t0, t1, t2],
-        [t1, t11, t12],
-        [t2, -t12, t22],
-    ]
-
-    E_R2 = [
-        [t0, 1 / 2 * t1 - sqrt(3) / 2 * t2, -sqrt(3) / 2 * t1 - 1 / 2 * t2],
-        [1 / 2 * t1 - sqrt(3) / 2 * t2, 1 / 4 * t11 + 3 / 4 * t22, -sqrt(3) / 4 * t11 - t12 + sqrt(3) / 4 * t22],
-        [-sqrt(3) / 2 * t1 - 1 / 2 * t2, -sqrt(3) / 4 * t11 + t12 + sqrt(3) / 4 * t22, 3 / 4 * t11 + 1 / 4 * t22],
-    ]
-
-    E_R3 = [
-        [t0, -1 / 2 * t1 + sqrt(3) / 2 * t2, -sqrt(3) / 2 * t1 - 1 / 2 * t2],
-        [-1 / 2 * t1 + sqrt(3) / 2 * t2, 1 / 4 * t11 + 3 / 4 * t22, sqrt(3) / 4 * t11 + t12 - sqrt(3) / 4 * t22],
-        [-sqrt(3) / 2 * t1 - 1 / 2 * t2, sqrt(3) / 4 * t11 - t12 - sqrt(3) / 4 * t22, 3 / 4 * t11 + 1 / 4 * t22],
-    ]
-
-    E_R4 = [
-        [t0, t1, t2],
-        [t1, t11, -t12],
-        [t2, t12, t22],
-    ]
-
-    E_R5 = [
-        [t0, -1 / 2 * t1 - sqrt(3) / 2 * t2, sqrt(3) / 2 * t1 - 1 / 2 * t2],
-        [-1 / 2 * t1 - sqrt(3) / 2 * t2, 1 / 4 * t11 + 3 / 4 * t22, -sqrt(3) / 4 * t11 + t12 + sqrt(3) / 4 * t22],
-        [sqrt(3) / 2 * t1 - 1 / 2 * t2, -sqrt(3) / 4 * t11 - t12 + sqrt(3) / 4 * t22, 3 / 4 * t11 + 1 / 4 * t22],
-    ]
-
-    E_R6 = [
-        [t0, 1 / 2 * t1 + sqrt(3) / 2 * t2, sqrt(3) / 2 * t1 - 1 / 2 * t2],
-        [1 / 2 * t1 + sqrt(3) / 2 * t2, 1 / 4 * t11 + 3 / 4 * t22, sqrt(3) / 4 * t11 - t12 - sqrt(3) / 4 * t22],
-        [sqrt(3) / 2 * t1 - 1 / 2 * t2, sqrt(3) / 4 * t11 + t12 - sqrt(3) / 4 * t22, 3 / 4 * t11 + 1 / 4 * t22],
-    ]
 
     for m in range(0, q):
 
@@ -167,132 +199,32 @@ def Hamiltonian(argument, p, q, kx, ky):
             + E_R6[2][2] * exp(1j * 2 * pi * m * alpha) * exp(1j * (a + b))
         )
 
-        if m == 0:  #### First row
+        h0[m, pbc(m + 1, q)] = E_R1[0][0]  ## thành phần bên trái đường chéo
+        h0[m, pbc(m - 1, q)] = E_R4[0][0]  ## thành phần bên phải đường chéo
 
-            h0[m][m + 1] = E_R1[0][0]  #### Thành phần ma trận thứ hai của dòng đầu tiên
+        h1[m, pbc(m + 1, q)] = E_R1[0][1]
+        h1[m, pbc(m - 1, q)] = E_R4[0][1]
 
-            h1[m][m + 1] = E_R1[0][1]
+        h1T[m, pbc(m + 1, q)] = E_R1[1][0]
+        h1T[m, pbc(m - 1, q)] = E_R4[1][0]
 
-            h1T[m][m + 1] = E_R1[1][0]
+        h2[m, pbc(m + 1, q)] = E_R1[0][2]
+        h2[m, pbc(m - 1, q)] = E_R4[0][2]
 
-            h2[m][m + 1] = E_R1[0][2]
+        h2T[m, pbc(m + 1, q)] = E_R1[2][0]
+        h2T[m, pbc(m - 1, q)] = E_R4[2][0]
 
-            h2T[m][m + 1] = E_R1[2][0]
+        h11[m, pbc(m + 1, q)] = E_R1[1][1]
+        h11[m, pbc(m - 1, q)] = E_R4[1][1]
 
-            h11[m][m + 1] = E_R1[1][1]
+        h22[m, pbc(m + 1, q)] = E_R1[2][2]
+        h22[m, pbc(m - 1, q)] = E_R4[2][2]
 
-            h12[m][m + 1] = E_R1[1][2]
+        h12[m, pbc(m + 1, q)] = E_R1[1][2]
+        h12[m, pbc(m - 1, q)] = E_R4[1][2]
 
-            h12T[m][m + 1] = E_R1[2][1]
-
-            h22[m][m + 1] = E_R1[2][2]
-
-        elif m == q - 1:  ### last Row
-
-            h0[m][m - 1] = E_R4[0][0]
-
-            h1[m][m - 1] = E_R4[0][1]
-
-            h1T[m][m - 1] = E_R4[1][0]
-
-            h2[m][m - 1] = E_R4[0][2]
-
-            h2T[m][m - 1] = E_R4[2][0]
-
-            h11[m][m - 1] = E_R4[1][1]
-
-            h12[m][m - 1] = E_R4[1][2]
-
-            h12T[m][m - 1] = E_R4[2][1]
-
-            h22[m][m - 1] = E_R4[2][2]
-
-        else:
-
-            h0[m][m + 1] = E_R1[0][0]  ## thành phần bên trái đường chéo
-            h0[m][m - 1] = E_R4[0][0]  ## thành phần bên phải đường chéo
-
-            h1[m][m + 1] = E_R1[0][1]
-            h1[m][m - 1] = E_R4[0][1]
-
-            h1T[m][m + 1] = E_R1[1][0]
-            h1T[m][m - 1] = E_R4[1][0]
-
-            h2[m][m + 1] = E_R1[0][2]
-            h2[m][m - 1] = E_R4[0][2]
-
-            h2T[m][m + 1] = E_R1[2][0]
-            h2T[m][m - 1] = E_R4[2][0]
-
-            h11[m][m + 1] = E_R1[1][1]
-            h11[m][m - 1] = E_R4[1][1]
-
-            h22[m][m + 1] = E_R1[2][2]
-            h22[m][m - 1] = E_R4[2][2]
-
-            h12[m][m + 1] = E_R1[1][2]
-            h12[m][m - 1] = E_R4[1][2]
-
-            h12T[m][m + 1] = E_R1[2][1]
-            h12T[m][m - 1] = E_R4[2][1]
-
-    if q == 2:
-
-        h0[0, q - 1] = E_R1[0][0] + E_R1[0][0] * np.exp(-q * 1.0j * kx)
-        h0[q - 1, 0] = E_R4[0][0] + E_R4[0][0] * np.exp(q * 1.0j * kx)
-
-        h1[0, q - 1] = E_R1[0][1] + E_R1[0][1] * np.exp(-q * 1.0j * kx)
-        h1[q - 1, 0] = E_R4[0][1] + E_R4[0][1] * np.exp(q * 1.0j * kx)
-
-        h2[0, q - 1] = E_R1[0][2] + E_R1[0][2] * np.exp(-q * 1.0j * kx)
-        h2[q - 1, 0] = E_R4[0][2] + E_R4[0][2] * np.exp(q * 1.0j * kx)
-
-        h1T[0, q - 1] = E_R1[1][0] + E_R1[1][0] * np.exp(-q * 1.0j * kx)
-        h1T[q - 1, 0] = E_R4[1][0] + E_R4[1][0] * np.exp(q * 1.0j * kx)
-
-        h11[0, q - 1] = E_R1[1][1] + E_R1[1][1] * np.exp(-q * 1.0j * kx)
-        h11[q - 1, 0] = E_R4[1][1] + E_R4[1][1] * np.exp(q * 1.0j * kx)
-
-        h12[0, q - 1] = E_R1[1][2] + E_R1[1][2] * np.exp(-q * 1.0j * kx)
-        h12[q - 1, 0] = E_R4[1][2] + E_R4[1][2] * np.exp(q * 1.0j * kx)
-
-        h2T[0, q - 1] = E_R1[2][0] + E_R1[2][0] * np.exp(-q * 1.0j * kx)
-        h2T[q - 1, 0] = E_R4[2][0] + E_R4[2][0] * np.exp(q * 1.0j * kx)
-
-        h12T[0, q - 1] = E_R1[2][1] + E_R1[2][1] * np.exp(-q * 1.0j * kx)
-        h12T[q - 1, 0] = E_R4[2][1] + E_R4[2][1] * np.exp(q * 1.0j * kx)
-
-        h22[0, q - 1] = E_R1[2][2] + E_R1[2][2] * np.exp(-q * 1.0j * kx)
-        h22[q - 1, 0] = E_R4[2][2] + E_R4[2][2] * np.exp(q * 1.0j * kx)
-
-    else:
-
-        h0[0, q - 1] = E_R1[0][0] * np.exp(-q * 1.0j * kx)
-        h0[q - 1, 0] = E_R4[0][0] * np.exp(q * 1.0j * kx)
-
-        h1[0, q - 1] = E_R1[0][1] * np.exp(-q * 1.0j * kx)
-        h1[q - 1, 0] = E_R4[0][1] * np.exp(q * 1.0j * kx)
-
-        h2[0, q - 1] = E_R1[0][2] * np.exp(-q * 1.0j * kx)
-        h2[q - 1, 0] = E_R4[0][2] * np.exp(q * 1.0j * kx)
-
-        h1T[0, q - 1] = E_R1[1][0] * np.exp(-q * 1.0j * kx)
-        h1T[q - 1, 0] = E_R4[1][0] * np.exp(q * 1.0j * kx)
-
-        h11[0, q - 1] = E_R1[1][1] * np.exp(-q * 1.0j * kx)
-        h11[q - 1, 0] = E_R4[1][1] * np.exp(q * 1.0j * kx)
-
-        h12[0, q - 1] = E_R1[1][2] * np.exp(-q * 1.0j * kx)
-        h12[q - 1, 0] = E_R4[1][2] * np.exp(q * 1.0j * kx)
-
-        h2T[0, q - 1] = E_R1[2][0] * np.exp(-q * 1.0j * kx)
-        h2T[q - 1, 0] = E_R4[2][0] * np.exp(q * 1.0j * kx)
-
-        h12T[0, q - 1] = E_R1[2][1] * np.exp(-q * 1.0j * kx)
-        h12T[q - 1, 0] = E_R4[2][1] * np.exp(q * 1.0j * kx)
-
-        h22[0, q - 1] = E_R1[2][2] * np.exp(-q * 1.0j * kx)
-        h22[q - 1, 0] = E_R4[2][2] * np.exp(q * 1.0j * kx)
+        h12T[m, pbc(m + 1, q)] = E_R1[2][1]
+        h12T[m, pbc(m - 1, q)] = E_R4[2][1]
 
     H = np.zeros([3 * q, 3 * q], dtype=complex)
     # H = np.zeros([q, q], dtype=complex)
@@ -335,6 +267,15 @@ def gcd(a, b):
     if b == 0:
         return a
     return gcd(b, a % b)
+
+
+def pbc(i, q):
+    if i == q:
+        return 0
+    elif i == -1:
+        return q - 1
+    else:
+        return i
 
 
 def main():
