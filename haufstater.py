@@ -1,58 +1,105 @@
 import numpy as np
+from numpy import cos, sin, pi, sqrt, exp
+
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 import csv
 import subprocess
 
+np.set_printoptions(precision=10, linewidth=1200, edgeitems=12)
 
-np.set_printoptions(precision=10, linewidth=1200, edgeitems=24)
+
+alattice = 0.3190
+e1 = 1.046
+e2 = 2.104
+t0 = -0.184
+t1 = 0.401
+t2 = 0.507
+t11 = 0.218
+t12 = 0.338
+t22 = 0.057
+
+D_C3 = np.array(
+    [
+        [1, 0, 0],
+        [0, cos(-2 * pi / 3), -sin(-2 * pi / 3)],
+        [0, sin(-2 * pi / 3), cos(-2 * pi / 3)],
+    ]
+)
+
+D_2C3 = np.array(
+    [
+        [1, 0, 0],
+        [0, cos(-4 * pi / 3), -sin(-4 * pi / 3)],
+        [0, sin(-4 * pi / 3), cos(-4 * pi / 3)],
+    ]
+)
+
+D_S = np.array(
+    [
+        [1, 0, 0],
+        [0, -1, 0],
+        [0, 0, 1],
+    ]
+)
+
+D_S1 = np.array(
+    [
+        [1, 0, 0],
+        [0, 1 / 2, -sqrt(3) / 2],
+        [0, -sqrt(3) / 2, -1 / 2],
+    ]
+)
+
+D_S2 = np.array(
+    [
+        [1, 0, 0],
+        [0, 1 / 2, sqrt(3) / 2],
+        [0, sqrt(3) / 2, -1 / 2],
+    ]
+)
+
+E_R0 = np.array(
+    [
+        [e1, 0, 0],
+        [0, e2, 0],
+        [0, 0, e2],
+    ]
+)
+
+E_R1 = np.array(
+    [
+        [t0, t1, t2],
+        [-t1, t11, t12],
+        [t2, -t12, t22],
+    ]
+)
+
+E_R2 = D_S1 @ E_R1 @ D_S1.T
+E_R3 = D_C3 @ E_R1 @ D_C3.T
+E_R4 = D_S @ E_R1 @ D_S.T
+E_R5 = D_2C3 @ E_R1 @ D_2C3.T
+E_R6 = D_S2 @ E_R1 @ D_S2.T
 
 
-def H(t, p, q, kx, ky):
+def H(p, q, kx, ky):
 
-    alpha = 1 * p / q
+    alpha = p / (2 * q)
 
-    M = np.zeros([q, q], dtype=complex)
+    h0 = np.zeros([q, q], dtype=complex)
 
-    for i in range(0, q):
+    for m in range(0, q):
 
-        M[i, i] = 2 * t * np.cos(2 * np.pi * alpha * i - ky)
+        h0[m, m] = E_R0[0][0]
 
-        if i == q - 1:
-            M[i, i - 1] = t
-        elif i == 0:
-            M[i, i + 1] = t
-        else:
-            M[i, i - 1] = t
-            M[i, i + 1] = t
+        h0[m, pbc(m + 1, q)] = E_R2[0][0] * exp(-1j * 2 * pi * (m + 1) * alpha) + E_R6[0][0] * exp(1j * 2 * pi * (m + 1) * alpha)
 
-    # Bloch conditions
-    if q == 2:
-        M[0, q - 1] = t + t * np.exp(-q * 1.0j * kx)
-        M[q - 1, 0] = t + t * np.exp(q * 1.0j * kx)
-    else:
-        M[0, q - 1] = t * np.exp(-q * 1.0j * kx)
-        M[q - 1, 0] = t * np.exp(q * 1.0j * kx)
+        h0[m, pbc(m - 1, q)] = E_R5[0][0] * exp(1j * 2 * pi * (m + 1) * alpha) + E_R3[0][0] * exp(-1j * 2 * pi * (m + 1) * alpha)
 
-    # print(M, "\n")
-    # m = 1 thì là phi{2} + phi 1 nhaan e^{q} + phi_{1} = phi_{1} phi_{m+-q} = e{+- q} nhan phi_{m}
+        h0[m, pbc(m + 2, q)] = E_R1[0][0]
+        h0[m, pbc(m - 2, q)] = E_R4[0][0]
 
-    # m = 2 thì là e^{q} nhan phi2 + phi_{1} + phi_{2} = phi_{2} ## phi{3} = e^{q} nhan phi2
-
-    # ( 1 + e^{q} ) phi_{1} + phi_{2} = phi_{1}
-    # ( 1 + e^{q} ) phi_{2} + phi_{1} = phi_{2}
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    # print(M)
-    return M
+    return h0
 
 
 def gcd(a, b):
@@ -61,11 +108,25 @@ def gcd(a, b):
     return gcd(b, a % b)
 
 
+def pbc(i, q):
+    if i == -1:
+        return q - 1
+    elif i == q:
+        return 0
+    elif i == q + 1:
+        return 1
+    elif i == q + 2:
+        return 2
+    else:
+        return i
+
+
 def plot_butterfly(q_max):
-    t = -1
-    with open("butterfly.csv", mode="w") as file:
-        header = ["alpha", "epsilon"]
-        writer = csv.DictWriter(file, fieldnames=header)
+    file = f"1band_dataHofstadterButterfly_q_{q_max}.dat"
+
+    with open(file, "w", newline="") as wfile:
+        header = ["Alpha", "Energy", f"p/{q_max}"]
+        writer = csv.DictWriter(wfile, fieldnames=header, delimiter=",")
         writer.writeheader()
 
         for p in tqdm(range(1, q_max + 1)):
@@ -75,38 +136,47 @@ def plot_butterfly(q_max):
                 alpha = p / q_max
                 y = np.zeros(q_max)
                 y[:] = alpha
+                Ham = H(p, q_max, kx=0, ky=0)
+                eigenvalue1 = np.linalg.eigvalsh(Ham)
+                # print(Ham)
 
-                x1 = np.linalg.eigvalsh(H(t, p, q_max, kx=4 * np.pi / 3, ky=0))
-                # x2 = np.linalg.eigvalsh(H(p, q, kx=np.pi / q, ky=np.pi / q))
-                # print(x1)
+                for i in range(len(eigenvalue1)):
+                    writer.writerow(
+                        {
+                            "Alpha": alpha,
+                            "Energy": eigenvalue1[i],
+                            f"p/{q_max}": f"{p}/{q_max}",
+                        }
+                    )
 
-                for i in range(len(x1)):
-                    writer.writerow({"alpha": alpha, "epsilon": x1[i]})
-
-                # for i in range(len(x1)):
-                #    plt.plot([x1[i], x2[i]], y[:2], "-", c="red", markersize=0.1)
-
-                # plt.plot(y, x1, ".", c="red", markersize=1)
-                # plt.plot(x2, y, "o", c="blue", markersize=0.1)
-    with open("GNUPLOT1bandSquare.gp", "w") as gnuplotfile:
+    filegnu = f"1band_plotHofstadterButterfly_q={q_max}.gnuplot"
+    print("file data", file)
+    print("file gnuplot: ", filegnu)
+    with open(filegnu, "w") as gnuplotfile:
         gnuplotfile.write(
             f"""
+set terminal wxt size 700,900 
 set datafile separator ','
-plot 'butterfly.csv' u 1:2 with points pt 7 ps 0.2 lc rgb 'red' title '1 band q = {q_max}'
+set title 'Hofstadter Butterfly'
+set xlabel 'Alpha'
+set ylabel 'Energy'
+set grid
+#set xrange [0:0.12]
+#set yrange [1.3:2.0]
+plot '{file}' u 1:2 with points pt 7 ps 0.3 lc rgb 'black' notitle 'HofstadterButterfly'
 pause -1
-            """
+        """
         )
-    subprocess.run(["gnuplot", "GNUPLOT1bandSquare.gp"])
+    subprocess.run(["gnuplot", filegnu])
 
-    # plt.xlabel(r"$\epsilon$", fontsize=15)
-    # plt.ylabel(r"$\alpha$", fontsize=15)
-    # plt.title(r"$q=1-$" + str(q_max))
+    # plt.plot(y, x1, "o", c="black", markersize=0.3)
+
     # plt.show()
 
     return
 
 
-q_max = 151 * 1
+q_max = 151
 
 
 plot_butterfly(q_max)
