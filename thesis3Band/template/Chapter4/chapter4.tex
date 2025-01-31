@@ -1,0 +1,54 @@
+\chapter{Thuật toán, mã nguồn}
+\label{Chapter4}
+
+\section{Thuật toán, mã giả}
+Để soạn thảo thuật toán hoặc mã giả trong LaTeX, bạn có thể sử dụng package \textit{algorithm}:
+\begin{lstlisting}
+\usepackage{algorithm}
+\end{lstlisting}
+
+Có thể chèn thuật toán/mã giả như sau:
+
+\begin{algorithm}
+\caption{An algorithm with caption}\label{alg:cap}
+\begin{algorithmic}[1]
+\Require $n \geq 0$
+\Ensure $y = x^n$
+\State $y \gets 1$
+\State $X \gets x$
+\State $N \gets n$
+\While{$N \neq 0$}
+\If{$N$ is even}
+    \State $X \gets X \times X$
+    \State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+\ElsIf{$N$ is odd}
+    \State $y \gets y \times X$
+    \State $N \gets N - 1$
+\EndIf
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+Lưu ý rằng tên lệnh do 'algpseudocode' cung cấp thường được viết hoa chữ cái đầu, ví dụ: $\backslash${\tt{State}}, $\backslash${\tt{While}}, $\backslash${\tt{EndWhile}}.
+
+
+\section{Mã nguồn}
+Để chèn mã nguồn, cần dùng package \textit{listings}:
+
+\begin{lstlisting}
+\usepackage{listings}
+\end{lstlisting}
+
+Mã nguồn có thể được chèn trực tiếp như sau:
+
+\begin{lstlisting}[language=C++]
+cout << "Hello, World!" << endl;
+\end{lstlisting}
+hoặc chèn thông qua tập tin chứa mã nguồn trong thư mục $SourceCode$ như sau:
+
+\lstinputlisting[language=Python]{SourceCode/hello.py}
+
+
+
+
+

@@ -1,0 +1,293 @@
+%\documentclass{article}
+\documentclass{report}
+%\usepackage[utf8]{vietnam}
+\usepackage[utf8]{inputenc}
+\usepackage{anyfontsize,fontsize}
+\changefontsize[13pt]{13pt}	
+\usepackage{commath}
+\usepackage{parskip,setspace}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage[d]{esvect}
+\usepackage{slashed,cancel}
+\usepackage{indentfirst,titlesec}
+\usepackage{pdfpages}
+\usepackage{graphicx,float,subcaption}
+\usepackage{nccmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsmath,systeme}
+\usepackage[thinc]{esdiff}
+\usepackage{hyperref,tikz}
+\usepackage{bm,physics,nicematrix}
+%footnote
+\usepackage{fancyhdr}
+\pagestyle{empty}
+
+
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=20mm,
+	top=20mm,
+}
+
+
+
+\newcommand{\image}[1]{
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{pic/#1}
+	\end{center}
+}
+
+
+
+
+\renewcommand{\l}{\ell}
+\newcommand{\dps}{\displaystyle}
+
+\newcommand{\f}[2]{\dfrac{#1}{#2}}
+\newcommand{\at}[2]{\bigg\rvert_{#1}^{#2} }
+
+
+\renewcommand{\baselinestretch}{2.0}
+
+
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={UT},
+	citecolor=black,
+	pdfpagemode=FullScreen,
+}
+
+\urlstyle{same}
+
+\titleformat{\chapter}[display]
+{\centering\large\bfseries} 
+{\textbf{\MakeUppercase{\chaptername}} \ \thechapter\vspace{15pt}}{20pt}
+{\large} 
+
+\newcommand{\thesistitlee}{Three-band tight biding model for TMD monolayers in the presence of a magnetic field}
+\newcommand{\address}{NATIONAL UNIVERSITY OF HO CHI MINH CITY UNIVERSITY OF SCIENCE}
+\newcommand{\department}{FACULTY OF PHYSICS - ENGINEERING PHYSICS}
+\newcommand{\thesisauthor}{Tran Khoi Nguyen}
+\newcommand{\thesisadvisor}{Your Advisor's Name}
+\newcommand{\graddate}{Ho Chi Minh City, 2025}
+\newcommand{\thesisdedication}{To all the Ph.D. pursuing brave souls}
+
+
+\begin{document}
+\setlength{\parindent}{20pt}
+\begin{center}
+	{\bfseries
+		
+		{\large {\bf \address}}\\
+		\vspace{2.5cm}
+		
+		{\large {\bf UNDERGRADUATE THESIS}}\\
+		\vspace{3.0cm}
+		
+		
+		{\largerrr\thesistitlee}
+		\vspace{1in}
+		
+		{\large\graddate}
+	}
+	
+\end{center}
+\noindent
+\makebox[\textwidth]{\hfill\makebox[3in]{\hrulefill}}\\
+\begin{center}
+	\makebox[\textwidth]{\hfill\makebox[3in]{\hfill \textbf{Sutdent: Tran Khoi Nguyen}\hfill}}
+	\makebox[\textwidth]{\hfill\makebox[3in]{\hfill \textbf{Supervisor: Dr. Huynh Thanh Duc}\hfill}}
+\end{center}
+\begin{tikzpicture}[remember picture, overlay]
+	\draw[line width=2pt]
+	([xshift=1.5cm, yshift=1.5cm] current page.south west)
+	rectangle
+	([xshift=-1.5cm, yshift=-1.5cm] current page.north east);
+\end{tikzpicture}
+\newpage
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\fancyfoot[C]{\hspace{0cm} \thepage}
+\setcounter{page}{1}
+
+\chapter{\textbf{INTRODUCTION}}
+\chapter{\textbf{METHOD}}
+\section{Three-band tight binding method without magnetic field}
+\section{Three-band tight binding method under a magnetic field}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.5\linewidth,height=0.5\linewidth]{pic/lattice.pdf}
+	\caption{\label{fig:Lattice} Top view of monolayer $MX_{2}$. The large sphere is $M$ atom and the small sphere is $X$.}
+\end{figure}
+Under a uniform magnetic field given by a vector potential $\mathbf{A}(\mathbf{r})$ the single electron Hamiltonian changes into
+\begin{align}
+	H = \f{\left(-i\hbar \boldsymbol{\nabla} + e \mathbf{A(r)}\right)^{2}}{2m} + U_{0}(\mathbf{r}) + g^{*} \mu_{B} \mathbf{B} \cdot \mathbf{L},
+\end{align}
+where $\mu_{B} = \f{e\hbar}{2m}$ is Bohr magneton, $g^{*}$ is an effective Landé g-factor, $\mathbf{B} = \boldsymbol{\nabla} \times  \mathbf{A}$ is the uniform magnetic field, and $\mathbf{L}$ is the angular momentum. It is possible to add a phase factor to the tight binding wavefunction
+\begin{align}
+	\psi_{\lambda,\mathbf{k}} (\mathbf{r}) = \sum_{j=1}^{3} C_{j}^{\lambda} \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R}} e^{i \theta_{\mathbf{R}(\mathbf{r})}} \phi_{j}(\mathbf{r} - \mathbf{R}).
+\end{align}
+We now have
+\begin{align}
+	H_{j j'} (\mathbf{k}) = H_{jj'}^{'}(\mathbf{k}) + H_{jj'}^{Z}(\mathbf{k}),
+\end{align}
+where
+\begin{align}
+	H_{jj'}^{'}(\mathbf{k})
+	& = \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} e^{-i \theta_{\mathbf{0}}(\mathbf{r})} \left[\f{(-i\hbar \boldsymbol{\nabla} + e \mathbf{A}(\mathbf{r}))^{2}}{2m} + U_{0}(\mathbf{r}) \right] e^{i \theta_{\mathbf{R}}(\mathbf{r})} \ket{\phi_{j'}(\mathbf{r - R})}\nonumber                  \\
+	& = \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} e^{i(\theta_{\mathbf{R}} - \theta_{\mathbf{0}} )} \left[ \f{ \left( -i\hbar \boldsymbol{\nabla} + e \mathbf{A} + \hbar \boldsymbol{\nabla} \theta_{\mathbf{R}} \right)^{2} }{2m} + U_{0}(\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})},
+\end{align}
+and
+\begin{align}
+	H_{jj'}^{Z}(\mathbf{k})
+	& = g^{*} \mu_{B} \mathbf{B} \cdot \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r})} e^{i(\theta_{\mathbf{R}} - \theta_{\mathbf{0}} )} \mathbf{L} \ket{\phi_{j'}(\mathbf{r - R})}.
+\end{align}
+By choosing $\theta_{\mathbf{R}} = - \f{e}{\hbar} \int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'}$ as Peierls substitution, the Hamiltonian in Eq. (4) now reads
+\begin{align}
+	H_{jj'}^{'}(\mathbf{k})
+	& = \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} e^{ - \frac{ie}{\hbar} \int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A}(\mathbf{r'}) \cdot d\mathbf{r'} + \frac{ie}{\hbar}\int_{\mathbf{0}}^{\mathbf{r}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'} } \left[- \f{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})} \nonumber \\
+	& = \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} e^{\frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} e^{-\frac{ie}{\hbar} \Phi_{\mathbf{R,r,0}}} \left[ -\f{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})},
+\end{align}
+where $\Phi_{\mathbf{R,r,0}} = \oint_{\mathbf{R,r,0}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'} $ is the closed loop line intergral of $\mathbf{A}$ along the triangle points $\mathbf{R,r,0}$, and $\int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'}$ is the path intergral along the two points $\mathbf{R,0}$. Besides that, we have used the fact that
+\begin{align}
+	\int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'} + \int_{\mathbf{r}}^{\mathbf{0}} \mathbf{A(r')} \cdot \mathbf{r'} = \Phi_{\mathbf{R,r,0}} - \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'}.
+\end{align}
+We can show that the flux term $\Phi_{\mathbf{R,r,0}}$ is negligibly small by two observations. When $\mathbf{r}$ is far away from the lattice points $\mathbf{R}$ and $\mathbf{0}$, the flux is large but since the atomic orbitals are highly localized at these two lattice points, the value of the hopping term is very small and the whole hopping term goes to zero. While $\mathbf{r}$ is at or near any of these lattice points, the triangle formed is small, and assuming small magnetic field, the flux term $\Phi_{\mathbf{R,r,0}}$ goes to zero, which giving us the Hamiltonian as
+\begin{gather}
+	H_{jj'}(\mathbf{k})
+	= \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} e^{\frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} \left[ -\f{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})},\\
+	H_{jj'}^{Z}(\mathbf{k})
+	= g^{*} \mu_{B} \mathbf{B} \cdot \sum_{\mathbf{R}} e^{i\mathbf{k\cdot R}} e^{\frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} \mathbf{L} \ket{\phi_{j'}(\mathbf{r - R})}.
+\end{gather}
+Considering only nearest neighbor(NN) hopping, Eq (2.9) becomes
+\begin{equation}
+	\begin{aligned}
+		H_{\mu\mu'}^{jj'}(\mathbf{k})
+		& = \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R}} E_{\mu\mu'}^{jj'}(\mathbf{R})\\
+		& = E_{\mu\mu'}^{jj'}(\mathbf{0}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_1}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_1}} E_{\mu\mu'}^{jj'}(\mathbf{R_1})  \\
+		& + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_2}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_2}} E_{\mu\mu'}^{jj'}(\mathbf{R_2}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_3}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_3}} E_{\mu\mu'}^{jj'}(\mathbf{R_3}) \\
+		&+ e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_4}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_4}} E_{\mu\mu'}^{jj'}(\mathbf{R_4}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_5}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_5}} E_{\mu\mu'}^{jj'}(\mathbf{R_5}) \\
+		&+ e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_6}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_6}} E_{\mu\mu'}^{jj'}(\mathbf{R_6}).
+	\end{aligned}
+\end{equation}
+
+In the presence of a perpendicular magnetic field $\mathbf{B} \hat{z}$ with the vector potential $\vv{A} = (0, Bx, 0)$. For convenience, let us switch to a shorthand notation for these extra terms and define
+\begin{gather}
+	\theta_{m,n}^{m',n'} \equiv - \f{e}{\hbar} \int_{m,n}^{m',n'} \vv{A} \cdot d\mathbf{r}.
+\end{gather}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth,height=0.5\linewidth]{pic/siteindice.pdf}
+	\caption{\label{fig:site index} Site index}
+\end{figure}
+With the given Landau gauge, the line intergral $\int \vv{A} \cdot d\mathbf{r}$ is evaluated to $\int Bx dy$. Let us now express the Hamiltonian from the zero-field are given by \cite{PhysRevB.88.085433} with the transform hopping parameters, noting that the NN coordinates are $x = \frac{ma}{2}(m = \pm 1, \pm 2)$ and $y = \frac{na\sqrt{3}}{2}(n = 0,\pm 1)$, $a$ being the lattice constant, are shown in \hyperref[fig:site index]{Fig (2.2)}. Since $dy = 0$ along the $x$ direction, $\theta_{m,n}^{m \pm 2, n} = 0$, and using $ansatz$ $x = \frac{ma}{2}$ for lattice site, the $\theta_{m,n}^{m',n'}$ can be written as
+\begin{gather}
+	\theta_{m,n}^{m',n'} =
+	\begin{cases}
+		0   						  & \quad m' = m \pm 2, n' = n\\
+		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{2} (m + 1 /2) & \quad m' = m + 1, n' = n \pm 1\\
+		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{2} (m - 1 /2) & \quad m' = m - 1, n' = n \pm 1\\
+	\end{cases}
+\end{gather}
+Identifying $\frac{B a^{2} \sqrt{3}}{2}$ as the magnetic flux $\Phi$ passing through per unit cell and $h / e$ as the flux quantum $\Phi_{0}$, then we have
+\begin{equation}
+	\begin{aligned}
+		{H'}_{\mu\mu'}^{jj'}(\mathbf{k})
+		&= E_{\mu\mu'}^{jj'}(\mathbf{0}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{1}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) + e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2})\\
+		&+ e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{3}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{4}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{4})\\
+		&+ e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{5}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{6}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}).
+	\end{aligned}
+\end{equation}
+The Hamiltonian depends on the site index $m$ and does not invariant under the translation of a lattice vector along the $x$ axis. In order to restore this invariance, we can look at the case where the ratio of magnetic flux and flux quanta is a rational number $\Phi / \Phi_{0} = p / q$. This mean, we have expand the unit cell in the $x$ direction, the Hamiltonian becomes invariant under translational, allowing us to define what we will call the magnetic unit cell, which is consisting of $q$ $M$-atoms %Hinh. 
+We define a new basis set of $3q$ atomic orbitals $\phi_{\mu}^{j} (x,y) = \phi_{\mu}^{j} (ma/2,y)$ where $m = 1,2,...q$. Note that
+\begin{gather}
+	\begin{cases}
+		e^{i k_{x} a} \phi_{\mu}^{j} \left(m \frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m+2)\frac{a}{2},y\right) &;\;  e^{-i k_{x} a} \phi_{\mu}^{j} \left(m\frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m-2)\frac{a}{2},y\right)\\
+		e^{-i k_{x} \frac{a}{2}} \phi_{\mu}^{j} \left(m \frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m+1)\frac{a}{2},y\right) &;\;  e^{-i k_{x} \frac{a}{2}} \phi_{\mu}^{j} \left(m\frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m-1)\frac{a}{2},y\right)
+	\end{cases}
+\end{gather}
+Consequently the Hamiltonian matrix in the new basis is written as 
+\begin{equation}
+	\begin{aligned}
+		H_{\mu\mu'}^{jj'}(\mathbf{k})
+		& = E_{\mu\mu'}^{jj'}(\mathbf{0}) + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) \delta_{m,m+2}\delta_{n,n} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2}) \delta_{m,m+1} \delta_{n,n - 1}\\
+		& + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) \delta_{m,m - 1} \delta_{n,n - 1} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{4}) \delta_{m,m + 2} \delta_{n,n}\\
+		& + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) \delta_{m,m - 1} \delta_{n,n + 1} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}) \delta_{m,m + 1} \delta_{n,n + 1}.
+	\end{aligned}
+\end{equation}
+Now, for given flux ratio $p/q$, only the $q$ determines the periodicity of the magnetic cell assuming $p$ and $q$ are mutually prime numbers. When we plot the band energies while varying the $p$, we obtain the famous Hofstadter butterfly \cite{PhysRevB.14.2239}, a complex fractal structure as seen in Fig. This structure is generated at the $K = (\frac{4\pi}{3a},0)$ k-point. This fractal spectrum is a result of two competing effects, lattice periodicity and magnectic unit cell periodicity enforced by the presence of the magnetic field. \\
+An alternative approach to the derivation of the Hamiltonian under an uniform magnetic field is given in Appendix B
+\begin{figure*}[htb]
+	\centering
+	\begin{subfigure}[b]{0.495\textwidth}
+		\centering
+		\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/h0_tam giac_q_797.png}
+		\label{fig:3 band}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.495\textwidth}
+		\centering
+		\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/3band_gnuplot_q_797.png}
+		\label{fig:1 band}
+	\end{subfigure}
+	\caption{
+		Hofstadter’s butterfly for one band $\ket{dz} \equiv \ket{\phi_{1}^{1}(x,y)}$ (left) and all band(right) with $q = 797$ and vary $p$  from 1 to $q$.  
+	}
+\end{figure*}
+\section{Spin-orbit coupling}
+Due to the heavy mass of the transistion-metal $M$ atom, its spin orbit coupling(SOC) can be large. For the sake of simplicity, only the on-site contribution, namely, the $\mathbf{L \cdot S}$ term from $M$ atoms. Using the bases $\left\{\ket{d_{z^{2}},\uparrow},\ket{d_{xy},\uparrow},\ket{d_{x^{2} - y^{2}},\uparrow},\ket{d_{z^{2}},\downarrow},\ket{d_{xy},\downarrow},\ket{d_{x^{2} - y^{2} },\downarrow}\right\}$, we get the SOC contribution to the Hamiltonian as
+\begin{gather}
+	H^{'} 
+	= \lambda \mathbf{L \cdot S}
+	= \f{\lambda}{2}
+	\begin{pNiceMatrix}
+		L_{z} & 0\\
+		0 & -L_{z}
+	\end{pNiceMatrix},
+\end{gather}
+in which
+\begin{gather}
+	L_{z}
+	=
+	\begin{pNiceMatrix}
+		0 & 0 & 0\\
+		0 & 0 & 2i\\
+		0 &-2i& 0
+	\end{pNiceMatrix}
+\end{gather}
+is the matrix of $\hat{L}_{z}$($z$ component of the orbital angular momentum) in bases of $d_{z^{2}},d_{xy},d_{x^{2} - y^{2}}$ and $\lambda$ is characterized the strength of the SOC. Noting that, under the three bases, the matrix elements of $\hat{L}_{x}$ and $\hat{L}_{y}$ are all zeros. There for the Hamiltonian for the magnetic unit cell with the SOC as follows
+\begin{equation}
+	\begin{aligned}
+		H_{\text{SOC}}(\mathbf{k})\\
+		& = \mathbf{I}_{2} \otimes H_{0}(\mathbf{k}) + H'
+	\end{aligned}
+\end{equation}
+
+
+
+\section{Landau levels}
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+\nocite{*}
+\renewcommand{\bibname}{REFERENCES}
+\bibliographystyle{ieeetr}
+\bibliography{refs}	
+\end{document}

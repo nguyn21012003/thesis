@@ -1,0 +1,54 @@
+\chapter{Bảng biểu, hình vẽ, phương trình}
+\label{Chapter3}
+%\section{Bảng biểu, hình vẽ, phương trình}
+Việc đánh số bảng biểu, hình vẽ, phương trình phải gắn với số chương; ví dụ hình 3.4 có nghĩa là hình thứ 4 trong Chương 3.
+Mọi đồ thị, bảng biểu, hình vẽ lấy từ các nguồn khác phải được trích dẫn đầy đủ. Đầu đề của bảng biểu ghi \textbf{phía trên} bảng, đầu đề của hình vẽ ghi \textbf{phía dưới} hình. 
+Khi đề cập đến các bảng biểu và hình vẽ phải nêu rõ số của hình và bảng biểu đó, ví dụ ``... được nêu trong Bảng 4.1'' hoặc ``xem Hình 3.2'' mà không được viết ``… được nêu trong bảng dưới đây'' hoặc ``trong đồ thị của X và Y sau''.
+
+\section{Bảng biểu}
+Thông thường, những bảng ngắn và đồ thị phải đi liền với phần nội dung đề cập tới các bảng và đồ thị này ở lần thứ nhất.
+Các bảng dài có thể để ở những trang riêng nhưng cũng phải tiếp theo ngay phần nội dung đề cập tới bảng này ở lần đầu tiên.
+
+\begin{table}[ht]
+\caption{Ví dụ về bảng biểu 
+\label{tab:table1}}
+\centering
+\begin{tabular}{|c||c|c|c|}
+\hline
+One & Two & Three & Four\\
+\hline
+A & B & C & D\\
+E & F & G & H\\
+\hline
+\end{tabular}
+\end{table}
+
+Để tạo bảng biểu, tham khảo thêm tại \url{sharelatex.com}.
+Bảng~\ref{tab:table1} là một ví dụ về bảng.
+Ngoài ra, có một số tool online~\footnote{ http://www.tablesgenerator.com/} có thể được dùng để tạo bảng biểu một cách trực quan.
+
+\section{Hình vẽ}
+Hình \ref{fig_1} là một ví dụ về sử dụng gói graphicx để chèn hình ảnh trong latex. Chú ý là $\backslash${\tt{label}} phải xuất hiện SAU (hoặc cùng) $\backslash${\tt{caption}}.
+Khi chèn hình, $\backslash${\tt{caption}} nên xuất hiện sau $\backslash${\tt{includegraphics}}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.5in]{images/logo.jpg}
+\caption{Ví dụ về hình ảnh.}
+\label{fig_1}
+\end{figure}
+
+
+\subsection{Phương trình toán học}
+Việc trình bày phương trình toán học trên một dòng đơn hoặc dòng kép tùy ý, tuy nhiên phải thống nhất trong toàn báo cáo.
+
+Ví dụ về thêm công thức sử dụng ''equation''. Để đánh số các phương trình, hãy sử dụng macro $\backslash${\tt{label}} để tạo một định danh cho phương trình. LaTeX sẽ tự động đánh số phương trình cho bạn.
+
+\begin{equation}
+\label{deqn_ex1}
+x = \sum_{i=0}^{n} 2{i} Q.
+\end{equation}
+
+
+
+
