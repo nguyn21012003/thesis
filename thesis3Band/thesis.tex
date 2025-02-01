@@ -161,7 +161,7 @@ where $\Phi_{\mathbf{R,r,0}} = \oint_{\mathbf{R,r,0}} \mathbf{A(\mathbf{r'})} \c
 \begin{align}
 	\int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'} + \int_{\mathbf{r}}^{\mathbf{0}} \mathbf{A(r')} \cdot \mathbf{r'} = \Phi_{\mathbf{R,r,0}} - \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'}.
 \end{align}
-We can show that the flux term $\Phi_{\mathbf{R,r,0}}$ is negligibly small by two observations. When $\mathbf{r}$ is far away from the lattice points $\mathbf{R}$ and $\mathbf{0}$, the flux is large but since the atomic orbitals are highly localized at these two lattice points, the value of the hopping term is very small and the whole hopping term goes to zero. While $\mathbf{r}$ is at or near any of these lattice points, the triangle formed is small, and assuming small magnetic field, the flux term $\Phi_{\mathbf{R,r,0}}$ goes to zero, which giving us the Hamiltonian as
+We can show that the flux term $\Phi_{\mathbf{R,r,0}}$ is negligibly small \cite{yalcin_2019} by two observations. When $\mathbf{r}$ is far away from the lattice points $\mathbf{R}$ and $\mathbf{0}$, the flux is large but since the atomic orbitals are highly localized at these two lattice points, the value of the hopping term is very small and the whole hopping term goes to zero. While $\mathbf{r}$ is at or near any of these lattice points, the triangle formed is small, and assuming small magnetic field, the flux term $\Phi_{\mathbf{R,r,0}}$ goes to zero, which giving us the Hamiltonian as
 \begin{gather}
 	H_{jj'}(\mathbf{k})
 	= \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} e^{\frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} \left[ -\f{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})},\\
@@ -263,10 +263,10 @@ in which
 		0 &-2i& 0
 	\end{pNiceMatrix}
 \end{gather}
-is the matrix of $\hat{L}_{z}$($z$ component of the orbital angular momentum) in bases of $d_{z^{2}},d_{xy},d_{x^{2} - y^{2}}$ and $\lambda$ is characterized the strength of the SOC. Noting that, under the three bases, the matrix elements of $\hat{L}_{x}$ and $\hat{L}_{y}$ are all zeros. There for the Hamiltonian for the magnetic unit cell with the SOC as follows
+is the matrix of $\hat{L}_{z}$($z$ component of the orbital angular momentum) in bases of $d_{z^{2}},d_{xy},d_{x^{2} - y^{2}}$ and $\lambda$ is characterized the strength of the SOC. Noting that, under the three bases, the matrix elements of $\hat{L}_{x}$ and $\hat{L}_{y}$ are all zeros. There for the Hamiltonian for the magnetic unit cell with the SOC as foSSllows
 \begin{equation}
 	\begin{aligned}
-		H_{\text{SOC}}(\mathbf{k})\\
+		H_{\text{SOC}}(\mathbf{k})S
 		& = \mathbf{I}_{2} \otimes H_{0}(\mathbf{k}) + H'
 	\end{aligned}
 \end{equation}
@@ -274,16 +274,68 @@ is the matrix of $\hat{L}_{z}$($z$ component of the orbital angular momentum) in
 
 
 \section{Landau levels}
+In solid-state physics, the behavior of electrons in magnetic fields is usually introduced by using the Hamiltonian
+\begin{gather}
+	H = \f{\mathbf{p} + e \mathbf{A}(\mathbf{r})^{2}}{2m} .
+\end{gather}
+If we write $\boldsymbol{\pi} = (\mathbf{p} + e\mathbf{A}(\mathbf{r})) / \sqrt{e B \hbar}$ and $\mathbf{A}$ is the vector potential, we can show that the commutator
+$\left[ \pi_{x},\pi_{y} \right] = -i$ and, hence,
+\begin{gather}
+	\dot{\pi}_{x} = \f{1}{i\hbar}\left[ \pi_{x}, H\right] = -\omega_{c} \pi_{y},\\
+	\dot{\pi}_{y} = \f{1}{i\hbar}\left[ \pi_{y}, H\right] = \omega_{c} \pi_{x},
+\end{gather}
+where $\omega_{c} = eB / m$ is the cyclotron frequency. Hence, the problem is equivalent to a simple harmonic oscillator, and the energy eigenvalues are
+\begin{gather}
+	E = \left(n + 1/2\right) \hbar \omega_{c}
+\end{gather}
+and the energy eigenfunctions are known as Landau levels.
+
+This treatment is for free electrons, but near the bottom of the two-dimensional tigh-binding band of TMD, the energy is approximately free-electron-like by Taylor expanding to second order of $\mathbf{k}$ \cite{10.1119/1.1615568}
+\begin{equation}
+	\begin{aligned}
+		E(\mathbf{k}) 
+		&\approx 2 t_{0} \left[1 - \frac{a^{2} k_{x}^{2}}{2} + 2\left(1 - \f{a^{2} k_{x}^{2}}{8}\right)\left(1 - \f{a^{2} k_{y}^{2}}{8}\right)\right] \\
+		&= t_{0} \f{3}{16} \left(32 + a^{4} k_{x}^{2} k_{y}^{2}\right) - t_{0} \f{3}{2} a^{2}(k_{x}^{2} + k_{y}^{2}) ,
+	\end{aligned}
+\end{equation}	
+the first term $a^{2}$ is negligibly small and another can be treated like constant, then we have
+\begin{gather}
+	E(\mathbf{k}) 
+	\approx 6 t_{0} - \f{\hbar^{2}}{2m} (k_{x}^{2} + k_{y}^{2}),
+\end{gather}
+where $m^{*} = \f{\hbar^{2}}{(3t_{0}a^{2} / 4) }$ is the effective mass. Hence, the cyclotron frequency is 
+\begin{gather}
+	\omega_{c} = \f{eB}{m^{*}} = \f{\sqrt{3}}{2} t_{0} \f{p}{q}
+\end{gather}	
+and therefore the Landau levels near the bottom of the band $\ket{d_{z^{2}}}$ can be written as 
+\begin{gather}
+	E(\mathbf{k}) = t_{0} \left(6 - \sqrt{3} \f{p}{q}( n + 1 /2)\right)
+\end{gather}	
+\begin{figure*}[htb]
+	\centering
+	\includegraphics[width=0.5\linewidth,height=0.5\linewidth]{pic/landaulevel_h0_q_452.pdf}
+	\caption{\label{fig:landau level 1} Cap}
+\end{figure*}
+
+\begin{figure*}[htb]
+	\centering
+	\begin{subfigure}[b]{0.495\textwidth}
+		\centering
+		\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/landaulevel_h0_q_452.pdf}
+		\label{fig:3 landau level 1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.495\textwidth}
+		\centering
+		\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/landaulevel_h0_q_453.pdf}
+		\label{fig:1 landau level 2}
+	\end{subfigure}
+	\caption{
+		Cap  
+	}
+\end{figure*}
 
 
 
-
-
-	
-	
-	
-	
-	
 	
 	
 \nocite{*}
