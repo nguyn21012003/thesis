@@ -222,7 +222,7 @@ We define a new basis set of $3q$ atomic orbitals $\phi_{\mu}^{j} (x,y) = \phi_{
 \begin{gather}
 	\begin{cases}
 		e^{i k_{x} a} \phi_{\mu}^{j} \left(m \frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m+2)\frac{a}{2},y\right)            & ;\;  e^{-i k_{x} a} \phi_{\mu}^{j} \left(m\frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m-2)\frac{a}{2},y\right)           \\
-		e^{-i k_{x} \frac{a}{2}} \phi_{\mu}^{j} \left(m \frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m+1)\frac{a}{2},y\right) & ;\;  e^{-i k_{x} \frac{a}{2}} \phi_{\mu}^{j} \left(m\frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m-1)\frac{a}{2},y\right)
+		e^{i k_{x} \frac{a}{2}} \phi_{\mu}^{j} \left(m \frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m+1)\frac{a}{2},y\right) & ;\;  e^{-i k_{x} \frac{a}{2}} \phi_{\mu}^{j} \left(m\frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m-1)\frac{a}{2},y\right)
 	\end{cases}
 \end{gather}
 Consequently the Hamiltonian matrix in the new basis is written as
@@ -234,8 +234,11 @@ Consequently the Hamiltonian matrix in the new basis is written as
 		 & + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) \delta_{m,m - 1} \delta_{n,n + 1} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}) \delta_{m,m + 1} \delta_{n,n + 1}.
 	\end{aligned}
 \end{equation}
-Now, for given flux ratio $p/q$, only the $q$ determines the periodicity of the magnetic cell assuming $p$ and $q$ are mutually prime numbers. When we plot the band energies while varying the $p$, we obtain the famous Hofstadter butterfly \cite{PhysRevB.14.2239}, a complex fractal structure as seen in Fig. 2.3. This structure is generated at the $K = (\frac{4\pi}{3a},0)$ k-point. This fractal spectrum is a result of two competing effects, lattice periodicity and magnectic unit cell periodicity enforced by the presence of the magnetic field. \\
-An alternative approach to the derivation of the Hamiltonian under an uniform magnetic field is given in Appendix B
+Now, for given flux ratio $p/q$, only the $q$ determines the periodicity of the magnetic cell assuming $p$ and $q$ are mutually prime numbers. When we plot the band energies while varying the $p$, we obtain the famous Hofstadter butterfly \cite{PhysRevB.14.2239}, a complex fractal structure as seen in Fig. 2.3. This structure is generated at the $K = (\frac{4\pi}{3a},0)$ k-point. This fractal spectrum is a result of two competing effects, lattice periodicity and magnectic unit cell periodicity enforced by the presence of the magnetic field. Eq. 2.16 give the following matrix which must be diagonalized to obtain the energy eigenvalues.
+
+The magnetic field enters the TB Hamiltonian only through the fraction $p/q$, which is the magnetic flux through the primitive unit cell of the lattice.In general, as the lattice geometry evolves, the area of the primitive unit cell changes $(m + 1/2)$ times
+
+An alternative approach to the derivation of the Hamiltonian under an uniform magnetic field is given in \hyperref[appendix b]{Appendix B}.
 \begin{figure*}[htb]
 	\centering
 	\begin{subfigure}[b]{0.495\textwidth}
@@ -273,7 +276,7 @@ in which
 		0 & -2i & 0
 	\end{pNiceMatrix}
 \end{gather}
-is the matrix of $\hat{L}_{z}$($z$ component of the orbital angular momentum) in bases of $d_{z^{2}},d_{xy},d_{x^{2} - y^{2}}$ and $\lambda$ is characterized the strength of the SOC. Noting that, under the three bases, the matrix elements of $\hat{L}_{x}$ and $\hat{L}_{y}$ are all zeros. There for the Hamiltonian for the magnetic unit cell with the SOC as foSSllows
+is the matrix of $\hat{L}_{z}$($z$ component of the orbital angular momentum) in bases of $d_{z^{2}},d_{xy},d_{x^{2} - y^{2}}$ and $\lambda$ is characterized the strength of the SOC. Noting that, under the three bases, the matrix elements of $\hat{L}_{x}$ and $\hat{L}_{y}$ are all zeros. There for the Hamiltonian for the magnetic unit cell with the SOC as follows
 \begin{equation}
 	\begin{aligned}
 		H_{\text{SOC}}(\mathbf{k})S
@@ -288,23 +291,17 @@ In solid-state physics, the behavior of electrons in magnetic fields is usually 
 \begin{gather}
 	H = \f{\mathbf{p} + e \mathbf{A}(\mathbf{r})^{2}}{2m} .
 \end{gather}
-If we write $\boldsymbol{\pi} = (\mathbf{p} + e\mathbf{A}(\mathbf{r})) / \sqrt{e B \hbar}$ and $\mathbf{A}$ is the vector potential, we can show that the commutator
-$\left[ \pi_{x},\pi_{y} \right] = -i$ and, hence,
-\begin{gather}
-	\dot{\pi}_{x} = \f{1}{i\hbar}\left[ \pi_{x}, H\right] = -\omega_{c} \pi_{y},\\
-	\dot{\pi}_{y} = \f{1}{i\hbar}\left[ \pi_{y}, H\right] = \omega_{c} \pi_{x},
-\end{gather}
-where $\omega_{c} = eB / m$ is the cyclotron frequency. Hence, the problem is equivalent to a simple harmonic oscillator, and the energy eigenvalues are
+
 \begin{gather}
 	E = \left(n + 1/2\right) \hbar \omega_{c}
 \end{gather}
 and the energy eigenfunctions are known as Landau levels.
 
-This treatment is for free electrons, but near the bottom of the two-dimensional tigh-binding band of TMD, the energy is approximately free-electron-like by Taylor expanding to second order of $\mathbf{k}$ \cite{10.1119/1.1615568}
+This treatment is for free electrons, \cite{10.1119/1.1615568} but near the bottom of the two-dimensional tigh-binding band of TMD, the energy is approximately free-electron-like by Taylor expanding to second order of $\mathbf{k}$ 
 \begin{equation}
 	\begin{aligned}
 		E(\mathbf{k})
-		 & \approx 2 t_{0} \left[1 - \frac{a^{2} k_{x}^{2}}{2} + 2\left(1 - \f{a^{2} k_{x}^{2}}{8}\right)\left(1 - \f{a^{2} k_{y}^{2}}{8}\right)\right] \\
+		 & \approx 2 t_{0} \left[1 - \frac{a^{2} k_{x}^{2}}{2} + 2\left(1 - \f{a^{2} k_{x}^{2}}{8}\right)\left(1 - \f{3a^{2} k_{y}^{2}}{8}\right)\right] \\
 		 & = t_{0} \f{3}{16} \left(32 + a^{4} k_{x}^{2} k_{y}^{2}\right) - t_{0} \f{3}{2} a^{2}(k_{x}^{2} + k_{y}^{2}) ,
 	\end{aligned}
 \end{equation}
@@ -327,7 +324,7 @@ in linear order of an uniform-flux, where $n$ is Landau index.
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
 		{\caption{}\label{fig:3 landau level 1}}
-		{\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/small_area_LL.png}}
+		{\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/test.png}}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
@@ -339,70 +336,129 @@ in linear order of an uniform-flux, where $n$ is Landau index.
 	}
 \end{figure*}
 
-In Fig 2.4 we compare the  of a small section of triangular lattice with $p / q = 1 / 797$. with the fan of Landau levels given by Eq.(2.26) plotted in Fig 2.4(b). The fan of Landau levels can be clearly seen emergin from the partern in Fig 2.4(a). It is this fan of Landau levels that responsiblee for the de Haas-van Alphen and Shubnikov-de Haas effects. \cite{Shoenberg_1984,singleton2001band,blundell2001magnetism,kittel1987quantum} The Landau levels are all close to being linear in $B$, resulting from the magnetic quantization of parabolic bands at $B = 0$. In our model study, Landau levels can be classified into specific groups. In each group, each levels can be further labeled by a Landau index $n$. Figure 2.4 displays a blowup of the low uniform magnetic region and the LLs as a function of $\Phi / \Phi_{0}$ \cite{Li_2011}
+In Fig 2.4 we compare the spectrum of a small section of triangular lattice with $p / q = 1 / 797$. With the fan of Landau levels given by Eq.(2.26) plotted in Fig 2.4(b). The fan of Landau levels can be clearly seen emergin from the partern in Fig 2.4(a). It is this fan of Landau levels that responsiblee for the de Haas-van Alphen and Shubnikov-de Haas effects. \cite{Shoenberg_1984,singleton2001band,blundell2001magnetism,kittel1987quantum} The Landau levels are all close to being linear in $B$, resulting from the magnetic quantization of parabolic bands at $B = 0$. In our model study, Landau levels can be classified into specific groups. In each group, each levels can be further labeled by a Landau index $n$. Figure 2.4 displays a blowup of the low uniform magnetic region and the LLs as a function of $\Phi / \Phi_{0}$ \cite{Li_2011}
+
+
+
+\chapter{DISCUSSION AND FUTURE WORK}
+
+
+
 
 
 
 \nocite{*}
 \renewcommand{\bibname}{REFERENCES}
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \bibliography{refs}
 \appendix
 \renewcommand{\chaptername}{Appendix}
-\chapter{bla}
-\chapter{Harper's equation}
+\chapter{Construct matrix}
+In Ref. \cite{PhysRevB.88.085433},G-B Liu $et \; al$. contructed 
+
+
+\chapter{Harper's equation} \label{appendix b} 
 Let us consider the case of hexagonal lattice with $\ket{d_{z^{2}}}$ band as a basis under an uniform magneticc field given by the Landau gauge $\vv{A} = (0, Bx,0)$. Given
 \begin{equation}
 	\begin{aligned}
 		h_0
 		 & = 2 t_0 \left(\cos2\alpha + 2\cos\alpha \cos\beta\right) + \epsilon_1                                                                                                                                                                                                                                                                                                                                                                                                             \\
 		 & = 2t_{0} \left[ \cos(k_x a) + 2 \cos \left(\f{k_x a}{2}\right) \cos \left(\f{\sqrt{3}k_y a}{2}\right) \right] + \epsilon_1                                                                                                                                                                                                                                                                                                                                                        \\
-		 & = 2t_{0} \left[ \cos(\f{\hbar k_x a}{\hbar}) + 2 \cos \left(\f{1}{2}\f{\hbar k_x a}{\hbar}\right) \cos \left(\f{\sqrt{3}}{2}\f{\hbar k_y a}{\hbar}\right) \right] + \epsilon_1                                                                                                                                                                                                                                                                                                    \\
-		 & = 2t_{0} \left[ \cos(\f{p_x - e A_x}{\hbar}a) + 2 \cos \left(\f{1}{2}\f{p_x - e A_x}{\hbar}a\right) \cos\left(\f{\sqrt{3}}{2}\f{p_y - e A_y}{\hbar}a\right) \right] + \epsilon_1                                                                                                                                                                                                                                                                                                  \\
-		 & = 2t_{0} \left[ \cos\left( \f{-i\hbar \frac{\partial}{\partial x}}{\hbar}a \right) + 2\cos\left( \f{1}{2}\f{-i\hbar\frac{\partial}{\partial x}}{\hbar}a \right) \cos\left( \f{\sqrt{3}}{2}\f{-i\hbar \frac{\partial}{\partial y} - eBx}{\hbar}a \right)  \right] + \epsilon_1                                                                                                                                                                                                     \\
-		 & = t_{0} \underbracket{\left[ e^{\frac{\partial a}{\partial x}} + e^{-\frac{\partial a}{\partial x}} +  \left( e^{\frac{\partial}{\partial x} \frac{a}{2}} + e^{-\frac{\partial}{\partial x} \frac{a}{2}} \right) \left( e^{\frac{\partial }{\partial y}\frac{a\sqrt{3}}{2} } e^{-\frac{ie}{\hbar} Bxa\frac{a\sqrt{3}}{2}} + e^{-\frac{\partial a}{\partial y}\frac{\sqrt{3}}{2} } e^{\frac{ie}{\hbar} Bxa\frac{\sqrt{3}}{2}} \right) \right]}_{\text{hopping terms}} + \epsilon_1.
+		 & = 2t_{0} \left\{ \cos(k_x a) + \cos\left[\left( k_{x} + \sqrt{3} k_{y} \right)\frac{a}{2}\right] + \cos\left[\left( k_{x} - \sqrt{3} k_{y} \right)\frac{a}{2}\right]\right\} + \epsilon_1                                                                                                                                                                                                                                                                                                                                                        \\
+		 & = 2t_{0} \Biggl\{ \cos(p_{x}\f{a}{\hbar}) + \cos \left[\left(p_{x} + \sqrt{3} e B x + \sqrt{3} p_{y}\right)\frac{a}{2\hbar}\right] \\
+		 &+ \cos \left[\left(p_{x} - \sqrt{3} e B x - \sqrt{3} p_{y}\right)\frac{a}{2\hbar}\right] \Biggr\} + \epsilon_1                                                                                                                                                                                                                                                                                                  \\
+		 & = t_{0} \biggl[e^{i p_{x}\frac{a}{\hbar}} + e^{-ip_{x}\frac{a}{\hbar}} + e^{i(p_{x} + \sqrt{3} eBx + \sqrt{3} p_{y} ) a / 2\hbar} + e^{-i(p_{x} + \sqrt{3} eBx + \sqrt{3} p_{y} ) a / 2\hbar} \\
+		 &+ e^{i(p_{x} - \sqrt{3} eBx - \sqrt{3} p_{y} ) a / 2\hbar} + e^{-i(p_{x} - \sqrt{3} eBx - \sqrt{3} p_{y} ) a / 2\hbar} \biggr] + \epsilon_1.
 	\end{aligned}
 \end{equation}
-We replaced $\hbar k$ in the above function by the operatos $\vv{p} e \vv{A} / c$ in order to create an operator out of $h_{0}$. When this substitution is made, the Hamiltonian element is seen to contain translation operators $\exp[a p_{x} / \hbar],\exp[a \sqrt{3} p_{y} / (2\hbar)]$. Depending on the gauge chosen, there are, in addition, certain phase factors dependent on the magnetic field strength, which multiply the translation operators. The Landau gauge was $\vv{A} = (0,Bx,0)$ was chosen, then only the translation  along $y$ are multiplied by phases. \cite{PhysRevB.14.2239}
+We replaced $\hbar k$ in the above function by the operators $\vv{p} - e \vv{A} / c$ in order to create an operator out of $h_{0}$. When this substitution is made, the Hamiltonian element is seen to contain translation operators $\exp[a p_{x} / \hbar],\exp[a \sqrt{3} p_{y} / (2\hbar)]$. Depending on the gauge chosen, there are, in addition, certain phase factors dependent on the magnetic field strength, which multiply the translation operators. The Landau gauge was $\vv{A} = (0,Bx,0)$ was chosen, then only the translation along $y$ are multiplied by phases. \cite{PhysRevB.14.2239}
+Applying the BCH's formula and taking to account the commutation relation $\left[x,p_{x}\right] = i \hbar$
+\begin{equation}
+	\begin{aligned}
+		e^{\pm i(p_{x} + \sqrt{3} e B x) a / 2\hbar} 
+		&= e^{\pm i p_{x} a / 2 \hbar} e^{\pm i\sqrt{3} e B x a / 2 \hbar} e^{-\frac{1}{2} \left[\pm i p_{x}, \pm i \sqrt{3} e B x\right] a^{2} / 2 \hbar^{2}} \\
+		&= e^{\pm i p_{x} a / 2 \hbar} e^{\pm i\sqrt{3} e B x a / 2 \hbar} e^{\mp i \sqrt{3} e B a^{2} / 8 \hbar}
+	\end{aligned}
+\end{equation}
+Substituting $x = \f{ma}{2}$ into (B.2), this leads to
+\begin{gather}
+	e^{\pm i(p_{x} + \sqrt{3} e B x) a / 2\hbar}
+	= e^{\pm i p_{x} a / 2 \hbar} e^{\pm i\sqrt{3} e B (m + 1 /2) a / 4 \hbar}
+\end{gather}
+And 
+\begin{equation}
+	\begin{aligned}
+		e^{\pm i(p_{x} - \sqrt{3} e B x) a / 2\hbar} 
+		&= e^{\pm i p_{x} a / 2 \hbar} e^{\mp i\sqrt{3} e B x a / 2 \hbar} e^{-\frac{1}{2} \left[\pm i p_{x}, \mp i \sqrt{3} e B x\right] a^{2} / 2 \hbar^{2}} \\
+		&= e^{\pm i p_{x} a / 2 \hbar} e^{\mp i\sqrt{3} e B x a / 2 \hbar} e^{\mp i \sqrt{3} e B a^{2} / 8 \hbar}
+	\end{aligned}
+\end{equation}
+Substituting $x = \f{ma}{2}$ into (B.4), this leads to
+\begin{gather}
+	e^{\pm i(p_{x} - \sqrt{3} e B x) a / 2\hbar}
+	= e^{\pm i p_{x} a / 2 \hbar} e^{\mp i\sqrt{3} e B (m - 1 /2) a^{2} / 4 \hbar}
+\end{gather}
+The operators $e^{\pm i p_{x} a / 2 \hbar}, e^{\pm i p_{y} \sqrt{3}a / 2 \hbar}$ can be regconized as translational operators, we can rewrite (B.1) as
 The time-indepentdent Schr\"{o}dinger's equation now becomes
 \begin{equation}
 	\begin{aligned}
- 		& t_{0} \varphi_{1} (x + a,y) + t_{0}\varphi_{1} (x - a,y) + t_{0}\varphi_{1} (x + \frac{a}{2},y + \frac{a\sqrt{3}}{2}) e^{\frac{ie}{\hbar}Bx \frac{a\sqrt{3}}{2}} \\
-		+ & t_{0} \varphi_{1} (x + \frac{a}{2},y - \frac{a\sqrt{3}}{2}) e^{-\frac{ie}{\hbar}Bx \frac{a\sqrt{3}}{2}} + t_{0} \varphi_{1} (x - \frac{a}{2},y + \frac{a\sqrt{3}}{2}) e^{\frac{ie}{\hbar}Bx \frac{a\sqrt{3}}{2}} \\
-		+ & t_{0} \varphi_{1} (x - \frac{a}{2},y - \frac{a\sqrt{3}}{2}) e^{-\frac{ie}{\hbar}Bx \frac{a\sqrt{3}}{2}} + \epsilon_{1} \varphi_{1}(x,y) = E_{1} \varphi_{0}(x,y),
+ 		& t_{0} \varphi_{1} (x + a,y) + t_{0}\varphi_{1} (x - a,y) + t_{0}\varphi_{1} (x + \frac{a}{2},y + \frac{a\sqrt{3}}{2}) e^{\frac{ie}{\hbar}B(m + 1 /2) \frac{a^{2}\sqrt{3}}{4}} \\
+		+ & t_{0} \varphi_{1} (x + \frac{a}{2},y - \frac{a\sqrt{3}}{2}) e^{-\frac{ie}{\hbar}B(m + 1/2) \frac{a^{2}\sqrt{3}}{4}} + t_{0} \varphi_{1} (x - \frac{a}{2},y + \frac{a\sqrt{3}}{2}) e^{\frac{ie}{\hbar}B(m + 1/2) \frac{a^{2}\sqrt{3}}{4}} \\
+		+ & t_{0} \varphi_{1} (x - \frac{a}{2},y - \frac{a\sqrt{3}}{2}) e^{-\frac{ie}{\hbar}B(m - 1/2) \frac{a^{2}\sqrt{3}}{4}} + \epsilon_{1} \varphi_{1}(x,y) = E_{1} \varphi_{0}(x,y),
 	\end{aligned}
 \end{equation}
 for the sake of simplicity let us define $\varphi_{0} \equiv \ket{d_{z^{2}}}$.\\
-We have established in Section 2.2 that when translated by a lattice vector $\mathbf{R}$, the wavefuntion for an electron in a periodic lattice picks up a phase correspondingly. This lets us define
+%We have established in Section 2.2 that when translated by a lattice vector $\mathbf{R}$, the wavefuntion for an electron in a periodic lattice picks up a phase correspondingly. This lets us define
+%\begin{gather}
+%	\varphi(x \pm a,y) = e^{\pm i k_{x} a} \varphi(x,y), \\ 
+%	\varphi(x \pm \f{a}{2},y \pm \f{a\sqrt{3}}{2}) = e^{\pm i k_{x} \frac{a}{2}} e^{\pm i k_{y} \frac{a\sqrt{3}}{2}} \varphi(x,y).
+%\end{gather}
+%Substituting $x = m \f{a}{2}$ and $y = n \f{a\sqrt{3}}{2}$ for the given hexagonal lattice, we can express the time-indepentdent Schr\"{o}dinger equation as 
+%\begin{equation}
+%	\begin{aligned}
+%		&t_{0} \varphi_{0}(m + 2, n) + t_{0} \varphi_{0}(m - 2, n) + t_{0} \varphi_{0}(m + 1, n + 1) e^{\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} \\
+%		+& t_{0} \varphi_{0}(m + 1, n - 1) e^{-\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} + t_{0} \varphi_{0}(m - 1, n + 1) e^{\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} \\
+%		+& t_{0} \varphi_{0}(m - 1, n - 1) e^{-\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} + \epsilon_{1} \varphi_{0}(m,n) = E_{1} \varphi_{0}(m,n).
+%	\end{aligned}
+%\end{equation}
+It is reasonable to assume planewave behavior in the $y$ direction, since the coefficents in the above equation only involve $x$. Therefore, we can assume the partial solution for $y$ to be in the form 
 \begin{gather}
-	\varphi(x \pm a,y) = e^{\pm i k_{x} a} \varphi(x,y), \\ 
-	\varphi(x \pm \f{a}{2},y \pm \f{a\sqrt{3}}{2}) = e^{\pm i k_{x} \frac{a}{2}} e^{\pm i k_{y} \frac{a\sqrt{3}}{2}} \varphi(x,y).
+	\varphi(\frac{ma}{2},\frac{na\sqrt{3}}{2}) = e^{i k_{y} n \frac{a\sqrt{3}}{2}} G(m),
 \end{gather}
-Substituting $x = m \f{a}{2}$ and $y = n \f{a\sqrt{3}}{2}$ for the given hexagonal lattice, we can express the time-indepentdent Schr\"{o}dinger equation as 
+which reduces (B.6) to
 \begin{equation}
 	\begin{aligned}
-		&t_{0} \varphi_{0}(m + 2, n) + t_{0} \varphi_{0}(m - 2, n) + t_{0} \varphi_{0}(m + 1, n + 1) e^{\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} \\
-		+& t_{0} \varphi_{0}(m + 1, n - 1) e^{-\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} + t_{0} \varphi_{0}(m - 1, n + 1) e^{\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} \\
-		+& t_{0} \varphi_{0}(m - 1, n - 1) e^{-\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} + \epsilon_{1} \varphi_{0}(m,n) = E_{1} \varphi_{0}(m,n).
+		&t_{0} \varphi_{0}(m + 2) + t_{0} \varphi_{0}(m - 2) + t_{0} \varphi_{0}(m + 1) e^{2 i \pi (m + 1 /2) p/ q} e^{i k_{y} a\sqrt{3} / 2} \\
+		 +& t_{0} \varphi_{0}(m + 1) e^{-2 i \pi (m + 1 /2) p/ q} e^{-i k_{y} a\sqrt{3} / 2} + t_{0} \varphi_{0}(m - 1) e^{2 i \pi (m - 1 /2) p/ q} e^{i k_{y} a\sqrt{3} / 2} \\
+		+& t_{0} \varphi_{0}(m - 1) e^{-2 i \pi (m - 1 /2) p/ q} e^{-i k_{y} a\sqrt{3} / 2} + \epsilon_{1} \varphi_{0}(m) = E_{1} \varphi_{0}(m),
 	\end{aligned}
 \end{equation}
-Its is reasonable to assume planewave behavior in the $y$ direction, since the coefficents in the above equation only involve $x$. Therefore, we can assume the partial solution for $y$ to be in the form 
-\begin{gather}
-	\varphi(ma,na) = e^{i k_{y} n a} G(m),
-\end{gather}
-which reduces B.5 to
+this is equivalent to Eq. 2.16 we have mentioned in Section 2.2. Equation B.7 is sometimes called ``Harper's equation''. \cite{harper1955general} Since different $m$ values give different equations, one reaches a unique set of equations when $\Phi / \Phi_{0}$ is a rational number $p / q$ and $m$ goes through $q$ different values, essentially resulting in the Hamiltonian matrix written for a magnetic unit cell enlarged in $x$ direction $q$ times.
+
+\chapter{Phase factor}
 \begin{equation}
 	\begin{aligned}
-		&t_{0} \varphi_{0}(m + 2) + t_{0} \varphi_{0}(m - 2) + t_{0} \varphi_{0}(m + 1) e^{2 i \pi (m + 1 /2) p/ q} + t_{0} \varphi_{0}(m + 1) e^{-2 i \pi (m + 1 /2) p/ q}\\
-		 +& t_{0} \varphi_{0}(m - 1) e^{2 i \pi (m - 1 /2) p/ q} 
-		+ t_{0} \varphi_{0}(m - 1) e^{-2 i \pi (m - 1 /2) p/ q} + \epsilon_{1} \varphi_{0}(m) = E_{1} \varphi_{0}(m),
+		H_{\mu\mu'}^{jj'}(\mathbf{k})
+		& = \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R}} E_{\mu\mu'}^{jj'}(\mathbf{R})                                                                                                                                                   \\
+		& = E_{\mu\mu'}^{jj'}(\mathbf{0}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_1}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_1}} E_{\mu\mu'}^{jj'}(\mathbf{R_1})                                                                                                                \\
+		& + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_2}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_2}} E_{\mu\mu'}^{jj'}(\mathbf{R_2}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_3}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_3}} E_{\mu\mu'}^{jj'}(\mathbf{R_3}) \\
+		& + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_4}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_4}} E_{\mu\mu'}^{jj'}(\mathbf{R_4}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_5}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_5}} E_{\mu\mu'}^{jj'}(\mathbf{R_5}) \\
+		& + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_6}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_6}} E_{\mu\mu'}^{jj'}(\mathbf{R_6})\\
+		&=  E_{\mu\mu'}^{jj'}(\mathbf{0}) + e^{\frac{ie}{\hbar} Bx \int_{\mathbf{0}}^{\mathbf{R}_{1}}dy} e^{i k_{x} a} E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) + e^{\frac{ie}{\hbar} Bx \int_{\mathbf{0}}^{\mathbf{R}_{2}}dy} e^{i k_{x}\frac{a}{2}} e^{-i k_{y} \frac{a\sqrt{3}}{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2}) \\
+		&+ e^{\frac{ie}{\hbar} Bx \int_{\mathbf{0}}^{\mathbf{R}_{3}}dy} e^{-i k_{x} \frac{a}{2}} e^{-i k_{y} \frac{a\sqrt{3}}{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) + e^{\frac{ie}{\hbar} Bx \int_{\mathbf{0}}^{\mathbf{R}_{4}}dy} e^{-i k_{x} a} E_{\mu\mu'}^{jj'}(\mathbf{R}_{4})\\
+		&+ e^{\frac{ie}{\hbar} Bx \int_{\mathbf{0}}^{\mathbf{R}_{5}}dy} e^{-i k_{x} a} e^{i k_{y} \frac{a\sqrt{3}}{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) + e^{\frac{ie}{\hbar} Bx \int_{\mathbf{0}}^{\mathbf{R}_{6}}dy} e^{i k_{x} a} e^{i k_{y} \frac{a\sqrt{3}}{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6})\\
+		&=  E_{\mu\mu'}^{jj'}(\mathbf{0}) + e^{0} e^{i k_{x} a} E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) + e^{-\frac{ie}{\hbar} B x \frac{a\sqrt{3}}{2}} e^{i k_{x}\frac{a}{2}} e^{-i k_{y} \frac{a\sqrt{3}}{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2}) \\
+		&+ e^{-\frac{ie}{\hbar} B x \frac{a\sqrt{3}}{2}} e^{-i k_{x} \frac{a}{2}} e^{-i k_{y} \frac{a\sqrt{3}}{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) + e^{0} e^{-i k_{x} a} E_{\mu\mu'}^{jj'}(\mathbf{R}_{4})\\
+		&+ e^{\frac{ie}{\hbar} B x \frac{a\sqrt{3}}{2}} e^{-i k_{x} a} e^{i k_{y} \frac{a\sqrt{3}}{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) + e^{\frac{ie}{\hbar} B x \frac{a\sqrt{3}}{2}} e^{i k_{x} a} e^{i k_{y} \frac{a\sqrt{3}}{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6})
 	\end{aligned}
 \end{equation}
-this is equivalent to Eq 2.16 we have mentioned section 2.2. Equation B.7 is sometimes called ``Harper's equation''. \cite{harper1955general} Since different $m$ values give different 
-
-
-
-
+Applying the BCH formula, and using the commutation relation $\left[x, p_{x}\right] = i \hbar$, we have
+\begin{equation}
+	\begin{aligned}
+		e^{i\left( \frac{\hbar k_{x}}{\hbar} - \frac{e}{\hbar}Bx \sqrt{3}\right) \frac{a}{2}}
+		= e^{i\left( p_{x} - \sqrt{3}eBx\right) \frac{a}{2 \hbar}} = 
+	\end{aligned}
+\end{equation}
 
 
 
