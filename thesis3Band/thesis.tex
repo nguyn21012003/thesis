@@ -54,7 +54,7 @@
 \newcommand{\at}[2]{\bigg\rvert_{#1}^{#2} }
 
 
-\renewcommand{\baselinestretch}{2.0}
+\renewcommand{\baselinestretch}{1.5}
 
 
 
@@ -130,8 +130,16 @@
 \section{Three-band tight binding method without magnetic field}
 The time-indepentdent Schr\"{o}dinger equation for an eletron in the crystal has the form
 \begin{gather}
-	\left[-\f{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right]
+	\left[-\f{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right] = \psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \varepsilon_{\lambda}(\mathbf{k}) \psi_{\lambda,\mathbf{k}}(\mathbf{r}),
 \end{gather}
+where $U_{0}(\mathbf{r})$ is the periodic lattice potential, $\psi_{\lambda,\mathbf{k}}(\mathbf{r})$ is the Bloch wavefunction of an electron in band $\lambda$ with wave vector $\mathbf{k}$ and $\varepsilon_{\lambda}(\mathbf{k})$ is the band structure.
+
+In the tight binding model(TBM), the single-electron Bloch wavefunction can be expressed in terms of atomic orbitals as follows
+\begin{gather}
+	\psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \sum_{j,i} C_{ji}^{\lambda}(\mathbf{k}) \sum_{\mathbf{R}} e^{i\mathbf{k}\cdot(\mathbf{R+\mathbf{r}_{i}})} \phi_{j}(\mathbf{r} - \mathbf{R} - \mathbf{r}_{i}),
+\end{gather}
+where $\phi_{j}(\mathbf{r} - \mathbf{R} - \mathbf{r}_{i})$ is the orbital $j$ of an atom $i$ localized on a lattice site $\mathbf{R}$, in which $\mathbf{r}_{i}$ os tje relavetive position of the atom $i$ in the unit cell, and $C_{ji}^{\lambda}(\mathbf{k})$ are the coefficents of linear expansion.
+
 \section{Three-band tight binding method under a magnetic field}
 \begin{figure}[htb]
 	\centering
@@ -231,7 +239,7 @@ Consequently the Hamiltonian matrix in the new basis is written as
 	\begin{aligned}
 		H_{\mu\mu'}^{jj'}(\mathbf{k})
 		 & = E_{\mu\mu'}^{jj'}(\mathbf{0})\delta_{m,m} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) \delta_{m,m+2}\delta_{n,n} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2}) \delta_{m,m+1} \delta_{n,n - 1} \\
-		 & + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) \delta_{m,m - 1} \delta_{n,n - 1} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{4}) \delta_{m,m + 2} \delta_{n,n}                            \\
+		 & + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) \delta_{m,m - 1} \delta_{n,n - 1} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{4}) \delta_{m,m + 2} \delta_{n,n}                                        \\
 		 & + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) \delta_{m,m - 1} \delta_{n,n + 1} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}) \delta_{m,m + 1} \delta_{n,n + 1}.
 	\end{aligned}
 \end{equation}
@@ -239,9 +247,9 @@ By substituting Eq (2.15) and Eq (2.13) into Eq (2.16), we have
 \begin{equation}
 	\begin{aligned}
 		H_{\mu\mu'}^{jj'}(\mathbf{k})
-		& = E_{\mu\mu'}^{jj'}(\mathbf{0}) + E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) + e^{-2i\pi(m + 1/2)p / q} e^{-i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2})  \\
-		& + e^{-2i\pi(m - 1/2)p / q} e^{-i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) + E_{\mu\mu'}^{jj'}(\mathbf{R}_{4})                            \\
-		& + e^{-2i\pi(m - 1/2)p / q} e^{i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) + e^{2i\pi(m + 1/2)p / q} e^{i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}).
+		 & = E_{\mu\mu'}^{jj'}(\mathbf{0}) + E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) + e^{-2i\pi(m + 1/2)p / q} e^{-i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2})    \\
+		 & + e^{-2i\pi(m - 1/2)p / q} e^{-i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) + E_{\mu\mu'}^{jj'}(\mathbf{R}_{4})                                    \\
+		 & + e^{-2i\pi(m - 1/2)p / q} e^{i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) + e^{2i\pi(m + 1/2)p / q} e^{i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}).
 	\end{aligned}
 \end{equation}
 Now, for given flux ratio $p/q$, only the $q$ determines the periodicity of the magnetic cell assuming $p$ and $q$ are mutually prime numbers. When we plot the band energies while varying the $p$, we obtain the famous Hofstadter butterfly \cite{PhysRevB.14.2239}, a complex fractal structure as seen in Fig. 2.3. This structure is generated at the $K = (\frac{4\pi}{3a},0)$ k-point. This fractal spectrum is a result of two competing effects, lattice periodicity and magnectic unit cell periodicity enforced by the presence of the magnetic field. Eq. 2.16 give the following matrix which must be diagonalized to obtain the energy eigenvalues.
@@ -264,6 +272,44 @@ Now, for given flux ratio $p/q$, only the $q$ determines the periodicity of the 
 
 The magnetic field enters the TB Hamiltonian only through the fraction $p/q$, which is the magnetic flux through the primitive unit cell of the lattice. In general, as the lattice geometry evolves, the area of the primitive unit cell changes $(m + 1/2)$ times.
 
+\begin{figure*}[htb]
+	\centering
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=0.95\textwidth,height=1.2\linewidth]{pic/plotHofstadterButterfly_q=797_MoS2.png}
+		\label{fig:matt 1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=0.95\textwidth,height=1.2\linewidth]{pic/plotHofstadterButterfly_q=797_MoSe2.png}
+		\label{fig:matt 2}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=0.95\textwidth,height=1.2\linewidth]{pic/plotHofstadterButterfly_q=797_MoTe2.png}
+		\label{fig:matt 3}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=0.95\textwidth,height=1.2\linewidth]{pic/plotHofstadterButterfly_q=797_WS2.png}
+		\label{fig:matt 4}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=0.95\textwidth,height=1.2\linewidth]{pic/plotHofstadterButterfly_q=797_WSe2.png}
+		\label{fig:matt 5}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.32\linewidth}
+		\centering
+		\includegraphics[width=0.95\textwidth,height=1.2\linewidth]{pic/plotHofstadterButterfly_q=797_WTe2.png}
+		\label{fig:matt 6}
+	\end{subfigure}
+	\caption{
+		Hofstadter’s butterfly for one band $\ket{dz} \equiv \ket{\phi_{1}^{1}(x,y)}$(left) and all band(right) with $q = 797$ and vary $p$  from 1 to $q$ with field strength $B_{0} = 4.6928 \times 10^{4}$ T.
+	}
+\end{figure*}
+
+
 Using Eq (2.16), we obtain the eigenvalue equation $H \phi_{\mu}^{j} = E \phi_{\mu}^{j}$ and
 \begin{equation}
 	\begin{aligned}
@@ -282,16 +328,35 @@ where
 		h_{0}
 		 & =
 		\begin{pNiceMatrix}
-			\epsilon_{1}        & 2t_{0}\cos\zeta_{1}  & t_{0}               & 0                   & \cdots & 0                    & t_{0}                & 2t_{0}\cos\gamma_{1} \\
-			2t_{0}\cos\gamma_{1} & \epsilon_{1}         & 2t_{0}\cos\zeta_{2} & t_{0}               & 0      & \cdots               & 0                    & t_{0}                \\
-			t_{0}               & 2 t_{0}\cos\gamma_{2} & \epsilon_{1}        & 2t_{0}\cos\zeta_{3} & t_{0}  & 0                    & 0                    & 0                    \\
-			\vdots              & \vdots               & \vdots              & \vdots              & \vdots & \vdots               & \vdots               & \vdots               \\
-			t_{0}               & 0                    & \cdots              & 0                   & t_{0}  & 2t_{0}\cos\gamma_{7} & \epsilon_{1}         & 2t_{0}\cos\zeta_{7}  \\
-			2t_{0}\cos\zeta_{8} & t_{0}                & \cdots              & 0                   & 0      & t_{0}                & 2t_{0}\cos\gamma_{8} & \epsilon_{1}         \\
+			\epsilon_{1}         & 2t_{0}\cos\zeta_{1}   & t_{0}               & 0                   & \cdots & 0                      & t_{0}                & 2t_{0}\cos\gamma_{1}  \\
+			2t_{0}\cos\gamma_{2} & \epsilon_{1}          & 2t_{0}\cos\zeta_{2} & t_{0}               & 0      & \cdots                 & 0                    & t_{0}                 \\
+			t_{0}                & 2 t_{0}\cos\gamma_{3} & \epsilon_{1}        & 2t_{0}\cos\zeta_{3} & t_{0}  & 0                      & \cdots               & 0                     \\
+			\vdots               & \vdots                & \vdots              & \ddots              & \vdots & \vdots                 & \vdots               & \vdots                \\
+			t_{0}                & 0                     & \cdots              & 0                   & t_{0}  & 2t_{0}\cos\gamma_{q-1} & \epsilon_{1}         & 2t_{0}\cos\zeta_{q-1} \\
+			2t_{0}\cos\zeta_{q}  & t_{0}                 & \cdots              & 0                   & 0      & t_{0}                  & 2t_{0}\cos\gamma_{q} & \epsilon_{1}          \\
 		\end{pNiceMatrix}
 	\end{aligned}
 \end{equation}
-and $h_{0},h_{1},h_{2},h_{11},h_{12},h_{22}$ are sub-matrices have size $q \times q$.\\
+\begin{equation}
+	\begin{aligned}
+		h_{1}
+		 & =
+		\begin{pNiceArray}{c|c|c|c|c|c|c|c}
+			\scriptstyle 0                    & \Block{1-1}{\scriptstyle 2t_{1}\cos\zeta_{1}  \\ \scriptstyle + i \sqrt{3} t_{2} \sin\zeta_{1}}   &\scriptstyle t_{1}               & \scriptstyle 0                   & \cdots & \scriptstyle 0                    & \scriptstyle -t_{1}                & \Block{1-1}{\scriptstyle -2t_{1}\cos\gamma_{1}  \\ \scriptstyle - i \sqrt{3} t_{2} \sin\gamma_{1}} \\
+			\hline
+			\Block{1-1}{\scriptstyle -2t_{1}\cos\gamma_{2}  \\ \scriptstyle - i \sqrt{3} t_{2} \sin\gamma_{2}} & \scriptstyle 0                     & \Block{1-1}{\scriptstyle 2t_{1}\cos\zeta_{2}  \\ \scriptstyle + i \sqrt{3} t_{2} \sin\zeta_{2}} &\scriptstyle t_{1}               & \scriptstyle 0      & \cdots               & \scriptstyle 0                    & \scriptstyle -t_{1}                \\
+			\hline
+			\scriptstyle -t_{1}                & \Block{1-1}{\scriptstyle -2t_{1}\cos\gamma_{3}  \\ \scriptstyle - i \sqrt{3} t_{2} \sin\gamma_{3}} & \scriptstyle 0                   & \Block{1-1}{\scriptstyle 2t_{1}\cos\zeta_{3}  \\ \scriptstyle + i \sqrt{3} t_{2} \sin\zeta_{3}} &\scriptstyle t_{1}  & \scriptstyle 0                    & \cdots                    & \scriptstyle 0                    \\
+			\hline
+			\vdots               & \vdots                & \vdots              & \vdots              & \vdots & \vdots               & \vdots               & \vdots               \\
+			\hline
+			t_{1}                & \scriptstyle 0                     & \cdots              & \scriptstyle 0                   & \scriptstyle -t_{1}  & \Block{1-1}{\scriptstyle -2t_{1}\cos\gamma_{q - 1}  \\ \scriptstyle - i \sqrt{3} t_{2} \sin\gamma_{q - 1}} & \scriptstyle 0                    & \Block{1-1}{\scriptstyle 2t_{1}\cos\zeta_{q - 1}  \\ \scriptstyle + i \sqrt{3} t_{2} \sin\zeta_{q - 1}}  \\
+			\hline
+			\Block{1-1}{\scriptstyle 2t_{1}\cos\zeta_{q}  \\ \scriptstyle + i \sqrt{3} t_{2} \sin\zeta_{q}}  &\scriptstyle t_{1}                 & \cdots              & \scriptstyle 0                   & \scriptstyle 0      & \scriptstyle -t_{1}                & \Block{1-1}{\scriptstyle -2t_{1}\cos\gamma_{q}  \\ \scriptstyle - i \sqrt{3} t_{2} \sin\gamma_{q}} & \scriptstyle 0                    \\
+		\end{pNiceArray}
+	\end{aligned}
+\end{equation}
+in which $\cos \zeta_{m} = \cos \left[\beta + 2 \pi (m + 1/2)p / q\right]$ and $\sin \gamma_{m} = \sin \left[\beta + 2 \pi (m - 1/2)p / q\right]$ and $h_{0},h_{1},h_{2},h_{11},h_{12},h_{22}$ are sub-matrices have size $q \times q$.(A visualization is shown in Fig (2.4))
 \begin{figure*}[htb]
 	\centering
 	\begin{subfigure}[b]{0.495\textwidth}
@@ -305,9 +370,10 @@ and $h_{0},h_{1},h_{2},h_{11},h_{12},h_{22}$ are sub-matrices have size $q \time
 		\label{fig:1 band matrix}
 	\end{subfigure}
 	\caption{
-		An easy and intuitive visualization of matrix $h_{0}$ one band(left) and matrix $H$ all band(right) through standard plotter with $q = 20$.
+		An easy and intuitive visualization of sub-matrix $h_{0}$ one band(left) and matrix $H$ all band(right) through standard plotter with $q = 20$. Left: orange squares, dark blue squares and sky blue squares are equivalent to $\epsilon_{1}, 2 t_{0} \cos \zeta_{1}, t_{0}$ respectively.
 	}
 \end{figure*}
+
 % t_{0} e^{- i \left(2  \pi (m + \frac{1}{2}) \eta + k_{y} a \frac{\sqrt{3}}{2}\right) }
 An alternative approach to the derivation of the Hamiltonian under an uniform magnetic field is given in \hyperref[appendix b]{Appendix B}.
 
@@ -378,7 +444,7 @@ One of the ways derivation of effective mass $m^{*}$ is substitution $\mathbf{k}
 \end{equation}
 The Eq (2.24) can be rewrite in the form as
 \begin{gather}
-	E(\mathbf{p}) = 6 t_{0} - \left[\f{1}{2m^{*}} p_{x}^{2} + \f{1}{2} m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right]
+	E(\mathbf{p}) = 6 t_{0} - \left[\f{1}{2m^{*}} p_{x}^{2} + \f{1}{2} m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right],
 \end{gather}
 where $m^{*} = \f{\hbar^{2}}{(3t_{0}a^{2}) }$ is the effective mass and $x_{0} = \sqrt{-\frac{k_{y}}{eB}}$. Hence, the cyclotron frequency is
 \begin{gather}
@@ -475,7 +541,7 @@ Applying the BCH's formula and taking to account the commutation relation $\left
 Substituting $x = \f{ma}{2}$ into (B.2), this leads to
 \begin{gather}
 	e^{\pm i(p_{x} + \sqrt{3} e B x) a / 2\hbar}
-	= e^{\pm i p_{x} a / 2 \hbar} e^{\pm i\sqrt{3} e B (m + 1 /2) a / 4 \hbar}
+	= e^{\pm i p_{x} a / 2 \hbar} e^{\pm i\sqrt{3} e B (m + 1 /2) a^{2} / 4 \hbar}
 \end{gather}
 And
 \begin{equation}
