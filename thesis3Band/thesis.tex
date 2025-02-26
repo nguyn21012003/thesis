@@ -75,7 +75,7 @@
 {\textbf{\MakeUppercase{\chaptername}} \ \thechapter\vspace{15pt}}{20pt}
 {\large} 
 
-\newcommand{\thesistitlee}{Three-band tight biding model for TMD monolayers in the presence of a magnetic field}
+\newcommand{\thesistitlee}{Three-band tight binding model for TMD monolayers in the presence of a magnetic field}
 \newcommand{\address}{NATIONAL UNIVERSITY OF HO CHI MINH CITY UNIVERSITY OF SCIENCE}
 \newcommand{\department}{FACULTY OF PHYSICS - ENGINEERING PHYSICS}
 \newcommand{\thesisauthor}{Tran Khoi Nguyen}
@@ -140,6 +140,37 @@ In the tight binding model(TBM), the single-electron Bloch wavefunction can be e
 \end{gather}
 where $\phi_{j}(\mathbf{r} - \mathbf{R} - \mathbf{r}_{i})$ is the orbital $j$ of an atom $i$ localized on a lattice site $\mathbf{R}$, in which $\mathbf{r}_{i}$ os tje relavetive position of the atom $i$ in the unit cell, and $C_{ji}^{\lambda}(\mathbf{k})$ are the coefficents of linear expansion.
 
+The unit cell of transition dichalcogenide(TMDC) monolayers involve one transition metal atom $M$ and two chalcogenide atoms $X$. From the previous first principle calculations, it is shown that the electron states near the band edges of $MX_{2}$ are mainly contributed from the three $d$ orbital of $M$ atom, namely $d_{z^{2}},d_{xy},d_{x^{2}-y^{2}}$ \cite{PhysRevB.88.085433}. This model is called the three-band tight binding model. The three orbitals's wave function of $M$ atom are denoted as
+\begin{gather}
+	\ket{\phi_{1}} = \ket{d_{z^{2}}} ; \quad \ket{\phi_{2}} = \ket{d_{xy}} ; \quad \ket{\phi_{3}} = \ket{d_{x^{2} - y^{2}}}.
+\end{gather}
+The Bloch wavefunction in this model has the form
+\begin{gather}
+	\psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \sum_{j=1}^{3} C_{j}^{\lambda}(\mathbf{k}) \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} \phi_{j}(\mathbf{r} - \mathbf{R}).
+\end{gather}
+The coefficents $C_{j}^{\lambda}(\mathbf{k})$ are the solutions of the eigenvalue equation
+\begin{gather}
+	\sum_{jj'}^{3} \left[H_{jj'}(\mathbf{k}) - \varepsilon_{\lambda}(\mathbf{k}) S_{jj'}(\mathbf{k})\right] C_{j}^{\lambda}(\mathbf{k}) = 0,
+\end{gather}
+where
+\begin{gather}
+	H_{jj'}(\mathbf{k}) = \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} \left[-\f{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r - R})},
+\end{gather}
+and 
+\begin{gather}
+	S_{jj'}(\mathbf{k}) = \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r}) \ket{\phi_{j'}(\mathbf{r - R})}}\approx \delta_{jj'}.
+\end{gather}
+Three-band tight binding model takes into account the nearest neighbor hopping is called the three-band nearest-neighbor(NN) model. This model agrees well with the ab initio calculation for the band structure near the band edges, but the significantly deviate from the latter in other regions. This is because the three-band approximation neglects the $p$ orbitals of $X$ atoms which still have substanial contributions to the conduction bands at $\Gamma$ and valence bands at $M$. The matrix elements of the TB Hamiltonian(pt) are
+\begin{equation}
+	\begin{aligned}
+		H_{\mu\mu}
+	\end{aligned}
+\end{equation}
+\begin{figure*}
+	\centering
+	\includegraphics[width=0.65\linewidth,height=0.5\linewidth]{pic/bandstructure.pdf}
+	\caption{\label{band structure}}
+\end{figure*}
 \section{Three-band tight binding method under a magnetic field}
 \begin{figure}[htb]
 	\centering
@@ -211,9 +242,9 @@ With the given Landau gauge, the line intergral $\int \vv{A} \cdot d\mathbf{r}$ 
 \begin{gather}
 	\theta_{m,n}^{m',n'} =
 	\begin{cases}
-		0                                                         & \quad m' = m \pm 2, n' = n     \\
-		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{4} (m + 1 /2) & \quad m' = m + 1, n' = n \pm 1 \\
-		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{4} (m - 1 /2) & \quad m' = m - 1, n' = n \pm 1 \\
+		0                                                         & \quad m' = m \pm 2, n' = n  ,   \\
+		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{4} (m + 1 /2) & \quad m' = m + 1, n' = n \pm 1 ,\\
+		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{4} (m - 1 /2) & \quad m' = m - 1, n' = n \pm 1. \\
 	\end{cases}
 \end{gather}
 Identifying $\frac{B a^{2} \sqrt{3}}{4}$ as the magnetic flux $\Phi$ passing through per unit cell and $h / e$ as the flux quantum $\Phi_{0}$, then we have
@@ -229,9 +260,9 @@ The Hamiltonian depends on the site index $m$ and does not invariant under the t
 We define a new basis set of $3q$ atomic orbitals $\phi_{\mu}^{j} (x,y) = \phi_{\mu}^{j} (ma/2,y)$ where $m = 1,2,...q$. Note that
 \begin{gather}
 	\begin{cases}
-		e^{i k_{x} a} \phi_{\mu}^{j} \left(m \frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m+2)\frac{a}{2},y\right) \\
-		e^{-i k_{x} a} \phi_{\mu}^{j} \left(m\frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m-2)\frac{a}{2},y\right) \\
-		e^{\pm i k_{x} \frac{a}{2}} e^{\pm i k_{y} \frac{a\sqrt{3}}{2}} \phi_{\mu}^{j} \left(m \frac{a}{2},n \frac{a\sqrt{3}}{2}\right) = \phi_{\mu}^{j} \left((m \pm 1)\frac{a}{2},(n \pm 1)\frac{a\sqrt{3}}{2}\right)
+		e^{i k_{x} a} \phi_{\mu}^{j} \left(m \frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m+2)\frac{a}{2},y\right), \\
+		e^{-i k_{x} a} \phi_{\mu}^{j} \left(m\frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m-2)\frac{a}{2},y\right) ,\\
+		e^{\pm i k_{x} \frac{a}{2}} e^{\pm i k_{y} \frac{a\sqrt{3}}{2}} \phi_{\mu}^{j} \left(m \frac{a}{2},n \frac{a\sqrt{3}}{2}\right) = \phi_{\mu}^{j} \left((m \pm 1)\frac{a}{2},(n \pm 1)\frac{a\sqrt{3}}{2}\right).
 	\end{cases}
 \end{gather}
 Consequently the Hamiltonian matrix in the new basis is written as
@@ -305,7 +336,7 @@ The magnetic field enters the TB Hamiltonian only through the fraction $p/q$, wh
 		\label{fig:matt 6}
 	\end{subfigure}
 	\caption{
-		Hofstadter’s butterfly for one band $\ket{dz} \equiv \ket{\phi_{1}^{1}(x,y)}$(left) and all band(right) with $q = 797$ and vary $p$  from 1 to $q$ with field strength $B_{0} = 4.6928 \times 10^{4}$ T.
+		The Hofstadter’s butterflies of $MX_{2}$ monolayers using GGA parameters from \cite{PhysRevB.88.085433}.
 	}
 \end{figure*}
 
@@ -419,7 +450,7 @@ and the energy eigenfunctions are known as Landau levels
 	E = \left(n + 1/2\right) \hbar \omega_{c}.
 \end{gather}
 
-This treatment is for free electrons, \cite{10.1119/1.1615568} but near the bottom of the two-dimensional tigh-binding band of TMD, the energy is approximately free-electron-like by Taylor expasion to second order of $\mathbf{k}$
+This treatment is for free electrons, \cite{10.1119/1.1615568} but near the bottom of the two-dimensional tight-binding band of TMD, the energy is approximately free-electron-like by Taylor expasion to second order of $\mathbf{k}$
 \begin{equation}
 	\begin{aligned}
 		H(\mathbf{k})
