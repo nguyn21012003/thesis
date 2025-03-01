@@ -138,7 +138,7 @@ In the tight binding model(TBM), the single-electron Bloch wavefunction can be e
 \begin{gather}
 	\psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \sum_{j,i} C_{ji}^{\lambda}(\mathbf{k}) \sum_{\mathbf{R}} e^{i\mathbf{k}\cdot(\mathbf{R+\mathbf{r}_{i}})} \phi_{j}(\mathbf{r} - \mathbf{R} - \mathbf{r}_{i}),
 \end{gather}
-where $\phi_{j}(\mathbf{r} - \mathbf{R} - \mathbf{r}_{i})$ is the orbital $j$ of an atom $i$ localized on a lattice site $\mathbf{R}$, in which $\mathbf{r}_{i}$ os tje relavetive position of the atom $i$ in the unit cell, and $C_{ji}^{\lambda}(\mathbf{k})$ are the coefficents of linear expansion.
+where $\phi_{j}(\mathbf{r} - \mathbf{R} - \mathbf{r}_{i})$ is the orbital $j$ of an atom $i$ localized on a lattice site $\mathbf{R}$, in which $\mathbf{r}_{i}$ is the relavetive position of the atom $i$ in the unit cell, and $C_{ji}^{\lambda}(\mathbf{k})$ are the coefficents of linear expansion.
 
 The unit cell of transition dichalcogenide(TMDC) monolayers involve one transition metal atom $M$ and two chalcogenide atoms $X$. From the previous first principle calculations, it is shown that the electron states near the band edges of $MX_{2}$ are mainly contributed from the three $d$ orbital of $M$ atom, namely $d_{z^{2}},d_{xy},d_{x^{2}-y^{2}}$ \cite{PhysRevB.88.085433}. This model is called the three-band tight binding model. The three orbitals's wave function of $M$ atom are denoted as
 \begin{gather}
@@ -156,9 +156,9 @@ where
 \begin{gather}
 	H_{jj'}(\mathbf{k}) = \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} \left[-\f{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r - R})},
 \end{gather}
-and 
+and
 \begin{gather}
-	S_{jj'}(\mathbf{k}) = \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r}) \ket{\phi_{j'}(\mathbf{r - R})}}\approx \delta_{jj'}.
+	S_{jj'}(\mathbf{k}) = \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r})} \ket{\phi_{j'}(\mathbf{r - R})} \approx \delta_{jj'}.
 \end{gather}
 Three-band tight binding model takes into account the nearest neighbor hopping is called the three-band nearest-neighbor(NN) model. This model agrees well with the ab initio calculation for the band structure near the band edges, but the significantly deviate from the latter in other regions. This is because the three-band approximation neglects the $p$ orbitals of $X$ atoms which still have substanial contributions to the conduction bands at $\Gamma$ and valence bands at $M$. The matrix elements of the TB Hamiltonian(pt) are
 \begin{equation}
@@ -220,12 +220,12 @@ We can show that the flux term $\Phi_{\mathbf{R,r,0}}$ is negligibly small \cite
 Considering only nearest neighbor(NN) hopping, Eq (2.9) becomes
 \begin{equation}
 	\begin{aligned}
-		H_{\mu\mu'}^{jj'}(\mathbf{k})
-		 & = \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R}} E_{\mu\mu'}^{jj'}(\mathbf{R})                                                                                                                                                   \\
-		 & = E_{\mu\mu'}^{jj'}(\mathbf{0}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_1}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_1}} E_{\mu\mu'}^{jj'}(\mathbf{R_1})                                                                                                                \\
-		 & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_2}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_2}} E_{\mu\mu'}^{jj'}(\mathbf{R_2}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_3}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_3}} E_{\mu\mu'}^{jj'}(\mathbf{R_3}) \\
-		 & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_4}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_4}} E_{\mu\mu'}^{jj'}(\mathbf{R_4}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_5}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_5}} E_{\mu\mu'}^{jj'}(\mathbf{R_5}) \\
-		 & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_6}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_6}} E_{\mu\mu'}^{jj'}(\mathbf{R_6}).
+		H_{jj'}(\mathbf{k})
+		 & = \sum_{\mathbf{R}} e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R}}A(\mathbf{r'})d\mathbf{r'}}e^{i\mathbf{k\cdot R}} E_{jj'}(\mathbf{R})                                                                                                                                         \\
+		 & = E_{jj'}(\mathbf{0}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_1}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_1}} E_{jj'}(\mathbf{R_1})                                                                                                                \\
+		 & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_2}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_2}} E_{jj'}(\mathbf{R_2}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_3}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_3}} E_{jj'}(\mathbf{R_3}) \\
+		 & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_4}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_4}} E_{jj'}(\mathbf{R_4}) + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_5}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_5}} E_{jj'}(\mathbf{R_5}) \\
+		 & + e^{\frac{ie}{\hbar}\int_{0}^{\mathbf{R_6}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'}}e^{i\mathbf{k\cdot R_6}} E_{jj'}(\mathbf{R_6}).
 	\end{aligned}
 \end{equation}
 
@@ -242,45 +242,45 @@ With the given Landau gauge, the line intergral $\int \vv{A} \cdot d\mathbf{r}$ 
 \begin{gather}
 	\theta_{m,n}^{m',n'} =
 	\begin{cases}
-		0                                                         & \quad m' = m \pm 2, n' = n  ,   \\
-		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{4} (m + 1 /2) & \quad m' = m + 1, n' = n \pm 1 ,\\
-		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{4} (m - 1 /2) & \quad m' = m - 1, n' = n \pm 1. \\
+		0                                                         & \quad m' = m \pm 2, n' = n  ,    \\
+		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{4} (m + 1 /2) & \quad m' = m + 1, n' = n \pm 1 , \\
+		\pm \frac{e}{\hbar} \frac{B a^{2} \sqrt{3}}{4} (m - 1 /2) & \quad m' = m - 1, n' = n \pm 1.  \\
 	\end{cases}
 \end{gather}
 Identifying $\frac{B a^{2} \sqrt{3}}{4}$ as the magnetic flux $\Phi$ passing through per unit cell and $h / e$ as the flux quantum $\Phi_{0}$, then we have
 \begin{equation}
 	\begin{aligned}
-		H_{\mu\mu'}^{jj'}(\mathbf{k})
-		 & = E_{\mu\mu'}^{jj'}(\mathbf{0}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{1}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) + e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{2}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2}) \\
-		 & + e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{3}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{4}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{4})                                 \\
-		 & + e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{5}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{6}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}).
+		H_{jj'}(\mathbf{k})
+		 & = E_{jj'}(\mathbf{0}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{1}} E_{jj'}(\mathbf{R}_{1}) + e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{2}} E_{jj'}(\mathbf{R}_{2}) \\
+		 & + e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{3}} E_{jj'}(\mathbf{R}_{3}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{4}} E_{jj'}(\mathbf{R}_{4})                       \\
+		 & + e^{i\theta_{m,n}^{m',n'} } e^{i \mathbf{k} \cdot \mathbf{R}_{5}} E_{jj'}(\mathbf{R}_{5}) + e^{i\theta_{m,n}^{m',n'} }e^{i \mathbf{k} \cdot \mathbf{R}_{6}} E_{jj'}(\mathbf{R}_{6}).
 	\end{aligned}
 \end{equation}
 The Hamiltonian depends on the site index $m$ and does not invariant under the translation of a lattice vector along the $x$ axis. In order to restore this invariance, we can look at the case where the ratio of magnetic flux and flux quanta is a rational number $\Phi / \Phi_{0} = p / q$. This mean, we have expand the unit cell in the $x$ direction, the Hamiltonian becomes invariant under translational, allowing us to define what we will call the magnetic unit cell, which is consisting of $q$ $M$-atoms. %Hinh. 
 We define a new basis set of $3q$ atomic orbitals $\phi_{\mu}^{j} (x,y) = \phi_{\mu}^{j} (ma/2,y)$ where $m = 1,2,...q$. Note that
 \begin{gather}
 	\begin{cases}
-		e^{i k_{x} a} \phi_{\mu}^{j} \left(m \frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m+2)\frac{a}{2},y\right), \\
-		e^{-i k_{x} a} \phi_{\mu}^{j} \left(m\frac{a}{2},y\right) = \phi_{\mu}^{j} \left((m-2)\frac{a}{2},y\right) ,\\
-		e^{\pm i k_{x} \frac{a}{2}} e^{\pm i k_{y} \frac{a\sqrt{3}}{2}} \phi_{\mu}^{j} \left(m \frac{a}{2},n \frac{a\sqrt{3}}{2}\right) = \phi_{\mu}^{j} \left((m \pm 1)\frac{a}{2},(n \pm 1)\frac{a\sqrt{3}}{2}\right).
+		e^{i k_{x} a} \phi_{j} \left(m \frac{a}{2},y\right) = \phi_{j} \left((m+2)\frac{a}{2},y\right),  \\
+		e^{-i k_{x} a} \phi_{j} \left(m\frac{a}{2},y\right) = \phi_{j} \left((m-2)\frac{a}{2},y\right) , \\
+		e^{\pm i k_{x} \frac{a}{2}} e^{\pm i k_{y} \frac{a\sqrt{3}}{2}} \phi_{j} \left(m \frac{a}{2},n \frac{a\sqrt{3}}{2}\right) = \phi_{j} \left((m \pm 1)\frac{a}{2},(n \pm 1)\frac{a\sqrt{3}}{2}\right).
 	\end{cases}
 \end{gather}
 Consequently the Hamiltonian matrix in the new basis is written as
 \begin{equation}
 	\begin{aligned}
-		H_{\mu\mu'}^{jj'}(\mathbf{k})
-		 & = E_{\mu\mu'}^{jj'}(\mathbf{0})\delta_{m,m} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) \delta_{m,m+2}\delta_{n,n} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2}) \delta_{m,m+1} \delta_{n,n - 1} \\
-		 & + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) \delta_{m,m - 1} \delta_{n,n - 1} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{4}) \delta_{m,m + 2} \delta_{n,n}                                        \\
-		 & + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) \delta_{m,m - 1} \delta_{n,n + 1} + e^{i\theta_{m,n}^{m',n'}} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}) \delta_{m,m + 1} \delta_{n,n + 1}.
+		H_{jj'}(\mathbf{k})
+		 & = E_{jj'}(\mathbf{0})\delta_{m,m} + e^{i\theta_{m,n}^{m',n'}} E_{jj'}(\mathbf{R}_{1}) \delta_{m,m+2}\delta_{n,n} + e^{i\theta_{m,n}^{m',n'}} E_{jj'}(\mathbf{R}_{2}) \delta_{m,m+1} \delta_{n,n - 1} \\
+		 & + e^{i\theta_{m,n}^{m',n'}} E_{jj'}(\mathbf{R}_{3}) \delta_{m,m - 1} \delta_{n,n - 1} + e^{i\theta_{m,n}^{m',n'}} E_{jj'}(\mathbf{R}_{4}) \delta_{m,m + 2} \delta_{n,n}                              \\
+		 & + e^{i\theta_{m,n}^{m',n'}} E_{jj'}(\mathbf{R}_{5}) \delta_{m,m - 1} \delta_{n,n + 1} + e^{i\theta_{m,n}^{m',n'}} E_{jj'}(\mathbf{R}_{6}) \delta_{m,m + 1} \delta_{n,n + 1}.
 	\end{aligned}
 \end{equation}
 By substituting Eq (2.15) and Eq (2.13) into Eq (2.16), we have
 \begin{equation}
 	\begin{aligned}
-		H_{\mu\mu'}^{jj'}(\mathbf{k})
-		 & = E_{\mu\mu'}^{jj'}(\mathbf{0}) + E_{\mu\mu'}^{jj'}(\mathbf{R}_{1}) + e^{-2i\pi(m + 1/2)p / q} e^{-i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{2})    \\
-		 & + e^{-2i\pi(m - 1/2)p / q} e^{-i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{3}) + E_{\mu\mu'}^{jj'}(\mathbf{R}_{4})                                    \\
-		 & + e^{-2i\pi(m - 1/2)p / q} e^{i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{5}) + e^{2i\pi(m + 1/2)p / q} e^{i\beta} E_{\mu\mu'}^{jj'}(\mathbf{R}_{6}).
+		H_{jj'}(\mathbf{k})
+		 & = E_{jj'}(\mathbf{0}) + E_{jj'}(\mathbf{R}_{1}) + e^{-2i\pi(m + 1/2)p / q} e^{-i\beta} E_{jj'}(\mathbf{R}_{2})              \\
+		 & + e^{-2i\pi(m - 1/2)p / q} e^{-i\beta} E_{jj'}(\mathbf{R}_{3}) + E_{jj'}(\mathbf{R}_{4})                                    \\
+		 & + e^{-2i\pi(m - 1/2)p / q} e^{i\beta} E_{jj'}(\mathbf{R}_{5}) + e^{2i\pi(m + 1/2)p / q} e^{i\beta} E_{jj'}(\mathbf{R}_{6}).
 	\end{aligned}
 \end{equation}
 Now, for given flux ratio $p/q$, only the $q$ determines the periodicity of the magnetic cell assuming $p$ and $q$ are mutually prime numbers. When we plot the band energies while varying the $p$, we obtain the famous Hofstadter butterfly \cite{PhysRevB.14.2239}, a complex fractal structure as seen in Fig. 2.3. This structure is generated at the $K = (\frac{4\pi}{3a},0)$ k-point. This fractal spectrum is a result of two competing effects, lattice periodicity and magnectic unit cell periodicity enforced by the presence of the magnetic field. Eq. 2.16 give the following matrix which must be diagonalized to obtain the energy eigenvalues.
@@ -465,19 +465,19 @@ the first term $a^{2}$ is negligibly small and another can be treated like const
 		 & \approx 6 t_{0} - \f{3}{2} t_{0} a^{2} (k_{x}^{2} + k_{y}^{2}) + \epsilon_{1}.
 	\end{aligned}
 \end{equation}
-One of the ways derivation of effective mass $m^{*}$ is substitution $\mathbf{k} \rightarrow \mathbf{p} + e \mathbf{A}$
+One of the ways derivation of effective mass $m^{*}$ is substitution $\mathbf{k} \rightarrow \mathbf{p} + e \mathbf{A}$, with Landau gauge $\mathbf{A} = (0,Bx,0)$
 \begin{equation}
 	\begin{aligned}
 		H(\mathbf{p})
-		 & \approx 6 t_{0} - \f{3}{2} t_{0} \f{a^{2}}{\hbar^{2}} \left[ p_{x}^{2} + \left(p_{y} + e B x\right)^{2}\right] + \epsilon_{1}                                                       \\
-		 & \approx 6 t_{0} - \f{3}{2} t_{0} \f{a^{2}}{\hbar^{2}} p_{x}^{2} + \f{3}{2} t_{0} \f{a^{2}}{\hbar^{2}} (e B)^{2} \left[ x - \left(- \f{k_{y}}{eB}\right) \right]^{2} + \epsilon_{1}.
+		 & \approx 6 t_{0} - \f{3}{2} t_{0} \f{a^{2}}{\hbar^{2}} \left[ p_{x}^{2} + \left(p_{y} + e B x\right)^{2}\right] + \epsilon_{1}                                                             \\
+		 & \approx 6 t_{0} - \f{3}{2} t_{0} \f{a^{2}}{\hbar^{2}} p_{x}^{2} - \f{3}{2} t_{0} \f{a^{2}}{\hbar^{2}} (e B)^{2} \left[ x - \left(- \f{\hbar k_{y}}{eB}\right) \right]^{2} + \epsilon_{1}.
 	\end{aligned}
 \end{equation}
 The Eq (2.24) can be rewrite in the form as
 \begin{gather}
-	E(\mathbf{p}) = 6 t_{0} - \left[\f{1}{2m^{*}} p_{x}^{2} + \f{1}{2} m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right],
+	E(\mathbf{p}) = 6 t_{0} - \left[\f{1}{2m^{*}} p_{x}^{2} + \f{1}{2} m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right] + \epsilon_{1},
 \end{gather}
-where $m^{*} = \f{\hbar^{2}}{(3t_{0}a^{2}) }$ is the effective mass and $x_{0} = \sqrt{-\frac{k_{y}}{eB}}$. Hence, the cyclotron frequency is
+where $m^{*} = \f{\hbar^{2}}{(3t_{0}a^{2}) }$ is the effective mass and $x_{0} = \sqrt{-\frac{\hbar k_{y}}{eB}}$. Hence, the cyclotron frequency is
 \begin{gather}
 	\omega_{c} = \f{eB}{m^{*}} = \f{8 \pi \sqrt{3} t_{0}}{\hbar}  \f{p}{q},
 \end{gather}
@@ -494,20 +494,20 @@ in linear order of an uniform-flux, where $n$ is Landau index.
 	\centering
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
-		{\caption{}\label{fig:3 landau level 1}}
-		{\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/test.png}}
+		{\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/small_area_LL.png}}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.49\textwidth}
 		\centering
-		\caption{}\label{fig:1 landau level 2}
-		\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/landaulevel_h0_q_797.pdf}
+		\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/landaulevel_h0_q_797_final.pdf}
 	\end{subfigure}
 	\caption{
-		(a) Same plot as Fig 2.3 but we consider a small area and (b) is the Landau fan diagram show for the first $n = 10$ levels near the bottom of the conduction band for a magnetic field up to $B = 100\; T$.
+		(a) Same plot as Fig 2.3 but we consider a small area and (b) is the Landau fan diagram show for the first $n = 30$ levels near the bottom of the conduction band for a magnetic field up to $B = 500\; T$.
 	}
 \end{figure*}
 
-In Fig 2.4 we compare the spectrum of a small section of triangular lattice with $p / q = 1 / 797$. With the fan of Landau levels given by Eq.(2.26) plotted in Fig 2.4(b). The fan of Landau levels can be clearly seen emergin from the partern in Fig 2.4(a). It is this fan of Landau levels that responsible for the de Haas-van Alphen and Shubnikov-de Haas effects. \cite{Shoenberg_1984,singleton2001band,blundell2001magnetism,kittel1987quantum} The Landau levels are all close to being linear in $B$, resulting from the magnetic quantization of parabolic bands at $B = 0$. In our model study, Landau levels can be classified into specific groups. In each group, each levels can be further labeled by a Landau index $n$. Figure 2.4 displays a blowup of the low uniform magnetic region and the LLs as a function of $\Phi / \Phi_{0}$ \cite{Li_2011}
+In Fig 2.4 we compare the spectrum of a small section of triangular lattice with $p / q = 1 / 797$. With the fan of Landau levels given by Eq.(2.26) plotted in Fig 2.4(b). The fan of Landau levels can be clearly seen emergin from the partern in Fig 2.4(a). It is this fan of Landau levels that responsible for the de Haas-van Alphen and Shubnikov-de Haas effects. \cite{Shoenberg_1984,singleton2001band,blundell2001magnetism,kittel1987quantum} The Landau levels are all close to being linear in $B$, resulting from the magnetic quantization of parabolic bands at $B = 0$. In our model study, Landau levels can be classified into specific groups. In each group, each levels can be further labeled by a Landau index $n$. Figure 2.4 displays a blowup of the low uniform magnetic region and the LLs as a function of $\Phi / \Phi_{0}$ \cite{Li_2011}.
+
+In order to calculate the cyclotron frequency for the three-band, we  Through the derivation in Appendix C, we have obtained the Landau levels for the three-band model
 
 
 
@@ -546,8 +546,8 @@ Bằng cách áp dụng Peierls's substitution $\mathbf{k} \rightarrow (\vv{p} -
 \end{equation}
 Thay $x = ma$ và $y = na$ cho toạ độ của mạng tinh thể vuông, ta thu được phương trình Harper
 
-
 Let us consider the case of hexagonal lattice with $\ket{d_{z^{2}}}$ band as a basis under an uniform magneticc field given by the Landau gauge $\vv{A} = (0, Bx,0)$. Given
+
 \begin{equation}
 	\begin{aligned}
 		h_0
@@ -624,6 +624,67 @@ which reduces (B.6) to
 \end{equation}
 this is equivalent to Eq. 2.16 we have mentioned in Section 2.2. Equation B.7 is sometimes called ``Harper's equation''. \cite{harper1955general} Since different $m$ values give different equations, one reaches a unique set of equations when $\Phi / \Phi_{0}$ is a rational number $p / q$ and $m$ goes through $q$ different values, essentially resulting in the Hamiltonian matrix written for a magnetic unit cell enlarged in $x$ direction $q$ times. \\
 Trong trường hợp của TMD của \cite{PhysRevB.88.085433} đã đưa ra thì ta đã bỏ qua đi đóng góp của nguyên tử $X$, dẫn đến cấu trúc mạng tinh thể của TMD lục giác trở thành mạng tam giác bình thường và từ đó ta có thể mapping từ mạng tam giác thành trường hợp của mạng vuông. Ở mạng tam giác ta đã đưa ra được rằng các toán tử tịnh tiến phải tuân theo công thức Baker-Campbell-Hausdorff.
+
+\chapter{Cyclotron frequency for all band}
+Hamiltonian in the new basis read
+\begin{equation}
+	\begin{aligned}
+		\tilde{H}^{NN}(\mathbf{k})
+		 & = W H^{NN}(\mathbf{k}) W^{\dagger} \\
+		 & =
+		\begin{pNiceMatrix}
+			\frac{1}{2}(h_{11} + h_{22} + 2 \Im[h_{12}])  & \frac{1}{\sqrt{2}}(h_{1}^{*} + i h_{2}^{*}) & \frac{1}{2} (h_{11} - h_{22} + 2 i \Re[h_{12}]) \\
+			\frac{1}{\sqrt{2}}(h_{1} - i h_{2})           & h_{0}                                       & \frac{1}{\sqrt{2}}(h_{1} + i h_{2})             \\
+			\frac{1}{2}(h_{11} - h_{22} - 2i \Re[h_{12}]) & \frac{1}{\sqrt{2}}(h_{1}^{*} - i h_{2}^{*}) & \frac{1}{2}(h_{11} + h_{22} - 2i \Im[h_{12}])
+		\end{pNiceMatrix}
+	\end{aligned}
+\end{equation}
+Hamiltonian matrix element for the valence band now is
+\begin{equation}
+	\begin{aligned}
+		h_{v}
+		= & \f{1}{2} \left(h_{11} + h_{22} + 2 \Im[h_{12}]\right)                                                                            \\
+		= & \left(t_{11} + t_{22}\right) \cos 2\alpha + 2 \left(t_{11} + t_{22}\right) \cos \alpha \cos \beta                                \\
+		  & + 4 t_{12} \sin \alpha (\cos \alpha - \cos \beta) + \epsilon_{2}                                                                 \\
+		= & \left(t_{11} + t_{22}\right) \cos k_{x} a + 2 \left(t_{11} + t_{22}\right) \cos \frac{k_{x}a}{2} \cos \frac{\sqrt{3} k_{y} a}{2} \\
+		  & + 4 t_{12} \sin \frac{k_{x}a}{2} (\cos \frac{k_{x}a}{2} - \cos \frac{\sqrt{3} k_{y} a}{2}) + \epsilon_{2}.
+	\end{aligned}
+\end{equation}
+By using Taylor's expansion to second order of $\mathbf{k}$ on (C.2) we have
+\begin{equation}
+	\begin{aligned}
+		h_{v}
+		\approx & (t_{11} + t_{22}) \left(1 - \f{a^{2} k_{x}^{2}}{2}\right) + 2 (t_{11} + t_{22}) \left(1 - \f{a^{2} k_{x}^{2}}{8}\right) \left(1-\f{3a^{2} k_{y}^{2}}{8}\right) \\
+		        & - 4 t_{12} \f{a k_{x}}{2} \left( \f{a^{2} k_{x}^{2}}{8} - \f{3a^{2} k_{y}^{2}}{8}  \right) + \epsilon_{2}                                                      \\
+		\approx & 3(t_{11} + t_{22}) - \f{3a^{2}(t_{11} + t_{22})}{4} \left(k_{x}^{2} + k_{y}^{2}\right) - \f{a^{3} t_{12} \left(k_{x}^{2} - 3 k_{y}^{2}\right)}{4}              \\
+		        & + \f{6a^{4}(t_{11} + t_{22})}{32} k_{x}^{2} k_{y}^{2} + \epsilon_{2} .
+	\end{aligned}
+\end{equation}
+In this (C.3), we neglect coefficents of terms $a^{3}$ and $a^{4}$, this leads to
+\begin{gather}
+	h_{v} \approx 3(t_{11} + t_{22}) - \f{3a^{2}(t_{11} + t_{22})}{4} \left(k_{x}^{2} + k_{y}^{2}\right) \epsilon_{2},
+\end{gather}
+and using substitution $\mathbf{k} \rightarrow \mathbf{p} + e\mathbf{A}$
+\begin{equation}
+	\begin{aligned}
+		h_{v}
+		 & \approx 3 (t_{11} + t_{22}) - \f{3a^{2}(t_{11} + t_{22})}{4\hbar^{2}} \left[p_{x}^{2} + (p_{y} + eBx)^{2}\right] + \epsilon_{2}                                                                           \\
+		 & \approx 3 (t_{11} + t_{22}) - \f{3a^{2}(t_{11} + t_{22})}{4\hbar^{2}} p_{x}^{2} - \f{3a^{2}(t_{11} + t_{22})}{4\hbar^{2}} (eB)^{2} \left[x - \left(-\f{\hbar k_{y}}{eB}\right)\right]^{2} + \epsilon_{2},
+	\end{aligned}
+\end{equation}
+Eq (C.5) can be written in th the form as
+\begin{gather}
+	h_{v} = 3 (t_{11} + t_{22}) - \left[\f{p_{x}^{2}}{2m^{*}} + \f{1}{2}m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right] + \epsilon_{2}
+\end{gather}
+where $m^{*} = \f{2\hbar^{2}}{3a^{2}(t_{11} + t_{22})}$ is the effective mass  and $x_{0} = \sqrt{-\frac{\hbar k_{y}}{eB}}$ for near the top of the valence band. The cyclotron frequency is
+\begin{gather}
+	w_{c} = \f{eB}{m^{*}} = \f{4 \pi \sqrt{3} (t_{11} + t_{22})}{\hbar} \f{p}{q},
+\end{gather}
+and
+\begin{gather}
+	E \approx (t_{11} + t_{22}) \left(3 - 4\pi \sqrt{3} \f{p}{q}(n + 1/ 2)\right) + \epsilon_{2},
+\end{gather}
+is the Landau levels near the top of the valence band.
 
 %\chapter{Phase factor}
 %\begin{equation}
