@@ -303,6 +303,8 @@ Now, for given flux ratio $p/q$, only the $q$ determines the periodicity of the 
 
 The magnetic field enters the TB Hamiltonian only through the fraction $p/q$, which is the magnetic flux through the primitive unit cell of the lattice. In general, as the lattice geometry evolves, the area of the primitive unit cell changes $(m + 1/2)$ times.
 
+The spectrum has various symmetries: It is only show that the flux $q$ is affects the spectrum, so if $p/q$ changed to $p/q + c$ while $c$ any interger, the spectrum is unchanged. The spectrum is also unchanged on changing $p/q$ to $-p/q$, because if $\psi$ is an eigenstate withe energy for field $p/q$, then its complex conjugate $\psi^{*}$ is an engenstate with the same energy for field $-p/q$. These two symmetries are not special to the $MX_{2}$'s case. The third symmetry is that if $p/q$ is changed to $p/q + 1/2$, this is the same as changing $t_{i}$, which are hopping energies, to $-t_{i}$, this leads to the inverting of the spectrum. 
+
 \begin{figure*}[htb]
 	\centering
 	\begin{subfigure}[b]{0.32\linewidth}
@@ -390,14 +392,14 @@ where
 in which $\cos \zeta_{m} = \cos \left[\beta + 2 \pi (m + 1/2)p / q\right]$ and $\sin \gamma_{m} = \sin \left[\beta + 2 \pi (m - 1/2)p / q\right]$ and $h_{0},h_{1},h_{2},h_{11},h_{12},h_{22}$ are sub-matrices have size $q \times q$.(A visualization is shown in Fig (2.4))
 \begin{figure*}[htb]
 	\centering
-	\begin{subfigure}[b]{0.495\textwidth}
+	\begin{subfigure}[b]{0.496\textwidth}
 		\centering
-		\includegraphics[width=1.0\textwidth,height=0.9\linewidth]{pic/matrix_1band_h0.pdf}
+		\includegraphics[width=1.1\textwidth,height=1.0\textwidth]{pic/matrix_1band_h0.pdf}
 		\label{fig:3 band matrix}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.495\textwidth}
+	\begin{subfigure}[b]{0.496\textwidth}
 		\centering
-		\includegraphics[width=1.0\textwidth,height=0.9\linewidth]{pic/matrix_3band.pdf}
+		\includegraphics[width=1.1\textwidth,height=1.0\textwidth]{pic/matrix_3band.pdf}
 		\label{fig:1 band matrix}
 	\end{subfigure}
 	\caption{
@@ -408,7 +410,6 @@ in which $\cos \zeta_{m} = \cos \left[\beta + 2 \pi (m + 1/2)p / q\right]$ and $
 % t_{0} e^{- i \left(2  \pi (m + \frac{1}{2}) \eta + k_{y} a \frac{\sqrt{3}}{2}\right) }
 An alternative approach to the derivation of the Hamiltonian under an uniform magnetic field is given in \hyperref[appendix b]{Appendix B}.
 
-\newpage
 \section{Spin-orbit coupling}
 Due to the heavy mass of the transistion-metal $M$ atom, its spin orbit coupling(SOC) can be large. For the sake of simplicity, only the on-site contribution, namely, the $\mathbf{L \cdot S}$ term from $M$ atoms. Using the bases $\left\{\ket{d_{z^{2}},\uparrow},\ket{d_{xy},\uparrow},\ket{d_{x^{2} - y^{2}},\uparrow},\ket{d_{z^{2}},\downarrow},\ket{d_{xy},\downarrow},\ket{d_{x^{2} - y^{2} },\downarrow}\right\}$, we get the SOC contribution to the Hamiltonian as
 \begin{gather}
@@ -416,8 +417,8 @@ Due to the heavy mass of the transistion-metal $M$ atom, its spin orbit coupling
 	= \lambda \mathbf{L \cdot S}
 	= \f{\lambda}{2}
 	\begin{pNiceMatrix}
-		L_{z} & 0      \\
-		0     & -L_{z}
+		L_{z} & L_{x} - i L_{y}      \\
+		L_{x} + i L_{y}     & -L_{z}
 	\end{pNiceMatrix},
 \end{gather}
 in which
@@ -434,10 +435,19 @@ is the matrix of $\hat{L}_{z}$($z$ component of the orbital angular momentum) in
 \begin{equation}
 	\begin{aligned}
 		H_{\text{SOC}}(\mathbf{k})
-		 & = \mathbf{I}_{2} \otimes H_{0}(\mathbf{k}) + H'
+		 & = \mathbf{I}_{2} \otimes H_{0}(\mathbf{k}) + H^{'} \\
+		 & = 
+		 \begin{pmatrix}
+		 	H_{3q \times 3q}(\mathbf{k}) + \frac{\lambda}{2} L_{z} & 0 \\
+		 	0 & H_{3q \times 3q}(\mathbf{k}) - \frac{\lambda}{2} L_{z}
+		 \end{pmatrix}
 	\end{aligned}
 \end{equation}
-
+\begin{figure*}[htb]
+	\centering
+	\includegraphics[width=0.65\linewidth,height=0.5\linewidth]{pic/bandstructureSOC.pdf}
+	\caption{\label{band structure SOC}}
+\end{figure*}
 
 
 \section{Landau levels}
@@ -477,7 +487,7 @@ The Eq (2.24) can be rewrite in the form as
 \begin{gather}
 	E(\mathbf{p}) = 6 t_{0} - \left[\f{1}{2m^{*}} p_{x}^{2} + \f{1}{2} m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right] + \epsilon_{1},
 \end{gather}
-where $m^{*} = \f{\hbar^{2}}{(3t_{0}a^{2}) }$ is the effective mass and $x_{0} = \sqrt{-\frac{\hbar k_{y}}{eB}}$. Hence, the cyclotron frequency is
+where $m^{*} = \f{\hbar^{2}}{(3t_{0}a^{2}) }$ is the effective mass and $x_{0} = \frac{\hbar k_{y}}{eB}$. Hence, the cyclotron frequency is
 \begin{gather}
 	\omega_{c} = \f{eB}{m^{*}} = \f{8 \pi \sqrt{3} t_{0}}{\hbar}  \f{p}{q},
 \end{gather}
@@ -505,11 +515,20 @@ in linear order of an uniform-flux, where $n$ is Landau index.
 	}
 \end{figure*}
 
-In Fig 2.4 we compare the spectrum of a small section of triangular lattice with $p / q = 1 / 797$. With the fan of Landau levels given by Eq.(2.26) plotted in Fig 2.4(b). The fan of Landau levels can be clearly seen emergin from the partern in Fig 2.4(a). It is this fan of Landau levels that responsible for the de Haas-van Alphen and Shubnikov-de Haas effects. \cite{Shoenberg_1984,singleton2001band,blundell2001magnetism,kittel1987quantum} The Landau levels are all close to being linear in $B$, resulting from the magnetic quantization of parabolic bands at $B = 0$. In our model study, Landau levels can be classified into specific groups. In each group, each levels can be further labeled by a Landau index $n$. Figure 2.4 displays a blowup of the low uniform magnetic region and the LLs as a function of $\Phi / \Phi_{0}$ \cite{Li_2011}.
+In Fig 2.7 we compare the spectrum of a small section of triangular lattice with $p / q = 1 / 797$, which is equivalent to small magnetic field, the spectrum of $MoS_{2}$, with the energy of Landau levels given by Eq.(2.38) show standard equally spaced Landau levels \cite{Shoenberg_1984,singleton2001band,blundell2001magnetism,kittel1987quantum} near the bottom of the bands, as plotted in Fig 2.7(b). The fan of Landau levels can be clearly seen emergin from the partern in Fig 2.4(a). The Landau levels are all close to being linear in $B$, resulting from the magnetic quantization of parabolic bands at $B = 0$. In our model study, Landau levels can be classified into specific groups. In each group, each levels can be further labeled by a Landau index $n$. Figure 2.4 displays a blowup of the low uniform magnetic region and the LLs as a function of $\Phi / \Phi_{0}$ \cite{Li_2011}.
 
-In order to calculate the cyclotron frequency for the three-band, we  Through the derivation in Appendix C, we have obtained the Landau levels for the three-band model
+In Fig 2.7, there is just one band in case zero field, with the effective mass $m^{*} = \frac{\hbar}{3 t_{0} a^{2}}$. The numerical result for this portion of the spectrum are shown in Fig 2.7 for $p/q \geq 1/797$. The first few Landau levels are clearly seen, and the asymtotic slopes $p/q$ at large $q$ given by Eq. (2.38) are shown for comparison for the first five Landau levels at $B \leq 100$T. At the values of $B$ the fit is not ideal, but it does seem to be improving with the decreasing $f$.
+
+More interesting is the top and bottom of conduction and valence band of the zero field spectrum. In order to determine the cyclotron frequency for the three-band, through the derivation in Appendix C, we have obtained the Landau levels for the three-band model when the field is turned on
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth,height=0.5\linewidth]{pic/wrong.png}
+	\caption{\label{fig:wrong}}
+\end{figure}
+Ta có thể thấy một số mức Landau có năng lượng là được tăng tuyến tính với cường độ từ trường, nhưng nó lại không cách đều và chính xác như hình của Hofstadter butterfly. Trong trường hợp một band, khối lượng hiệu dụng $m^{*}$ và điện tích là đủ để mô tả được phổ Landau theo sự thay đổi tuyến tính của từ trường. Trong trường hợp 2 band và 3 band thì 
 
 
+%It is this fan of Landau levels that responsible for the de Haas-van Alphen and Shubnikov-de Haas effects.
 
 \chapter{DISCUSSION AND FUTURE WORK}
 
@@ -587,8 +606,8 @@ Substituting $x = \f{ma}{2}$ into (B.4), this leads to
 	e^{\pm i(p_{x} - \sqrt{3} e B x) a / 2\hbar}
 	= e^{\pm i p_{x} a / 2 \hbar} e^{\mp i\sqrt{3} e B (m - 1 /2) a^{2} / 4 \hbar}
 \end{gather}
-The operators $e^{\pm i p_{x} a / 2 \hbar}, e^{\pm i p_{y} \sqrt{3}a / 2 \hbar}$ can be regconized as translational operators, we can rewrite (B.1) as
-The time-indepentdent Schr\"{o}dinger's equation now becomes
+The operators $e^{\pm i p_{x} a / 2 \hbar}, e^{\pm i p_{y} \sqrt{3}a / 2 \hbar}$ can be regconized as translational operators, we can rewrite (B.3) as
+%The time-indepentdent Schr\"{o}dinger's equation now becomes
 \begin{equation}
 	\begin{aligned}
 		  & t_{0} \varphi_{1} (x + a,y) + t_{0}\varphi_{1} (x - a,y) + t_{0}\varphi_{1} (x + \frac{a}{2},y + \frac{a\sqrt{3}}{2}) e^{\frac{ie}{\hbar}B(m + 1 /2) \frac{a^{2}\sqrt{3}}{4}}                                                            \\
@@ -664,19 +683,54 @@ In this (C.3), we neglect coefficents of terms $a^{3}$ and $a^{4}$, this leads t
 \begin{gather}
 	h_{v} \approx 3(t_{11} + t_{22}) - \f{3a^{2}(t_{11} + t_{22})}{4} \left(k_{x}^{2} + k_{y}^{2}\right) \epsilon_{2},
 \end{gather}
-and using substitution $\mathbf{k} \rightarrow \mathbf{p} + e\mathbf{A}$
+and using substitution $\hbar\mathbf{k} \rightarrow (\mathbf{\Pi} + e\mathbf{A})/\hbar$
 \begin{equation}
 	\begin{aligned}
 		h_{v}
-		 & \approx 3 (t_{11} + t_{22}) - \f{3a^{2}(t_{11} + t_{22})}{4\hbar^{2}} \left[p_{x}^{2} + (p_{y} + eBx)^{2}\right] + \epsilon_{2}                                                                           \\
-		 & \approx 3 (t_{11} + t_{22}) - \f{3a^{2}(t_{11} + t_{22})}{4\hbar^{2}} p_{x}^{2} - \f{3a^{2}(t_{11} + t_{22})}{4\hbar^{2}} (eB)^{2} \left[x - \left(-\f{\hbar k_{y}}{eB}\right)\right]^{2} + \epsilon_{2},
+		 & \approx 3 (t_{11} + t_{22}) - \f{3a^{2}(t_{11} + t_{22})}{4\hbar^{2}} \left[\Pi_{x}^{2} + (\Pi_{y} + eBx)^{2}\right] + \epsilon_{2}   ,                                                                        
 	\end{aligned}
 \end{equation}
-Eq (C.5) can be written in th the form as
+%Eq (C.5) can be written in th the form as
+%\begin{gather}
+%	h_{v} = 3 (t_{11} + t_{22}) - \left[\f{\Pi_{x}^{2}}{2m^{*}} + \f{1}{2}m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right] + \epsilon_{2}
+%\end{gather}
+%where $m^{*} = \f{2\hbar^{2}}{3a^{2}(t_{11} + t_{22})}$ is the effective mass  and $x_{0} = -\frac{\hbar k_{y}}{eB}$ for near the top of the valence band.
+
+Instead of doing as we have done in Section 2, there is an alternative way to determine the energy spectrum. The Hamiltonian can be simplified by a suitably chosen canonical transformation, or ladder (creation and annihilation) operators can be used instead of position and momentum operators, but the description of the motion in the $xy$-plane requires two commuting sets of operators now. Since $x$ and $\Pi_{y}$ appear together in the combination $x + \frac{1}{eB} \Pi_{x},$
+the appropriate choice in this case is  \cite{solyom2008fundamentals,griffiths2018introduction}
+\begin{equation}
+	\begin{aligned}
+		a = \sqrt{\f{eB}{2\hbar}} \left(x + \f{1}{eB} \Pi_{y} + \f{i}{eB} \Pi_{x}\right), \\
+		a^{\dagger} = \sqrt{\f{eB}{2\hbar}} \left(x + \f{1}{eB} \Pi_{y} - \f{i}{eB} \Pi_{x}\right), \\
+		b = \sqrt{\f{eB}{2\hbar}} \left(y + \f{1}{eB} \Pi_{x} + \f{i}{eB} \Pi_{y}\right), \\
+		b^{\dagger} = \sqrt{\f{eB}{2\hbar}} \left(y + \f{1}{eB} \Pi_{x} - \f{i}{eB} \Pi_{y}\right). \\
+	\end{aligned}
+\end{equation}
+The inverse transformation is then
+\begin{equation}
+	\begin{aligned}
+		x + \f{1}{eB} \Pi_{y} &= \sqrt{\f{\hbar}{2eB}} \left(a + a^{\dagger}\right) ,\\
+		\Pi_{x} &= i \sqrt{\f{\hbar eB}{2}} \left(a^{\dagger} - a\right) , \\
+		y + \f{1}{eB} \Pi_{y} &= \sqrt{\f{\hbar}{2eB}} \left(b + b^{\dagger}\right) ,\\
+		\Pi_{y} &= i \sqrt{\f{\hbar eB}{2}} \left(b^{\dagger} - b\right).
+	\end{aligned}
+\end{equation}
+It follows from the cannonical commutation relations of the position and momentum operators that the ladder operators satisfy bosonic commutation relations
 \begin{gather}
-	h_{v} = 3 (t_{11} + t_{22}) - \left[\f{p_{x}^{2}}{2m^{*}} + \f{1}{2}m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right] + \epsilon_{2}
+	[a,a^{\dagger}] = 1, \quad [b,b^{\dagger}] = 1,
 \end{gather}
-where $m^{*} = \f{2\hbar^{2}}{3a^{2}(t_{11} + t_{22})}$ is the effective mass  and $x_{0} = \sqrt{-\frac{\hbar k_{y}}{eB}}$ for near the top of the valence band. The cyclotron frequency is
+and
+\begin{gather}
+	[a,a] = [a^{\dagger},a^{\dagger}] = [b,b] = [b^{\dagger},b^{\dagger}] = 0,
+\end{gather}
+moreover the operators $a (a^{\dagger})$ and $b (b^{\dagger})$ commute with each other, too. In terms of them, the Hamiltonian (C.5) can be cast in form
+\begin{equation}
+	\begin{aligned}
+		content...
+	\end{aligned}
+\end{equation}
+
+The cyclotron frequency is
 \begin{gather}
 	w_{c} = \f{eB}{m^{*}} = \f{4 \pi \sqrt{3} (t_{11} + t_{22})}{\hbar} \f{p}{q},
 \end{gather}
