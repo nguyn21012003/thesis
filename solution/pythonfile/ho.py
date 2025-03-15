@@ -1,11 +1,13 @@
-import numpy as np
 import csv
-from numpy import pi, exp
-from numpy import linalg as LA
-from math import sqrt, cos, sin
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 import subprocess
+from math import cos, sin, sqrt
+
+import matplotlib.pyplot as plt
+import numpy as np
+from numpy import exp
+from numpy import linalg as LA
+from numpy import pi
+from numpy import mod
 from tqdm import tqdm
 
 np.set_printoptions(precision=10, linewidth=1200, edgeitems=20, suppress=True)
@@ -39,12 +41,7 @@ def para(argument):
             )
 
 
-
-
-
 # IR
-
-
 def IR(e1, e2, t0, t1, t2, t11, t12, t22):
     D_C3 = np.array(
         [
@@ -107,6 +104,7 @@ def IR(e1, e2, t0, t1, t2, t11, t12, t22):
     E_R4 = D_S @ E_R1 @ D_S.T
     E_R5 = D_2C3 @ E_R1 @ D_2C3.T
     E_R6 = D_S2 @ E_R1 @ D_S2.T
+
     return E_R0, E_R1, E_R2, E_R3, E_R4, E_R5, E_R6
 
 
@@ -127,7 +125,6 @@ def Hamiltonian(argument, alattice, p, q, kx, ky, E_R0, E_R1, E_R2, E_R3, E_R4, 
     H = np.zeros([3 * q, 3 * q], dtype=complex)
 
     for m in range(0, q):
-
         h0[m][m] = E_R0[0][0]
         h1[m][m] = E_R0[0][1]
         h2[m][m] = E_R0[0][2]
@@ -188,7 +185,79 @@ def Hamiltonian(argument, alattice, p, q, kx, ky, E_R0, E_R1, E_R2, E_R3, E_R4, 
     H[2 * q : 3 * q, q : 2 * q] = h12T
     H[2 * q : 3 * q, 2 * q : 3 * q] = h22
 
-    return H
+    return h0
+
+
+def PeierlsSubstitution(kx, ky, alattice, p, q):
+    intergral = 2 * pi
+
+    return intergral
+
+
+def plotMatrix(matrix):
+    plt.figure(figsize=(6, 6))
+    plt.imshow(np.abs(matrix), cmap="binary", interpolation="none")
+    plt.colorbar(label="magnitude")
+    plt.xlabel("Column Index")
+    plt.ylabel("Row Index")
+    plt.show()
+
+    return None
+
+
+def saveMatrix(matrix, fileName):
+    with open(fileName, "w", newline="") as Matrixfile:
+        header = ["row", "column", "value"]
+        writer = csv.DictWriter(Matrixfile, fieldnames=header, delimiter=",")
+        writer.writeheader()
+        for i in range(len(matrix)):
+            for j in range(len(matrix)):
+                Matrixfile.write(f"{i + 1} {j + 1} {np.abs(matrix[i, j])}\n")
+            Matrixfile.write("\n")
+
+    return None
+
+
+def PlotMatrixGNU(fileMatrix, fileName):
+    with open(fileName, "w") as GNUPLOT:
+        GNUPLOT.write(
+            f"""
+set size ratio -1
+set palette defined (0 "white", 1 "blue", 2 "yellow", 3 "red")
+set xlabel "Column Index"
+set ylabel "Row Index"
+set yrange [*:*] reverse
+
+set tics out
+
+set xtics offset 0,1
+
+set autoscale xfix
+set autoscale yfix
+set linestyle 81 lt 1 lw 9.0 lc rgb "black"
+
+set xtics 20
+set ytics 20
+
+
+set grid
+
+
+#set tics scale 0,0.001
+#set mxtics 2
+#set mytics 2
+#set grid front mxtics mytics lw 1.5 lt -1 lc rgb 'white'
+
+set label "(b)" at 2,55,10 font "Arial,16" front
+
+
+unset key
+splot "{fileMatrix}" using 1:2:3 with image
+pause -1
+        """
+        )
+    # subprocess.run(["gnuplot", fileName])
+    return None
 
 
 def gcd(a, b):
@@ -211,9 +280,81 @@ def pbc(i, q):
     # return i % q
 
 
-def main():
-    choice = 4  # int(input(("Input material: ")))
-    qmax = 156  # int(input("Input the range q max aka the magnetic cell: "))
+def LandauLevels(
+    fileLandauLevels_conductionBand,
+    fileLandauLevels_valenceBand,
+    qmax,
+    n_levels,
+    choice,
+):
+    matt, alattice, e1, e2, t0, t1, t2, t11, t12, t22 = para(choice)
+    with open(fileLandauLevels_conductionBand, "w", newline="") as fc:
+        for p1 in tqdm(range(1, qmax + 1), ascii=" #", desc="Landau Levels conduction"):
+            if gcd(p1, qmax) == 1:
+                alpha1 = p1 / qmax
+                values_c = [alpha1]
+                for n1 in range(n_levels):
+                    E_con = t0 * (6 + 8 * pi * sqrt(3) * alpha1 * (n1 + 0.5)) + e1
+                    # E = -t0 * sqrt(2 * pi * sqrt(3) * n * alpha) + e1
+                    values_c.append(E_con)
+
+                fc.write(",".join(map(str, values_c)) + "\n")
+
+    with open(fileLandauLevels_valenceBand, "w", newline="") as fv:
+        for p2 in tqdm(range(1, qmax + 1), ascii=" #", desc="Landau Levels valence"):
+            if gcd(p2, qmax) == 1:
+                alpha2 = p2 / qmax
+                values_v = [alpha2]
+                for n2 in range(n_levels):
+                    E_val = 3 * (t11 + t22) * (n2 + 1 / 2) ** (12) + e2
+
+                    values_v.append(E_val)
+                fv.write(",".join(map(str, values_v)) + "\n")
+
+
+def chern(p, q):
+    sr_list, tr_list, kj_list = [], [], []
+
+    for r in range(q + 1):
+        if q % 2 == 0 and r == q / 2:
+            continue
+        for tr in range(-int(q / 2), int(q / 2) + 1):
+            for sr in range(-q, q + 1):
+                if r == q * sr + p * tr:
+                    sr_list.append(sr)
+                    tr_list.append(tr)
+                    kj_list.append(q // 2)
+                    break
+            else:
+                continue
+            break
+
+    Chern_list = []
+    if q % 2 != 0:
+        numb_band_groups = q
+    else:
+        numb_band_groups = q - 1
+
+    for i in range(numb_band_groups):
+        Chern_list.append(tr_list[i + 1] - tr_list[i])
+
+    if q % 2 == 0:
+        Chern_list.insert(q // 2 - 1, Chern_list[q // 2 - 1])
+
+    return Chern_list, tr_list, kj_list
+
+
+def process(
+    choice,
+    n_levels,
+    qmax,
+    file,
+    fileMatrix,
+    file_plot_Matrix_Gnu,
+    fileLandauLevels_valenceBand,
+    fileLandauLevels_conductionBand,
+    filegnu,
+):
     matt, alattice, e1, e2, t0, t1, t2, t11, t12, t22 = para(choice)
     E_R0, E_R1, E_R2, E_R3, E_R4, E_R5, E_R6 = IR(e1, e2, t0, t1, t2, t11, t12, t22)
 
@@ -221,104 +362,108 @@ def main():
     # ax.margins(0)
     # plt.title(f"{matt}")
 
-    file = f"3band_dataHofstadterButterfly_q_{qmax}_{matt}_final.dat"
-    # file = f"2band_dataHofstadterButterfly_q_{qmax}_{matt}_final.dat"
-    # file = f"1band_dataHofstadterButterfly_q_{qmax}_h0.dat"
-    # file = f"1band_dataHofstadterButterfly_q_{qmax}_h11.dat"
-    # file = f"1band_dataHofstadterButterfly_q_{qmax}_h22.dat"
-
     kpoints = {
         "G": [0, 0],
         "K": [4 * pi / (3 * alattice), 0],
         "M": [pi / (alattice), pi / (sqrt(3) * alattice)],
     }
 
-    print(file)
     kx = kpoints["K"][0]
     ky = kpoints["K"][1]
     with open(file, "w", newline="") as writefile:
         header = [
             "eta",
-            "magnetic",
             "Energy",
             f"p/{qmax}",
         ]
 
         writer = csv.DictWriter(writefile, fieldnames=header, delimiter=",")
         writer.writeheader()
-        list_eigen = []
-        for p in tqdm(range(1, qmax + 1), ascii=" #"):
-            if gcd(p, qmax) == 1:
-                eta = p / qmax
-                y = np.zeros(1 * qmax)
-                y[:] = eta
-                H = Hamiltonian(choice, alattice, p, qmax, kx, ky, E_R0, E_R1, E_R2, E_R3, E_R4, E_R5, E_R6)
-                eigenvalue1 = LA.eigvalsh(H)
-                list_eigen.append(eigenvalue1)
-                B = 0
+        pcount = 0
+        for p in tqdm(range(1, qmax + 1), ascii=" #", desc=f"{matt}"):
+            if gcd(p, qmax) != 1:
+                continue
+            eta = p / qmax
+            H = Hamiltonian(choice, alattice, p, qmax, kx, ky, E_R0, E_R1, E_R2, E_R3, E_R4, E_R5, E_R6)
+            eigenvalue1 = LA.eigvalsh(H)
+            pcount += 1
+            for i in range(len(eigenvalue1)):
+                writer.writerow(
+                    {
+                        "eta": eta,
+                        "Energy": eigenvalue1[i],
+                        f"p/{qmax}": f"{p}/{qmax}",
+                    }
+                )
+            writefile.write("\n")
+        # saveMatrix(H, fileMatrix)
+        # PlotMatrixGNU(fileMatrix, file_plot_Matrix_Gnu)
+        # plotMatrix(H)
 
-                for i in range(len(eigenvalue1)):
-                    writer.writerow(
-                        {
-                            "eta": eta,
-                            "magnetic": B + 10,
-                            "Energy": eigenvalue1[i],
-                            f"p/{qmax}": f"{p}/{qmax}",
-                        }
-                    )
-
-                # plt.plot(y, eigenvalue1, "o", c="black", markersize=0.1)
-        bottom_band = min(list_eigen[0])
-        fileLandauLevels = f"LandauLevels_q={qmax}_{matt}_1_band.dat"
-        alpha_values = []
-        n_levels = 11
-        energies = {n: [] for n in range(n_levels)}
-        with open(fileLandauLevels, "w", newline="") as f:
-            for p in range(1, qmax + 1):
-                if gcd(p, qmax) == 1:
-                    alpha = p / qmax
-                    values = [alpha]
-                    for n in range(n_levels):
-                        E = t0 * (6 - 8 * pi * sqrt(3) * alpha * (n + 0.5)) + e1
-                        # E = -t0 * sqrt(2 * pi * sqrt(3) * n * alpha) + e1
-                        values.append(E)
-
-                    f.write(",".join(map(str, values)) + "\n")
-
-    filegnu = f"plotHofstadterButterfly_q={qmax}_{matt}_landaulevel.gnuplot"
-    print("file data: ", file)
-    print("file gnuplot: ", filegnu)
-    print("file landau: ", fileLandauLevels)
+        # plt.plot(y, eigenvalue1, "o", c="black", markersize=0.1)
 
     with open(filegnu, "w") as gnuplotfile:
         gnuplotfile.write(
             f"""
-set terminal wxt size 700,900 
+set terminal wxt size 700,900
 set datafile separator ','
 #set title 'Hofstadter Butterfly'
 
 set key top right font "Arial,10"
 set key font ",25"
-set xtics font ",13"  
+set xtics font ",13"
 set ytics font ",13"
 set xlabel 'p/q' font 'Arial,16'
-set ylabel 'Energy' font 'Arial,16'
+set ylabel 'Energy (eV)' font 'Arial,16'
 set grid
 
 #set xrange [0:0.2]
 #set yrange [-0.2:1.75]
 
 set tics out
-plot '{file}' u 1:3 with points pt 7 ps 0.03 lc rgb 'black' notitle 'HofstadterButterfly_{matt}' ,\
-     #for [i=2:{n_levels}] "{fileLandauLevels}" using 1:i with lines lw 0.75 lc rgb 'black' notitle
+plot '{file}' u 1:2 with points pt 7 ps 0.03 lc rgb 'black' notitle 'HofstadterButterfly_{matt}' ,\
+#plot for [i=2:{n_levels}] "{fileLandauLevels_conductionBand}" using 1:i with lines lw 0.75 lc rgb 'black' notitle
 pause -1
         """
         )
     subprocess.run(["gnuplot", filegnu])
 
     # ax.tick_params(axis="both", direction="out")
-    plt.show()
+    # plt.show()
     # plt.savefig(f"{matt}_qmax_{qmax}.png")
+
+    return
+
+
+def main():
+    qmax = 499
+    n_levels = 30
+    choice = 0
+    matt, alattice, e1, e2, t0, t1, t2, t11, t12, t22 = para(choice)
+    # file = f"3band_dataHofstadterButterfly_q_{qmax}_{matt}_final.dat"
+    # file = f"3band_dataHofstadterButterfly_q_{qmax}_{matt}_chern_final.dat"
+    # file = f"3band_dataHofstadterButterfly_q_{qmax}_{matt}_SOC_PLAMBDA.dat"
+    # file = f"2band_dataHofstadterButterfly_q_{qmax}_{matt}_final.dat"
+    file = f"1band_dataHofstadterButterfly_q_{qmax}_h0.dat"
+    # file = f"1band_dataHofstadterButterfly_q_{qmax}_h11.dat"
+    # file = f"1band_dataHofstadterButterfly_q_{qmax}_h22.dat"
+
+    # fileMatrix = f"1band_Matrix_q_{qmax}_h0.dat"
+    fileMatrix = f"3band_Matrix_q_{qmax}.dat"
+    file_plot_Matrix_Gnu = f"1band_Matrix_q_{qmax}_h0.gnuplot"
+
+    fileLandauLevels_conductionBand = f"LandauLevels_q={qmax}_{matt}_c_band.dat"
+    fileLandauLevels_valenceBand = f"LandauLevels_q={qmax}_{matt}_v_band.dat"
+
+    filegnu = f"plotHofstadterButterfly_q={qmax}_{matt}_landaulevel.gnuplot"
+
+    print("file data: ", file)
+    print("file gnuplot: ", filegnu)
+    print("file landau: ", fileLandauLevels_conductionBand, "&", fileLandauLevels_valenceBand)
+    print("file Matrix: ", fileMatrix)
+    print("file Matrix GNU: ", file_plot_Matrix_Gnu)
+    LandauLevels(fileLandauLevels_conductionBand, fileLandauLevels_valenceBand, qmax, n_levels, choice)
+    process(choice, n_levels, qmax, file, fileMatrix, file_plot_Matrix_Gnu, fileLandauLevels_valenceBand, fileLandauLevels_conductionBand, filegnu)
 
 
 if __name__ == "__main__":
