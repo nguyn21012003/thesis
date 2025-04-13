@@ -1,0 +1,130 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3957,        120]
+NotebookOptionsPosition[      3041,         96]
+NotebookOutlinePosition[      3471,        113]
+CellTagsIndexPosition[      3428,        110]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"fz", " ", "=", " ", 
+   RowBox[{"1", " ", "/", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"z", " ", "-", " ", "1"}], " ", ")"}], "^", "2"}], " ", "*", 
+      " ", "z"}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.9485939377696624`*^9, 3.9485939666117597`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"ddce8dbd-40f4-465b-a712-bf1fcc366170"],
+
+Cell[BoxData[
+ FractionBox["1", 
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", "z"}], ")"}], "2"], " ", "z"}]]], "Output",
+ CellChangeTimes->{3.948593967727669*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"e8f405fd-0794-494f-8160-e904bb74ac53"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Series", "[", 
+  RowBox[{"fz", ",", 
+   RowBox[{"{", 
+    RowBox[{"z", ",", 
+     RowBox[{"1", "/", "2"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9485939138085594`*^9, 3.948593935359539*^9}, {
+   3.948594030844654*^9, 3.9485940398346176`*^9}, 3.948594106731566*^9, {
+   3.9485941414996586`*^9, 
+   3.9485941501415963`*^9}},ExpressionUUID->"47975668-757b-4787-a52a-\
+9558e117744d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Series", "sspec", 
+   "\"Series specification \\!\\(\\*FractionBox[\\\"1\\\", \\\"2\\\"]\\) is \
+not a list with three elements.\"", 2, 4, 3, 22376046819434979654, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.948593970458294*^9, {3.9485940318388014`*^9, 3.9485940405116873`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"aaa7c6fe-7dce-4385-954b-6685ff9a25c3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Series", "sspec", 
+   "\"Series specification \\!\\(\\*FractionBox[\\\"1\\\", \\\"2\\\"]\\) is \
+not a list with three elements.\"", 2, 4, 4, 22376046819434979654, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.948593970458294*^9, {3.9485940318388014`*^9, 3.948594040527181*^9}},
+ CellLabel->
+  "During evaluation of \
+In[4]:=",ExpressionUUID->"31c533c0-a867-44f6-af56-8c951fa04a93"],
+
+Cell[BoxData[
+ RowBox[{"Series", "[", 
+  RowBox[{
+   RowBox[{"Series", "[", 
+    RowBox[{"8", ",", 
+     FractionBox["1", "2"]}], "]"}], ",", 
+   FractionBox["1", "2"]}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.9485939705141344`*^9, {3.948594031867303*^9, 3.948594040540378*^9}},
+ CellLabel->"Out[4]=",ExpressionUUID->"82603bcb-fdcf-4bb1-9002-d4a78361ecda"]
+}, Open  ]]
+},
+WindowSize->{1920, 1042},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (June 19, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"56fe48a8-a686-46c7-8296-cb332ca28e6d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 445, 11, 73, "Input",ExpressionUUID->"ddce8dbd-40f4-465b-a712-bf1fcc366170"],
+Cell[1028, 35, 289, 8, 74, "Output",ExpressionUUID->"e8f405fd-0794-494f-8160-e904bb74ac53"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1354, 48, 415, 10, 43, "Input",ExpressionUUID->"47975668-757b-4787-a52a-9558e117744d"],
+Cell[1772, 60, 445, 10, 56, "Message",ExpressionUUID->"aaa7c6fe-7dce-4385-954b-6685ff9a25c3"],
+Cell[2220, 72, 443, 10, 56, "Message",ExpressionUUID->"31c533c0-a867-44f6-af56-8c951fa04a93"],
+Cell[2666, 84, 359, 9, 68, "Output",ExpressionUUID->"82603bcb-fdcf-4bb1-9002-d4a78361ecda"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
