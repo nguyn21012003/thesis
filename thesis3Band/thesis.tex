@@ -162,6 +162,8 @@
 	\acro{LLs}{Landau levels}
 	\acro{QHE}{Quantum Hall effect}
 	\acro{IQHE}{integer Quantum Hall effect}
+	\acro{EFA}{Envelop Function Approximation}
+	\acro{BCH}{Baker-Campbell-Hausdorff}
 	\acro{SBE}{semiconductor Bloch equations}
 	\acro{LCAO}{linear combination of atomic orbitals}
 	\acro{TNN}{three-band third-nearest-neighbor-model}
@@ -182,7 +184,7 @@
 \end{figure}
 The time-indepentdent Schr\"{o}dinger equation for an eletron in the crystal has the form
 \begin{gather}
-	\left[-\f{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right] = \psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \varepsilon_{\lambda}(\mathbf{k}) \psi_{\lambda,\mathbf{k}}(\mathbf{r}),
+	\left[-\f{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right] \psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \varepsilon_{\lambda}(\mathbf{k}) \psi_{\lambda,\mathbf{k}}(\mathbf{r}),
 \end{gather}
 where $U_{0}(\mathbf{r})$ is the periodic lattice potential, $\psi_{\lambda,\mathbf{k}}(\mathbf{r})$ is the Bloch wavefunction of an electron in band $\lambda$ with wave vector $\mathbf{k}$ and $\varepsilon_{\lambda}(\mathbf{k})$ is the band structure.
 
@@ -202,18 +204,18 @@ The Bloch wavefunction in this model has the form
 \end{gather}
 The coefficents $C_{j}^{\lambda}(\mathbf{k})$ are the solutions of the eigenvalue equation
 \begin{gather}
-	\sum_{jj'}^{3} \left[H_{jj'}(\mathbf{k}) - \varepsilon_{\lambda}(\mathbf{k}) S_{jj'}(\mathbf{k})\right] C_{j}^{\lambda}(\mathbf{k}) = 0,
+	\sum_{jj'}^{3} \left[H_{jj'}^{\text{TB}}(\mathbf{k}) - \varepsilon_{\lambda}(\mathbf{k}) S_{jj'}(\mathbf{k})\right] C_{j}^{\lambda}(\mathbf{k}) = 0,
 \end{gather}
 where
 \begin{gather}
-	H_{jj'}(\mathbf{k}) = \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} \left[-\f{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r - R})},
+	H_{jj'}^{\text{TB}}(\mathbf{k}) = \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} \left[-\f{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r - R})},
 \end{gather}
 and
 \begin{gather}
 	S_{jj'}(\mathbf{k}) = \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r})} \ket{\phi_{j'}(\mathbf{r - R})} \approx \delta_{jj'}.
 \end{gather}
 
-Three-band tight binding model takes into account the nearest neighbor hopping is called the three-band \ac{NN} model. This model agrees well with the ab initio calculation for the band structure near the band edges, but the significantly deviate from the latter in other regions. This is because the three-band approximation neglects the $p$ orbitals of $X$ atoms which still have substanial contributions to the conduction bands at $\Gamma$ and valence bands at $M$. The matrix elements of the TB Hamiltonian Eq (2.6) are
+The three-band tight-binding model often called the \ac{NN} since it only includes nearest-neighbor hopping does a decent job matching \textit{ab initio} results near the band edges. However, it starts to break down in other parts of the band structure. This is because the model completely ignores the $p$ orbitals from the $X$ atoms, which stil contributions to the conduction bands at $\Gamma$ and the valence bands at $M$. he matrix elements of the TB Hamiltonian Eq (2.6) are
 \begin{equation}
 	\begin{aligned}
 		H_{jj'}^{\text{NN}}(\mathbf{k})
@@ -223,7 +225,7 @@ Three-band tight binding model takes into account the nearest neighbor hopping i
 \end{equation}
 where
 \begin{gather}
-	\mathcal{E}_{jj'}(\mathbf{R}) = \bra{\phi_{j}(\mathbf{R})} \left[-\frac{\hbar \nabla^{2}}{2m} + U_{0} \mathbf{r}\right] \ket{\phi_{j'}(\mathbf{r-R})},
+	\mathcal{E}_{jj'}(\mathbf{R}) = \bra{\phi_{j}(\mathbf{R})} \left[-\frac{\hbar \nabla^{2}}{2m} + U_{0} (\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r-R})},
 \end{gather}
 and
 \begin{equation}
@@ -440,7 +442,7 @@ Eight additional parameters depicted in Table 2.2 are obtained by fitting the ba
 			\hline
 		\end{NiceArray}
 	\end{equation*}
-	\caption{Fitted parameters in three-band NN tight-binding model for \ac{GGA} cases for MX$_{2}$ \cite{PhysRevB.88.085433}.}
+	\caption[Fitted parameters]{Fitted parameters in three-band NN tight-binding model for \ac{GGA} cases for MX$_{2}$ \cite{PhysRevB.88.085433}.}
 \end{table}
 
 \begin{figure*}[htb]
@@ -450,21 +452,21 @@ Eight additional parameters depicted in Table 2.2 are obtained by fitting the ba
 \end{figure*}
 \section{Three-band tight binding method under a magnetic field}
 Under a uniform magnetic field given by a vector potential $\mathbf{A}(\mathbf{r})$ the single electron Hamiltonian changes into
-\begin{align}
+\begin{gather}
 	H = \f{\left(-i\hbar \boldsymbol{\nabla} + e \mathbf{A(r)}\right)^{2}}{2m} + U_{0}(\mathbf{r}) + g^{*} \mu_{B} \mathbf{B} \cdot \mathbf{L},
-\end{align}
+\end{gather}
 where $\mu_{B} = \f{e\hbar}{2m}$ is Bohr magneton, $g^{*}$ is an effective Landé g-factor, $\mathbf{B} = \boldsymbol{\nabla} \times  \mathbf{A}$ is the uniform magnetic field, and $\mathbf{L}$ is the angular momentum. It is possible to add a phase factor to the tight binding wavefunction
 \begin{align}
-	\psi_{\lambda,\mathbf{k}} (\mathbf{r}) = \sum_{j=1}^{3} C_{j}^{\lambda} \sum_{\mathbf{R}} e^{i(\mathbf{k \cdot R} + \theta_{\mathbf{R}}(\mathbf{r}))} \phi_{j}(\mathbf{r} - \mathbf{R}).
+	\psi_{\lambda,\mathbf{k}} (\mathbf{r}) = \sum_{j=1}^{3} C_{j}^{\lambda}(\mathbf{k}) \sum_{\mathbf{R}} e^{i(\mathbf{k \cdot R} + \theta_{\mathbf{R}}(\mathbf{r}))} \phi_{j}(\mathbf{r} - \mathbf{R}).
 \end{align}
 We now have
 \begin{align}
-	H_{j j'}^{\text{NN}} (\mathbf{k}) = H_{jj'}(\mathbf{k}) + H_{jj'}^{Z}(\mathbf{k}),
+	H_{j j'} (\mathbf{k}) = H_{jj'}^{\text{NN}}(\mathbf{k}) + H_{jj'}^{Z}(\mathbf{k}),
 \end{align}
 where
 \begin{equation}
 	\begin{aligned}
-		H_{jj'}(\mathbf{k})
+		H_{jj'}^{\text{NN}}(\mathbf{k})
 		 & = \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r})} e^{-i \theta_{\mathbf{0}}(\mathbf{r})} \left[\f{(-i\hbar \boldsymbol{\nabla} + e \mathbf{A}(\mathbf{r}))^{2}}{2m} + U_{0}(\mathbf{r}) \right] e^{i (\mathbf{k}\cdot \mathbf{R} + \theta_{\mathbf{R}}(\mathbf{r}))} \ket{\phi_{j'}(\mathbf{r - R})}                \\
 		 & = \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r})} e^{i(\mathbf{k \cdot R} +\theta_{\mathbf{R}} - \theta_{\mathbf{0}} )} \left[ \f{ \left( -i\hbar \boldsymbol{\nabla} + e \mathbf{A} + \hbar \boldsymbol{\nabla} \theta_{\mathbf{R}} \right)^{2} }{2m} + U_{0}(\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})},
 	\end{aligned}
@@ -477,7 +479,7 @@ and
 By choosing $\theta_{\mathbf{R}} = - \f{e}{\hbar} \int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'}$ as Peierls substitution, the Hamiltonian in Eq. (2.25) now reads
 \begin{equation}
 	\begin{aligned}
-		H_{jj'}(\mathbf{k})
+		H_{jj'}^{\text{NN}}(\mathbf{k})
 		 & = \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r})} e^{i\mathbf{k \cdot R} - \frac{ie}{\hbar} \int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A}(\mathbf{r'}) \cdot d\mathbf{r'} + \frac{ie}{\hbar}\int_{\mathbf{0}}^{\mathbf{r}}\mathbf{A(\mathbf{r'})}\cdot d\mathbf{r'} } \left[- \f{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})} \nonumber \\
 		 & = \sum_{\mathbf{R}}  e^{i\mathbf{k \cdot R} + \frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} e^{-\frac{ie}{\hbar} \Phi_{\mathbf{R,r,0}}} \left[ -\f{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})},
 	\end{aligned}
@@ -488,15 +490,15 @@ where $\Phi_{\mathbf{R,r,0}} = \oint_{\mathbf{R,r,0}} \mathbf{A(\mathbf{r'})} \c
 \end{align}
 We can show that the flux term $\Phi_{\mathbf{R,r,0}}$ is negligibly small \cite{yalcin_2019} by two observations. When $\mathbf{r}$ is far away from the lattice points $\mathbf{R}$ and $\mathbf{0}$, the flux is large but since the atomic orbitals are highly localized at these two lattice points, the value of the hopping term is very small and the whole hopping term goes to zero. While $\mathbf{r}$ is at or near any of these lattice points, the triangle formed is small, and assuming small magnetic field, the flux term $\Phi_{\mathbf{R,r,0}}$ goes to zero, which giving us the Hamiltonian as
 \begin{gather}
-	H_{jj'}(\mathbf{k})
+	H_{jj'}^{\text{NN}}(\mathbf{k})
 	= \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R} + \frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} \left[ -\f{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})},\\
 	H_{jj'}^{Z}(\mathbf{k})
 	= g^{*} \mu_{B} \mathbf{B} \cdot \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R} + \frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} \mathbf{L} \ket{\phi_{j'}(\mathbf{r - R})}.
 \end{gather}
-Considering only nearest neighbor(NN) hopping, Eq (2.9) becomes
+Considering only \ac{NN} hopping, Eq (2.29) becomes
 \begin{equation}
 	\begin{aligned}
-		H_{jj'}(\mathbf{k})
+		H_{jj'}^{\text{NN}}(\mathbf{k})
 		 & = \sum_{\mathbf{R}} e^{i(\mathbf{k\cdot R} + \frac{e}{\hbar}\int_{0}^{\mathbf{R}}A(\mathbf{r'})d\mathbf{r'})} \mathcal{E}_{jj'}(\mathbf{R})                                                                                                                                                  \\
 		 & = \mathcal{E}_{jj'}(\mathbf{0}) + e^{i(\mathbf{k\cdot}\mathbf{R}_{1} + \frac{e}{\hbar}\int_{0}^{\mathbf{R}_{1}}A(\mathbf{r'})d\mathbf{r'})} \mathcal{E}_{jj'}(\mathbf{R}_{1})                                                                                                                \\
 		 & + e^{i(\mathbf{k\cdot} \mathbf{R}_{2} + \frac{e}{\hbar}\int_{0}^{\mathbf{R}_{2}}A(\mathbf{r'})d\mathbf{r'})} \mathcal{E}_{jj'}(\mathbf{R}_{2}) + e^{i(\mathbf{k\cdot}\mathbf{R}_{3} + \frac{e}{\hbar}\int_{0}^{\mathbf{R}_{3}}A(\mathbf{r'})d\mathbf{r'})} \mathcal{E}_{jj'}(\mathbf{R}_{3}) \\
@@ -509,8 +511,8 @@ In the presence of a perpendicular magnetic field $\mathbf{B} \hat{z}$ to the pl
 \begin{equation}
 	\begin{aligned}
 		\theta_{m,n}^{m',n'}
-		 & = \f{e}{\hbar} \int_{m,n}^{m',n'} \mathbf{A} \cdot d\mathbf{r} \\
-		 & = \f{eB}{2\hbar}(x_{m'} + x_{m})(y_{n'} - y_{n}).
+		 & = \frac{e}{\hbar} \int_{m,n}^{m',n'} \mathbf{A} \cdot d\mathbf{r} \\
+		 & = \frac{eB}{2\hbar}(x_{m'} + x_{m})(y_{n'} - y_{n}).
 	\end{aligned}
 \end{equation}
 
@@ -522,7 +524,7 @@ In this system, hopping integral of $x$-direction does not change, but hopping i
 	\caption{\label{fig:site index} The TB model of TMDC with six neighbors atom $M$.}
 \end{figure}
 
-With the given Landau gauge, the line intergral $\int \mathbf{A} \cdot d\mathbf{r}$ is evaluated to $\int Bx dy$. Let us now express the Hamiltonian from the zero-field are given by Eq. (2.31) with the transform hopping parameters, noting that the NN coordinates are $x = \frac{ma}{2}(m = \pm 1, \pm 2)$ and $y = \frac{na\sqrt{3}}{2}(n = 0,\pm 1)$, $a$ being the lattice constant, are shown in \hyperref[fig:site index]{Fig (2.2)}. Since $dy = 0$ along the $x$ direction, $\theta_{m,n}^{m \pm 2, n} = 0$, and using NN coordinates given for lattice site, the $\theta_{m,n}^{m',n'}$ can be written as
+Let us now express the Hamiltonian from the zero-field are given by Eq. (2.31) with the transform hopping parameters, noting that the NN coordinates are $x = \frac{ma}{2}(m = \pm 1, \pm 2)$ and $y = \frac{na\sqrt{3}}{2}(n = 0,\pm 1)$, $a$ being the lattice constant, are shown in \hyperref[fig:site index]{Fig (2.2)}. Since $dy = 0$ along the $x$ direction, $\theta_{m,n}^{m \pm 2, n} = 0$, and using NN coordinates given for lattice site, the $\theta_{m,n}^{m',n'}$ can be written as
 \begin{gather}
 	\theta_{m,n}^{m',n'} =
 	\begin{cases}
@@ -654,14 +656,14 @@ and $h_{0},h_{1},h_{2},h_{11},h_{12},h_{22}$ are submatrices of size $q \times q
 		\label{fig:1 band}
 	\end{subfigure}
 	\caption{
-		Hofstadter butterfly for one band $\ket{dz} \equiv \ket{\phi_{1}^{1}(x,y)}$(left) and all band(right) with $q = 797$ and vary $p$  from 1 to $q$ with field strength $B_{0} = 4.6928 \times 10^{4}$ T. Here on $x-$axis represents the flux in units of quantum flux enclosed by the unit cell and $y-$axis represents the Energy.
+		Hofstadter butterfly for single-band $\ket{dz} \equiv \ket{\phi_{1}^{1}(x,y)}$(left) and all band(right) with $q = 797$ and vary $p$  from 1 to $q$ with field strength $B_{0} = 4.6928 \times 10^{4}$ T. Here on $x-$axis represents the flux in units of quantum flux enclosed by the unit cell and $y-$axis represents the Energy.
 	}
 \end{figure*}
 
 The magnetic field enters the TB Hamiltonian only through the fraction $p/q$, which is the magnetic flux through the primitive unit cell of the lattice. In general, as the lattice geometry evolves, the area of the primitive unit cell changes $(m + 1/2)$ times. \\
 Another observation is that the lattice constant $a$ and the magnetic field $B$ always appears together in an expression with the magnetic field ($\tfrac{Ba^{2}\sqrt{3}}{4}$). This quantity reflects the flux per plaquette in the super magnetic unit cell, which is relevant is the context of Aharonov-Bohm effect \cite{aharonov1959}. Since the expression involves the product $Ba^{2}$, this implies that increasing $B$ by a certain amount is mathematically equivalent to increasing $a$. In other words, for energy calculations, increasing the strength of the magnetic field is physically equivalent to increasing the lattice constant, as both affect the system in the same way through the flux per unit cell.
 
-The spectrum has various symmetries: It is only show that the flux $q$ is affects the spectrum, so if $p/q$ changed to $p/q + c$ while $c$ any interger, the spectrum is unchanged. The spectrum is also unchanged on changing $p/q$ to $-p/q$, because if $\psi$ is an eigenstate withe energy for field $p/q$, then its complex conjugate $\psi^{*}$ is an engenstate with the same energy for field $-p/q$. These two symmetries are not special to the $MX_{2}$'s case. The third symmetry is that if $p/q$ is changed to $p/q + 1/2$, this is the same as changing $t_{i}$, which are hopping energies, to $-t_{i}$, this leads to the inverting of the spectrum.
+The spectrum has various symmetries: It is only show that the flux $q$ is affects the spectrum, so if $p/q$ changed to $p/q + c$ while $c$ is any interger, the spectrum is unchanged. The spectrum is also unchanged on changing $p/q$ to $-p/q$, because if $\psi$ is an eigenstate withe energy for field $p/q$, then its complex conjugate $\psi^{*}$ is an engenstate with the same energy for field $-p/q$. These two symmetries are not special to the $MX_{2}$'s case. The third symmetry is that if $p/q$ is changed to $p/q + 1/2$, this is the same as changing $t_{i}$, which are hopping energies, to $-t_{i}$, this leads to the inverting of the spectrum.
 
 Before we end the section, a few general remarks are in order. The role of the eight hopping constants $t$ is just to set an energy scale. Change the hopping constants amounts to stretching the butterfly spectrum vertically, which is an overall scaling to the energy levels. Thus it does not give rise to any interesting physical phenomenon.
 \begin{figure*}[htb]
@@ -805,7 +807,7 @@ The Eq (2.24) can be rewrite in the form as
 \begin{gather}
 	E(\mathbf{\Pi}) = 6 t_{0} - \left[\f{1}{2m^{*}} \Pi_{x}^{2} + \f{1}{2} m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right] + \epsilon_{1},
 \end{gather}
-where $m^{*} = \frac{\hbar^{2}}{3t_{0}a^{2}}$ is the effective mass and $x_{0} = \frac{\hbar k_{y}}{eB}$. Hence, the cyclotron frequency is
+where $m^{*} = \frac{\hbar^{2}}{3t_{0}a^{2}}$ is the effective mass and $x_{0} = \frac{\hbar k_{y}}{eB}$. Subsequently, the cyclotron frequency is
 \begin{gather}
 	\omega_{c} = \f{eB}{m^{*}} = \f{8 \pi \sqrt{3} t_{0}}{\hbar}  \f{p}{q},
 \end{gather}
@@ -1133,7 +1135,7 @@ We now consider the case of hexagonal lattice with one band as a basis under an 
 		 & + e^{i(\Pi_{x} - \sqrt{3} eBx - \sqrt{3} \Pi_{y} ) a / 2\hbar} + e^{-i(\Pi_{x} - \sqrt{3} eBx - \sqrt{3} \Pi_{y} ) a / 2\hbar} \biggr] + \epsilon_1.
 	\end{aligned}
 \end{equation}
-We replaced $\hbar \mathbf{k}$ in the above function by the operators $\mathbf{\Pi} + e \mathbf{A} / c$ in order to create an operator out of $h_{0}$. This method can be related to Envelop Function Approximation(EFA). When this substitution is made, the Hamiltonian element is seen to contain translation operators $\exp[a \Pi_{x} / \hbar],\exp[a \sqrt{3} \Pi_{y} / (2\hbar)]$. Depending on the gauge chosen, there are, in addition, certain phase factors dependent on the magnetic field strength, which multiply the translation operators. The Landau gauge $\mathbf{A} = (0,Bx,0)$ was chosen, then only the translation along $y$ are multiplied by phases. \cite{PhysRevB.14.2239}However, we must be very careful regarding how the operators act on the wave functions, since $\left[x,\Pi_{x}\right] \neq 0$. In their article, Gumbs and Fekete \cite{gumps1997}  incorrectly applied the modified translation operators, leading to completely incorrect results. In this work, we treat the operators more correctly by applying the Baker-Campbell-Hausdorff(BCH) formula and taking into account the commutation relation $\left[x,\Pi_{x}\right] = i \hbar$
+We replaced $\hbar \mathbf{k}$ in the above function by the operators $\mathbf{\Pi} + e \mathbf{A} / c$ in order to create an operator out of $h_{0}$. However, the quantity $\hbar \mathbf{k}$ is represents the crystal momentum, it is more precise interpretation is to regard $\mathbf{k}$ as a quantum number which describes a Bloch state. This method can be achived by using \ac{EFA}. When this substitution is made, the Hamiltonian element is seen to contain translation operators $\exp[a \Pi_{x} / \hbar],\exp[a \sqrt{3} \Pi_{y} / (2\hbar)]$. The Landau gauge $\mathbf{A} = (0,Bx,0)$ was chosen, then only the translation along $y$ are multiplied by phases. \cite{PhysRevB.14.2239}However, we must be very careful regarding how the operators act on the wave functions, since $\left[x,\Pi_{x}\right] \neq 0$. In their article, Gumbs and Fekete \cite{gumps1997}  incorrectly applied the modified translation operators, leading to completely incorrect results. In this work, we treat the operators more correctly by applying the \ac{BCH} formula and taking into account the commutation relation $\left[x,\Pi_{x}\right] = i \hbar$
 \begin{equation}
 	\begin{aligned}
 		e^{\pm i(\Pi_{x} + \sqrt{3} e B x) a / 2\hbar}
@@ -1341,15 +1343,15 @@ By diagonalizing the Hamiltonian
 \chapter{Fermi energy}
 Given
 \begin{gather}
-	E_{n} = \frac{\hbar^{2} k^{2}}{2m} + \left(n + \frac{1}{2}\right) \hbar \omega_{c},
+	E_{\lambda} = \frac{\hbar^{2} k^{2}}{2m} + \left(\lambda + \frac{1}{2}\right) \hbar \omega_{c},
 \end{gather}
 and
 \begin{gather}
-	n_{0} = \sum_{n=0}^{n_{\text{max}}} f(E_{F}) = \sum_{n=0}^{n_{\text{max}}} \tfrac{1}{\exp[\frac{E_{n} - E_{F}}{k_{B}T}] + 1},
+	n_{0} = \sum_{\lambda=0}^{\lambda_{\text{max}}} f(E_{F}) = \sum_{\lambda=0}^{\lambda_{\text{max}}} \tfrac{1}{\exp[\frac{E_{\lambda} - E_{F}}{k_{B}T}] + 1},
 \end{gather}
-In this work, we had choose $n_{\text{max}} = 30$, if $n \geq n_{\text{max}}$ then $n_{0} = 0$ due to the property of Fermi level. With the aid of Eq (2.50), we rewrite (D.2) in the form as
+In this work, we had choose $\lambda_{\text{max}} = 30$, if $\lambda \geq \lambda_{\text{max}}$ then $n_{0} = 0$ due to the property of Fermi level. With the aid of Eq (2.50), we rewrite (D.2) in the form as
 \begin{gather}
-	n_{0} = \sum_{n = 0}^{30} \f{1}{\exp[\frac{t_{0} \left(6 - 8\pi\sqrt{3} \frac{p}{q}( n + 1 /2)\right) + \epsilon_{1} - E_{F}}{k_{B} T}] + 1},
+	n_{0} = \sum_{ \lambda = 0}^{\lambda_{\text{max}}} \f{1}{\exp[\tfrac{t_{0} \left(6 - 8\pi\sqrt{3} \frac{p}{q}( \lambda + 1 /2)\right) + \epsilon_{1} - E_{F}}{k_{B} T}] + 1},
 \end{gather}
 with $k_{B}$ is Boltzmann constant, $T= 50$mK, $n_{0} = 2.8\times10^{15}$m$^{-2}$
 \begin{equation}
@@ -1357,6 +1359,20 @@ with $k_{B}$ is Boltzmann constant, $T= 50$mK, $n_{0} = 2.8\times10^{15}$m$^{-2}
 		E_{F} = - \ln\left[\frac{1-n_{0}}{n_{0}}\right] k_{B}T + E_{n}
 	\end{aligned}
 \end{equation}
+
+Density of states DOS $D(\varepsilon)$ is calculated from
+\begin{gather}
+	\rho(E_{F},T) = \int_{-\infty}^{E_{F}} f\left(\frac{\varepsilon - E_{F}}{k_{B}T}\right) D(\varepsilon) d\varepsilon,
+\end{gather}
+where $f(x) = \frac{1}{e^{x} + 1}$ is the Fermi-Dirac distribution, $T$ is the temperature of the system.
+
+
+
+
+
+
+
+
 
 
 
