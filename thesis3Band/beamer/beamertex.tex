@@ -1,6 +1,7 @@
 \documentclass[aspectratio=169,compress,x11names]{beamer}
 \usefonttheme[onlymath]{serif}
-\setbeameroption{hide notes} % Only slides
+%\setbeameroption{show notes on second screen}
+\setbeameroption{hide notes}
 \usetheme{Boadilla}
 	\setbeamertemplate{navigation symbols}{}
 	\setbeamertemplate{headline}{%
@@ -15,7 +16,7 @@
 \usepackage{tikz-feynman}
 \usepackage{array}
 \usepackage{animate}
-\usepackage{amsmath}
+\usepackage{amsmath,nicematrix,esint}
 
 \usepackage{cancel}
 \usepackage{multicol}
@@ -30,7 +31,7 @@
 \usepackage{comment}
 
 \usepackage[backend=bibtex,bibencoding=utf8,doi=false,isbn=false,url=false,eprint=false,indexing=false,style=reading]{biblatex}
-\addbibresource{refs.bib}
+\addbibresource{../refs.bib}
 \AtEveryBibitem{%
 	\clearname{translator}%
 	\clearlist{publisher}%
@@ -100,7 +101,7 @@
 			\vfil
 			\begin{figure}
 				\includegraphics[width=\linewidth]{./pic/latticePresent.pdf}
-				\caption{Structure and Brillouin Zone of Monolayer TMD, redrawing from \footcite{liu_three-band_2013}.}
+				\caption{Structure and Brillouin Zone of Monolayer TMD, redrawing from Ref \footcite{PhysRevB.88.085433}.}
 			\end{figure}
 		\end{multicols}
 	\end{frame}
@@ -144,14 +145,14 @@
 		\end{gather}
 		TB Hamiltonian matrix elements
 		\begin{gather}
-			H_{jj'}^{\text{TB}}(\mathbf{k}) = \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} \left[-\frac{\hbar^{2} \nabla^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r - R})}.
+			H_{jj'}^{\text{TB}}(\mathbf{k}) = \sum_{\mathbf{R}} e^{i \mathbf{k \cdot R}} \bra{\phi_{j}(\mathbf{r})} \left[-\frac{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r - R})}.
 		\end{gather}
 	\end{frame}
 	\begin{frame}{Three-band tigh-binding model without magnetic field}
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.65\linewidth]{./pic/bandstructure.pdf}
-			\caption{Band structure of $MoS_{2}$ monolayer\footcite{liu_three-band_2013}.}
+			\caption{Band structure of $MoS_{2}$ monolayer\footcite{PhysRevB.88.085433}.}
 		\end{figure}
 	\end{frame}
 
@@ -163,13 +164,13 @@
 		\end{gather}
 		It is possible to add a phase factor to the basis functions
 		\begin{gather}
-			\psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \sum_{j=1}^{3} C_{j}^{\lambda}(\mathbf{k}) \sum_{\mathbf{R}} e^{i (\mathbf{k} \cdot \mathbf{R} + \theta_\mathbf{R}(\mathbf{r}))} \phi_{j}(\mathbf{r} - \mathbf{R}).
+			\psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \sum_{j=1}^{3} C_{j}^{\lambda}(\mathbf{k}) \sum_{\mathbf{R}} e^{i \mathbf{k} \cdot \mathbf{R} } e^{i\theta_\mathbf{R}(\mathbf{r})} \phi_{j}(\mathbf{r} - \mathbf{R}).
 		\end{gather}
 		By choosing $\theta_\mathbf{R} = - \tfrac{e}{\hbar} \int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A}(\mathbf{r'}) \cdot d\mathbf{r}' $ as Peierls substitution, the Hamiltonian matrix elements as the form
 		\begin{equation}
 			\begin{aligned}
 				H_{jj'}^{\text{TB}}(\mathbf{k})
-				&= \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R} + \frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} \left[ -\frac{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})} \\
+				&= \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R}} e^{\frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d \mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} \left[ -\frac{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0} (\mathbf{r}) \right] \ket{\phi_{j'}(\mathbf{r - R})} \\
 				&+ g^{*} \mu_{B} \mathbf{B} \cdot \sum_{\mathbf{R}} e^{i\mathbf{k \cdot R} + \frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'} } \bra{\phi_{j}(\mathbf{r})} \mathbf{L} \ket{\phi_{j'}(\mathbf{r - R})}.
 			\end{aligned}
 		\end{equation}
@@ -182,39 +183,121 @@
 		\end{figure}
 	\end{frame}
 	\begin{frame}{Three-band tigh-binding model under a magnetic field}
-		\begin{figure}
-			\centering
-			\includegraphics[width=0.85\textwidth,height=0.35\linewidth]{pic/magneticUC_cut.pdf}
-			\caption{\label{fig:Mag UC} Magnetic unit cell for TMD monolayers.}
-		\end{figure}
+		\begin{multicols}{2}
+			The Eq (9) is consist only 1-atom $M$ in the unit cell, and the Hamiltonian does not invariant under the expansion of lattice vector along the $x$ axis. In order to restore this invariance, we expanded the origin unit cell into a magnetic unit cell, which now contains $2$-atoms $M$.
+			\columnbreak
+			\begin{figure}
+				\centering
+				\includegraphics[width=\linewidth]{../pic/magneticUC_cut.pdf}
+				\caption{\label{fig:Mag UC} Magnetic unit cell for TMD monolayers.}
+			\end{figure}
+		\end{multicols}
 	\end{frame}
-	\begin{frame}{Three-band tigh-binding model under a magnetic field}
+	\begin{frame}{Hamiltonian of magnetic unit cell}
+		The new basis set of $3q$ atomic orbitals is defined as
+		\begin{gather}
+			\psi_{\lambda,\mathbf{k}}(\mathbf{r}) = \sum_{j,i} C_{ji}^{\lambda}(\mathbf{k}) \sum_{\mathbf{R}_{\alpha}}^{N_{UC}} e^{i\mathbf{k}\cdot(\mathbf{R}_{\alpha} + \mathbf{r}_{i})} \phi_{j}(\mathbf{r} - \mathbf{R}_{\alpha} - \mathbf{r}_{i}),
+		\end{gather}
+		in which $\mathbf{r}_{i}$ is the position of an atom in a unit cell, while $\mathbf{R}_{\alpha}$ is the position of different unit cells.
+		The Hamiltonian matrix elements in the new basis is written as
+		\begin{gather}
+			H_{ii'}^{jj'}(\mathbf{k})
+			= \sum_{\mathbf{R}_{\alpha}}^{N_\text{UC}}\sum_{\mathbf{R}_{\beta}}^{N_\text{UC}} e^{i \mathbf{k} \cdot (\mathbf{R}_{\beta} - \mathbf{R}_{\alpha} + \mathbf{r}_{i'} - \mathbf{r}_{i})}  \bra{\phi_{j}(\mathbf{r} - \mathbf{R}_{\alpha} - \mathbf{r}_{i})} \left[-\tfrac{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0}\right] \ket{\phi_{j}(\mathbf{r} - \mathbf{R}_{\beta} - \mathbf{r}_{i'})}.
+		\end{gather}
+		Now we center our system at $\mathbf{r}'=\mathbf{r} - \mathbf{R}_{\alpha} - \mathbf{r}_{i}$ and define $\mathbf{R}_{\gamma} = \mathbf{R}_{\alpha} - \mathbf{R}_{\beta}$. This lead us to
+		\begin{gather}
+			H_{ii'}^{jj'}(\mathbf{k})
+			= \sum_{{\alpha}}^{N_\text{UC}}\sum_{{\gamma}}^{N_\text{UC}} e^{-i \mathbf{k} \cdot (\mathbf{R}_{\gamma} + \mathbf{r}_{i} - \mathbf{r}_{i'})}  \bra{\phi_{j}(\mathbf{r})} \left[-\tfrac{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0}\right] \ket{\phi_{j}(\mathbf{r} + \mathbf{R}_{\gamma} + \mathbf{r}_{i} - \mathbf{r}_{i'})}.
+		\end{gather}
+	\end{frame}
+	\begin{frame}{Hamiltonian of magnetic unit cell}
+		Only considering the nearest-neighbors, we define our hopping terms in the new basis
+		\begin{gather}
+			H_{jj'}^{ii'}(\mathbf{k}) = \sum_{{\alpha}}^{N_\text{UC}}\sum_{{\gamma}}^{N_\text{UC}} e^{-i \mathbf{k}\cdot \mathbf{R}_{\gamma}} \bra{\phi_{j}(\mathbf{r})} \left[-\frac{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r}+\mathbf{R}_{\gamma})}\delta_{i,i'}.
+		\end{gather}
+		Note that $i=(m,n)$, taking the sum over $\mathbf{R}$ and plugging the Peierls phase into Eq. (13), we get the Hamiltonian under a magnetic field
+		\begin{gather}
+			H_{jj'}^{ii'}(\mathbf{k})
+			= e^{\frac{ie}{\hbar} \int_{\mathbf{0}}^{\mathbf{R}}\mathbf{A}(\mathbf{r}')\cdot d\mathbf{r}'}e^{i\mathbf{k} \cdot (\mathbf{0} - \mathbf{R})} \bra{\phi_{j}(\mathbf{r})} \left[-\frac{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r} - \mathbf{R})}\delta_{i,i'} .
+		\end{gather}
+	\end{frame}
+	\begin{frame}{Hamiltonian of magnetic unit cell}
+		Given the NN coordinates, we rewrite the Hamiltonian (14) as
+		\begin{equation}
+			\begin{aligned}
+				H_{jj'}^{ii'}(\mathbf{k}) 
+				&= e^{\frac{ie}{\hbar} \int_{m,n}^{m',n'} \mathbf{A}(\mathbf{r}') \cdot d\mathbf{r}'} e^{-i\mathbf{k} \cdot \mathbf{R}}\bra{\phi_{j}(\mathbf{r})} \left[-\frac{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r} - \mathbf{R})}\delta_{m,m'}^{n,n'}\\
+				& = E_{jj'}(\mathbf{0}) \delta_{m,m}^{n,n} + e^{-i\mathbf{k} \cdot \mathbf{R}_{1}}E_{jj'}(\mathbf{R}_{1}) \delta_{m,m+2}^{n,n} + e^{-i\mathbf{k} \cdot \mathbf{R}_{4}}E_{jj'}(\mathbf{R}_{4})  \delta_{m-2,m'}^{n,n'}            \\
+				+& e^{-2i\pi(m + 1/2)p / q}e^{-i\mathbf{k} \cdot \mathbf{R}_{2}} E_{jj'}(\mathbf{R}_{2}) \delta_{m,m+1}^{n,n-1} + e^{-2i\pi(m - 1/2)p / q} e^{-i\mathbf{k} \cdot \mathbf{R}_{3}} E_{jj'}(\mathbf{R}_{3}) \delta_{m,m-1}^{n,n-1} \\
+				+& e^{2i\pi(m - 1/2)p / q} e^{-i\mathbf{k} \cdot \mathbf{R}_{5}} E_{jj'}(\mathbf{R}_{5}) \delta_{m,m-1}^{n,n+1} + e^{2i\pi(m + 1/2)p / q} e^{-i\mathbf{k} \cdot \mathbf{R}_{6}} E_{jj'}(\mathbf{R}_{6}) \delta_{m,m+1}^{n,n+1}.
+			\end{aligned}
+		\end{equation}
+		The Hamiltonian now invariant under the expansion of a lattice vector along the $x$ axis and depend on the site index $m$.
+	\end{frame}
+	\begin{frame}{Hamiltonian of magnetic unit cell}
+		\begin{equation}
+			\renewcommand{\arraystretch}{0.85}
+			\begin{aligned}
+				H_{jj'}
+				& =
+				\begin{pNiceMatrix}
+					\mathcal{E}_{jj'}(\mathbf{0})     & A_{jj'}^{(1)}                     & \mathcal{E}_{jj'}(\mathbf{R}_{1}) & 0                                 & \cdots                            & 0                                 & \mathcal{E}_{jj'}(\mathbf{R}_{4}) & B_{jj'}^{(1)}                     \\
+					B_{jj'}^{(2)}                     & \mathcal{E}_{jj'}(\mathbf{0})     & A_{jj'}^{(2)}                     & \mathcal{E}_{jj'}(\mathbf{R}_{1}) & 0                                 & \cdots                            & 0                                 & \mathcal{E}_{jj'}(\mathbf{R}_{4}) \\
+					\mathcal{E}_{jj'}(\mathbf{R}_{4}) & B_{jj'}^{(3)}                     & \mathcal{E}_{jj'}(\mathbf{0})     & A_{jj'}^{(3)}                     & \mathcal{E}_{jj'}(\mathbf{R}_{1}) & 0                                 & \cdots                            & 0                                 \\
+					\vdots                            & \vdots                            & \vdots                            & \ddots                            & \vdots                            & \vdots                            & \vdots                            & \vdots                            \\
+					\mathcal{E}_{jj'}(\mathbf{R}_{1}) & 0                                 & \cdots                            & 0                                 & \mathcal{E}_{jj'}(\mathbf{R}_{4}) & B_{jj'}^{(q-2)}                   & \mathcal{E}_{jj'}(\mathbf{0})     & A_{jj'}^{(q-2)}                   \\
+					A_{jj'}^{(q-1)}                   & \mathcal{E}_{jj'}(\mathbf{R}_{1}) & \cdots                            & 0                                 & 0                                 & \mathcal{E}_{jj'}(\mathbf{R}_{4}) & B_{jj'}^{(q-1)}                   & \mathcal{E}_{jj'}(\mathbf{0})     \\
+				\end{pNiceMatrix},
+			\end{aligned}
+		\end{equation}
+		where $A_{jj'}^{(m)} = \mathcal{E}_{jj'}(\mathbf{R}_{2})e^{-2i\pi(m+1/2)p/q}e^{-i \mathbf{k}\cdot \mathbf{R}_{2}} + \mathcal{E}_{jj'}(\mathbf{R}_{6})e^{2i\pi(m+1/2)p/q}e^{-i \mathbf{k}\cdot \mathbf{R}_{6}}$, and $B_{jj'}^{(m)} = \mathcal{E}_{jj'}(\mathbf{R}_{3})e^{-2i\pi(m-1/2)p/q}e^{-i
+			\mathbf{k}\cdot\mathbf{R}_{3}} + \mathcal{E}_{jj'}(\mathbf{R}_{5})e^{2i\pi(m-1/2)p/q}e^{-i\mathbf{k}\cdot \mathbf{R}_{5}}$
+	\end{frame}
+	\begin{frame}{Hamiltonian of magnetic unit cell}
 		\begin{figure}
 			\centering
 			\begin{subfigure}[b]{0.495\textwidth}
 				\centering
-				\includegraphics[width=0.65\linewidth]{../pic/h0_tam giac_q_797.png}
-				\label{fig:3 band}
+				\includegraphics[width=0.8\linewidth]{../pic/matrix_1band_h0_q_20.pdf}
+				\label{fig:3 band matrix}
 			\end{subfigure}
 			\begin{subfigure}[b]{0.495\textwidth}
 				\centering
-				\includegraphics[width=0.65\linewidth]{../pic/3band_gnuplot_q_797.png}
-				\label{fig:1 band}
+				\includegraphics[width=0.8\linewidth]{../pic/matrix_3band_h0_q_20.pdf}
+				\label{fig:1 band matrix}
 			\end{subfigure}
-			\caption{
-				Hofstadter butterfly for single-band $\ket{dz} \equiv \ket{\phi_{1}^{1}(x,y)}$(left) and three-band(right) with $q = 797$ with field strength $B_{0} = 4.6928 \times 10^{4}$ T.
+			\caption[A visualization of super matrix.]{
+				An visualization of sub-matrix $h_{0}$ for single-band(a) and matrix $H$ for three band(b) using standard plotter with $q = 20$.
 			}
 		\end{figure}
 	\end{frame}
- \begin{frame}
-		\frametitle{Hofstadter butterfly}
+	\begin{frame}{Hofstadter butterfly\footcite{PhysRevB.14.2239} - Energy band structure}
+		\begin{figure}
+			\centering
+			\begin{subfigure}[b]{0.495\textwidth}
+				\centering
+				\includegraphics[width=0.6\linewidth]{../pic/h0_tam giac_q_797.png}
+				\label{fig:3 band}
+			\end{subfigure}
+			\hspace{-3\baselineskip}
+			\begin{subfigure}[b]{0.495\textwidth}
+				\centering
+				\includegraphics[width=0.6\linewidth]{../pic/3band_gnuplot_q_797.png}
+				\label{fig:1 band}
+			\end{subfigure}
+			\caption{
+				Hofstadter butterfly for single-band $\ket{dz} \equiv \ket{\phi_{1}^{1}(x,y)}$(left) and three-band(right). 
+			}
+		\end{figure}
+	\end{frame}
+ 	\begin{frame}{Hofstadter butterfly}
 		\begin{multicols}{2}
 			\begin{minipage}{\columnwidth}
 				\begin{block}{Properties}
 					\begin{itemize}
-						\item 
-						\item 
+						\item The spectrum depends only on the flux ratio $p/q$.
 						\item The spectrum also invariant under reversal of the magnetic field $\tfrac{p}{q} \to -\tfrac{p}{q}$.
+						\item It invert when the flux is higher than $p/q + 1/2$ (ie,. $1-p/q$).
 						\item At weak magnetic field, Landau levels can clearly seen from the Hofstadter spectrum.
 					\end{itemize}
 				\end{block}
@@ -222,13 +305,12 @@
 			\begin{minipage}{\columnwidth}
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.7\linewidth]{../pic/3band_gnuplot_q_797.png}
+					\includegraphics[width=0.65\linewidth]{../pic/3band_gnuplot_q_797.png}
 				\end{figure}
-				\smallskip
 			\end{minipage}
 		\end{multicols}
 	\end{frame}
-	\begin{frame}{Hofstadter butterfly in $MX_{2}$}
+	\begin{frame}{Hofstadter butterfly in transistion metal dichalcogenides}
 		\begin{figure}
 			\begin{subfigure}[b]{0.3\linewidth}
 				\centering
@@ -256,7 +338,90 @@
 			\end{subfigure}
 		\end{figure}
 	\end{frame}
+	\begin{frame}{Hofstadter butterfly with SOC}
+		Three-band TB Hamiltonian under magnetic field with SOC has the form
+		\begin{equation}
+			\begin{aligned}
+				H_{\text{SOC}}(\mathbf{k})
+				& =
+				\begin{pmatrix}
+					H_{3q \times 3q}(\mathbf{k}) + \frac{\lambda}{2} \mathbf{I}_{q} \otimes L_{z} & 0                                                      \\
+					0                                                      & H_{3q \times 3q}(\mathbf{k}) - \frac{\lambda}{2} \mathbf{I}_{q} \otimes L_{z}
+				\end{pmatrix},
+			\end{aligned}
+			\begin{aligned}
+				L_{z}
+				=
+				\begin{pNiceMatrix}
+					0 & 0   & 0  \\
+					0 & 0   & 2i \\
+					0 & -2i & 0
+				\end{pNiceMatrix}
+			\end{aligned}
+		\end{equation}
+	\end{frame}
+	\begin{frame}{Hofstadter butterfly with SOC}
+		\begin{figure}
+			\begin{subfigure}[b]{0.495\textwidth}
+				\centering
+				\includegraphics[width=0.6\linewidth]{../pic/bandstructureSOC.pdf}
+				%\caption{\label{band structure SOC}}
+			\end{subfigure}
+			\hspace{-3\baselineskip}
+			\begin{subfigure}[b]{0.495\textwidth}
+				\centering
+				\includegraphics[width=0.6\linewidth]{../pic/plotHofstadterButterfly_q=797_MoS2_SOC.png}
+				%\caption{\label{HB SOC}}
+			\end{subfigure}
+			\caption{Band structure of monolayer $MoS_{2}$ along $\Gamma$-K direction with SOC.}
+		\end{figure}
+	\end{frame}
+	
 	\subsection{Landau levels}
+	\begin{frame}{Landau levels}
+		The Hamiltonian for free-electron
+		\begin{gather}
+			H = \frac{\mathbf{p} + e \mathbf{A}(\mathbf{r})^{2}}{2m} ,
+		\end{gather}
+		and the energy eigenfunctions are known as Landau levels
+		\begin{gather}
+			E_{n} = \left(n + 1/2\right) \hbar \omega_{c},
+		\end{gather}
+		where $\omega_{c}$ is cyclotron frequency and $n$ is Landau level index.
+	\end{frame}
+	\begin{frame}{Envelope Function Approximation}
+		The dispersion relation of an electron within TBM
+		\begin{equation}
+			\begin{aligned}
+				h_{0} 
+				& \approx 6 t_{0} - \frac{3}{2} t_{0} a^{2} (k_{x}^{2} + k_{y}^{2}) + \epsilon_{1}.
+			\end{aligned}
+		\end{equation}
+		Using Envelop Function Approxmation (EFA) substitution $\hbar\mathbf{k} \to \mathbf{\Pi} + e \mathbf{A}$ with Landau gauge $\mathbf{A} = (0,Bx,0)$
+		\begin{gather}
+			h_{0}(\mathbf{\Pi})
+			\approx 6 t_{0} - \frac{3}{2} t_{0} \frac{a^{2}}{\hbar^{2}} \left[ \Pi_{x}^{2} + \left(\Pi_{y} + e B x\right)^{2}\right] + \epsilon_{1}.
+		\end{gather}
+		Eq. (21) can be rewrite in the form as 
+		\begin{gather}
+			E(\mathbf{\Pi}) = 6 t_{0} - \left[\frac{1}{2m^{*}} \Pi_{x}^{2} + \frac{1}{2} m^{*} \omega_{c}^{2}(x - x_{0})^{2}\right] + \epsilon_{1},
+		\end{gather}
+		where $m^{*} = \frac{\hbar^{2}}{3t_{0}a^{2}}$ is the effective mass and $x_{0} = \frac{\hbar k_{y}}{eB}$. Subsequently, the cyclotron frequency is
+		\begin{gather}
+			\omega_{c} = \frac{eB}{m^{*}} = \frac{8 \pi \sqrt{3} t_{0}}{\hbar}  \frac{p}{q},
+		\end{gather}
+	\end{frame}
+	\begin{frame}{Envelope Function Approximation}
+		and therefore the Landau levels near the bottom of the band structure can be written as
+		\begin{equation}
+			\begin{aligned}
+				E_{n}
+				& = 6 t_{0} - \hbar \omega_{c} (n + 1 /2) + \epsilon_{1}                    \\
+				& = t_{0} \left(6 - 8\pi\sqrt{3} \frac{p}{q}( n + 1 /2)\right) + \epsilon_{1}.
+			\end{aligned}
+		\end{equation}
+		Plot Eq. (25) while varrying $p$ from $1\to q$ which Landau level index $n$ we get
+	\end{frame}
 	\begin{frame}{Landau levels}
 		\begin{figure}
 			\centering
@@ -264,18 +429,101 @@
 				\centering
 				{\includegraphics[width=0.6\linewidth]{../pic/small_area_LL.png}}
 			\end{subfigure}
+			\hspace{-3\baselineskip}
 			\begin{subfigure}[b]{0.49\textwidth}
 				\centering
 				\includegraphics[width=0.6\linewidth]{../pic/landaulevel_h0_q_797.pdf}
 			\end{subfigure}
 			\caption{
-				(a) Same plot as Fig (2.6) but considering a small area and (b) shows superposition of the Landau fan diagram and the Hofstadter butterfly. Display the first $n = 30$ levels near the bottom of the conduction band for a magnetic field up to $B = 500$ T.
+				Landau levels appear in weak magnetic field.
 			}
 		\end{figure}
 	\end{frame}
-	\subsection{Quantum Hall effect}
-	\begin{frame}{Classical Hall effect}
-		\note{note text}
+	\subsection{Hall effect}
+	\begin{frame}{The Classical Hall effect}
+		\begin{multicols}{2}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.8\linewidth]{../pic/HEsetup.png}
+				\caption{Classical Hall effect}
+			\end{figure}
+			\columnbreak
+			The Hall effect can be described through Ohm's law
+			\begin{gather}
+				\begin{pNiceMatrix}
+					J_{x} \\
+					J_{y}
+				\end{pNiceMatrix}
+				=
+				\begin{pNiceMatrix}
+					\sigma_{xx} & \sigma_{xy} \\
+					\sigma_{yx} & \sigma_{yy} \\
+				\end{pNiceMatrix}
+				\begin{pNiceMatrix}
+					E_{x} \\
+					E_{y}
+				\end{pNiceMatrix}, \\
+				\begin{pNiceMatrix}
+					E_{x} \\
+					E_{y}
+				\end{pNiceMatrix}
+				=
+				\begin{pNiceMatrix}
+					\rho_{xx} & \rho_{xy} \\
+					\rho_{yx} & \rho_{yy} \\
+				\end{pNiceMatrix}
+				\begin{pNiceMatrix}
+					J_{x} \\
+					J_{y}
+				\end{pNiceMatrix}.
+			\end{gather}
+		\end{multicols}
+		\begin{figure}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\centering
+				\includegraphics[width=0.6\linewidth]{../pic/classRess.pdf}
+			\end{subfigure}
+			\hspace{-3\baselineskip}
+			\begin{subfigure}[b]{0.4\textwidth}
+				\centering
+				\includegraphics[width=0.6\linewidth]{../pic/HallRess.pdf}
+			\end{subfigure}
+		\end{figure}
+	\end{frame}
+	\begin{frame}{The Quantum Hall effect}
+		\begin{multicols}{2}
+			It was first discovered in early 1980\footnotemark. \\
+			The resistance in a MOSFET under a strong magnetic field depicts interesting phenomena.
+			\begin{minipage}{\columnwidth}
+				\begin{block}{Properties}
+					\begin{itemize}
+						\item On Hall plateaux
+						\begin{gather*}
+							\rho_{xx} = \rho_{yy} = 0, \quad \rho_{xy} = \rho_{yx} = \fontfamily{serif}\text{const}.\\
+							\sigma_{xx} = \sigma_{yy} = 0, \quad \sigma_{xy} = \sigma_{yx} = 1/ \fontfamily{serif}\text{const}.
+						\end{gather*}
+						\item Between Hall plateaux
+						\begin{gather*}
+							\rho_{xx},\rho_{yy} \neq 0 \Rightarrow \sigma_{xx},\sigma_{yy} \neq 0, \\
+							\rho_{xy} = \tfrac{R_{K}}{\nu}, \quad \nu = 1,2,3,...
+						\end{gather*}
+					\end{itemize}
+				\end{block}
+			\end{minipage}
+			\columnbreak
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.95\linewidth]{../pic/quantumhall.jpg}
+				\caption{The Quantum Hall effect by \citeauthor{klitzing90} (\citeyear{klitzing90}).}
+			\end{figure}
+			%\footnotetext{\citeauthor{klitzing90}}
+		\end{multicols}
+	\end{frame}
+	\begin{frame}{The Quantum Hall effect}
+		The contribution to the Hall conductance is given by
+		\begin{gather}
+			\sigma_{xy} = \frac{e^{2}}{h} \sum_{n}^{\fontfamily{seriff}\text{occ.}} \frac{1}{2\pi} \oiint_{\fontfamily{serif}\text{{BZ}}} d k_{x} d k_{y} \Omega_{n}^{z} (\mathbf{k}),
+		\end{gather}
 	\end{frame}
 	\section{Summary and Outlook}
 	\begin{frame}
