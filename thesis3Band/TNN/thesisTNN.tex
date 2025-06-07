@@ -177,6 +177,10 @@ pdfpagemode=FullScreen,
 \setcounter{page}{1}
 
 \chapter*{GUARANTEE}
+I guarantee to indepentdently conductiing the calculation of the Hofstadter butterfly of an ideal two-dimensional system of MoS$_{2}$ for my bachelor thesis, under the supervision of Dr. Huynh Thanh Duc.
+
+The contexts are included in this graduation thesis are totally accurate and honest.
+
 
 
 \chapter*{ACKNOWLEDGMENTS}
@@ -256,7 +260,7 @@ In the \acf{TBM}, the single-electron Bloch wavefunction can be expressed in ter
 \end{gather}
 where $\phi_{j}(\mathbf{r} - \mathbf{R} - \mathbf{r}_{i})$ is the orbital $j$ of an atom $i$ localized on a lattice site $\mathbf{R}$, in which $\mathbf{r}_{i}$ is the relavetive position of the atom $i$ in the unit cell, and $C_{ji}^{\lambda}(\mathbf{k})$ are the coefficents of linear expansion.
 
-The unit cell of \ac{TMD} involve one transition metal atom M and two chalcogenide atoms X. From the \textit{ab initio} calculations, it is shown that the electron states near the band edges of MX$_{2}$ are mainly contributed from the three $d$ orbital of M atom, namely $d_{z^{2}},d_{xy},d_{x^{2}-y^{2}}$ \cite{PhysRevB.88.085433}. Since only the orbitals of atom $M$ is included, we ignore the sum over the atom $\mathbf{r}_{i}$ in the unit cell in Eq. (2.2). This model is called the three-band tight binding model. The three orbitals's wave function of M atom are denoted as
+The unit cell of \ac{TMD} involve one transition metal atom M and two chalcogenide atoms X. From the \textit{ab initio} calculations, it is shown that the electron states near the band edges of MX$_{2}$ are mainly contributed from the three $d$ orbital of M atom, namely $d_{z^{2}},d_{xy},d_{x^{2}-y^{2}}$ \cite{PhysRevB.88.085433}. Since only the orbitals of atom M is included, we ignore the sum over the atom $\mathbf{r}_{i}$ in the unit cell in Eq. (2.2). This model is called the three-band tight binding model. The three orbitals's wave function of M atom are denoted as
 \begin{gather}
 	\ket{\phi_{1}} = \ket{d_{z^{2}}} ; \quad \ket{\phi_{2}} = \ket{d_{xy}} ; \quad \ket{\phi_{3}} = \ket{d_{x^{2} - y^{2}}}.
 \end{gather}
@@ -299,6 +303,7 @@ where
 \end{gather}
 and $\mathbf{R}_{i}, \tilde{\mathbf{R}}_{i}$ and $2\mathbf{R}_{i}$ are one of the \ac{NN}, \ac{NNN} and \ac{TNN} vectors, respectively, where $i = 1,...,6$, see in Fig (2.2). Table (2.1) summarizes the coordinates of hopping vectors condered in the model.
 \begin{table}[h]
+	\label{Table 2.1}
 	\begin{equation*}
 		\renewcommand{\arraystretch}{1.5}
 		\begin{NiceArray}{c c c}
@@ -527,7 +532,7 @@ and
 	H_{jj'}^{Z}(\mathbf{k})
 	 & = g^{*} \mu_{B} \mathbf{B} \cdot \sum_{\mathbf{R}} \bra{\phi_{j}(\mathbf{r})} e^{i(\mathbf{k \cdot R} + \theta_{\mathbf{R}} - \theta_{\mathbf{0}} )} \mathbf{L} \ket{\phi_{j'}(\mathbf{r - R})}.
 \end{align}
-By choosing $\theta_{\mathbf{R}} = - \f{e}{\hbar} \int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'}$ as Peierls substitution, the Hamiltonian in Eq. (2.25) now reads
+By choosing $\theta_{\mathbf{R}} = - \f{e}{\hbar} \int_{\mathbf{R}}^{\mathbf{r}} \mathbf{A(\mathbf{r'})} \cdot d\mathbf{r'}$ as Peierls substitution, the Hamiltonian in Eq. (2.19) now reads
 \begin{equation}
 	\begin{aligned}
 		H_{jj'}^{\text{NN}}(\mathbf{k})
@@ -564,7 +569,7 @@ Considering only \ac{NN}, \ac{NNN}, \ac{TNN} hopping, Eq (2.23) becomes
 \end{equation}
 where $\tilde{\mathbf{R}}_{i}$ is of the \ac{NN} vectors and $\mathbf{R}'_{i} = 2 \mathbf{R}_{i}$ is one of the \ac{TNN} vectors.
 
-In the presence of a perpendicular magnetic field $\mathbf{B} \hat{z}$ applied to the plane of \ac{TMD}, we choose the vector potential in the Landau gauge as $\mathbf{A} = (0, Bx, 0)$. Suppose that the atom metal $M$ is located at position $\mathbf{R}_{m,n} = \left(m \frac{a}{2}, n \frac{a\sqrt{3}}{2}\right)$, where $m,n \in \mathbb{Z}$, let us define a shorthand notation for these extra terms
+In the presence of a perpendicular magnetic field $\mathbf{B} \hat{z}$ applied to the plane of \ac{TMD}, we choose the vector potential in the Landau gauge as $\mathbf{A} = (0, Bx, 0)$. Suppose that the atom metal M is located at position $\mathbf{R}_{m,n} = \left(m \frac{a}{2}, n \frac{a\sqrt{3}}{2}\right)$, where $m,n \in \mathbb{Z}$, let us define a shorthand notation for these extra terms
 \begin{equation}
 	\begin{aligned}
 		\theta_{m,n}^{m',n'}
@@ -572,7 +577,7 @@ In the presence of a perpendicular magnetic field $\mathbf{B} \hat{z}$ applied t
 		 & = \frac{eB}{2\hbar}(x_{m} + x_{m'})(y_{n'} - y_{n}),
 	\end{aligned}
 \end{equation}
-in which $x_{m} = \frac{ma}{2}(m = \pm 1, \pm 2)$ and $y_{n} = \frac{na\sqrt{3}}{2}(n = 0,\pm 1)$ are the \ac{TNN} coordinates and $a$ being the lattice constant, are shown in \hyperref[fig:site index]{Fig. (2.4)}. Details of this calculation is given in \hyperref[appendix a]{Appendix A}.
+in which $x_{m} = \frac{ma}{2}(m = \pm 1, \pm 2)$ and $y_{n} = \frac{na\sqrt{3}}{2}(n = 0,\pm 1)$ are the \ac{TNN} coordinates and $a$ being the lattice constant, are shown in \hyperref[fig:site index]{Fig. (2.4)}. Details of this calculation is given in \hyperref[appendix A]{Appendix A}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\linewidth]{pic/siteindex_2_crop.pdf}
@@ -581,7 +586,7 @@ in which $x_{m} = \frac{ma}{2}(m = \pm 1, \pm 2)$ and $y_{n} = \frac{na\sqrt{3}}
 
 %In this system, hopping integral of $y$-direction does not change, but hopping integral of $y$-direction change and it depends on the $x$ position.
 %Let us now express the Hamiltonian from the zero-field are given by Eq. (2.31) with the transform hopping parameters, noting that the \ac{NN} coordinates are $x = \frac{ma}{2}(m = \pm 1, \pm 2)$ and $y = \frac{na\sqrt{3}}{2}(n = 0,\pm 1)$, $a$ being the lattice constant, are shown in \hyperref[fig:site index]{Fig (2.2)}. 
-\noindent Since $dy = 0$ along the $x$ direction, $\theta_{m,n}^{m \pm 2, n} = 0$, and using \ac{TNN} coordinates given for lattice site, the $\theta_{m,n}^{m',n'}$ can be written as
+\noindent Since $dy = 0$ along the $x$ direction, $\theta_{m,n}^{m \pm 2, n} = 0$, and using \ac{TNN} coordinates given for lattice site in \hyperref[Table 2.1]{Table 2.1}, the $\theta_{m,n}^{m',n'}$ can be written as
 %\begin{table}[h]
 %	\begin{equation*}
 %		\renewcommand{\arraystretch}{1.5}
@@ -651,7 +656,7 @@ The magnetic unit cell has lattice vectors $q\mathbf{a}_{1}$ and $\mathbf{a}_{2}
 \end{figure}
 %Hinh. 
 
-In Section 2.1, we have ignored the sum over of relative positions $\mathbf{r}_{c}$ in Eq (2.2) due to ignore the orbitals of $X$ atoms. While, the magnetic unit cell consits $2q$ atom $M$. We, now, define a new basis set of $6q$ atomic orbitals $\{ \phi_{j}(\mathbf{r} - \mathbf{r}_{i}) \}$ where $j=1,2,3$ and $i = 1,2,...,2q$.
+In Section 2.1, we have ignored the sum over of relative positions $\mathbf{r}_{c}$ in Eq (2.2) due to ignore the orbitals of X atoms. While, the magnetic unit cell consits $2q$ atom M. We, now, define a new basis set of $6q$ atomic orbitals $\{ \phi_{j}(\mathbf{r} - \mathbf{r}_{i}) \}$ where $j=1,2,3$ and $i = 1,2,...,2q$.
 %Here, $\mathbf{r}_{i} = (x_{i},y_{i}) = \frac{ma}{2}\hat{x} + \frac{na\sqrt{3}}{2}\hat{y}$. 
 The new basis function now is
 \begin{gather}
@@ -672,7 +677,7 @@ Taking the sum over $\mathbf{R}$ and replacing $\mathbf{r}_{i} = \left(m \frac{a
 \begin{gather}
 	H_{jj'}^{ii'}(\mathbf{k}) = \sum_{{\alpha}}^{N_\text{UC}}\sum_{{\gamma}}^{N_\text{UC}} e^{-i \mathbf{k}\cdot \mathbf{R}_{\gamma}} \bra{\phi_{j}(\mathbf{r})} \left[-\f{\hbar^{2} \boldsymbol{\nabla}^{2}}{2m} + U_{0}(\mathbf{r})\right] \ket{\phi_{j'}(\mathbf{r}+\mathbf{R}_{\gamma})}\delta_{i,i'}.
 \end{gather}
-One can regconize that Eq. (2.38) resembles Eq. (2.6). Additionally, the equation not only describes the hopping between magnetic unit cells but also accounts for hopping between sites within magnetic unit cells. To address the previous question, it is important to note that we have enlarged the original unit cell into a magnetic unit cell, which now contains $2q$ atoms $M$. The neighbor interactions are preserved inside the ``supercell'', but they now involve neighboring magnetic unit cells due to the enlarged cell structure. The Hamiltonian has a discrete tranlastional invariance with a unit cell carrying $2q$ unit cells along the $x$ axis.
+One can regconize that Eq. (2.32) resembles Eq. (2.6). Additionally, the equation not only describes the hopping between magnetic unit cells but also accounts for hopping between sites within magnetic unit cells. To address the previous question, it is important to note that we have enlarged the original unit cell into a magnetic unit cell, which now contains $2q$ atoms M. The neighbor interactions are preserved inside the ``supercell'', but they now involve neighboring magnetic unit cells due to the enlarged cell structure. The Hamiltonian has a discrete tranlastional invariance with a unit cell carrying $2q$ unit cells along the $x$ axis.
 
 The last step is to develop the matrix Hamiltonian elements. This can be obtained by taking the sum over $\mathbf{R}$ in Eq. (2.32).
 We can choose $\mathbf{R}_{\alpha} = \mathbf{0}$, this will not affect the Hamiltonian. In fact, the sum over $\mathbf{R}$ is only considering the \ac{NN}, \ac{NNN}, \ac{TNN} atoms, and replacing $\mathbf{R}$ is equivalent to redefining dummy variables in the equation, Hamiltonian with the Peierls phase now is
@@ -947,7 +952,7 @@ The role of the eight hopping constants $t$ is just to set an energy scale. Chan
 %\newpage
 %\section{Spin-orbit coupling}
 %\newpage
-Due to the significant mass of the transition-metal atom $M$, its \ac{SOC} can be large. For simplicity, we consider only the on-site contribution, which corresponds to the $\mathbf{L \cdot S}$ term originating from the $M$ atoms. Using the basis set $\left\{\ket{d_{z^{2}},\uparrow},\ket{d_{xy},\uparrow},\ket{d_{x^{2} - y^{2}},\uparrow},\ket{d_{z^{2}},\downarrow},\ket{d_{xy},\downarrow},\ket{d_{x^{2} - y^{2}},\downarrow}\right\}$, we derive the SOC term in the Hamiltonian as
+Due to the significant mass of the transition-metal atom M, its \ac{SOC} can be large. For simplicity, we consider only the on-site contribution, which corresponds to the $\mathbf{L \cdot S}$ term originating from the $M$ atoms. Using the basis set $\left\{\ket{d_{z^{2}},\uparrow},\ket{d_{xy},\uparrow},\ket{d_{x^{2} - y^{2}},\uparrow},\ket{d_{z^{2}},\downarrow},\ket{d_{xy},\downarrow},\ket{d_{x^{2} - y^{2}},\downarrow}\right\}$, we derive the SOC term in the Hamiltonian as
 \begin{gather}
 	H{'}
 	= \lambda \mathbf{L \cdot S}
@@ -1078,16 +1083,16 @@ in linear order of an uniform-flux, where $n$ is Landau index. These levels give
 		\centering
 		\includegraphics[width=0.85\textwidth,height=1.2\linewidth]{pic/landaulevel_h0_q_797.pdf}
 	\end{subfigure}
-	\caption[Exploration Landau levels in Hofstadter butterfly.]{
+	\caption[Landau levels in Hofstadter butterfly.]{
 		(a) Same plot as Fig (2.7a) but considering a small area and (b) shows superposition of the Landau fan diagram and the Hofstadter butterfly. Display the first $n = 30$ levels near the bottom of the conduction band for a magnetic field up to $B = 500$ T.
 	}
 \end{figure*}
 
-In Fig 211 we compare the spectrum of a small section of single-band with $p / q = 1 / 797$, which is equivalent to small magnetic field, the spectrum of MoS$_{2}$, with the energy of Landau levels given by Eq. (2.48) show standard equally spaced \ac{LLs} \cite{Shoenberg_1984,singleton2001band,blundell2001magnetism,kittel1987quantum} near the bottom of the bands, as plotted in Fig 2.11(b). The fan of \ac{LLs} can be clearly seen emergin from the partern in Fig 2.11(a).
+In Fig 2.12 we compare the spectrum of a small section of single-band with $p / q = 1 / 797$, which is equivalent to small magnetic field, the spectrum of MoS$_{2}$, with the energy of Landau levels given by Eq. (2.48) show standard equally spaced \ac{LLs} \cite{Shoenberg_1984,singleton2001band,blundell2001magnetism,kittel1987quantum} near the bottom of the bands, as plotted in Fig 2.12(b). The fan of \ac{LLs} can be clearly seen emergin from the pattern in Fig 2.12(a).
 
-In Fig 2.11(a), there is just single-band in case zero field, with the effective mass $m^{*} = \frac{\hbar}{3 t_{0} a^{2}}$. The numerical result for this portion of the spectrum are shown in Fig 2.11 for $p/q \geq 1/797$. The first few LLs are clearly seen, and the asymtotic slopes $p/q$ at large $q$ given by Eq. (2.48) are shown for comparison for the first five Landau levels at $B \leq 100$ T. At the values of $B$ the fit is not ideal, but it does seem to be improving with the decreasing $p/q$.
+In Fig 2.12(a), there is just single-band in case zero field, with the effective mass $m^{*} = \frac{\hbar}{3 t_{0} a^{2}}$. The numerical result for this portion of the spectrum are shown in Fig 2.12 for $p/q \geq 1/797$. The first few LLs are clearly seen, and the asymtotic slopes $p/q$ at large $q$ given by Eq. (2.48) are shown for comparison for the first five Landau levels at $B \leq 100$ T. At the values of $B$ the fit is not ideal, but it does seem to be improving with the decreasing $p/q$.
 
-Figure 2.11 also displays a blowup of the low uniform magnetic region and the \ac{LLs} as a function of $\Phi / \Phi_{0}$ \cite{Li_2011}. The Landau levels are all close to being linear in $B$, resulting from the magnetic quantization of parabolic bands at $B = 0$ T i.e. increasing values of B, these \ac{LLs} are sequentially depleted; for $B=200$ T the levels are completely filled up to the level $n=4$; for $B = 500$ T it happens the same, only this time are filled up to the level $n=1$ and so on.
+Figure 2.12 also displays a blowup of the low uniform magnetic region and the \ac{LLs} as a function of $\Phi / \Phi_{0}$ \cite{Li_2011}. The Landau levels are all close to being linear in $B$, resulting from the magnetic quantization of parabolic bands at $B = 0$ T i.e. increasing values of B, these \ac{LLs} are sequentially depleted; for $B=200$ T the levels are completely filled up to the level $n=4$; for $B = 500$ T it happens the same, only this time are filled up to the level $n=1$ and so on.
 
 %More interesting is the top and bottom of conduction and valence band of the zero field spectrum. This results in a non-standard Landau levels when the field is turned on, as discused above.\\
 %In the one-band case, knowing the effective mass in zero field and the charge is enough to determine the Landau level spectruc to linear order in the magnetic field. For the three-band case
@@ -1175,9 +1180,9 @@ showing the Hall resistance is a constant in the classical regime. We see that t
 	}
 \end{figure*}
 \subsection{The Quantum Hall effect}
-In previous section, we arrived at the classical Hall resistance, which remains stable under the classical mechanics framework. However, our world is governed not only by classical physics but also by quantum mechanics. Things changes significantly at extremely low temperatures and strong magnetic fields, revaling new quantum phenomena.
+In previous section, we arrived at the classical Hall resistance, which remains stable under the classical mechanics framework. However, our world is governed not only by classical physics but also by quantum mechanics. Things changes significantly at extremely low temperatures and strong magnetic fields, revealing new quantum phenomena.
 
-There are two related phenomena which are associated to two different quantum Hall effects. These are called the \ac{IQHE} and \ac{FQHE}. In this study, we mainly focus on the \ac{IQHE} where the flux number and flux quanta are integers. This phenomenon can be understood without taking into account the Coulomb interaction between electrons, which means we will continue using the single electron Hamiltonian that we described in \hyperref[Section 2]{Section 2}. In this section, we first discovered and subsequenly understood theoretically the integer quantum Hall effect in the Hofstadter butterfly.
+There are two related phenomena which are associated to two different quantum Hall effects. These are called the \ac{IQHE} and \ac{FQHE}. In this study, we mainly focus on the \ac{IQHE} where the flux number and flux quanta are integers. This phenomenon can be understood without taking into account the Coulomb interaction between electrons, which means we shall continue using the single electron Hamiltonian that we described in \hyperref[Section 2]{Section 2}. In this section, we first discovered and subsequently understood theoretically the integer quantum Hall effect in the Hofstadter butterfly.
 
 In two dimensional, there is a crucial relationship between the conductivity tensor $\boldsymbol{\sigma}$ and the resistivity tensor $\boldsymbol{\rho}$ is given by
 \begin{equation}
@@ -1204,7 +1209,8 @@ Let's take a look at the experimental data for the quantum Hall effect were perf
 	\includegraphics[width=0.7\linewidth]{pic/quantumhall.jpg}
 	\caption[Quantum Hall effect by von Klitzing.]{This is the integer quantum Hall effect. For this Klaus von Klitzing was awarded the 1985 Nobel prize.}
 \end{figure}
-\noindent Both the Hall resistivity $\rho_{xy}$ and the longitudinal resistivity $\rho_{xx}$ depict interesting behaviour. Perhaps the most striking feature in the figure is the fact that the Hall resistivity $\rho_{xy}$ sits on a plateau for a range of magnetic field, before jumping dramatically to the next plateau, while the longitudinal spikes sharply at the transistions between plateuax but vanishes on the plateaux themsleves. \\
+\noindent Both the Hall resistivity $\rho_{xy}$ and the longitudinal resistivity $\rho_{xx}$ depict fasinating behaviour. Perhaps the most striking feature in the figure is the fact that the Hall resistivity $\rho_{xy}$ sits on a plateau for a range of magnetic field, before jumping dramatically to the next plateau, while the longitudinal spikes sharply at the transistions between plateuax but vanishes on the plateaux themsleves. 
+
 The Hall resistivity is now defined
 \begin{gather}
 	\rho_{xy} = \frac{R_{K}}{\nu}, \quad \nu = 1,2,...
@@ -1336,7 +1342,7 @@ Fig 2.14 displays the Hofstadter butterfly, color-coded according to the Hall co
 		\centering
 		\includegraphics[width=\linewidth]{pic/3band_Chern_q_797_colorplane_f.png}
 	\end{subfigure}
-	\caption{
+	\caption[Gaps color-coded Hofstadter butterfly for NN case.]{
 		Gaps color-coded Hofstadter butterfly. This idea was first made by Avron \textit{et al}\cite{avron2003}.
 	}
 \end{figure*}
@@ -1350,7 +1356,7 @@ Fig 2.14 displays the Hofstadter butterfly, color-coded according to the Hall co
 		\centering
 		\includegraphics[width=\linewidth]{pic/3band_Chern_q_797_colorplane_f.png}
 	\end{subfigure}
-	\caption{
+	\caption[Gaps color-coded Hofstadter butterfly for TNN case.]{
 		Gaps color-coded Hofstadter butterfly. This idea was first made by Avron \textit{et al}\cite{avron2003}.
 	}
 \end{figure*}
@@ -1412,7 +1418,7 @@ In this work, we have calculated the Hofstadter butterfly of monolayer MX$_2$ us
 %	\section{1}
 %\end{appendices}
 
-\chapter{Matrix elements of the TBM Hamiltonian without SOC} \label{appendix A}
+\chapter{Matrix elements of the TB Hamiltonian without SOC} \label{appendix A}
 
 In this appendix, we show the matrix elements of the \ac{TB} Hamiltonian in the absence of \ac{SOC} that are listed below.
 
@@ -1536,8 +1542,8 @@ In this appendix, we show the matrix elements of the \ac{TB} Hamiltonian in the 
 \begin{equation}
 	\renewcommand{\arraystretch}{0.85}
 	\begin{aligned}
-		\mathcal{E}(\mathbf{R}_{2})
-		& = D(\sigma'_{\nu}) \mathcal{E}(\mathbf{R}_{1}) D^{\dagger}(\sigma'_{\nu}) \\
+		\mathcal{E}(\mathbf{R}'_{2})
+		& = D(\sigma'_{\nu}) \mathcal{E}(\mathbf{R}'_{1}) D^{\dagger}(\sigma'_{\nu}) \\
 		& =
 		\begin{pNiceMatrix}
 			u_{0}                                           & \frac{1}{2} u_{1} - \frac{\sqrt{3}}{2} u_{2}                    & -\frac{\sqrt{3}}{2} u_{1} - \frac{1}{2} u_{2}                   \\
@@ -1549,8 +1555,8 @@ In this appendix, we show the matrix elements of the \ac{TB} Hamiltonian in the 
 \begin{equation}
 	\renewcommand{\arraystretch}{0.85}
 	\begin{aligned}
-		\mathcal{E}(\mathbf{R}_{3})
-		& = D(C(-\frac{2\pi}{3})) \mathcal{E}(\mathbf{R}_{1}) D^{\dagger}(C(-\frac{2\pi}{3})) \\
+		\mathcal{E}(\mathbf{R}'_{3})
+		& = D(C(-\frac{2\pi}{3})) \mathcal{E}(\mathbf{R}'_{1}) D^{\dagger}(C(-\frac{2\pi}{3})) \\
 		& =
 		\begin{pNiceMatrix}
 			u_{0}                                          & -\frac{1}{2} u_{1} + \frac{\sqrt{3}}{2} u_{2}                  & -\frac{\sqrt{3}}{2} u_{1} - \frac{1}{2} u_{2}                  \\
@@ -1562,8 +1568,8 @@ In this appendix, we show the matrix elements of the \ac{TB} Hamiltonian in the 
 \begin{equation}
 	\renewcommand{\arraystretch}{0.85}
 	\begin{aligned}
-		\mathcal{E}(\mathbf{R}_{4})
-		& = D(\sigma_{\nu}) \mathcal{E}(\mathbf{R}_{1}) D^{\dagger}(\sigma_{\nu})
+		\mathcal{E}(\mathbf{R}'_{4})
+		& = D(\sigma_{\nu}) \mathcal{E}(\mathbf{R}'_{1}) D^{\dagger}(\sigma_{\nu})
 		=
 		\begin{pNiceMatrix}
 			u_{0} & -u_{1} & u_{2}   \\
@@ -1575,8 +1581,8 @@ In this appendix, we show the matrix elements of the \ac{TB} Hamiltonian in the 
 \begin{equation}
 	\renewcommand{\arraystretch}{0.85}
 	\begin{aligned}
-		\mathcal{E}(\mathbf{R}_{5})
-		& = D(C(-\frac{4\pi}{3})) \mathcal{E}(\mathbf{R}_{1}) D^{\dagger}(C(-\frac{4\pi}{3})) \\
+		\mathcal{E}(\mathbf{R}'_{5})
+		& = D(C(-\frac{4\pi}{3})) \mathcal{E}(\mathbf{R}'_{1}) D^{\dagger}(C(-\frac{4\pi}{3})) \\
 		& =
 		\begin{pNiceMatrix}
 			u_{0}                                           & -\frac{1}{2} u_{1} - \frac{\sqrt{3}}{2} u_{2}                   & \frac{\sqrt{3}}{2} u_{1} - \frac{1}{2} u_{2}                    \\
@@ -1588,8 +1594,8 @@ In this appendix, we show the matrix elements of the \ac{TB} Hamiltonian in the 
 \begin{equation}
 	\renewcommand{\arraystretch}{0.85}
 	\begin{aligned}
-		\mathcal{E}(\mathbf{R}_{6})
-		& = D(\sigma''_{\nu}) \mathcal{E}(\mathbf{R}_{1}) D^{\dagger}(\sigma''_{\nu}) \\
+		\mathcal{E}(\mathbf{R}'_{6})
+		& = D(\sigma''_{\nu}) \mathcal{E}(\mathbf{R}'_{1}) D^{\dagger}(\sigma''_{\nu}) \\
 		& =
 		\begin{pNiceMatrix}
 			u_{0}                                           & \frac{1}{2} u_{1} + \frac{\sqrt{3}}{2} u_{2}                   & \frac{\sqrt{3}}{2} u_{1} - \frac{1}{2} u_{2}                   \\
