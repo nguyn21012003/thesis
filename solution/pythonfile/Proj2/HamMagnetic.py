@@ -1,5 +1,4 @@
 import csv
-import sys
 from datetime import datetime
 
 import numpy as np
@@ -13,7 +12,6 @@ from file_python.HamTMDNN_kx import HamTNN_kx
 from file_python.HamTMDNN_ky import HamTNN_ky
 from file_python.irrMatrix import IR, IRNN, IRTNN
 from file_python.parameters import paraNN, paraTNN
-from file_python.plotbyGNU import PlotMatrixGNU
 
 
 def process(N: int, band: int, choice: int, qmax: int, kpoint: str, fileData: dict, model: str):
