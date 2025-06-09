@@ -19,31 +19,10 @@ def HamTNN(band: int, alattice: float, p: int, q: int, kx: float, ky: float, IM:
         ky: k valley
         IM: hopping terms using group theory and Irreducible matrices.
     """
-    E0 = IM["NN"][0]
-    h1 = IM["NN"][1]
-    h2 = IM["NN"][2]
-    h3 = IM["NN"][3]
-    h4 = IM["NN"][4]
-    h5 = IM["NN"][5]
-    h6 = IM["NN"][6]
-    o1 = IM["TNN"][0]
-    o2 = IM["TNN"][1]
-    o3 = IM["TNN"][2]
-    o4 = IM["TNN"][3]
-    o5 = IM["TNN"][4]
-    o6 = IM["TNN"][5]
-    v1 = IM["NNN"][0]
-    v2 = IM["NNN"][1]
-    v3 = IM["NNN"][2]
-    v4 = IM["NNN"][3]
-    v5 = IM["NNN"][4]
-    v6 = IM["NNN"][5]
 
     eta = 1 * p / q
     alpha = 1 / 2 * kx * alattice
     beta = sqrt(3) / 2 * ky * alattice
-
-    lambd = 0
 
     hR1 = exp(1j * 2 * alpha)
     hR2 = exp(1j * (alpha - beta))
@@ -66,6 +45,26 @@ def HamTNN(band: int, alattice: float, p: int, q: int, kx: float, ky: float, IM:
     oR5 = exp(2j * (-alpha + beta))
     oR6 = exp(2j * (alpha + beta))
 
+    E0 = IM["NN"][0]
+    h1 = IM["NN"][1] * hR1
+    h2 = IM["NN"][2] * hR2
+    h3 = IM["NN"][3] * hR3
+    h4 = IM["NN"][4] * hR4
+    h5 = IM["NN"][5] * hR5
+    h6 = IM["NN"][6] * hR6
+    o1 = IM["TNN"][0] * oR1
+    o2 = IM["TNN"][1] * oR2
+    o3 = IM["TNN"][2] * oR3
+    o4 = IM["TNN"][3] * oR4
+    o5 = IM["TNN"][4] * oR5
+    o6 = IM["TNN"][5] * oR6
+    v1 = IM["NNN"][0] * vR1
+    v2 = IM["NNN"][1] * vR2
+    v3 = IM["NNN"][2] * vR3
+    v4 = IM["NNN"][3] * vR4
+    v5 = IM["NNN"][4] * vR5
+    v6 = IM["NNN"][5] * vR6
+
     H0 = np.zeros([q, q], dtype=complex)
     H1 = np.zeros([q, q], dtype=complex)
     H1T = np.zeros([q, q], dtype=complex)
@@ -76,7 +75,6 @@ def HamTNN(band: int, alattice: float, p: int, q: int, kx: float, ky: float, IM:
     H12 = np.zeros([q, q], dtype=complex)
     H12T = np.zeros([q, q], dtype=complex)
     H = np.zeros([3 * q, 3 * q], dtype=complex)
-    H2band = np.zeros([2 * q, 2 * q], dtype=complex)
 
     for m in range(0, q):
 
