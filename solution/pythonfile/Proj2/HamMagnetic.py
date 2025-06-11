@@ -72,8 +72,8 @@ def process(N: int, band: int, choice: int, qmax: int, kpoint: str, fileData: di
             for bandi in range(6 * qmax):
                 for bandj in range(6 * qmax):
 
-                    sumpx += np.conjugate(eigenvector[10][bandj]) * dHam_kx[bandi][bandj] * eigenvector[11][bandi]
-                    sumpy += np.conjugate(eigenvector[10][bandj]) * dHam_ky[bandi][bandj] * eigenvector[11][bandi]
+                    sumpx += np.conjugate(eigenvector[qmax][bandj]) * dHam_kx[bandi][bandj] * eigenvector[qmax + 1][bandi]
+                    sumpy += np.conjugate(eigenvector[qmax][bandj]) * dHam_ky[bandi][bandj] * eigenvector[qmax + 1][bandi]
             px = sumpx * m0 / hb
             py = sumpy * m0 / hb
             moduloP = sqrt(abs(px) ** 2 + abs(py) ** 2)
