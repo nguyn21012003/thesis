@@ -1,0 +1,117 @@
+\chapter{Details of the Peierls substitution} \label{appendix C}
+As we mentioned in Section~3.2, we work in the Landau gauge $\mathbf{A} = (By,0,0)$. The Peierls phase is given as $\theta_{i,i'} = \int_{i}^{i'}\mathbf{A} \cdot d\mathbf{r}$. By making an parametrization, for instance
+\begin{gather}
+	\begin{cases}
+		x = x_{m} + (x_{m'} - x_{m}) \tau, \\
+		y = y_{n} + (y_{n'} - y_{n}) \tau,
+	\end{cases}
+\end{gather}
+where $\tau \in \left[0,1\right]$ and $i = (m,n)$, thanks to the Landau gauge, the path integral resembles to $\int Bx dy$, the phases can be written as
+\begin{equation}
+	\begin{aligned}
+		\theta_{i,i'} & = \frac{eB}{\hbar} \int_{0}^{1} \left[ x_{m} + (x_{m'} - x_{m}) \tau \right] (y_{n'} - y_{n}) d\tau \\
+		& = \frac{eB}{\hbar}(x_{m} + \frac{x_{m'} - x_{m}}{2})(y_{n'} - y_{n})                                \\
+		& = \frac{eB}{\hbar}\left(\frac{x_{m} + x_{m'}}{2}\right)(y_{n'} - y_{n}).
+	\end{aligned}
+\end{equation}
+From this, the Peierls phase depends on absolute $x$ coordinates but only relative to $y$ coordinates.
+
+%\chapter{Harper's equation} \label{appendix C}
+%%We now consider the Harper equation fo the case where the crystal lattice is a square lattice, given by the Hamiltonian from the example in the text \cite{yalcin_2019}
+%%\begin{equation}
+%%	\begin{aligned}
+%%		H(\mathbf{k})
+%%		 & = 2 t \left[\cos(k_{x} a) + \cos(k_{y} a)\right]                               \\
+%%		 & = t \left[ e^{ik_{x} a} + e^{-ik_{x} a} + e^{ik_{y} a} + e^{-ik_{y} a} \right]
+%%	\end{aligned}
+%%\end{equation}
+%%By using Peierls's substitution $\hbar\mathbf{k} \rightarrow (\mathbf{\Pi} - e \mathbf{A})$, ta có
+%%\begin{equation}
+%%	\begin{aligned}
+%%		H & = t \left[ e^{ik_{x} a} + e^{-ik_{x} a} + e^{i (p_{y} - e Bx) a/\hbar} + e^{-i (p_{y} - e Bx) a/\hbar} \right]                                    \\
+%%		  & = t \left[ e^{ik_{x} a} + e^{-ik_{x} a} + e^{i p_{y} a/\hbar} e^{i 2 \pi Bx / \Phi_{0}} + e^{-i p_{y} a/\hbar} e^{-i 2 \pi Bx / \Phi_{0}} \right]
+%%	\end{aligned}
+%%\end{equation}
+%%Substituting $x = ma$ and $y = na$ given the coordinates of the square lattice, we obtain the Harper equation
+%%
+%We now consider the case of hexagonal lattice with single-band as a basis under an uniform magnetic field given by the Landau gauge $\mathbf{A} = (0, Bx,0)$. Given
+%
+%\begin{equation}
+%	\begin{aligned}
+%		h_0
+%		 & = 2 t_0 \left(\cos2\alpha + 2\cos\alpha \cos\beta\right) + \epsilon_1                                                                                                                                     \\
+%		 & = 2t_{0} \left[ \cos(k_x a) + 2 \cos \left(\f{k_x a}{2}\right) \cos \left(\f{\sqrt{3}k_y a}{2}\right) \right] + \epsilon_1                                                                                \\
+%		 & = 2t_{0} \left\{ \cos(k_x a) + \cos\left[\left( k_{x} + \sqrt{3} k_{y} \right)\frac{a}{2}\right] + \cos\left[\left( k_{x} - \sqrt{3} k_{y} \right)\frac{a}{2}\right]\right\} + \epsilon_1                 \\
+%		 & = 2t_{0} \Biggl\{ \cos(\Pi_{x}\f{a}{\hbar}) + \cos \left[\left(\Pi_{x} + \sqrt{3} e B x + \sqrt{3} \Pi_{y}\right)\frac{a}{2\hbar}\right]                                                                  \\
+%		 & + \cos \left[\left(\Pi_{x} - \sqrt{3} e B x - \sqrt{3} \Pi_{y}\right)\frac{a}{2\hbar}\right] \Biggr\} + \epsilon_1                                                                                        \\
+%		 & = t_{0} \biggl[e^{i \Pi_{x}\frac{a}{\hbar}} + e^{-i\Pi_{x}\frac{a}{\hbar}} + e^{i(\Pi_{x} + \sqrt{3} eBx + \sqrt{3} \Pi_{y} ) a / 2\hbar} + e^{-i(\Pi_{x} + \sqrt{3} eBx + \sqrt{3} \Pi_{y} ) a / 2\hbar} \\
+%		 & + e^{i(\Pi_{x} - \sqrt{3} eBx - \sqrt{3} \Pi_{y} ) a / 2\hbar} + e^{-i(\Pi_{x} - \sqrt{3} eBx - \sqrt{3} \Pi_{y} ) a / 2\hbar} \biggr] + \epsilon_1.
+%	\end{aligned}
+%\end{equation}
+%We replaced $\hbar \mathbf{k}$ in the above function by the operators $\mathbf{\Pi} + e \mathbf{A} / c$ in order to create an operator out of $h_{0}$. However, the quantity $\hbar \mathbf{k}$ is represents the crystal momentum, it is more precise interpretation is to regard $\mathbf{k}$ as a quantum number which describes a Bloch state. This method can be achived by using \ac{EFA}. However, we must be very careful regarding how the operators act on the wave functions, since $\left[x,\Pi_{x}\right] \neq 0$. In their article, Gumbs and Fekete \cite{gumps1997}  incorrectly applied the modified translation operators, leading to completely incorrect results. In this work, we treat the operators more correctly by applying the \ac{BCH} formula and taking into account the commutation relation $\left[x,\Pi_{x}\right] = i \hbar$
+%\begin{equation}
+%	\begin{aligned}
+%		e^{\pm i(\Pi_{x} + \sqrt{3} e B x) a / 2\hbar}
+%		 & = e^{\pm i \Pi_{x} a / 2 \hbar} e^{\pm i\sqrt{3} e B x a / 2 \hbar} e^{-\frac{1}{2} \left[\pm i \Pi_{x}, \pm i \sqrt{3} e B x\right] a^{2} / 2 \hbar^{2}} \\
+%		 & = e^{\pm i \Pi_{x} a / 2 \hbar} e^{\pm i\sqrt{3} e B x a / 2 \hbar} e^{\mp i \sqrt{3} e B a^{2} / 8 \hbar}.
+%	\end{aligned}
+%\end{equation}
+%Substituting $x = \f{ma}{2}$ into (C.2), this leads to
+%\begin{gather}
+%	e^{\pm i(\Pi_{x} + \sqrt{3} e B x) a / 2\hbar}
+%	= e^{\pm i \Pi_{x} a / 2 \hbar} e^{\pm i\sqrt{3} e B (m + 1 /2) a^{2} / 4 \hbar}.
+%\end{gather}
+%And
+%\begin{equation}
+%	\begin{aligned}
+%		e^{\pm i(\Pi_{x} - \sqrt{3} e B x) a / 2\hbar}
+%		 & = e^{\pm i \Pi_{x} a / 2 \hbar} e^{\mp i\sqrt{3} e B x a / 2 \hbar} e^{-\frac{1}{2} \left[\pm i \Pi_{x}, \mp i \sqrt{3} e B x\right] a^{2} / 2 \hbar^{2}} \\
+%		 & = e^{\pm i \Pi_{x} a / 2 \hbar} e^{\mp i\sqrt{3} e B x a / 2 \hbar} e^{\mp i \sqrt{3} e B a^{2} / 8 \hbar},
+%	\end{aligned}
+%\end{equation}
+%substituting $x = \f{ma}{2}$ into (C.4), this leads to
+%\begin{gather}
+%	e^{\pm i(\Pi_{x} - \sqrt{3} e B x) a / 2\hbar}
+%	= e^{\pm i \Pi_{x} a / 2 \hbar} e^{\mp i\sqrt{3} e B (m - 1 /2) a^{2} / 4 \hbar}.
+%\end{gather}
+%The operators $e^{\pm i \Pi_{x} a / 2 \hbar}, e^{\pm i \Pi_{y} \sqrt{3}a / 2 \hbar}$ can be regconized as translational operators, we can rewrite (C.3) as
+%%The time-indepentdent Schr\"{o}dinger's equation now becomes
+%\begin{equation}
+%	\begin{aligned}
+%		  & t_{0} \varphi_{0} (x + a,y) + t_{0}\varphi_{0} (x - a,y) + t_{0}\varphi_{0} (x + \frac{a}{2},y + \frac{a\sqrt{3}}{2}) e^{\frac{ie}{\hbar}B(m + 1 /2) \frac{a^{2}\sqrt{3}}{4}}                                                            \\
+%		+ & t_{0} \varphi_{0} (x + \frac{a}{2},y - \frac{a\sqrt{3}}{2}) e^{-\frac{ie}{\hbar}B(m + 1/2) \frac{a^{2}\sqrt{3}}{4}} + t_{0} \varphi_{0} (x - \frac{a}{2},y + \frac{a\sqrt{3}}{2}) e^{\frac{ie}{\hbar}B(m + 1/2) \frac{a^{2}\sqrt{3}}{4}} \\
+%		+ & t_{0} \varphi_{0} (x - \frac{a}{2},y - \frac{a\sqrt{3}}{2}) e^{-\frac{ie}{\hbar}B(m - 1/2) \frac{a^{2}\sqrt{3}}{4}} + \epsilon_{1} \varphi_{0}(x,y) = E_{1} \varphi_{0}(x,y),
+%	\end{aligned}
+%\end{equation}
+%for the sake of simplicity we have defined $\varphi_{0} \equiv \ket{d_{z^{2}}}$.\\
+%%We have established in Section 2.2 that when translated by a lattice vector $\mathbf{R}$, the wavefuntion for an electron in a periodic lattice picks up a phase correspondingly. This lets us define
+%%\begin{gather}
+%%	\varphi(x \pm a,y) = e^{\pm i k_{x} a} \varphi(x,y), \\ 
+%%	\varphi(x \pm \f{a}{2},y \pm \f{a\sqrt{3}}{2}) = e^{\pm i k_{x} \frac{a}{2}} e^{\pm i k_{y} \frac{a\sqrt{3}}{2}} \varphi(x,y).
+%%\end{gather}
+%%Substituting $x = m \f{a}{2}$ and $y = n \f{a\sqrt{3}}{2}$ for the given hexagonal lattice, we can express the time-indepentdent Schr\"{o}dinger equation as 
+%%\begin{equation}
+%%	\begin{aligned}
+%%		&t_{0} \varphi_{0}(m + 2, n) + t_{0} \varphi_{0}(m - 2, n) + t_{0} \varphi_{0}(m + 1, n + 1) e^{\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} \\
+%%		+& t_{0} \varphi_{0}(m + 1, n - 1) e^{-\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} + t_{0} \varphi_{0}(m - 1, n + 1) e^{\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} \\
+%%		+& t_{0} \varphi_{0}(m - 1, n - 1) e^{-\frac{ie}{\hbar}Bm \frac{a^{2}\sqrt{3}}{4}} + \epsilon_{1} \varphi_{0}(m,n) = E_{1} \varphi_{0}(m,n).
+%%	\end{aligned}
+%%\end{equation}
+%It is reasonable to assume planewave behavior in the $y$ direction, since the coefficents in the above equation only involve $x$. Therefore, we can assume the partial solution for $y$ to be in the form
+%\begin{gather}
+%	\varphi(\frac{ma}{2},\frac{na\sqrt{3}}{2}) = e^{i k_{y} n \frac{a\sqrt{3}}{2}} \varphi(m),
+%\end{gather}
+%which reduces (C.6) to
+%\begin{equation}
+%	\begin{aligned}
+%		  & t_{0} \varphi_{0}(m + 2) + t_{0} \varphi_{0}(m - 2) + t_{0} \varphi_{0}(m + 1) e^{i \pi (m + 1 /2) p/ q} e^{i k_{y} a\sqrt{3} / 2}                            \\
+%		+ & t_{0} \varphi_{0}(m + 1) e^{-i \pi (m + 1 /2) p/ q} e^{-i k_{y} a\sqrt{3} / 2} + t_{0} \varphi_{0}(m - 1) e^{i \pi (m - 1 /2) p/ q} e^{i k_{y} a\sqrt{3} / 2} \\
+%		+ & t_{0} \varphi_{0}(m - 1) e^{-i \pi (m - 1 /2) p/ q} e^{-i k_{y} a\sqrt{3} / 2} + \epsilon_{1} \varphi_{0}(m) = E_{1} \varphi_{0}(m),
+%	\end{aligned}
+%\end{equation}
+%this is equivalent to Eq. 2.16 we have mentioned in Section 2.2. Equation B.8 is sometimes called ``Harper's equation''\cite{harper1955general,PhysRevB.14.2239} Since different $m$ values give different equations, one reaches a unique set of equations when $\Phi / \Phi_{0}$ is a rational number $p / q$ and $m$ goes through $q$ different values, essentially resulting in the Hamiltonian matrix written for a magnetic unit cell enlarged in $x$ direction $q$ times.
+%
+%In the case of TMD presented in \cite{PhysRevB.88.085433}, the contribution of the
+%$X$ atom has been neglected, leading to the transformation of the hexagonal crystal structure of TMD into a regular triangular lattice. From there, we can map the triangular lattice to the case of the square lattice. In the triangular lattice, it has been established that the translation operators must satisfy the Baker-Campbell-Hausdorff formula.
+%
+%This approach was origninally introduced by Hofstadter \cite{PhysRevB.14.2239}, although the model at that time was simple. In the three-band \ac{TBM}, the basis wave functions remain related to the coefficents $C_{j}^{\lambda}$ and they do not exhibit the same properties as the wave functions used in Hofstadter's original work. In this Appendix, we present only the method by which the butterfly spectrum was originally constructed.

@@ -1,0 +1,43 @@
+\chapter{Solving the Diophantine equation}\label{appendix D}
+We have defined the magnetic flux through a unit cell is $\tfrac{\Phi}{\Phi_{0}} = \tfrac{p}{q}$. Given $p$ and $q$ are mutually prime numbers, we set the pairs ($\nu_{r},s_{r}) = (m,n)$ as the solution of the Diophantine equation.
+\begin{gather}
+	pm + qn = r.
+\end{gather}
+By using Euclidean algorithm, we can obtaine $(m,n)$. For intance, taking the rational flux ratio is $p/q = 4/13$, thus the Chern number goes from $-6$ to $6$, and the equation (D.1) becomes
+\begin{gather}
+	r = 4 m + 13 n.
+\end{gather}
+%the allowed values of $m$ is given in table
+%\begin{table}[htb]
+%	\begin{equation*}
+%		\renewcommand{\arraystretch}{1.5}
+%		\begin{NiceArray}{ c  c  c  c  c  c  c  c }
+%			\hline
+%			\hline
+%			{m}  & 0 & \pm 1 & \pm 2 & \pm 3  & \pm 4  & \pm 5  & \pm 6  \\
+%			\hline
+%			4{m} & 0 & \pm 4 & \pm 8 & \pm 12 & \pm 16 & \pm 20 & \pm 24 \\
+%			\hline
+%			\hline
+%		\end{NiceArray}
+%	\end{equation*}
+%	\caption[Values of Chern numbers.]{Allowed values of $m$.}
+%\end{table}\\
+In the meantime, the gap index $n$ now varies from $-q$ to $q$ due to the butterfly's symmetry. Each value of $r$, going from $0$ to $q-1$ only have one couple of valid (m,n). The values of $r$ are depicted in Table D.1
+\begin{table}[h]
+	\begin{equation*}
+		\renewcommand{\arraystretch}{1.5}
+		\begin{NiceArray}{ c  c  c  c  c  c  c  c  c  c  c  c  c c}
+			\hline
+			\hline
+			{r} & 0 & 1  & 2  & 3  & 4                & 5  & 6  & 7  & 8 & 9                 & 10 & 11 & 12\rule{0pt}{0.1em} \\
+			\hline \hline
+			{m} & 0 & -3 & -6 & 4  & \color{green}{1} & -2 & -5 & 5  & 2 & \color{green}{-1} & -4 & -6 & 3                   \\
+			\hline
+			n   & 0 & 1  & 2  & -1 & 0                & 1  & 2  & -1 & 0 & 1                 & 2  & -1 & 0                   \\
+			\hline
+			\hline
+		\end{NiceArray}
+	\end{equation*}
+	\caption[Values of Chern numbers.]{Allowed values of $r$.}
+\end{table}
